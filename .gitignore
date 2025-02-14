@@ -1,0 +1,5 @@
+# Ignore generated files
+output/
+build/tmp/
+repomix-output.txt
+
