@@ -4,11 +4,11 @@ date: '2023-07-17'
 tags: ['zero-knowledge']
 draft: false
 layout: PostSimple
-images: ['/static/images/zkp-magic7-tiny.png']
+images: ['../assets/01_zkp-magic.png']
 summary: "Zero Knowledge Proofs are magic. They allow us to do things we couldn't dream of before. This is the first in a series of posts on Zero Knowledge Proofs and their application. In it we'll look at what Zero Knowledge Proofs are, why you should care, how they work, and see where they can be used."
 ---
 
-![ZKP Magic](/static/images/zkp-magic7-tiny.png 'ZKP Magic')
+![ZKP Magic](../assets/01_zkp-magic.png 'ZKP Magic')
 
 ## Introduction
 
@@ -64,7 +64,7 @@ What does this mean? Let's take the classic example of "Where's Waldo". The game
 
 Imagine I have a picture of "Where's Waldo" and a large piece of paper four times the size of that picture. I make a small hole in the paper and put this paper in front of the "Where's Waldo" picture, carefully positioning it so that Waldo is visible through the hole. This means you can see Waldo, but only Waldo and nothing else. You thus know that I know where Waldo is, but I haven't revealed anything about where Waldo actually is located in the picture.
 
-![Where's Waldo](/static/images/wheres-waldo2-tiny.jpg "Where's Waldo")
+![Where's Waldo](../assets/01_waldo.jpg "Where's Waldo")
 
 This is obviously a toy example, but hopefully it gives some intuition for how such a proof is even possible. But what does this mean? What are we proving more precisely? We'll dive deeper into this down the line, but for now let's see what ZKPs gives us more generally.
 
@@ -113,7 +113,7 @@ As an example, consider how Augustine, in his _Confessions (400 AD)_ found the a
 
 > When [Ambrose] read, his eyes scanned the page and his heart sought out the meaning, but his voice was silent and his tongue was still. Anyone could approach him freely and guests were not commonly announced, so that often, when we came to visit him, we found him reading like this in silence, for he never read aloud.
 
-![Silent reading](/static/images/silent-reading2-tiny.jpg 'Silent reading')
+![Silent reading](../assets/01_silent-reading.jpg 'Silent reading')
 
 Nowadays, everyone takes silent reading for granted. It is even hard to imagine that it had to be invented. The idea that what you read was something for your eyes only used to be foreign. What other similar inventions are possible in our modern era? Things that most of us are currently unable to imagine.
 
@@ -137,7 +137,7 @@ ZKPs having the property of compression means we can prove that something is tru
 
 What do we mean by "proof" and the "size of the proof"? These are mathematically precise notions that possess a great deal of nuance. In future sections, we'll go deeper into this notion of a proof in the context of ZKPs. For now, we can think of it as a short statement that we know is true, or can somehow verify is true.
 
-![Sherlock Holmes](/static/images/sherlock-holmes.jpg 'Sherlock Holmes')
+![Sherlock Holmes](../assets/01_sherlock-holmes.jpg 'Sherlock Holmes')
 
 In a typical whodunit like a Sherlock Holmes murder mystery, the detective gathers evidence until they can prove that the perpetrator has committed the murder. They then prove exactly how they know this in a grand finale. We can think of this final statement as the proof. [^6]
 
@@ -173,7 +173,7 @@ I'll end this section with a quote:
 
 For example, when you light the stove to make dinner, you don't even have to think about making a fire. This is very different from having to gather wood, keep it dry, create a fire, and keep it going, a very time-consuming process. In mathematics, without calculus, we wouldn't be able to go to the moon.
 
-![Aldrin, Apollo 11](/static/images/apollo-11-aldrin2-tiny.jpg 'Aldrin, Apollo 11')
+![Aldrin, Apollo 11](../assets/01_apollo-aldrin.jpg 'Aldrin, Apollo 11')
 
 With ZKPs and succinct proofs, we are able to introduce more certainty and clarity into opaque systems. This gets even more powerful when we consider _composing_ ZKPs. That is combining multiple proofs into one in some fashion, such as with aggregation or recursion.
 
@@ -185,13 +185,13 @@ Recall that ZKPs allow us to prove arbitrary statements in a general-purpose fas
 
 The difference between similar existing tools and ZKPs is like the difference between a calculator and a computer. One is meant for a very specific task, and the other is general-purpose. It is the difference between this calculating machine [^12] and a modern computer:
 
-![Pascal's calculator](/static/images/pascals-calculator2.jpg "Pascal's Calculator")
+![Pascal's calculator](../assets/01_pascals-calculator2.jpg "Pascal's Calculator")
 
 Recall the specific examples we gave above to represent privacy and succinctness more concretely. A password is a private piece of information that allows you to log in to some service [^13]. In the case of a hash of some input data, such as a file, it gives us something succinct to check equality to.
 
 We can visualize a hash function as follows:
 
-![Hash function](/static/images/graphviz-hash.png 'Hash function')
+![Hash function](../assets/01_graphviz-hash.png 'Hash function')
 
 We apply a specific hash function, such as SHA256 [^14], on some known input data. For example, using the sentence "The quick brown fox jumps over the lazy dog" (without quotation marks) as input and applying the SHA256 hash function results in the hash `d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592`. Adding a "." at the end of the sentence gives a completely different hash value: "The quick brown fox jumps over the lazy dog." hashes to `ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c`.
 
@@ -203,7 +203,7 @@ Informally, we can think of a hash function as providing a proof that some speci
 
 In contrast, we can visualize a ZKP as follows:
 
-![ZKP](/static/images/graphviz-zkp.png 'ZKP')
+![ZKP](../assets/01_graphviz-zkp.png 'ZKP')
 
 Unlike in the hash function above, there are a few big differences:
 
@@ -254,7 +254,7 @@ Considering the complexity involved, spanning applied mathematics, cryptography,
 
 In terms of the performance of ZKPs, there's a form of Moore's law happening. Moore's law is the observation that the number of transistors doubles about every two years. This is what led to the computer revolution. In ZKPs, projects that were just pipe dreams a few years ago, seen as completely unpractical, are now being executed on, things like _zkVM_ and _zkML_. As a rule of thumb, it has been observed in the ZKP world that things improve by an order of magnitude every other year or so [^26]. This is because it is a new technology, and it is possible to aggressively optimize on many layers of the stack, from the programs we write, to the systems we use, to the hardware itself. We have no reason to believe this will stop any time soon.
 
-![Moore's Law](/static/images/moores-law-tiny.png "Moore's Law")
+![Moore's Law](../assets/01_moores-law.png "Moore's Law")
 
 ## How does it work?
 
@@ -297,7 +297,7 @@ Notice that only the prover has access to the private input. How does the prover
 
 Recall the illustration of a ZKP from before:
 
-![ZKP](/static/images/graphviz-zkp.png 'ZKP')
+![ZKP](../assets/01_graphviz-zkp.png 'ZKP')
 
 We have a special program (formally known as a _circuit_) that encodes the logic a user cares about. For example, proving that they know the data that results in a certain hash value. Unlike a normal computer program, this program is made up of _constraints_ [^34]. We are proving that all the constraints hold together with the private and public input.
 
@@ -311,7 +311,7 @@ What are these constraints that make up the special program above? A constraint 
 
 In the game of Sudoku the goal is to find a solution to a board that satisfies some constraints. Each row should include the numbers 1 to 9 but only once. The same goes for each column and each 3x3 subsquare. We are given some initial starting position, and then our job is to fill in the rest in a way that satisfies all these constraints. The tricky part is finding numbers that satisfy all the constraints at once.
 
-![Sudoku](/static/images/sudoku.png 'Sudoku puzzler')
+![Sudoku](../assets/01_sudoku.png 'Sudoku puzzler')
 
 With ZKPs, a prover can construct a proof that they know the solution to a certain puzzle. In this case, the proving consists of using some public input, the initial board position, and some private input, their solution to the puzzle, and a circuit. The circuit consists of all the constraints that express the puzzle.
 
@@ -344,11 +344,11 @@ A prover Peggy uses her magic prover key, the puzzle and the solution, combines 
 
 Here's a spell from a book of magic spells, written by a Welsh physician in the 19th century:
 
-![Magic spell](/static/images/magic-spell-big-tiny.png 'Magic Spells')
+![Magic spell](../assets/01_magic-spell.png 'Magic Spells')
 
 Here's an example of a Zero Knowledge Proof produced by the Circom/snarkjs library:
 
-![Circom proof](/static/images/circom-proof-tiny.png 'Circom proof')
+![Circom proof](../assets/01_circom-proof.png 'Circom proof')
 
 Except in this case, the magic actually works.
 
@@ -388,7 +388,7 @@ There are many applications of ZKPs. Generally speaking, we are still in the ear
 >
 > - William Gibson [^38]
 
-![ZKP Magic](/static/images/zkp-magic7-tiny.png 'ZKP Magic')
+![ZKP Magic](../assets/01_zkp-magic.png 'ZKP Magic')
 
 ### Live now
 
