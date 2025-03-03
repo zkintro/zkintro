@@ -51,10 +51,10 @@ We'll start by using secret sharing to prove a simple constraint, then build on 
 You'll understand exactly how we can prove this set of constraints to a Verifier, in a way that is sound, non-interactive, and maintains zero knowledge of some variables:
 
 $$
-\begin{align*}
+\begin{aligned}
 a \cdot b &= c \\
 c+d &= e
-\end{align*}
+\end{aligned}
 $$
 
 After having completed our basic ZKBoo protocol, we'll see how ZKBoo connects to other zkSNARKs you might have heard about. We'll see what ZKBoo is missing, and lay the groundwork for comparing it against different modern ZKP protocols.
@@ -76,10 +76,10 @@ In a ZKP we are proving that we know a secret, such that applying some computati
 For example, we can express a computation as satisfying the following set of constraints:
 
 $$
-\begin{align*}
+\begin{aligned}
 a \cdot b &= c \\
 c+d &= e
-\end{align*}
+\end{aligned}
 $$
 
 In this case, $a, b, d$ are private input, and $e$ is public output [^5]. $c$ is determined by $a, b$, and is thus an intermediate variable.
@@ -104,10 +104,10 @@ $$
 Where $x$ is the public variable ($e$), $w$ the witness variables ($a, b, d$). That is, we have:
 
 $$
-\begin{align*}
+\begin{aligned}
 a \cdot b - c = 0 \\
 c + d - e = 0
-\end{align*}
+\end{aligned}
 $$
 
 What we are doing when we are proving a ZKP is proving that a set of equations hold, without revealing information about some set of private variables or witness. [^8]
@@ -151,10 +151,10 @@ $$
 That is, `XOR` behaves like `ADD` and `AND` behaves like `MUL`. For example, $1+1 = 0$ in boolean algebra (modulo 2). Similarly, we can easily express `OR` and `NAND` (NOT-AND) gates like this:
 
 $$
-\begin{align*}
+\begin{aligned}
 \text{OR(a,b)} &= a + b - (a \cdot b) \\
 \text{NAND(a,b)} &= 1 - (a \cdot b)
-\end{align*}
+\end{aligned}
 $$
 
 With simple boolean gates like this we can build a modern computer. To understand how this is possible, there's a book and course called _From Nand to Tetris_ that shows how you can build a modern computer from scratch with a simple `NAND` boolean gate. [^10]
@@ -261,20 +261,20 @@ It is conceptually very simple. This means you can understand all the math behin
 Recall the system of equations from earlier:
 
 $$
-\begin{align*}
+\begin{aligned}
 a \cdot b &= c \\
 c+d &= e
-\end{align*}
+\end{aligned}
 $$
 
 To simplify, let's focus on proving $c + d = e$, where $c,d$ are private and $e$ is public. Using secret sharing, we split each variable into three random shares:
 
 $$
-\begin{align*}
+\begin{aligned}
 c &= c_1 + c_2 + c_3 \\
 d &= d_1 + d_2 + d_3 \\
 e &= e_1 + e_2 + e_3 \\
-\end{align*}
+\end{aligned}
 $$
 
 The shares must preserve the relationship $c + d = e$, meaning $c_i + d_i = e_i$ for each $i$. In the MPC-in-the-Head paradigm each column with subscript $_1, _2, _3$ corresponds to an "actor" in your head, holding part of the secret. We can visualize the secret shares in the following table format:
@@ -297,10 +297,10 @@ Here's how we split these variables to achieve this:
 If the Verifier challenges the Prover to reveal two random columns, e.g. $(2,3)$, they check that:
 
 $$
-\begin{align*}
+\begin{aligned}
 c_2 + d_2 \stackrel{?}{=} e_2 \\
 c_3 + d_3 \stackrel{?}{=} e_3
-\end{align*}
+\end{aligned}
 $$
 
 Because the shares are generated randomly, revealing two columns doesn't provide any information about $c, d$, while still proving the relationship holds.
@@ -355,10 +355,10 @@ But first, let's see how we deal with multiplication and multiple constraints.
 Let's go back to our original set of constraints:
 
 $$
-\begin{align*}
+\begin{aligned}
 a \cdot b &= c \\
 c+d &= e
-\end{align*}
+\end{aligned}
 $$
 
 Addition like $c+d=e$ was easy enough. What about multiplication? We want to decompose the relationship $a \cdot b = c$ into secret shares. How can we do this?
@@ -376,25 +376,25 @@ $$
 This is because multiplication is not linear, so we get cross-terms:
 
 $$
-a_1​b_2​, a_1b_3​, a_2​b_1​, a_2​b_3​, a_3​b_1​, a_3​b_2
+a_1b_2, a_1b_3, a_2b_1, a_2b_3, a_3b_1, a_3b_2
 $$
 
 We need to find a better way of assigning $c_i$ to keep the relationships consistent. We can do this by splitting the cross-terms evenly across each share [^22]:
 
 $$
-\begin{align*}
+\begin{aligned}
 c_1 = a_1 b_1 + a_1 b_2 + a_2 b_1 \\
 c_2 = a_2 b_2 + a_2 b_3 + a_3 b_2 \\
 c_3 = a_3 b_3 + a_1 b_3 + a_3 b_1 \\
-\end{align*}
+\end{aligned}
 $$
 
 Now the relationship holds. We have:
 
 $$
-\begin{align*}
+\begin{aligned}
 a \cdot b &= (a_1 + a_2 + a_3) \cdot (b_1 + b_2 + b_3) = \dots = c_1 + c_2 + c_3 = c
-\end{align*}
+\end{aligned}
 $$
 
 However, there's a new problem. As we reveal two columns, say $(1,2)$ we leak information about the third one. With $(1,2)$ we reveal some information about the third column through the factors $a_2 b_3 +a_3 b_2$. Depending on what the values represent, the Verifier might be able to infer what $a_3$ and $b_3$ are.
@@ -402,11 +402,11 @@ However, there's a new problem. As we reveal two columns, say $(1,2)$ we leak in
 We can get around this by adding some randomness:
 
 $$
-\begin{align*}
+\begin{aligned}
 c_1 = a_1 b_1 + a_1 b_2 + a_2 b_1 + r_1 - r_2\\
 c_2 = a_2 b_2 + a_2 b_3 + a_3 b_2 + r_2 - r_3 \\
 c_3 = a_3 b_3 + a_1 b_3 + a_3 b_1 + r_3 - r_1 \\
-\end{align*}
+\end{aligned}
 $$
 
 Now, we still have $c = c_1 + c_2 + c_3$, because all the random variables cancel out:
@@ -436,10 +436,10 @@ where $c_1$, $c_2$, and $c_3$ are set as above. Notice how revealing columns $(1
 Finally, to combine the above with the original set of constraints:
 
 $$
-\begin{align*}
+\begin{aligned}
 a \cdot b &= c \\
 c+d &= e
-\end{align*}
+\end{aligned}
 $$
 
 As a Prover, we:
@@ -780,10 +780,10 @@ _This section explains how to generalize the boolean circuits above to arithmeti
 In mathematics, there's a field called _abstract algebra_. It deals with different algebraic structures and operations on top of them. For example, we have things like the _set of natural numbers_ or the _set of integers_:
 
 $$
-\begin{align*}
+\begin{aligned}
 \mathbb{N} &= \{1, 2, 3, \dots\} \\
 \mathbb{Z} &= \{\dots, -2, -1 ,0, 1, 2, \dots\}
-\end{align*}
+\end{aligned}
 $$
 
 We combine these sets with some operations, such as _addition_ or _multiplication_, that work in a particular way. With this we can talk about structures like _sets_, _groups_, _rings_, and _fields_. The particular definitions of these structures aren't that important right now. The key idea is that each structure adds more capabilities:
