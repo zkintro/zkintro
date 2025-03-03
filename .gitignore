@@ -2,4 +2,6 @@
 output/
 build/tmp/
 repomix-output.txt
+.DS_Store
+
 
