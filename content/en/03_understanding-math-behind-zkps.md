@@ -715,58 +715,70 @@ The following code snippet (`zkboo_mul.sage`) shows functional completeness for 
 import random, hashlib
 from sage.all import GF
 
-p = 101
-F = GF(p)
+p = 101  # Prime field modulus
+F = GF(p)  # Finite field
 
-def secret_share(value):
-    """Split 'value' into 3 random shares mod p."""
+def secret_share(v):
+    """Split 'v' into 3 random shares mod p."""
     s1, s2 = F.random_element(), F.random_element()
-    return [s1, s2, (value - s1 - s2) % p]
+    return [s1, s2, (v - s1 - s2) % p]
 
 def commit(vals):
     """Hash tuple of values to produce a commitment."""
     return hashlib.sha256(",".join(map(str, vals)).encode()).hexdigest()
 
-def multiply_shares(a_sh, b_sh):
+def multiply_shares(a, b):
     """Compute c_i for a single gate a*b=c with offsets r_i."""
     r = [F.random_element() for _ in range(3)]
-    c = [(a_sh[i] * b_sh[i] + a_sh[i] * b_sh[(i + 1) % 3] + a_sh[(i + 1) % 3] * b_sh[i] + r[i] - r[(i + 1) % 3]) % p for i in range(3)]
-    assert sum(c) % p == (sum(a_sh) * sum(b_sh)) % p
+    c = [(a[i] * b[i] + a[i] * b[(i + 1) % 3] +
+          a[(i + 1) % 3] * b[i] + r[i] - r[(i + 1) % 3]) % p
+         for i in range(3)]
+    assert sum(c) % p == (sum(a) * sum(b)) % p
     return c, r
 
-def zkboo_Prover(a, b, d):
+def zkboo_prover(a, b, d):
     """Generate shares for a,b,d and compute c=a*b, e=c+d with random offsets."""
     a_sh, b_sh, d_sh = secret_share(a), secret_share(b), secret_share(d)
     c_sh, r_sh = multiply_shares(a_sh, b_sh)
     e_sh = [(c_sh[i] + d_sh[i]) % p for i in range(3)]
-    commits = [commit((a_sh[i], b_sh[i], c_sh[i], d_sh[i], e_sh[i], r_sh[i])) for i in range(3)]
+    commits = [commit((a_sh[i], b_sh[i], c_sh[i], d_sh[i],
+                       e_sh[i], r_sh[i])) for i in range(3)]
     return a_sh, b_sh, c_sh, d_sh, e_sh, commits, r_sh
 
-def zkboo_Verifier_challenge():
+def zkboo_verifier_challenge():
     """Pick two random shares to reveal."""
     return random.sample(range(3), 2)
 
-def zkboo_Prover_response(ch, a_sh, b_sh, c_sh, d_sh, e_sh, r_sh):
+def zkboo_prover_response(ch, a, b, c, d, e, r):
     """Reveal the requested two shares with all data."""
-    return [{"a": a_sh[i], "b": b_sh[i], "c": c_sh[i], "d": d_sh[i], "e": e_sh[i], "r": r_sh[i]} for i in ch]
+    return [{"a": a[i], "b": b[i], "c": c[i], "d": d[i],
+             "e": e[i], "r": r[i]} for i in ch]
 
 def zkboo_verify(ch, resp, commits):
     """Check commitments and verify correctness of revealed shares."""
-    if any(commit((resp[i]["a"], resp[i]["b"], resp[i]["c"], resp[i]["d"], resp[i]["e"], resp[i]["r"])) != commits[ch[i]] for i in range(2)):
+    if any(commit((resp[i]["a"], resp[i]["b"], resp[i]["c"],
+                   resp[i]["d"], resp[i]["e"], resp[i]["r"]))
+           != commits[ch[i]] for i in range(2)):
         return False
+
     def check_c(sh_i, sh_j):
-        return (sh_i["a"] * sh_i["b"] + sh_i["a"] * sh_j["b"] + sh_j["a"] * sh_i["b"] + (sh_i["r"] - sh_j["r"])) % p == sh_i["c"]
-    # Ensure correct pairs of shares are used when verifying multiplication consistency
-    if (ch[0] + 1) % 3 == ch[1] and not check_c(resp[0], resp[1]): return False
-    if (ch[1] + 1) % 3 == ch[0] and not check_c(resp[1], resp[0]): return False
+        """Ensure multiplication consistency of revealed shares."""
+        return (sh_i["a"] * sh_i["b"] + sh_i["a"] * sh_j["b"] +
+                sh_j["a"] * sh_i["b"] + (sh_i["r"] - sh_j["r"])) % p == sh_i["c"]
+
+    # Check correct share pairs are used for verification
+    if (ch[0] + 1) % 3 == ch[1] and not check_c(resp[0], resp[1]):
+        return False
+    if (ch[1] + 1) % 3 == ch[0] and not check_c(resp[1], resp[0]):
+        return False
     return all((share["c"] + share["d"]) % p == share["e"] for share in resp)
 
 def test_zkboo_single_round():
     """Test a single-round reveal for a,b,d = 3,4,5."""
     a, b, d = F(3), F(4), F(5)
-    a_sh, b_sh, c_sh, d_sh, e_sh, commits, r_sh = zkboo_Prover(a, b, d)
-    ch = zkboo_Verifier_challenge()
-    resp = zkboo_Prover_response(ch, a_sh, b_sh, c_sh, d_sh, e_sh, r_sh)
+    a_sh, b_sh, c_sh, d_sh, e_sh, commits, r_sh = zkboo_prover(a, b, d)
+    ch = zkboo_verifier_challenge()
+    resp = zkboo_prover_response(ch, a_sh, b_sh, c_sh, d_sh, e_sh, r_sh)
     assert zkboo_verify(ch, resp, commits), "ZKBoo single-round failed"
     print("Single-round test passed!")
 
@@ -837,8 +849,6 @@ Fast to verify means $\text{time}(V) = O_{\lambda}((|x|, \text{sublinear}(|C|))$
 Sometimes quasi-linear, e.g. $O(n \log n)$, is accepted as being "succinct enough".
 
 **Non-interactive** - It is enough for Prover to send $\pi$ to Verifier to convince them, the Verifier can verify proof with $x$ and $\pi$. [^42]
-
-## References
 
 [^1]: STEM graduate means someone who studied Science, Technology, Engineering or Mathematics at a University or equivalent.
 [^2]: For example by using a search engine, LLM (Large Language Model, e.g. using AI tools such as ChatGPT), or a friend. For example, you could ask a LLM to ELI5 (Explain Like I'm Five) a specific concept.

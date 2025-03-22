@@ -12,6 +12,7 @@
 \usepackage{booktabs}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{etoolbox}
 
 % Configure hyperref for black links
 \hypersetup{
@@ -44,20 +45,20 @@
 % }
 
 
-% Better code block formatting for all languages
-\usepackage{fancyvrb}
+% Use fancyvrb's Verbatim environment for highlighting
 \DefineVerbatimEnvironment{Highlighting}{Verbatim}{
     commandchars=\\\{\},
-    fontsize=\small,
+    fontsize=\scriptsize,
     frame=single,
     framesep=2mm,
     baselinestretch=1.2,
     xleftmargin=4mm
 }
 
-% Code highlighting - define all token types including numeric ones
+% We don't redefine \begin{Shaded} here. It's effectively empty.
 \newenvironment{Shaded}{}{}
-% \newenvironment{Highlighting}{}{}
+
+% Code highlighting - define all token types including numeric ones
 \newcommand{\NormalTok}[1]{#1}
 \newcommand{\KeywordTok}[1]{\textbf{#1}}
 \newcommand{\DataTypeTok}[1]{#1}
