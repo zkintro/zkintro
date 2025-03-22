@@ -1,0 +1,59 @@
+pandoc data/articles/friendly-introduction-to-zero-knowledge.md -o booklet-intro.pdf \
+  --template=template.tex \
+  --table-of-contents \
+  --number-sections \
+  --number-offset=1,0,0 \
+  --pdf-engine=xelatex \
+  --indented-code-classes=javascript \
+  --highlight-style=monochrome \
+  --resource-path="./public/" \
+  -V documentclass=report \
+  -V papersize=A5 \
+  -V geometry:"paperwidth=148mm, paperheight=210mm, margin=0.5in, top=0.5in, bottom=0.5in" \
+  -V classoption=twoside \
+  -V author="oskarth"
+
+
+  pandoc data/articles/programming-zkps-from-zero-to-hero.md -o booklet-programming.pdf \
+  --template=template.tex \
+  --table-of-contents \
+  --number-sections \
+  --number-offset=1,0,0 \
+  --pdf-engine=xelatex \
+  --indented-code-classes=javascript \
+  --highlight-style=monochrome \
+  --resource-path="./public/" \
+  -V documentclass=report \
+  -V papersize=A5 \
+  -V geometry:"paperwidth=148mm, paperheight=210mm, margin=0.5in, top=0.5in, bottom=0.5in" \
+  -V classoption=twoside \
+  -V author="oskarth"
+
+  pandoc data/articles/programming-zkps-from-zero-to-hero.md -o booklet-programming.pdf \
+  --template=template.tex \
+  --table-of-contents \
+  --number-sections \
+  --number-offset=1,0,0 \
+  --pdf-engine=xelatex \
+  --listings \
+  --resource-path="./public/" \
+  -V documentclass=report \
+  -V papersize=A5 \
+  -V geometry:"paperwidth=148mm, paperheight=210mm, margin=0.5in, top=0.5in, bottom=0.5in" \
+  -V classoption=twoside \
+  -V author="oskarth"
+
+  pandoc data/articles/programming-zkps-from-zero-to-hero.md -o booklet-programming.pdf \
+  --template=./template.tex \
+  --table-of-contents \
+  --number-sections \
+  --number-offset=1,0,0 \
+  --pdf-engine=xelatex \
+  --indented-code-classes=javascript \
+  --highlight-style=monochrome \
+  --resource-path="./public/" \
+  -V documentclass=report \
+  -V papersize=A5 \
+  -V geometry:"paperwidth=148mm, paperheight=210mm, margin=0.5in, top=0.5in, bottom=0.5in" \
+  -V classoption=twoside \
+  -V author="oskarth"

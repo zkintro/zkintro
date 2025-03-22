@@ -1,7 +1,12 @@
-# Ignore generated files
+# General project ignores
 output/
 build/tmp/
 repomix-output.txt
 .DS_Store
 
-
+# Site (Next.js frontend)
+site/.next/
+site/out/
+site/node_modules/
+site/.env.local
+site/.env.*.local
