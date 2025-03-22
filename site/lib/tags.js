@@ -1,7 +1,7 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
-import { getFiles } from './mdx'
+import { getFiles } from './markdown'
 import kebabCase from './utils/kebabCase'
 
 const root = process.cwd()

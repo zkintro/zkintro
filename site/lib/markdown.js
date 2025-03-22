@@ -39,16 +39,35 @@ export function dateSortDesc(a, b) {
 }
 
 export async function getFileBySlug(type, slug) {
+  // Handle author files from data directory
+  if (type === 'authors') {
+    const mdPath = path.join(root, 'data', type, `${slug}.md`)
+    const source = fs.readFileSync(mdPath, 'utf8')
+    const { content, data: frontmatter } = matter(source)
+
+    return {
+      mdxSource: content,
+      toc: [],
+      frontMatter: {
+        ...frontmatter,
+        slug: slug || null,
+        fileName: `${slug}.md`,
+      },
+    }
+  }
+
+  // Handle content files from content/en directory
   const mdPath = path.join(root, '..', 'content', 'en', `${slug}.md`)
   const source = fs.readFileSync(mdPath, 'utf8')
 
-  let toc = []
-
   const { content, data: frontmatter } = matter(source)
 
+  // Transform image paths from ../assets to /static/images
+  const transformedContent = content.replace(/\.\.\/assets\//g, '/static/images/')
+
   return {
-    content,
-    toc,
+    mdxSource: transformedContent,
+    toc: [],
     frontMatter: {
       readingTime: readingTime(content),
       slug: slug || null,

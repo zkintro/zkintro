@@ -1,8 +1,8 @@
 import fs from 'fs'
 import PageTitle from '@/components/PageTitle'
 import generateRss from '@/lib/generate-rss'
-import { MDXLayoutRenderer } from '@/components/MDXComponents'
-import { formatSlug, getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/lib/mdx'
+import { MarkdownRenderer } from '@/components/MarkdownRenderer'
+import { formatSlug, getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/lib/markdown'
 
 const DEFAULT_LAYOUT = 'PostLayout'
 
@@ -41,15 +41,14 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Articles({ post, authorDetails, prev, next }) {
-  const { mdxSource, toc, frontMatter } = post
+  const { mdxSource, frontMatter } = post
 
   return (
     <>
       {frontMatter.draft !== true ? (
-        <MDXLayoutRenderer
+        <MarkdownRenderer
+          content={mdxSource}
           layout={frontMatter.layout || DEFAULT_LAYOUT}
-          toc={toc}
-          mdxSource={mdxSource}
           frontMatter={frontMatter}
           authorDetails={authorDetails}
           prev={prev}

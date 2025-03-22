@@ -1,6 +1,30 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
+const path = require('path')
+const fs = require('fs')
+
+// Copy images to public directory during build
+const copyImages = () => {
+  const sourceDir = path.join(__dirname, '..', 'content', 'assets')
+  const targetDir = path.join(__dirname, 'public', 'static', 'images')
+
+  // Create target directory if it doesn't exist
+  if (!fs.existsSync(targetDir)) {
+    fs.mkdirSync(targetDir, { recursive: true })
+  }
+
+  // Copy all files from source to target
+  fs.readdirSync(sourceDir).forEach(file => {
+    fs.copyFileSync(
+      path.join(sourceDir, file),
+      path.join(targetDir, file)
+    )
+  })
+}
+
+// Run copy during build
+copyImages()
 
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
@@ -66,6 +90,14 @@ module.exports = withBundleAnalyzer({
       {
         source: '/(.*)',
         headers: securityHeaders,
+      },
+    ]
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/static/images/:path*',
+        destination: '/../content/assets/:path*',
       },
     ]
   },

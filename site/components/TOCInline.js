@@ -21,7 +21,7 @@
  *
  */
 const TOCInline = ({
-  toc,
+  toc = [],
   indentDepth = 3,
   fromHeading = 1,
   toHeading = 6,
@@ -36,6 +36,10 @@ const TOCInline = ({
     (heading) =>
       heading.depth >= fromHeading && heading.depth <= toHeading && !re.test(heading.value)
   )
+
+  if (filteredToc.length === 0) {
+    return null
+  }
 
   const tocList = (
     <ul>

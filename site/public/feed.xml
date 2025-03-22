@@ -11,9 +11,9 @@
       <atom:link href="https://zkintro.com/feed.xml" rel="self" type="application/rss+xml"/>
       
   <item>
-    <guid>https://zkintro.com/blog/grokking-math-behind-zkps</guid>
+    <guid>https://zkintro.com/blog/03_understanding-math-behind-zkps</guid>
     <title>Understanding the Math Behind ZKPs</title>
-    <link>https://zkintro.com/blog/grokking-math-behind-zkps</link>
+    <link>https://zkintro.com/blog/03_understanding-math-behind-zkps</link>
     <description>In this article we&#39;ll explain the math behind ZKPs. Accessible to a smart high school student, or a rusty STEM graduate. Develop intuition for how things work under the hood, and build a foundational framework for the key concepts involved. Accompanied by a toy implementation in less than 100 lines of code. No polynomials or elliptic curves necessary.</description>
     <pubDate>Fri, 21 Feb 2025 00:00:00 GMT</pubDate>
     <author>oskarth@titanproxy.com (oskarth)</author>
@@ -21,9 +21,9 @@
   </item>
 
   <item>
-    <guid>https://zkintro.com/blog/programming-zkps-from-zero-to-hero</guid>
+    <guid>https://zkintro.com/blog/02_programming-zkps-from-zero-to-hero</guid>
     <title>Programming ZKPs: From Zero to Hero</title>
-    <link>https://zkintro.com/blog/programming-zkps-from-zero-to-hero</link>
+    <link>https://zkintro.com/blog/02_programming-zkps-from-zero-to-hero</link>
     <description>Learn to write and modify Zero Knowledge Proofs from scratch. You&#39;ll build a digital signature scheme using hash-based commitments, gaining practical ZKP programming skills and intuition along the way. By the end, you&#39;ll have all the tools you need to implement things like group signatures.</description>
     <pubDate>Fri, 30 Aug 2024 00:00:00 GMT</pubDate>
     <author>oskarth@titanproxy.com (oskarth)</author>
@@ -31,9 +31,9 @@
   </item>
 
   <item>
-    <guid>https://zkintro.com/blog/friendly-introduction-to-zero-knowledge</guid>
+    <guid>https://zkintro.com/blog/01_friendly-introduction-to-zero-knowledge</guid>
     <title>A Friendly Introduction to Zero Knowledge</title>
-    <link>https://zkintro.com/blog/friendly-introduction-to-zero-knowledge</link>
+    <link>https://zkintro.com/blog/01_friendly-introduction-to-zero-knowledge</link>
     <description>Zero Knowledge Proofs are magic. They allow us to do things we couldn&#39;t dream of before. This is the first in a series of posts on Zero Knowledge Proofs and their application. In it we&#39;ll look at what Zero Knowledge Proofs are, why you should care, how they work, and see where they can be used.</description>
     <pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate>
     <author>oskarth@titanproxy.com (oskarth)</author>

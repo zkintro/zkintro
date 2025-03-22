@@ -1,74 +1,90 @@
 const fs = require('fs')
 const globby = require('globby')
-const matter = require('gray-matter')
 const prettier = require('prettier')
 const siteMetadata = require('../data/siteMetadata')
 
-;(async () => {
+const YOUR_AWESOME_DOMAIN = siteMetadata.siteUrl
+
+const formatted = (date) => {
+  const [year, month, day] = date.split('-')
+  return `${year}-${month}-${day}`
+}
+
+const generateSitemap = async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
   const pages = await globby([
     'pages/*.js',
     'pages/*.tsx',
-    'data/blog/**/*.mdx',
-    'data/blog/**/*.md',
-    'data/articles/**/*.mdx',
-    'data/articles/**/*.md',
-    'public/tags/**/*.xml',
+    'pages/*.ts',
     '!pages/_*.js',
     '!pages/_*.tsx',
+    '!pages/_*.ts',
     '!pages/api',
+    '!pages/404.tsx',
+    '!pages/404.js',
+    '!pages/articles/[slug].js',
+    '!pages/articles/[slug].tsx',
+    '!pages/blog/[slug].js',
+    '!pages/blog/[slug].tsx',
   ])
 
-  const sitemap = `
-        <?xml version="1.0" encoding="UTF-8"?>
-        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-            ${pages
-              .map((page) => {
-                // Exclude drafts from the sitemap
-                if (page.search('.md') >= 1 && fs.existsSync(page)) {
-                  const source = fs.readFileSync(page, 'utf8')
-                  const fm = matter(source)
-                  if (fm.data.draft) {
-                    return
-                  }
-                  if (fm.data.canonicalUrl) {
-                    return
-                  }
-                }
-                const path = page
-                  .replace('pages/', '/')
-                  .replace('data/blog', '/blog')
-                  .replace('data/articles', '/articles')
-                  .replace('public/', '/')
-                  .replace('.js', '')
-                  .replace('.tsx', '')
-                  .replace('.mdx', '')
-                  .replace('.md', '')
-                  .replace('/feed.xml', '')
-                const route = path === '/index' ? '' : path
+  // Get all markdown files in content/en
+  const contentFiles = await globby([
+    '../content/en/**/*.md',
+    '../content/en/**/*.mdx',
+  ])
 
-                //if (page.search('pages/404.') > -1 || page.search(`pages/blog/[...slug].`) > -1) {
-                if (
-                  page.search('pages/404.') > -1 ||
-                  page.search(`pages/articles/[...slug].`) > -1
-                ) {
-                  return
-                }
-                return `
-                        <url>
-                            <loc>${siteMetadata.siteUrl}${route}</loc>
-                        </url>
-                    `
-              })
-              .join('')}
-        </urlset>
-    `
+  const basePages = pages
+    .filter((file) => !file.includes('['))
+    .filter((file) => !file.includes(']'))
+    .filter((file) => !file.includes('props'))
+    .map((file) => {
+      const path = file
+        .replace('pages/', '')
+        .replace('/page', '')
+        .replace('.js', '')
+        .replace('.tsx', '')
+        .replace('.ts', '')
+      const route = path === '/index' ? '' : path
 
-  const formatted = prettier.format(sitemap, {
+      return `
+  <url>
+    <loc>${YOUR_AWESOME_DOMAIN}${route}</loc>
+    <lastmod>${formatted(new Date().toISOString().split('T')[0])}</lastmod>
+  </url>`
+    })
+    .join('')
+
+  const dynamicPages = contentFiles
+    .map((file) => {
+      const path = file
+        .replace('../content/en/', '')
+        .replace('.md', '')
+        .replace('.mdx', '')
+      const route = path === 'index' ? '' : path
+
+      return `
+  <url>
+    <loc>${YOUR_AWESOME_DOMAIN}/${route}</loc>
+    <lastmod>${formatted(new Date().toISOString().split('T')[0])}</lastmod>
+  </url>`
+    })
+    .join('')
+
+  const generatedSitemap = `
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  ${basePages}
+  ${dynamicPages}
+</urlset>
+`
+
+  const formattedSitemap = prettier.format(generatedSitemap, {
     ...prettierConfig,
     parser: 'html',
   })
 
-  // eslint-disable-next-line no-sync
-  fs.writeFileSync('public/sitemap.xml', formatted)
-})()
+  fs.writeFileSync('public/sitemap.xml', formattedSitemap)
+}
+
+generateSitemap()
