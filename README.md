@@ -18,18 +18,37 @@ See [zkintro.com](https://zkintro.com)
 
 See [site/README.md](site/README.md) for frontend setup and development.
 
-## PDF Build
+## Build
 
 Requires:
-- pandoc
-- xelatex
+- just (build system)
+- pandoc (for PDF generation)
+- xelatex (for PDF generation)
+- node.js (for web build)
 
 ```bash
-# Build all PDFs
-./build/scripts/build.sh
+# Build all formats (web + PDF)
+just build
 
-# Build specific PDF
-./build/scripts/build.sh content/en/01_friendly-introduction-to-zero-knowledge.md
+# Build web only
+just build-web
+
+# Build PDF only
+just build-pdf
+
+# Development
+just dev
+
+# Clean build artifacts
+just clean
 ```
 
 PDFs will be generated in the `output/pdf` directory.
+
+## Translation (TODO)
+
+Translation support is planned. See `just check-translations` for status.
+
+## EPUB (TODO)
+
+EPUB generation is planned. See `just build-epub` for status.

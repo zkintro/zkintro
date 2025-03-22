@@ -2,6 +2,16 @@
 
 Next.js frontend for the ZKIntro project.
 
+## Development
+
+```bash
+# Start development server
+just dev
+
+# Build for production
+just build-web
+```
+
 ## Available Commands
 
 ```bash
