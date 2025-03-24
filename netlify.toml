@@ -1,0 +1,7 @@
+[build]
+  base = "."
+  command = "npm install --prefix site && npm run build --prefix site"
+  publish = "site/.next"
+
+[functions]
+  directory = "netlify/functions"
