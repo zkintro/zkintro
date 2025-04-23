@@ -1,5 +1,5 @@
 // Replace Next.js Image with standard img tag
-const Image = ({ src, alt, width, height, className, ...rest }) => {
+const Image = ({ src, alt, width, height, className, priority, ...rest }) => {
     // Define image base URL based on environment
     const IMG_BASE = process.env.NODE_ENV === 'production'
         ? 'https://zkintro.imgix.net'
@@ -23,26 +23,53 @@ const Image = ({ src, alt, width, height, className, ...rest }) => {
         imageSrc = `${IMG_BASE}/${src}`;
     }
 
-    // Convert width/height props to style if they're provided as strings with units
-    const style = {}
-    if (width && typeof width === 'string' && width.endsWith('px')) {
-        style.width = width
-    }
-    if (height && typeof height === 'string' && height.endsWith('px')) {
-        style.height = height
+    // Generate alt text from filename if not provided
+    // Extract from either path format
+    const fileName = src.split('/').pop();
+    const fileNameWithoutExt = fileName ? fileName.split('.')[0] : '';
+    const altText = alt || fileNameWithoutExt || 'Image';
+
+    // Set explicit dimensions to help with CLS
+    let finalWidth = width;
+    let finalHeight = height;
+
+    // Default to 1200 × auto or use provided dimensions
+    if (!finalWidth) {
+        finalWidth = 1200;
     }
 
-    // Generate alt text from filename if not provided
-    const altText = alt || (isStaticImage ? src.split('/').pop().split('.')[0] : '');
+    if (!finalHeight) {
+        finalHeight = 'auto';
+    }
+
+    // Convert width/height props to style if they're provided as strings with units
+    const style = {}
+    if (finalWidth && typeof finalWidth === 'string' && finalWidth.endsWith('px')) {
+        style.width = finalWidth;
+        // Remove px for the attribute
+        finalWidth = parseInt(finalWidth, 10);
+    }
+
+    if (finalHeight && typeof finalHeight === 'string' && finalHeight.endsWith('px')) {
+        style.height = finalHeight;
+        // Remove px for the attribute
+        finalHeight = parseInt(finalHeight, 10);
+    }
+
+    // Determine loading strategy
+    // Use eager loading for priority images or those with "hero" class
+    const isPriority = priority === true || (className && className.includes('hero'));
+    const loadingStrategy = isPriority ? 'eager' : 'lazy';
 
     return <img
         src={imageSrc}
         alt={altText}
         className={className || ''}
         style={style}
-        width={width || 1200}
-        height={height || 'auto'}
-        loading="lazy"
+        width={finalWidth}
+        height={finalHeight}
+        loading={loadingStrategy}
+        decoding="async"
         {...rest}
     />
 }
