@@ -26,11 +26,9 @@ build-web:
 
 # Export NextJS site (static build)
 export-web:
-    # Clean previous build
-    rm -rf site/.next site/out
-    # Build and export
-    cd site && npm run build && npx next export
-    echo "Static site exported to site/out directory"
+    @echo "Starting export process..."
+    cd site && npm run optimize-export
+    @echo "Static site exported and optimized in site/out directory - CSS and styling preserved"
 
 # Deploy the site to the server
 deploy-web: export-web
