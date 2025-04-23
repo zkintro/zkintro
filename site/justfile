@@ -1,0 +1,14 @@
+export-web: build
+    # Clean previous build
+    rm -rf site/.next site/out
+    # Build and export
+    cd site && npm run build && npm run export
+    # Optimize the exported site
+    cd site && node scripts/optimize-export.js
+    echo "Static site exported and optimized in site/out directory"
+
+build:
+    cd site && npm install
+
+dev:
+    cd site && npm run dev 
