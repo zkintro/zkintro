@@ -29,7 +29,10 @@ export function getFiles(type) {
 }
 
 export function formatSlug(slug) {
-  return slug.replace(/\.md$/, '')
+  // Remove numeric prefixes (like "01_") from the slug
+  const withoutPrefix = slug.replace(/^\d+_/, '')
+  // Remove .md extension
+  return withoutPrefix.replace(/\.md$/, '')
 }
 
 export function dateSortDesc(a, b) {
@@ -57,7 +60,21 @@ export async function getFileBySlug(type, slug) {
   }
 
   // Handle content files from content/en directory
-  const mdPath = path.join(root, '..', 'content', 'en', `${slug}.md`)
+  // Map slug back to filename - handle both with and without numeric prefixes
+  let fileName = `${slug}.md`
+  const prefixPaths = path.join(root, '..', 'content', 'en')
+  const files = getAllFilesRecursively(prefixPaths)
+
+  // Try to find a file that matches this slug when stripped of numeric prefix
+  for (const file of files) {
+    const relativePath = file.slice(prefixPaths.length + 1).replace(/\\/g, '/')
+    if (formatSlug(relativePath) === slug) {
+      fileName = relativePath
+      break
+    }
+  }
+
+  const mdPath = path.join(root, '..', 'content', 'en', fileName)
   const source = fs.readFileSync(mdPath, 'utf8')
 
   const { content, data: frontmatter } = matter(source)
@@ -71,7 +88,7 @@ export async function getFileBySlug(type, slug) {
     frontMatter: {
       readingTime: readingTime(content),
       slug: slug || null,
-      fileName: `${slug}.md`,
+      fileName: fileName,
       ...frontmatter,
       date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
     },
@@ -97,7 +114,8 @@ export async function getAllFilesFrontMatter(folder) {
     if (frontmatter.draft !== true) {
       allFrontMatter.push({
         ...frontmatter,
-        slug: formatSlug(fileName),
+        // Use the slug from frontmatter if available, otherwise generate from filename
+        slug: frontmatter.slug || formatSlug(fileName),
         date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
       })
     }
