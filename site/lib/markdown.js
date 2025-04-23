@@ -79,8 +79,24 @@ export async function getFileBySlug(type, slug) {
 
   const { content, data: frontmatter } = matter(source)
 
-  // Transform image paths from ../assets to /static/images
-  const transformedContent = content.replace(/\.\.\/assets\//g, '/static/images/')
+  // Define image base URL based on environment
+  const IMG_BASE = process.env.NODE_ENV === 'production'
+    ? 'https://zkintro.imgix.net'
+    : '/static/images';
+
+  // Transform image paths from ../assets to the appropriate URL based on environment
+  let transformedContent = content.replace(/\.\.\/assets\//g, '/static/images/')
+
+  // In production, update all /static/images/ references to use Imgix
+  if (process.env.NODE_ENV === 'production') {
+    transformedContent = transformedContent.replace(
+      /!\[(.*?)\]\(\/static\/images\/(.*?)(?:\s+['"](.+?)['"])?\)/g,
+      (match, alt, path, title) => {
+        const titleAttr = title ? ` "${title}"` : '';
+        return `![${alt}](${IMG_BASE}/${path}?w=1200&auto=format&fit=max${titleAttr})`;
+      }
+    );
+  }
 
   return {
     mdxSource: transformedContent,
