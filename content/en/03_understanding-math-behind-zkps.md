@@ -4,6 +4,7 @@ date: '2025-02-21'
 tags: ['zero-knowledge']
 draft: false
 layout: PostSimple
+slug: "understanding-math-behind-zkps"
 images: ['../assets/03_zkboo_headshot.png']
 summary: "In this article we'll explain the math behind ZKPs. Accessible to a smart high school student, or a rusty STEM graduate. Develop intuition for how things work under the hood, and build a foundational framework for the key concepts involved. Accompanied by a toy implementation in less than 100 lines of code. No polynomials or elliptic curves necessary."
 ---

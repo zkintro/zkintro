@@ -4,6 +4,7 @@ date: '2024-08-30'
 tags: ['zero-knowledge']
 draft: false
 layout: PostSimple
+slug: "programming-zkps-from-zero-to-hero"
 images: [../assets/02_combined.png']
 summary: "Learn to write and modify Zero Knowledge Proofs from scratch. You'll build a digital signature scheme using hash-based commitments, gaining practical ZKP programming skills and intuition along the way. By the end, you'll have all the tools you need to implement things like group signatures."
 ---

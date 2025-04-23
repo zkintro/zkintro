@@ -4,6 +4,7 @@ date: '2023-07-17'
 tags: ['zero-knowledge']
 draft: false
 layout: PostSimple
+slug: "friendly-introduction-to-zero-knowledge"
 images: ['../assets/01_zkp-magic.png']
 summary: "Zero Knowledge Proofs are magic. They allow us to do things we couldn't dream of before. This is the first in a series of posts on Zero Knowledge Proofs and their application. In it we'll look at what Zero Knowledge Proofs are, why you should care, how they work, and see where they can be used."
 ---
