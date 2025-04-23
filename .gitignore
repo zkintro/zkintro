@@ -10,3 +10,5 @@ site/out/
 site/node_modules/
 site/.env.local
 site/.env.*.local
+
+.env

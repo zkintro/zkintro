@@ -12,6 +12,11 @@ all: build-web build-pdf
 #     # Rewrite image paths for site copy only
 #     find site-astro/src/content/articles -name '*.md' -exec sed -i '' 's|\.\./assets/|/static/images/|g' {} +
 
+# Set deployment variables from .env
+DEPLOY_USER := `grep DEPLOY_USER .env | cut -d= -f2`
+DEPLOY_HOST := `grep DEPLOY_HOST .env | cut -d= -f2`
+DEPLOY_PATH := `grep DEPLOY_PATH .env | cut -d= -f2`
+
 # Build web
 # build-web: prepare-content
 #     cd site-astro && npm run build
@@ -27,10 +32,10 @@ export-web:
     cd site && npm run build && npx next export
     echo "Static site exported to site/out directory"
 
-# Deploy the site to the server using env configuration
+# Deploy the site to the server
 deploy-web: export-web
     @echo "[Deploying zkintro.com...]"
-    cd site && source .env.production.local && cd out && rsync -avz --delete . $$DEPLOY_USER@$$DEPLOY_HOST:$$DEPLOY_PATH
+    cd site/out && rsync -avz --delete . {{DEPLOY_USER}}@{{DEPLOY_HOST}}:{{DEPLOY_PATH}}
     @echo "[Done]"
     
 # Build PDFs
