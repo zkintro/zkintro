@@ -8,7 +8,10 @@
     "build": "next build && node ./scripts/generate-sitemap",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
-    "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts"
+    "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
+    "export": "next export || (echo 'Standard export failed, trying alternative export' && NODE_ENV=production next export -o out)",
+    "clean-export": "rm -rf ./out/_next && find ./out -name '*.js.map' -delete",
+    "optimize-export": "npm run build && npm run export && node ./scripts/optimize-export.js"
   },
   "dependencies": {
     "@fontsource/inter": "4.5.2",

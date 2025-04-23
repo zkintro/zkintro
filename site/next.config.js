@@ -85,6 +85,18 @@ module.exports = withBundleAnalyzer({
   images: {
     unoptimized: true,
   },
+  // Add exportPathMap to handle static exports
+  async exportPathMap(defaultPathMap) {
+    // Filter out dynamic tag routes that are causing issues
+    const filteredPaths = Object.keys(defaultPathMap)
+      .filter(route => !route.includes('/tags/[tag]'))
+      .reduce((acc, route) => {
+        acc[route] = defaultPathMap[route];
+        return acc;
+      }, {});
+
+    return filteredPaths;
+  },
   async headers() {
     return [
       {
