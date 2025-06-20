@@ -11,6 +11,7 @@ See [zkintro.com](https://zkintro.com)
 ├── content/          # Markdown content and assets
 │   ├── assets/      # Images and other static assets
 │   └── en/          # English content
+│   └── pt-br/       # Portuguese (Brazilian) content
 └── site/            # Next.js frontend
 ```
 
