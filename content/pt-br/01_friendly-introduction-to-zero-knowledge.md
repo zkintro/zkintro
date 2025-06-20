@@ -22,7 +22,7 @@ Deixe-me começar com algumas citações para aguçar sua mente. Algumas podem s
 >
 > - Arthur C. Clarke
 
-> A civilização avança ao estender o número de operações que podemos realizar sem pensar nelas.
+> A civilização avança ao aumentar o número de operações que conseguimos realizar sem pensar nelas.
 >
 > - Alfred North Whitehead
 
@@ -121,126 +121,126 @@ Hoje em dia, todos consideram a leitura silenciosa algo natural. É até difíci
 
 Nas próximas seções, teremos um vislumbre de como são essas invenções usando ZKPs, tanto as existentes quanto as futuras.
 
-### Compression
+### Compressão
 
-> I have made this longer than usual, only because I have not had the time to make it shorter.
+> Fiz isto mais longo do que o habitual, apenas porque não tive tempo de fazê-lo mais curto.
 >
 > - Blaise Pascal [^5]
 
-To compress something is defined as:
+Comprimir algo é definido como:
 
-> to press something into a smaller space
+> pressionar algo para caber em um espaço menor
 
-Similarly, succinctness is defined as:
+De forma semelhante, _succinctness_ (concisão) é definida como:
 
-> the act of expressing something clearly in a few words
+> o ato de expressar algo de forma clara com poucas palavras
 
-ZKPs having the property of compression means we can prove that something is true with a very short statement. For example, that all the steps in some computation have been executed correctly. This is most immediately useful when some resource is in high demand and expensive. This is true in the case of the Ethereum blockchain, but it is also a very useful property in other circumstances. What is more remarkable, is that the size of this proof stays the same regardless of how complex the thing we are trying to prove is!
+ZKPs com a propriedade de compressão significam que podemos provar que algo é verdadeiro com uma declaração（statement）muito curta. Por exemplo, que todas as etapas de um determinado cálculo foram executadas corretamente. Isso é especialmente útil quando algum recurso está em alta demanda e é caro. É o caso da blockchain da Ethereum, mas essa também é uma propriedade útil em diversos outros contextos. O mais impressionante é que o tamanho dessa prova（proof）permanece o mesmo, não importa o quão complexo seja o que estamos tentando provar!
 
-What do we mean by "proof" and the "size of the proof"? These are mathematically precise notions that possess a great deal of nuance. In future sections, we'll go deeper into this notion of a proof in the context of ZKPs. For now, we can think of it as a short statement that we know is true, or can somehow verify is true.
+O que queremos dizer com “prova” e “tamanho da prova”? Esses são conceitos matematicamente bem definidos e cheios de nuances. Em seções futuras, vamos aprofundar essa noção de prova no contexto dos ZKPs. Por enquanto, podemos pensar nisso como uma declaração curta que sabemos que é verdadeira — ou que conseguimos verificar de alguma forma.
 
 ![Sherlock Holmes](../assets/01_sherlock-holmes.jpg 'Sherlock Holmes')
 
-In a typical whodunit like a Sherlock Holmes murder mystery, the detective gathers evidence until they can prove that the perpetrator has committed the murder. They then prove exactly how they know this in a grand finale. We can think of this final statement as the proof. [^6]
+Em um típico mistério de assassinato como os de Sherlock Holmes, o detetive reúne evidências até poder provar que o culpado cometeu o crime. Ele então mostra exatamente como sabe disso no _grand finale_. Podemos pensar nessa declaração final como a prova. [^6]
 
-More formally, we call this property _succinctness_ [^7]. This is what keeps the size of the proof the same regardless of what we are trying to prove. In the context of public blockchains, this also relates to the notion of _scalability_. For public blockchains like Ethereum, where block space is limited and expensive, ZKPs can make transactions a lot cheaper and faster. How? We create a proof that some set of transactions have taken place and put that tiny proof on-chain, as opposed to having all transactions take up space on the blockchain. With ZKPs, this can be made very secure.
+Mais formalmente, chamamos essa propriedade de _succinctness_（concisão）[^7]. É isso que mantém o tamanho da prova constante, independentemente do que estamos tentando provar. No contexto de blockchains públicas, isso também está ligado à ideia de _escalabilidade_. Em blockchains públicas como a Ethereum, onde o espaço em bloco é limitado e caro, os ZKPs podem tornar as transações muito mais baratas e rápidas. Como? Criamos uma prova de que um conjunto de transações ocorreu e colocamos essa pequena prova na blockchain, em vez de registrar cada transação individualmente. Com ZKPs, isso pode ser feito de forma muito segura.
 
-Succinctness is a general property and orthogonal to "blockchains" - they just happen to be a good fit, for many reasons. More generally, having a short proof that something is true is very useful. There are a few ways to see why.
+_Succinctness_ é uma propriedade geral e independente de “blockchains” — elas apenas acabam sendo uma boa combinação, por vários motivos. De forma mais ampla, ter uma prova curta de que algo é verdadeiro é extremamente útil. Existem algumas maneiras de entender o porquê.
 
-One way of looking at it is to consider _transaction costs_ [^8]. Generally speaking, the lower these are, the more value and wealth is created. If there are fewer things to verify, or it is easier to do, then we can do things more freely and with ease.
+Uma maneira de ver isso é considerar os _custos de transação_ [^8]. Em geral, quanto menores esses custos, mais valor e riqueza são gerados. Se há menos coisas para verificar, ou se o processo é mais fácil, então conseguimos fazer mais com maior liberdade e fluidez.
 
-Sometimes when we fill in a form we are asked to write our email twice to confirm it is correct. The idea is to protect against human errors and make the transmission of data more robust. There are also things like checksums, where an extra digit in your UPS package code, credit card number, or ISBN code for books acts as a simple check that all the numbers are probably correct. All of these are - obviously - not meant to protect against malicious use, but only against innocent mistakes. [^9]
+Às vezes, ao preencher um formulário, somos solicitados a digitar nosso e-mail duas vezes para garantir que está correto. A ideia é proteger contra erros humanos e tornar a transmissão de dados mais robusta. Existem também mecanismos como _checksums_, onde um dígito extra em códigos de rastreio, cartões de crédito ou ISBNs serve como verificação simples de que os números provavelmente estão certos. Todos esses mecanismos — obviamente — não têm como objetivo impedir usos maliciosos, mas sim evitar erros inocentes. [^9]
 
-In computer file systems, a _hash_ is often used to ensure the integrity of files. If something happens to just a small part of a file, corrupting it, the hash changes completely. Because the hash is succinct (say, a 64 character string), it is easy to keep around and check even if the underlying file is huge. In this case, hash functions ensure integrity in a secure way. If we checked the integrity of a file by just keeping a copy of the file it'd be a lot more impractical. Big file, small file, it doesn't matter; the hash stays the same size. The succinctness of a hash enables this use case.
+Em sistemas de arquivos de computador, um _hash_ é frequentemente usado para garantir a integridade dos arquivos. Se algo acontece com uma parte do arquivo, corrompendo-o, o hash muda completamente. Como o hash é sucinto (por exemplo, uma string de 64 caracteres), é fácil de armazenar e verificar, mesmo que o arquivo original seja enorme. Nesse caso, as funções de hash garantem a integridade de forma segura. Se fôssemos verificar a integridade mantendo uma cópia completa do arquivo, isso seria muito mais impraticável. Arquivo grande, arquivo pequeno — não importa; o hash continua do mesmo tamanho. A _succinctness_ de um hash torna esse caso de uso possível.
 
-### What do you know?
+### O que você sabe?
 
-Let's take a step back from compression, succinctness, and proofs. We'll go on a little detour into knowledge, mental overhead, and trust. We'll then connect this back with ZKPs at the end of the section.
+Vamos dar um passo atrás em relação à compressão, à _succinctness_ e às provas. Vamos fazer um pequeno desvio para falar sobre conhecimento, carga mental e confiança. Depois, vamos conectar tudo isso aos ZKPs no final da seção.
 
-In your everyday life, what do you know is true, and why? If you see the sun rise every day, you likely expect it to rise again tomorrow. In the modern world, we are largely protected from the harsh environment in nature, but on the flip side, we have a lot of other, more modern, concerns. Many of these are related to various institutions we deal with on a daily basis.
+No seu dia a dia, o que você sabe que é verdade, e por quê? Se você vê o sol nascer todos os dias, provavelmente espera que ele vá nascer de novo amanhã. No mundo moderno, estamos amplamente protegidos dos ambientes hostis da natureza, mas, por outro lado, lidamos com muitas outras preocupações — mais modernas. Muitas delas estão relacionadas às instituições com as quais interagimos diariamente.
 
-If you are able to withdraw cash from your bank every day, do you expect to be able to withdraw it again the next day? Most people would probably say yes, but not everyone all the time. This depends on a lot of factors: if the bank is trustworthy, if you're living in a safe jurisdiction, if something major has happened in the world economy recently, what your personal circumstances are like etc. All of these things together make up some data points, and based on that you make a determination.
+Se você consegue sacar dinheiro do banco todos os dias, espera conseguir fazer isso de novo no dia seguinte? A maioria das pessoas provavelmente diria que sim — mas não todo mundo, nem o tempo todo. Isso depende de muitos fatores: se o banco é confiável, se você vive em uma jurisdição segura, se houve algum evento importante na economia global recentemente, como está sua situação pessoal, etc. Todos esses elementos funcionam como pontos de dados, e com base neles você toma uma decisão.
 
-This is obviously a trivial example, but life is full of such interactions. All of this can be seen as a form of mental overhead. The extent to which this is a concern can depend on your personal situation and the complexity of your day-to-day dealings. For instance, a business might give these factors a lot more thought when entering into a contract with another party.
+Esse é obviamente um exemplo trivial, mas a vida está cheia de interações desse tipo. Tudo isso pode ser visto como uma forma de carga mental. O quanto isso te afeta depende da sua situação pessoal e da complexidade do seu cotidiano. Por exemplo, uma empresa pode considerar todos esses fatores com muito mais atenção ao firmar um contrato com outra parte.
 
-We create mechanisms and rules to counteract this uncertainty, such as using reputation services, independent auditing, imposing fines to discourage bad behavior, seeking accreditation by some trusted institutions, etc. All these measures are basically duct tape, trying to get to the crux of the matter. Is something what it claims to be? Does it follow the rules we have established? And is it trustworthy and usable?
+Criamos mecanismos e regras para lidar com essa incerteza, como serviços de reputação, auditorias independentes, multas para desincentivar comportamentos ruins, busca por certificações de instituições confiáveis, etc. Todas essas medidas são como fita adesiva, tentando resolver o problema principal. Algo é realmente o que diz ser? Segue as regras que estabelecemos? É confiável e utilizável?
 
-All of this mental overhead gets compounded when you are dealing with multiple institutions, jurisdictions, companies, and people. You can get cascading effects, such as your bank failing and you being unable to pay your employees, thus leading to your business being unable to service its customers [^10]. More control measures are needed. More pauses to consider if things are right and what can go wrong.
+Essa carga mental se multiplica quando você lida com várias instituições, jurisdições, empresas e pessoas. Os efeitos podem ser em cascata: seu banco quebra, você não consegue pagar seus funcionários, e sua empresa não consegue atender os clientes [^10]. Isso exige mais medidas de controle. Mais momentos de pausa para refletir se tudo está certo — e o que pode dar errado.
 
-I'll end this section with a quote:
+Vou encerrar esta seção com uma citação:
 
-> Civilization advances by extending the number of operations we can perform without thinking about them.
+> A civilização avança ao aumentar o número de operações que conseguimos realizar sem pensar nelas.
 >
 > - Alfred North Whitehead [^11]
 
-For example, when you light the stove to make dinner, you don't even have to think about making a fire. This is very different from having to gather wood, keep it dry, create a fire, and keep it going, a very time-consuming process. In mathematics, without calculus, we wouldn't be able to go to the moon.
+Por exemplo, ao acender o fogão para fazer o jantar, você nem precisa pensar em fazer fogo. Isso é bem diferente de ter que catar lenha, mantê-la seca, acender e manter o fogo aceso — um processo demorado. Em matemática, sem o cálculo, não teríamos chegado à Lua.
 
 ![Aldrin, Apollo 11](../assets/01_apollo-aldrin.jpg 'Aldrin, Apollo 11')
 
-With ZKPs and succinct proofs, we are able to introduce more certainty and clarity into opaque systems. This gets even more powerful when we consider _composing_ ZKPs. That is combining multiple proofs into one in some fashion, such as with aggregation or recursion.
+Com ZKPs e provas sucintas (_succinct proofs_), conseguimos trazer mais certeza e clareza a sistemas opacos. Isso se torna ainda mais poderoso quando consideramos a *composição* de ZKPs — ou seja, combinar múltiplas provas em uma só, por meio de agregação ou recursão, por exemplo.
 
-All of this presumes we can translate some of the mechanisms or rules mentioned above - which are often messy and inconsistent - into a form that ZKPs can comprehend. How can we do that?
+Tudo isso parte do princípio de que conseguimos traduzir alguns dos mecanismos ou regras citados acima — que muitas vezes são confusos e inconsistentes — para uma forma que os ZKPs consigam compreender. Como podemos fazer isso?
 
-### General-purpose
+### Propósito geral
 
-Recall that ZKPs allow us to prove arbitrary statements in a general-purpose fashion. Why does this matter and how is this powerful?
+Lembre-se de que os ZKPs permitem provar declarações（statements）arbitrárias de forma genérica. Por que isso importa e por que isso é poderoso?
 
-The difference between similar existing tools and ZKPs is like the difference between a calculator and a computer. One is meant for a very specific task, and the other is general-purpose. It is the difference between this calculating machine [^12] and a modern computer:
+A diferença entre ferramentas similares já existentes e os ZKPs é como a diferença entre uma calculadora e um computador. Uma serve para tarefas bem específicas, enquanto a outra tem propósito geral. É a diferença entre esta máquina de calcular [^12] e um computador moderno:
 
-![Pascal's calculator](../assets/01_pascals-calculator2.jpg "Pascal's Calculator")
+![Calculadora de Pascal](../assets/01_pascals-calculator2.jpg "Calculadora de Pascal")
 
-Recall the specific examples we gave above to represent privacy and succinctness more concretely. A password is a private piece of information that allows you to log in to some service [^13]. In the case of a hash of some input data, such as a file, it gives us something succinct to check equality to.
+Relembre os exemplos específicos que demos acima para representar de forma concreta a privacidade e a *succinctness*. Uma senha é uma informação privada que permite fazer login em um serviço [^13]. Já um hash de algum dado de entrada, como um arquivo, nos oferece algo sucinto para verificar igualdade.
 
-We can visualize a hash function as follows:
+Podemos visualizar uma função de hash da seguinte forma:
 
-![Hash function](../assets/01_graphviz-hash.png 'Hash function')
+![Função de hash](../assets/01_graphviz-hash.png 'Função de hash')
 
-We apply a specific hash function, such as SHA256 [^14], on some known input data. For example, using the sentence "The quick brown fox jumps over the lazy dog" (without quotation marks) as input and applying the SHA256 hash function results in the hash `d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592`. Adding a "." at the end of the sentence gives a completely different hash value: "The quick brown fox jumps over the lazy dog." hashes to `ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c`.
+Aplicamos uma função de hash específica, como a SHA256 [^14], em algum dado de entrada conhecido. Por exemplo, usar a frase "A rápida raposa marrom pula sobre o cachorro preguiçoso" (sem aspas) como entrada e aplicar SHA256 resulta no hash `00296116c7a8aca0e95a928b38a871a6c4d13b5fa28f436a5eef8205a46756d1`. Adicionar um "." no final da frase gera um hash completamente diferente: "A rápida raposa marrom pula sobre o cachorro preguiçoso." gera `c8be62e59f566c2a1193d48a41c5c46530776ac4b86c6c5d45b82177378086aa`.
 
-Even though the sentence just changed a tiny bit, the resulting hashes are very different [^15]. Hash functions that are secure are hard to "break" and have some nice properties. For example, if you have the hash value, you can't recreate the initial input. You also can't easily construct a message that hashes to a specific, predetermined hash value. These hash functions are called _cryptographic hash functions_. [^16]
+Mesmo que a frase mude muito pouco, os hashes resultantes são totalmente diferentes [^15]. Funções de hash seguras são difíceis de "quebrar" e possuem propriedades interessantes. Por exemplo, se você tem o valor do hash, não consegue reconstruir a entrada original. Também não é fácil construir uma mensagem que gere um hash específico e predeterminado. Essas funções são chamadas de _funções de hash criptográficas_. [^16]
 
-The SHA256 hash function we used above is a specific cryptographic hash function that took a lot of time and many people to make secure. The hash itself also doesn't prove anything. It only makes sense when compared with something else, such as having direct access to the message or file.
+A função SHA256 que usamos acima é uma função de hash criptográfica específica, que levou muito tempo e esforço coletivo para ser considerada segura. O hash, por si só, não prova nada. Ele só faz sentido quando comparado com alguma outra coisa, como ter acesso direto à mensagem ou ao arquivo.
 
-Informally, we can think of a hash function as providing a proof that some specific message corresponds to a particular hash. We can only verify this with the original message. Sometimes people use this to prove they wrote something and make predictions - they write "On April 1, 2040, aliens will land on top of Big Ben in London, and the lottery number 25742069 will win a jackpot." and then post the hash of this message publicly ahead of time, say on Twitter. When it turns out they are right, they can reveal the original message, and people can be convinced that they did predict the future and are the next Nostradamus.
+De forma informal, podemos pensar em uma função de hash como algo que oferece uma prova（proof）de que uma determinada mensagem corresponde a um hash específico. Só conseguimos verificar isso com a mensagem original. Às vezes, as pessoas usam isso para provar que escreveram algo e fizeram uma previsão — elas escrevem, por exemplo: "Em 1º de abril de 2040, alienígenas pousarão no Big Ben, em Londres, e o número da loteria 25742069 será o vencedor", e então publicam o hash dessa mensagem com antecedência, digamos, no Twitter. Quando a previsão se concretiza, elas revelam a mensagem original, e as pessoas ficam convencidas de que previram o futuro, e são o novo Nostradamus.
 
-In contrast, we can visualize a ZKP as follows:
+Por outro lado, podemos visualizar um ZKP assim:
 
 ![ZKP](../assets/01_graphviz-zkp.png 'ZKP')
 
-Unlike in the hash function above, there are a few big differences:
+Diferente da função de hash acima, há algumas diferenças importantes:
 
-- We have multiple private and public inputs as opposed to only a single (public) input
-- We can use any program, not just a cryptographic hash function
-- We produce a self-contained proof that can be verified
+- Temos várias entradas públicas e privadas, em vez de apenas uma entrada (pública)
+- Podemos usar qualquer programa, não apenas uma função de hash criptográfica
+- Produzimos uma prova（proof）autônoma que pode ser verificada
 
-In the hash function example above, we need to make the input public in order to verify that the message corresponds to the hash. For ZKPs, we can also have _private input_. Private input is something that only you can see. That is, you don't need to reveal it to anyone in order to produce a proof.
+No exemplo da função de hash, precisamos tornar a entrada pública para verificar que a mensagem corresponde ao hash. Já nos ZKPs, podemos ter uma entrada privada _(private input)_. Entrada privada é algo que só você vê. Ou seja, não precisa revelar nada a ninguém para gerar uma prova（proof）.
 
-For example, in the "Where's Waldo" case at the beginning of this article, the public input would be the picture of Where's Waldo. The private input is the actual location of Waldo. I can produce a proof that I know where Waldo is without revealing the private input, the location of Waldo, to you.
+Por exemplo, no caso do "Onde Está o Wally" mencionado no início deste artigo, a entrada pública seria a imagem do Wally. A entrada privada seria a localização exata do Wally. Eu posso gerar uma prova de que sei onde ele está sem revelar a localização para você.
 
-Similarly, if I have a Sudoku puzzle (a popular logic puzzle), I can prove to you that I know a solution to the puzzle without revealing the solution to you. In this case, the public input is the initial puzzle, and the private input is the solution to the puzzle.
+Da mesma forma, se eu tiver um Sudoku (um quebra-cabeça popular), posso provar que conheço a solução sem revelá-la para você. Neste caso, a entrada pública é o quebra-cabeça inicial, e a entrada privada é a solução.
 
-You might have noticed that Where's Waldo and solving a Sudoku puzzle are two very different problems. Yet we can write a simple program that expresses how either of these works and uses ZKP to create a proof. That is because the logic inside this special program is general-purpose and can compute anything a computer can.
+Você deve ter notado que encontrar o Wally e resolver um Sudoku são problemas bem diferentes. Mesmo assim, podemos escrever um programa simples que represente qualquer um deles e gere uma prova usando ZKP. Isso porque a lógica desse tipo de programa é de propósito geral — e pode computar qualquer coisa que um computador consegue.
 
-We have turned what was originally a problem of cryptography or math - defining and making a cryptographic hash function secure - into one of programming. To see why this is extremely powerful, consider some of the following examples.
+Transformamos o que antes era um problema de criptografia ou matemática — definir e tornar uma função de hash criptográfica segura — em um problema de programação. Para entender por que isso é tão poderoso, veja alguns exemplos a seguir.
 
-We can now prove that we know the private data that results in a certain hash [^17]. This means you can prove that you are in possession of a certain message, such as an important document, without revealing the message itself.
+Agora podemos provar que conhecemos os dados privados que resultam em um hash específico [^17]. Isso significa que é possível provar que você possui determinada mensagem, como um documento importante, sem revelar o conteúdo.
 
-To better understand the power of doing general-purpose computing, let's take a closer look at group signature. Group signatures are a way for a group of individuals to sign a document together, without revealing who they are. For example, the Federalist Papers were signed by the pseudonym Publius which represented multiple individuals [^18]. Just like in the case of the SHA256 hash function, there's a way to express group signatures with cryptography and math. This is very impressive and took a lot of cryptographic engineering to develop. But with general-purpose ZKPs anyone can express the same thing in just a few dozen lines of Circom, a programming language for ZKPs, code [^19].
+Para entender melhor o poder da computação de propósito geral (_general-purpose computing_), vamos observar o conceito de assinatura em grupo. Assinaturas em grupo permitem que várias pessoas assinem um documento sem revelar suas identidades. Por exemplo, os *Federalist Papers* foram assinados com o pseudônimo "Publius", que representava vários autores [^18]. Assim como no caso do SHA256, é possível implementar assinaturas em grupo com criptografia e matemática — o que é impressionante, e exige bastante engenharia criptográfica. Mas com ZKPs de propósito geral, qualquer pessoa pode expressar isso em poucas dezenas de linhas de código em Circom, uma linguagem para ZKPs [^19].
 
-Due to its general nature, we can easily make ad hoc constructions. For example, you might have an ID card that has your full name, address, and other personal information. To enter an event, you might need to be over 18 and have a valid ticket. You might not want a random person or online system to see your address or risk having your ID stolen. With ZKPs you can prove that:
+Graças à sua natureza genérica, podemos construir soluções ad hoc com facilidade. Por exemplo, imagine que você tem um documento de identidade com seu nome completo, endereço e outras informações pessoais. Para entrar em um evento, é necessário ter mais de 18 anos e um ingresso válido. Você pode não querer que qualquer pessoa ou sistema online veja seu endereço ou corra o risco de ter seu documento roubado. Com ZKPs, você pode provar que:
 
-- You possess a valid ID
-- The ID has been issued by an approved institution in the last 5 years
-- The ID has not been revoked or reported stolen recently
-- You are over 18 years of age
-- You have paid for a valid ticket to the event
-- The ticket has not been used before
+- Você possui um documento de identidade válido
+- O documento foi emitido por uma instituição aprovada nos últimos 5 anos
+- O documento não foi revogado nem está registrado como roubado
+- Você tem mais de 18 anos
+- Você pagou por um ingresso válido para o evento
+- O ingresso ainda não foi utilizado
 
-All without revealing any single fact about yourself other than what is listed above.
+Tudo isso sem revelar nenhum outro dado pessoal além do que está listado acima.
 
-With ZKPs, we now have a _better tool_ for people to coordinate in various ways, especially when it comes to systems where you want _privacy_ and _succinctness_. We'll see even more examples in the application section.
+Com os ZKPs, agora temos uma _ferramenta melhor_ para que as pessoas se coordenem de várias formas — especialmente em sistemas onde a _privacidade_ e a _succinctness_ são importantes. Veremos mais exemplos na seção de aplicações.
 
-Often, it is your imagination that is the limit in terms of what you can express.
+Na maioria das vezes, o único limite para o que você pode expressar é sua imaginação.
 
 ### Why now?
 
