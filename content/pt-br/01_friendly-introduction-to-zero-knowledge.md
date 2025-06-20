@@ -1,92 +1,93 @@
 ---
-title: 'A Friendly Introduction to Zero Knowledge'
+title: 'Uma Introdução Amigável ao Conhecimento Zero'
 date: '2023-07-17'
 tags: ['zero-knowledge']
 draft: false
 layout: PostSimple
-slug: "friendly-introduction-to-zero-knowledge"
+slug: "/pt-br/friendly-introduction-to-zero-knowledge"
 images: ['../assets/01_zkp-magic.png']
-summary: "Zero Knowledge Proofs are magic. They allow us to do things we couldn't dream of before. This is the first in a series of posts on Zero Knowledge Proofs and their application. In it we'll look at what Zero Knowledge Proofs are, why you should care, how they work, and see where they can be used."
+summary: "As Provas de Conhecimento Zero (ZKPs) são mágicas. Elas nos permitem fazer coisas que não podíamos sonhar antes. Esta é a primeira de uma série de postagens sobre Provas de Conhecimento Zero e sua aplicação. Nela, veremos o que são as Provas de Conhecimento Zero, por que você deve se importar, como elas funcionam e onde podem ser usadas."
+translator: 'Thiago Rocha Duarte'
 ---
 
 ![ZKP Magic](../assets/01_zkp-magic.png 'ZKP Magic')
 
-## Introduction
+## Introdução
 
-Zero Knowledge Proofs are magic. They allow us to do things we couldn't dream of before.
+As Provas de Conhecimento Zero (ZKPs) são mágicas. Elas nos permitem fazer coisas que não podíamos sonhar antes.
 
-Let me start with a few quotes to tickle your brain. Some might be familiar, while others might be new to you.
+Deixe-me começar com algumas citações para aguçar sua mente. Algumas podem ser familiares, enquanto outras podem ser novas para você.
 
-> Any sufficiently advanced technology is indistinguishable from magic.
+> Qualquer tecnologia suficientemente avançada é indistinguível de magia.
 >
 > - Arthur C. Clarke
 
-> Civilization advances by extending the number of operations we can perform without thinking about them.
+> A civilização avança ao estender o número de operações que podemos realizar sem pensar nelas.
 >
 > - Alfred North Whitehead
 
-> I have made this longer than usual, only because I have not had the time to make it shorter.
+> Fiz isto mais longo do que o habitual, apenas porque não tive tempo de fazê-lo mais curto.
 >
 > - Blaise Pascal
 
-> Privacy is the power to selectively reveal oneself to the world.
+> Privacidade é o poder de se revelar seletivamente ao mundo.
 >
 > - A Cypherpunk's Manifesto
 
-> The future is already here. It's just not evenly distributed yet.
+> O futuro já está aqui. Só não está uniformemente distribuído ainda.
 >
 > - William Gibson
 
-Magic technology, advancing civilization, short letters, privacy, and a future that's already here. That's Zero Knowledge Proofs (ZKPs) in a nutshell. What's going on?
+Tecnologia mágica, avanço da civilização, cartas curtas, privacidade e um futuro que já está aqui. Isso é o que são as Provas de Conhecimento Zero (ZKPs) em poucas palavras. O que está acontecendo?
 
-In the last century, computers and the Internet have taken over the world. These technologies are everywhere, in everything we do, for better or worse. On top of these, we build platforms, companies, empires. These are things like your MAMAA (Microsoft, Apple, Meta, Alphabet, Amazon). Then there's the belly of the beast - your payment networks, governmental services, and the plethora of B2B applications that silently run the world. Finally, there's a long tail of other things - your cute filter image app, language learning platform, or online community.
+No último século, computadores e a Internet dominaram o mundo. Essas tecnologias estão em toda parte, em tudo o que fazemos, para o bem ou para o mal. Por cima delas, construímos plataformas, empresas, impérios. São coisas como suas MAMAA (Microsoft, Apple, Meta, Alphabet, Amazon). Depois, há o cerne da questão - suas redes de pagamento, serviços governamentais e a infinidade de aplicações B2B que silenciosamente comandam o mundo. Finalmente, há uma longa cauda de outras coisas - seu aplicativo fofo de filtro de imagem, plataforma de aprendizado de idiomas ou comunidade online.
 
-You expect to achieve a specific goal when you input data into yet another online service. It might be a small goal, like reaching out to a friend, distracting yourself from work, or something big like applying for a mortgage. But what happens to all this data? This includes the data you consciously know about and the iceberg of hidden data you are unaware of. Will what you are trying to achieve actually happen, or will there be some problem, either straight away or a year from now?
+Você espera alcançar um objetivo específico ao inserir dados em mais um serviço online. Pode ser um objetivo pequeno, como falar com um amigo, distrair-se do trabalho, ou algo grande como solicitar uma hipoteca. Mas o que acontece com todos esses dados? Isso inclui os dados que você conhece conscientemente e o iceberg de dados ocultos dos quais você não tem conhecimento. O que você está tentando alcançar realmente acontecerá, ou haverá algum problema, seja imediatamente ou daqui a um ano?
 
-Who actually understands these systems and the consequences of how we use them? And how they, in turn, use us? While some people might understand some systems better than others, no one understands all of them, and even less how they interact together to create unforeseen consequences.
+Quem realmente entende esses sistemas e as consequências de como os usamos? E como eles, por sua vez, nos usam? Embora algumas pessoas possam entender alguns sistemas melhor do que outras, ninguém entende todos eles, e menos ainda como eles interagem para criar consequências imprevistas.
 
-What's a human to do? Trust. But who do you trust? And why?
+O que um humano deve fazer? Confiar. Mas em quem você confia? E por quê?
 
-This is a hard problem. Our human brains have not evolved to think about this. The Internet, great as it is in connecting us and making things easier, has created a bit of a mess in this regard. In the past, when you had a private conversation with someone, the wind would blow away the sounds you made. When you were locked out of your house, you could get a locksmith, or break the lock yourself. Who do you talk to when you are locked out of your Google account and stare at an "Access denied" screen? No one, you are standing in front of an invisible and impenetrable castle.
+Este é um problema difícil. Nossos cérebros humanos não evoluíram para pensar sobre isso. A Internet, por melhor que seja em nos conectar e facilitar as coisas, criou uma certa bagunça nesse aspecto. No passado, quando você tinha uma conversa privada com alguém, o vento levava os sons que você fazia. Quando você estava trancado fora de sua casa, você podia chamar um chaveiro ou arrombar a fechadura. Com quem você fala quando está impedido de acessar sua conta do Google e encara uma tela de "Acesso negado"? Com ninguém, você está diante de um castelo invisível e impenetrável.
 
-ZKPs can help. Perhaps not for everything, everywhere, or at this precise moment. But it applies to numerous things, in various places, and increasingly so. In the rest of this article, I'll try to convince you why and how. Let's follow the magic.
+ZKPs podem ajudar. Talvez não para tudo, em todo lugar, ou neste exato momento. Mas se aplica a inúmeras coisas, em vários lugares, e cada vez mais. No restante deste artigo, tentarei convencê-lo do porquê e como. Vamos seguir a magia.
 
-## What is a Zero Knowledge Proof?
+## O que é uma Prova de Conhecimento Zero?
 
-_This section introduces the notion of a Zero Knowledge Proof_
+_Esta seção introduz a noção de uma Prova de Conhecimento Zero_
 
-This is the first in a series of posts on Zero Knowledge Proofs and their application. We'll look at what Zero Knowledge Proofs are, why you should care, how they work, and see where they can be used.
+Esta é a primeira de uma série de postagens sobre Provas de Conhecimento Zero e sua aplicação. Veremos o que são as Provas de Conhecimento Zero, por que você deveria se importar, como elas funcionam e onde podem ser usadas.
 
-Imagine you go to a bar and can prove you are over 18 without revealing anything else, including your ID with personal information on it. Or you can prove that you've paid your taxes correctly, without revealing the details of your income or assets to anyone. These are the kind of things Zero Knowledge Proofs (ZKPs) enables. The term _zero knowledge_ simply means we don't reveal any more information beyond what is intended.
+Imagine que você vai a um bar e pode provar que tem mais de 18 anos sem revelar mais nada, incluindo sua identidade com informações pessoais. Ou você pode provar que pagou seus impostos corretamente, sem revelar os detalhes de sua renda ou bens a ninguém. Esses são os tipos de coisas que as Provas de Conhecimento Zero (ZKPs) possibilitam. O termo _conhecimento zero (zero knowledge)_ simplesmente significa que não revelamos nenhuma informação além do que é pretendido.
 
-ZKPs allow you to prove something without revealing anything but that the statement is true.
+ZKPs permitem que você prove algo sem revelar nada além do fato de que a declaração é verdadeira.
 
-What does this mean? Let's take the classic example of "Where's Waldo". The game is about finding Waldo in a big picture. I can prove to you that I know where Waldo is without revealing the location of Waldo. How?
+O que isso significa? Vamos pegar o exemplo clássico de "Onde está o Wally?". O jogo consiste em encontrar o Wally em uma imagem grande. Posso provar a você que sei onde o Wally está sem revelar a localização do Wally. Como?
 
-Imagine I have a picture of "Where's Waldo" and a large piece of paper four times the size of that picture. I make a small hole in the paper and put this paper in front of the "Where's Waldo" picture, carefully positioning it so that Waldo is visible through the hole. This means you can see Waldo, but only Waldo and nothing else. You thus know that I know where Waldo is, but I haven't revealed anything about where Waldo actually is located in the picture.
+Imagine que tenho uma imagem de "Onde está o Wally?" e um grande pedaço de papel quatro vezes maior que essa imagem. Faço um pequeno buraco no papel e coloco este papel na frente da imagem de "Onde está o Wally?", posicionando-o cuidadosamente para que o Wally fique visível através do buraco. Isso significa que você pode ver o Wally, mas apenas o Wally e mais nada. Assim, você sabe que eu sei onde o Wally está, mas eu não revelei nada sobre onde o Wally está realmente localizado na imagem.
 
 ![Where's Waldo](../assets/01_waldo.jpg "Where's Waldo")
 
-This is obviously a toy example, but hopefully it gives some intuition for how such a proof is even possible. But what does this mean? What are we proving more precisely? We'll dive deeper into this down the line, but for now let's see what ZKPs gives us more generally.
+Este é obviamente um exemplo lúdico, mas espero que dê alguma intuição de como tal prova é possível. Mas o que isso significa? O que estamos provando mais precisamente? Vamos nos aprofundar nisso mais adiante, mas por enquanto vamos ver o que os ZKPs nos oferecem de forma mais geral.
 
-With ZKPs you can prove arbitrary statements in a general-purpose fashion. More specifically, ZKPs allow us to prove something in a private and succinct way.
+Com ZKPs, você pode provar declarações (statements) arbitrárias de forma generalista. Mais especificamente, os ZKPs nos permitem provar algo de forma privada e sucinta.
 
-This is extremely powerful as we'll see next.
+Isso é extremamente poderoso, como veremos a seguir.
 
-## Why should you care?
+## Por que você deveria se importar?
 
-_This section explains why someone might care about ZKPs, including going into detail on privacy, compression, and the general-purpose nature of ZKPs_
+_Esta seção explica por que alguém pode se importar com ZKPs, incluindo detalhes sobre privacidade, compressão e a natureza de propósito geral dos ZKPs_
 
-Reading the above section you might think, "ok, that's kinda neat I guess, but why should I care". That's a completely reasonable take. In fact, you probably shouldn't! Just like you shouldn't care about how computers work, where AI is going, or any of these things.
+Lendo a seção acima, você pode pensar: "ok, isso é até meio legal, mas por que eu deveria me importar?". Essa é uma perspectiva completamente razoável. Na verdade, você provavelmente não deveria! Assim como você não deveria se importar com como os computadores funcionam, para onde a IA está indo, ou qualquer uma dessas coisas.
 
-Why _might you care_? Because you are curious and want to understand how ZKPs work, and what type of interactions it unlocks. The mechanism is very general, and the intuition for many people working in the space is that it is fundamentally a new paradigm that unlocks a lot of new things. We are seeing this already, and it seems like we are just at the very beginning of this. In the rest of this section, I'll give you some intuition as to why and how.
+Por que _você poderia se importar_? Porque você é curioso e quer entender como os ZKPs funcionam e que tipo de interações eles desbloqueiam. O mecanismo é muito geral, e a intuição para muitas pessoas que trabalham na área é que se trata fundamentalmente de um novo paradigma que desbloqueia muitas coisas novas. Já estamos vendo isso, e parece que estamos apenas no começo. No restante desta seção, darei a você alguma intuição sobre o porquê e como.
 
-Before going deeper into that, let's understand what ZKPs give us at a higher level. ZKPs give us primarily one or both of the following properties:
+Antes de aprofundar, vamos entender o que os ZKPs nos oferecem em um nível superior. Os ZKPs nos fornecem principalmente uma ou ambas as seguintes propriedades:
 
-1. Privacy (more formally known as zero-knowledge)
-2. Compression (more formally known as succinctness)
+1. Privacidade (mais formalmente conhecida como conhecimento zero)
+2. Compressão (mais formalmente conhecida como _succinctness_)
 
-What do we mean by these two notions? Here are some ways to think about these properties.
+O que queremos dizer com essas duas noções? Aqui estão algumas maneiras de pensar sobre essas propriedades.
 
 ### Privacy
 
