@@ -10,7 +10,7 @@ summary: "As Provas de Conhecimento Zero (ZKPs) são mágicas. Elas nos permitem
 translator: 'Thiago Rocha Duarte'
 ---
 
-![ZKP Magic](../assets/01_zkp-magic.png 'ZKP Magic')
+![ZKP Magic](../assets/01_zkp-magic.png 'Magia dos ZKPs')
 
 ## Introdução
 
@@ -66,7 +66,7 @@ O que isso significa? Vamos pegar o exemplo clássico de "Onde está o Wally?". 
 
 Imagine que tenho uma imagem de "Onde está o Wally?" e um grande pedaço de papel quatro vezes maior que essa imagem. Faço um pequeno buraco no papel e coloco este papel na frente da imagem de "Onde está o Wally?", posicionando-o cuidadosamente para que o Wally fique visível através do buraco. Isso significa que você pode ver o Wally, mas apenas o Wally e mais nada. Assim, você sabe que eu sei onde o Wally está, mas eu não revelei nada sobre onde o Wally está realmente localizado na imagem.
 
-![Where's Waldo](../assets/01_waldo.jpg "Where's Waldo")
+![Where's Waldo](../assets/01_waldo.jpg "Onde está o Wally?")
 
 Este é obviamente um exemplo lúdico, mas espero que dê alguma intuição de como tal prova é possível. Mas o que isso significa? O que estamos provando mais precisamente? Vamos nos aprofundar nisso mais adiante, mas por enquanto vamos ver o que os ZKPs nos oferecem de forma mais geral.
 
@@ -89,37 +89,37 @@ Antes de aprofundar, vamos entender o que os ZKPs nos oferecem em um nível supe
 
 O que queremos dizer com essas duas noções? Aqui estão algumas maneiras de pensar sobre essas propriedades.
 
-### Privacy
+### Privacidade
 
-There are a lot of things we want to keep private. Here's the definition of "private" in the Oxford Dictionary:
+Há muitas coisas que queremos manter privadas. Aqui está a definição de "privado" no Dicionário Oxford:
 
-> belonging to or for the use of one particular person or group of people only.
+> pertencente ou para uso de uma pessoa ou grupo de pessoas em particular.
 
-We have private conversations, private bathrooms, private parts. Business secrets, sensitive personal information, in the privacy of your own home. Keys, doors and locks.
+Temos conversas privadas, banheiros privados, partes íntimas. Segredos comerciais, informações pessoais sensíveis, na privacidade de sua própria casa. Chaves, portas e fechaduras.
 
-Privacy is normal, and it is all around us. It is closely related to notions of self-sovereignty, self-determination, and independence. These notions come so naturally to us that many important documents, such as the _US Bill of Rights_ and the _United Nations Charter_ recognize them as fundamental rights for individuals and nations, respectively. [^1] Privacy is a prerequisite for freedom.
+Privacidade é normal e está ao nosso redor. Ela está intimamente relacionada às noções de auto-soberania, autodeterminação e independência. Essas noções nos são tão naturais que muitos documentos importantes, como a _Declaração de Direitos dos EUA_ e a _Carta das Nações Unidas_, as reconhecem como direitos fundamentais para indivíduos e nações, respectivamente. [^1] A privacidade é um pré-requisito para a liberdade.
 
-More formally, the privacy property in ZKPs is often called _zero knowledge_ or _data hiding_ [^2]. A ZKP hides data that is irrelevant for some application to function, and this data is then _bound_ together with the relevant application data. These notions are a bit more formal, and they enable privacy. Privacy is a broader and more generally applicable concept, so we'll keep focusing on that for now.
+Mais formalmente, a propriedade de privacidade (privacy) em ZKPs é frequentemente chamada de _conhecimento zero (zero-knowledge)_ ou _ocultação de dados_ [^2]. Um ZKP oculta dados que são irrelevantes para o funcionamento de alguma aplicação, e esses dados são então _ligados (bound)_ juntamente com os dados relevantes da aplicação. Essas noções são um pouco mais formais e possibilitam a privacidade. Privacidade é um conceito mais amplo e de aplicação mais geral, então continuaremos focando nele por enquanto.
 
-In the digital world, also known as cyberspace, as opposed to meatspace, privacy is essential too, but often neglected. Here's the definition of privacy given in _A Cypherpunk's Manifesto_:
+No mundo digital, também conhecido como ciberespaço, em oposição ao espaço físico, a privacidade também é essencial, mas frequentemente negligenciada. Aqui está a definição de privacidade dada em _A Cypherpunk's Manifesto_:
 
-> Privacy is the power to selectively reveal oneself to the world.
+> Privacidade é o poder de se revelar seletivamente ao mundo.
 >
 > - A Cypherpunk's Manifesto [^3]
 
-Conversations, passwords, credit card information. These are examples of things we want to keep private online. The Internet is a fantastic tool that connects us all, but it is also an open and wild sea. There are a lot of strangers and predators, and keeping certain information private is vital. Without it, things like online shopping or private messaging would be impossible.
+Conversas, senhas, informações de cartão de crédito. Esses são exemplos de coisas que queremos manter privadas online. A Internet é uma ferramenta fantástica que nos conecta a todos, mas também é um mar aberto e selvagem. Há muitos estranhos e predadores, e manter certas informações privadas é vital. Sem isso, coisas como compras online ou mensagens privadas seriam impossíveis.
 
-You might think, "We can already keep things like passwords private, what's the big deal?". In a limited sense, you are correct for these specific examples. We'll have to use more imagination to truly understand what general-purpose programmable privacy enables.
+Você pode pensar, "Já conseguimos manter coisas como senhas privadas, qual é o grande problema?". Em um sentido limitado, você está correto para esses exemplos específicos. Teremos que usar mais imaginação para realmente entender o que a privacidade programável de propósito geral possibilita.
 
-As an example, consider how Augustine, in his _Confessions (400 AD)_ found the act of "silent reading" by St Ambrose, a bishop, out of the ordinary. At the time, most people would read out loud. [^4]
+Como um exemplo, considere como Agostinho, em suas _Confissões (400 d.C.)_, achou o ato de "leitura silenciosa" de Santo Ambrósio, um bispo, incomum. Naquela época, a maioria das pessoas lia em voz alta. [^4]
 
-> When [Ambrose] read, his eyes scanned the page and his heart sought out the meaning, but his voice was silent and his tongue was still. Anyone could approach him freely and guests were not commonly announced, so that often, when we came to visit him, we found him reading like this in silence, for he never read aloud.
+> Quando [Ambrósio] lia, seus olhos examinavam a página e seu coração buscava o significado, mas sua voz estava em silêncio e sua língua estava imóvel. Qualquer um podia se aproximar dele livremente e os convidados não eram comumente anunciados, de modo que muitas vezes, quando o visitávamos, o encontrávamos lendo assim em silêncio, pois ele nunca lia em voz alta.
 
-![Silent reading](../assets/01_silent-reading.jpg 'Silent reading')
+![Silent reading](../assets/01_silent-reading.jpg 'Leitura silenciosa')
 
-Nowadays, everyone takes silent reading for granted. It is even hard to imagine that it had to be invented. The idea that what you read was something for your eyes only used to be foreign. What other similar inventions are possible in our modern era? Things that most of us are currently unable to imagine.
+Hoje em dia, todos consideram a leitura silenciosa algo natural. É até difícil imaginar que ela precisou ser inventada. A ideia de que o que você lê era algo apenas para seus olhos costumava ser estranha. Que outras invenções semelhantes são possíveis em nossa era moderna? Coisas que a maioria de nós atualmente não consegue imaginar.
 
-In future sections, we'll get a glimpse of what such inventions using ZKPs, both existing and upcoming, look like.
+Nas próximas seções, teremos um vislumbre de como são essas invenções usando ZKPs, tanto as existentes quanto as futuras.
 
 ### Compression
 
