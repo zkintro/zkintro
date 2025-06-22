@@ -10,7 +10,7 @@ summary: "As Provas de Conhecimento Zero (ZKPs) são mágicas. Elas nos permitem
 translator: 'Thiago Rocha Duarte'
 ---
 
-![ZKP Magic](../assets/01_zkp-magic.png 'Magia dos ZKPs')
+![Magia do ZKP](../assets/01_zkp-magic.png 'Magia do ZKP')
 
 ## Introdução
 
@@ -380,37 +380,37 @@ Há várias outras propriedades importantes quando falamos de ZKPs aplicáveis n
 
 Como você pode ver, há muitas variações e considerações possíveis nos ZKPs. Mas não se preocupe: o essencial continua o mesmo, e dependendo do seu interesse, você pode ignorar boa parte dos detalhes técnicos sem problemas. Voltando à metáfora do zoológico: assim como com os animais, talvez você não queira virar biólogo. Talvez queira trabalhar com alguns bichos, ter um de estimação — ou apenas fazer carinho no cachorro de um amigo.
 
-## Applications
+## Aplicações
 
-_This section gives examples of current and future applications of ZK_
+_Esta seção traz exemplos de aplicações atuais e futuras de ZK_
 
-There are many applications of ZKPs. Generally speaking, we are still in the early stages. A lot of the focus is still on the underlying protocols and infrastructure, as well as blockchain-specific applications. To better appreciate the blockchain-specific examples, it is useful to have some understanding of how public blockchains work and the challenges they have. However, this isn't a requirement. In this section we'll look at some of the more interesting applications. We'll start by looking at applications that are live now and then look at those on the horizon.
+Existem muitas aplicações para ZKPs. De modo geral, ainda estamos nos estágios iniciais. Grande parte do foco está nos protocolos fundamentais e na infraestrutura, além das aplicações específicas para blockchain. Para aproveitar melhor os exemplos voltados a blockchain, é útil ter alguma noção de como funcionam blockchains públicas e os desafios envolvidos — mas isso não é obrigatório. Nesta seção, vamos explorar algumas das aplicações mais interessantes, começando pelas que já estão ativas e depois olhando para as que estão no horizonte.
 
-> The future is already here. It's just not evenly distributed yet.
+> O futuro já está aqui. Só não está uniformemente distribuído ainda.
 >
 > - William Gibson [^38]
 
-![ZKP Magic](../assets/01_zkp-magic.png 'ZKP Magic')
+![Magia do ZKP](../assets/01_zkp-magic.png 'Magia do ZKP')
 
-### Live now
+### Já ativas
 
-**Electronic cash**. To make a cash-like payments systems online it needs to be fungible and private like physical cash. Fungibility refers to the property of a commodity being replaceable by another identical item. That is, there's no difference between your money and my money; they are equally valid forms of payment. We can use ZK to make the transaction graph private, unlike in Bitcoin or Ethereum. This way, your transaction history remains private, ensuring that electronic cash is fungible. This is currently live in systems like Zcash, and related systems like Tornado Cash [^39].
+**Dinheiro eletrônico.** Para criar um sistema de pagamento online semelhante ao dinheiro em espécie, ele precisa ser fungível e privado como o dinheiro físico. Fungibilidade significa que um item pode ser trocado por outro idêntico — ou seja, não há diferença entre o meu dinheiro e o seu. Com ZK, podemos tornar o grafo de transações privado, diferente do que acontece no Bitcoin ou Ethereum. Assim, seu histórico de transações permanece privado, garantindo a fungibilidade do dinheiro eletrônico. Isso já está ativo em sistemas como o Zcash e similares como o Tornado Cash [^39].
 
-**Anonymous signaling.** Often, we might need to prove our affiliation with a group that possesses certain characteristics, without revealing our identities. One such example is proving that you are part of some group of people; another is voting. This means you don't tie your identity to sensitive actions such as which party you voted for, or reveal other unnecessary information. Currently live in systems like Semaphore [^40], and similar mechanisms with many variations exist.
+**Sinalização anônima.** Frequentemente, precisamos provar que pertencemos a um grupo com certas características — sem revelar nossa identidade. Um exemplo é provar que você faz parte de um determinado grupo de pessoas; outro é votar. Isso permite que você não associe sua identidade a ações sensíveis, como em quem votou, e evita expor informações desnecessárias. Essa funcionalidade já está ativa em sistemas como o Semaphore [^40], com diversas variações semelhantes.
 
-**ZK Rollup.** Allow for more, cheaper and faster transactions. The Ethereum blockchain space is limited and expensive with a lot of demand. We use a so-called Layer 2 (L2) rollup, that does transactions separate from the main blockchain (L1). Once a certain number of transactions have hit the L2, it "rolls it up" to the L1. ZKPs are great for this because we can (i) prove that transactions are executed correctly and (ii) create a succinct proof that takes up a small amount of space on the L1. This makes transactions cheaper and faster for users, with near-equal security. Due to the complexity of proving the execution of the entire Ethereum Virtual Machine (EVM) many ZK Rollup solutions only focus on the exchange of simple commodities and assets. Currently live in systems like Loopring, zkSync Lite, dYdX, and Starknet. [^41]
+**ZK Rollup.** Permite transações mais rápidas, baratas e em maior volume. O espaço da blockchain da Ethereum é limitado, caro e muito disputado. Com o uso de um rollup de segunda camada (Layer 2 ou L2), as transações ocorrem fora da blockchain principal (L1). Quando acumula um número suficiente de transações, a L2 as “comprime” e envia para a L1. ZKPs são ideais para isso, pois (i) provam que as transações foram executadas corretamente e (ii) geram uma prova sucinta que ocupa pouco espaço na L1. Isso barateia e acelera as transações, mantendo segurança quase igual à da L1. Devido à complexidade de provar a execução completa da Ethereum Virtual Machine (EVM), muitas soluções de ZK Rollup se limitam à troca de ativos e mercadorias simples. Hoje, estão ativos projetos como Loopring, zkSync Lite, dYdX e Starknet. [^41]
 
-**ZK-EVM.** Similar to ZK Rollup, but universal, since any type of transaction or program can be executed. Ethereum has an EVM that acts as a worldwide globally shared, general purpose computer (that anyone can write to). By writing the logic of this machine using ZKPs we can prove the correct execution of any program written on Ethereum and construct a succinct proof that it was executed correctly. This has several use cases, but most immediately for scaling and allowing for cheaper and faster transactions. Currently live in systems like Polygon zkEVM, zkSync Era, with several others on their way. [^42]
+**ZK-EVM.** Semelhante ao ZK Rollup, mas universal, pois permite executar qualquer tipo de transação ou programa. A Ethereum possui uma EVM que funciona como um computador global de uso geral e compartilhado (que qualquer um pode programar). Ao descrever a lógica dessa máquina com ZKPs, conseguimos provar que qualquer programa executado na Ethereum foi corretamente executado, com uma prova sucinta. Isso habilita muitos casos de uso, especialmente para escalar a rede e reduzir o custo e tempo das transações. Atualmente, está disponível em sistemas como Polygon zkEVM e zkSync Era, com vários outros a caminho. [^42]
 
-**ZK-VM.** Partially due to the complexity of targeting a "snark-unfriendly" [^43] platform like the EVM, many projects have chosen to do a new blockchain, separate from Ethereum. This means they can optimize the VM to work better with ZK in the first place. Depending on the specific system, this allows for privacy and succinct verification of the blockchain state. Mina is live, and systems like Aleo are under active development. [^44]
+**ZK-VM.** Por conta da complexidade de adaptar uma plataforma "SNARKs-unfriendly" [^43] como a EVM, muitos projetos preferem criar novas blockchains, separadas da Ethereum. Assim, podem otimizar a máquina virtual desde o início para funcionar melhor com ZK. Dependendo do sistema, isso permite mais privacidade e verificação sucinta do estado da blockchain. O Mina já está ativo, e projetos como o Aleo estão em desenvolvimento ativo. [^44]
 
-**Dark Forest**. Dark Forest is an incomplete information real-time-strategy game. Incomplete information games based on ZK have a "cryptographic fog of war" where players can only see part of the world, as enforced by ZK. Compared to traditional games like Starcraft, not even a central server has access to all the information. Due to its programmatic nature this enables novel ways of playing a game. [^45]
+**Dark Forest.** Dark Forest é um jogo de estratégia em tempo real com informação incompleta. Jogos com informação incompleta baseados em ZK usam uma "névoa de guerra criptográfica", onde os jogadores só podem ver parte do mundo — garantido por ZK. Diferente de jogos como Starcraft, nem mesmo o servidor central tem acesso a tudo. Isso possibilita formas novas e programáveis de jogar. [^45]
 
-**ZK Bridges**. Bridges allow you to move assets between different blockchains and systems. These bridges can be hard to make secure, and they often get hacked. With ZK, we can bridge assets more securely and faster, without relying on trusted third parties or error-prone approaches. Currently live with zkBridge and also being worked on by projects such as Succinct Labs. [^46]
+**ZK Bridges.** Bridges permitem mover ativos entre blockchains e sistemas diferentes. Mas são difíceis de tornar seguras e frequentemente sofrem ataques. Com ZK, podemos criar bridges mais rápidas e seguras, sem depender de terceiros confiáveis nem soluções frágeis. Já existem implementações como o zkBridge, e projetos como o Succinct Labs também estão trabalhando nisso. [^46]
 
-**Private identity**. As more siloed systems require and host our online identities [^47], it is desirable for individuals to be able to own, aggregate and keep these fragmented online identities private. Currently live projects like Sismo enable this, and other projects are working on similar systems. [^48]
+**Identidade privada.** À medida que mais sistemas isolados exigem e armazenam nossas identidades online [^47], é desejável que os indivíduos possam controlar, agregar e manter essas identidades fragmentadas em sigilo. Projetos como o Sismo já permitem isso, e outros estão desenvolvendo soluções semelhantes. [^48]
 
-These are just a few examples and by no means complete. We didn't talk about things like private non-repudiable reputation, exporting web2 reputation, sybil-resistant denial-of-service protection, coercion-resistant proving, proof of replication, anonymous airdrops, proving degrees of separation, etc. [^49]
+Esses são apenas alguns exemplos — há muitos outros. Não mencionamos coisas como reputação privada com não-repúdio, exportar reputação da web2, proteção contra ataques sybil em negação de serviço (denial-of-service), provas resistentes à coerção, prova de replicação, airdrops anônimos, provas de graus de separação, etc. [^49]
 
 ### On the horizon
 
