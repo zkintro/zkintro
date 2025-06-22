@@ -258,36 +258,36 @@ Em termos de desempenho, os ZKPs estão passando por uma espécie de Lei de Moor
 
 ![Lei de Moore](../assets/01_moores-law.png "Lei de Moore")
 
-## How does it work?
+## Como funciona?
 
-_This section explains how Zero Knowledge Proofs work at a high level_
+_Esta seção explica como funcionam as Zero Knowledge Proofs em um nível conceitual_
 
-This section provides a high-level overview of how ZKPs work. It will not include any mathematics or code.
+Esta seção oferece uma visão geral de alto nível sobre como os ZKPs funcionam. Não haverá matemática nem código.
 
-### Basics
+### Conceitos básicos
 
-We start by introducing some terminology. There'll be a few new terms to learn, but as we go along, you'll get the hang of it.
+Vamos começar apresentando algumas terminologias. Haverá alguns termos novos para aprender, mas com o tempo você vai se acostumar.
 
-- **Protocol**: system of rules that explain the correct conduct to be followed
-- **Proof**: argument establishing the truth of a statement
-- **Prover**: someone who proves or demonstrates something
-- **Verifier**: someone who vouches for the correctness of a statement
-- **Private input**: Input that only the prover can see, often called **witness**
-- **Public input**: Input that both prover and verifier can see, often called **instance**
+- **Protocolo**: conjunto de regras que define a conduta correta a ser seguida
+- **Prova (proof)**: argumento que estabelece a veracidade de uma declaração
+- **Provador (prover)**: quem demonstra ou comprova algo
+- **Verificador (verifier)**: quem confirma a veracidade de uma declaração
+- **Entrada privada**: dado que apenas o provador pode ver, geralmente chamado de **testemunha (witness)**
+- **Entrada pública**: dado visível tanto para o provador quanto para o verificador, geralmente chamado de **instância**
 
-While it is useful to learn the terminology used in the field, some metaphors can be helpful in getting a better sense of what's going on. We'll introduce more terms as we go.
+Embora seja útil conhecer a terminologia da área, algumas metáforas ajudam a entender melhor o que está acontecendo. Vamos apresentar mais termos ao longo do caminho.
 
-Protocols exist everywhere and can be implicit or explicit. In the game of chess, the protocol is that you have two players who take turns to play a move according to the rules of the game until the game ends, and one person wins, or there is a draw. In theory, the time it takes to make a move doesn't matter, but in practice, we try to minimize the communication costs between the two parties interacting. We can thus think of it as a really fast game of chess.
+Protocolos estão por toda parte e podem ser implícitos ou explícitos. No jogo de xadrez, o protocolo é que dois jogadores alternam jogadas seguindo as regras até o jogo acabar com vitória de um ou empate. Em teoria, o tempo de cada jogada não importa, mas na prática tentamos minimizar os custos de comunicação entre os dois lados. Podemos pensar nisso como um jogo de xadrez jogado em alta velocidade.
 
-We can think of Sherlock Holmes as the prover, and in his final statement he produces an elegant series of arguments, a proof, that someone is the murderer. This must then be verified by a verifier to be true, for example by a judge or jury, _beyond a reasonable doubt_ [^27]. The 'prover' refers to an entity, here Holmes, producing the proof, which must then be verified. Because the proof is self-contained, anyone can be a verifier, including you as the reader, who must be convinced of the reasoning provided to make the story believable. [^28]
+Podemos imaginar Sherlock Holmes como o provador e, em sua declaração final, ele apresenta uma série de argumentos elegantes — uma prova de que alguém é o assassino. Essa prova precisa ser verificada por um verificador, como um juiz ou júri, _além de qualquer dúvida razoável_ [^27]. O termo "provador" refere-se à entidade — aqui, Holmes — que constrói a prova, que então será verificada. Como a prova é autocontida, qualquer pessoa pode ser um verificador — inclusive você, leitor, que deve se convencer do raciocínio para que a história faça sentido [^28].
 
-The private input would be some knowledge that only Sherlock Holmes knows, for example some secret information someone whispered in his ears. This is often confusingly called witness, presumably because a witness in a courtroom has some private information, and this is added to the pile of evidence. In the case of ZKPs, this private information would not be shared with the verifier, or judge and jury in this example.
+A entrada privada seria algum conhecimento que só Sherlock Holmes possui — por exemplo, uma informação secreta que alguém sussurrou para ele. Esse dado é chamado de testemunha, provavelmente em referência à testemunha em um tribunal, que possui informações privadas que se somam às evidências. No caso dos ZKPs, essa informação privada não seria compartilhada com o verificador — ou seja, o juiz e o júri, neste exemplo.
 
-ZKPs establish a _protocol_ between a _prover_ and a _verifier_. This protocol is _non-interactive_ if the prover and verifier don't have to interact or communicate directly, like in a game of chess or in a dance. Instead, the prover produces a single self-contained proof, and at some later point, this gets verified. Most ZKPs start off as _interactive_ - that is, requiring multiple back and forths - and we then use some mathematical tricks to make it non-interactive [^29]. You can think of non-interactivity kind of as two chess players who, after uttering a few words, know every single move the other player will play, so they don't even start the game because they already know how it will end.
+ZKPs estabelecem um _protocolo_ entre um _provador_ e um _verificador_. Esse protocolo é _não interativo_ quando o provador e o verificador não precisam se comunicar diretamente — como em um jogo de xadrez ou numa dança coreografada. Em vez disso, o provador gera uma única prova autônoma, que será verificada mais tarde. A maioria dos ZKPs começa como _interativa_ — ou seja, requer múltiplas trocas entre as partes — e depois usamos truques matemáticos para torná-los não interativos [^29]. Você pode pensar na não interatividade como dois jogadores de xadrez que, após trocar poucas palavras, já sabem todos os movimentos um do outro, e por isso nem precisam jogar, pois já sabem como o jogo termina.
 
-There are many types of ZKPs. We often talk about *zk-SNARK*s, which stands for Zero Knowledge Succinct Non-Interactive ARguments of Knowledge. Zero Knowledge and Succinctness correspond to privacy and compression above, respectively. Non-interactive was mentioned. "ARguments of knowledge" is basically the same thing as a proof [^30]. There are many different types of zk-SNARKs too.
+Existem vários tipos de ZKPs. Frequentemente falamos sobre *zk-SNARKs*, que significa *Zero Knowledge Succinct Non-Interactive ARguments of Knowledge*. "Zero Knowledge" e "Succinct" correspondem, respectivamente, à privacidade e à compressão mencionadas anteriormente. Já falamos sobre a não interatividade. "ARguments of knowledge" é basicamente a mesma coisa que uma prova [^30]. Também existem diferentes tipos de zk-SNARKs.
 
-A good mental model is to think of ZKPs as a zoo. There are a lot of animals there, and we can categorize them in various ways: these animals have four legs, these have stripes, Bob brought these in last year [^31], etc. Some categories are more useful than others. In fact, some of these systems don't even have Zero Knowledge! These are usually called just SNARKs. As a community, we often call this zoo of different animals ZK, even if there are many systems that don't actually use the Zero Knowledge property. [^32]
+Um bom modelo mental é imaginar os ZKPs como um zoológico. Há muitos animais por lá, e podemos classificá-los de várias formas: esses animais têm quatro patas, aqueles têm listras, o Bob trouxe estes no ano passado [^31], etc. Algumas categorias são mais úteis que outras. Na verdade, alguns desses sistemas nem possuem a propriedade de *Zero Knowledge*! Esses geralmente são chamados apenas de SNARKs. Como comunidade, muitas vezes chamamos esse zoológico de sistemas diferentes simplesmente de ZK — mesmo que vários deles não utilizem, de fato, a propriedade de conhecimento zero [^32].
 
 ### Protocol
 
