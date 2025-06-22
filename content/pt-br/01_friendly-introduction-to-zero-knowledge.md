@@ -289,39 +289,39 @@ Existem vários tipos de ZKPs. Frequentemente falamos sobre *zk-SNARKs*, que sig
 
 Um bom modelo mental é imaginar os ZKPs como um zoológico. Há muitos animais por lá, e podemos classificá-los de várias formas: esses animais têm quatro patas, aqueles têm listras, o Bob trouxe estes no ano passado [^31], etc. Algumas categorias são mais úteis que outras. Na verdade, alguns desses sistemas nem possuem a propriedade de *Zero Knowledge*! Esses geralmente são chamados apenas de SNARKs. Como comunidade, muitas vezes chamamos esse zoológico de sistemas diferentes simplesmente de ZK — mesmo que vários deles não utilizem, de fato, a propriedade de conhecimento zero [^32].
 
-### Protocol
+### Protocolo
 
-Going back to our protocol, we have a prover and verifier. The prover creates a proof using a _prover key_, private input and public input. The verifier verifies the proof using a _verification key_ and public input, and outputs true or false.
+Voltando ao nosso protocolo, temos um provador e um verificador. O provador cria uma prova usando uma _chave do provador (prover key)_, uma entrada privada e uma entrada pública. O verificador verifica a prova usando uma _chave de verificação (verifier key)_ e a entrada pública, e retorna verdadeiro ou falso.
 
-We have two new things, a prover key and a verifier key. This is what allows the prover and verifier to do their magic. You can think of them as a regular key that allows you to enter somewhere and do something, or you can think of them as a magic wand that allows you to do something. We get these keys from a special ceremony called a _setup_, which is an initial preparation phase that we won't go into detail about in this article [^33].
+Temos dois elementos novos: a chave do provador e a chave de verificação (ou chave do verificador). Elas são o que permite ao provador e ao verificador fazerem sua mágica. Você pode pensar nelas como uma chave comum que te permite entrar em algum lugar e realizar uma ação — ou como uma varinha mágica. Obtemos essas chaves a partir de uma cerimônia especial chamada _setup (configuração confiável)_, que é uma fase inicial de preparação que não será detalhada neste artigo [^33].
 
-Notice that only the prover has access to the private input. How does the prover use the prover key, private input and public input to turn it into a proof?
+Repare que apenas o provador tem acesso à entrada privada. Como ele usa a chave do provador, a entrada privada e a entrada pública para gerar uma prova?
 
-Recall the illustration of a ZKP from before:
+Relembre a ilustração de um ZKP que vimos anteriormente:
 
 ![ZKP](../assets/01_graphviz-zkp.png 'ZKP')
 
-We have a special program (formally known as a _circuit_) that encodes the logic a user cares about. For example, proving that they know the data that results in a certain hash value. Unlike a normal computer program, this program is made up of _constraints_ [^34]. We are proving that all the constraints hold together with the private and public input.
+Temos um programa especial (formalmente chamado de _circuito_) que codifica a lógica de interesse do usuário. Por exemplo, provar que ele conhece os dados que geram um determinado valor de hash. Diferente de um programa comum, esse é composto por _restrições (constraints)_ [^34]. A prova mostra que todas essas restrições são satisfeitas com as entradas pública e privada.
 
-Finally, the verifier takes this short proof, combines it with the verification key, public input and the special program with all the constraints and convinces itself beyond a reasonable doubt that the proof is correct and outputs "true". If it isn't correct it'll output "false".
+Por fim, o verificador pega essa prova compacta, combina com a chave de verificação, a entrada pública e o programa especial com todas as restrições, e se convence, além de qualquer dúvida razoável, de que a prova está correta e retorna “verdadeiro”. Caso contrário, retorna “falso”.
 
-This is a somewhat simplified view but it captures the essence of what is going on.
+Essa é uma visão um pouco simplificada, mas captura a essência do que está acontecendo.
 
-### Constraints
+### Restrições
 
-What are these constraints that make up the special program above? A constraint is a limitation or restriction. For example, "a number between 1 and 9" is a constraint. The number 7 satisfies this constraint, and the number 11 doesn't. How do we write a program as a set of constraints? This is an art on its own, but let's start by looking at a simple example: Sudoku.
+O que são essas restrições que compõem o programa especial? Uma _restrição (constraint)_ é uma limitação ou condição. Por exemplo, "um número entre 1 e 9" é uma restrição. O número 7 satisfaz essa restrição, enquanto o número 11 não. Como transformamos um programa em um conjunto de restrições? Isso é uma arte por si só, mas vamos começar com um exemplo simples: Sudoku.
 
-In the game of Sudoku the goal is to find a solution to a board that satisfies some constraints. Each row should include the numbers 1 to 9 but only once. The same goes for each column and each 3x3 subsquare. We are given some initial starting position, and then our job is to fill in the rest in a way that satisfies all these constraints. The tricky part is finding numbers that satisfy all the constraints at once.
+No jogo de Sudoku, o objetivo é encontrar uma solução para o tabuleiro que satisfaça determinadas restrições. Cada linha deve conter os números de 1 a 9, mas apenas uma vez. O mesmo vale para cada coluna e cada subgrade 3x3. Recebemos uma configuração inicial, e o desafio é preencher o restante de forma que todas essas restrições sejam respeitadas. O difícil é encontrar números que satisfaçam todas as restrições ao mesmo tempo.
 
-![Sudoku](../assets/01_sudoku.png 'Sudoku puzzler')
+![Sudoku](../assets/01_sudoku.png 'Desafio de Sudoku')
 
-With ZKPs, a prover can construct a proof that they know the solution to a certain puzzle. In this case, the proving consists of using some public input, the initial board position, and some private input, their solution to the puzzle, and a circuit. The circuit consists of all the constraints that express the puzzle.
+Com ZKPs, o provador pode construir uma prova de que conhece a solução de um determinado quebra-cabeça. Nesse caso, a prova é construída usando uma entrada pública — a configuração inicial do tabuleiro — e uma entrada privada — a solução do quebra-cabeça — além de um circuito. Esse circuito é composto por todas as restrições que definem o quebra-cabeça.
 
-It is called a circuit because these constraints are related to each other, and we wire these constraints together, kind of like an electric circuit. In this case the circuit isn't dealing with current, but with values. For example, we can't stick any value like "banana" in our row constraint, it has to be a number, and the number has to be between 1 and 9, and so on.
+Chamamos isso de circuito porque as restrições se conectam entre si, como os componentes de um circuito elétrico. Mas nesse caso o circuito não conduz corrente elétrica, e sim valores. Por exemplo, não podemos inserir algo como "banana" numa restrição de linha — o valor precisa ser numérico e estar entre 1 e 9, entre outras condições.
 
-The verifier has the same circuit and public input, and can verify the proof the prover sent them. Assuming the proof is valid, the verifier is convinced that the prover has a solution to that specific puzzle.
+O verificador recebe o mesmo circuito e a entrada pública, e consegue verificar a prova enviada pelo provador. Se a prova for válida, o verificador se convence de que o provador possui uma solução para aquele quebra-cabeça específico.
 
-It turns out that a lot of problems can be expressed as a set of constraints. In fact, any problem we can solve with a computer can be expressed as a set of constraints.
+Acontece que muitos problemas podem ser expressos como um conjunto de restrições. Na verdade, qualquer problema que possamos resolver com um computador pode ser representado dessa forma.
 
 ### Sudoku example
 
