@@ -311,7 +311,7 @@ Essa é uma visão um pouco simplificada, mas captura a essência do que está a
 
 O que são essas restrições que compõem o programa especial? Uma _restrição (constraint)_ é uma limitação ou condição. Por exemplo, "um número entre 1 e 9" é uma restrição. O número 7 satisfaz essa restrição, enquanto o número 11 não. Como transformamos um programa em um conjunto de restrições? Isso é uma arte por si só, mas vamos começar com um exemplo simples: Sudoku.
 
-No jogo de Sudoku, o objetivo é encontrar uma solução para o tabuleiro que satisfaça determinadas restrições. Cada linha deve conter os números de 1 a 9, mas apenas uma vez. O mesmo vale para cada coluna e cada subgrade 3x3. Recebemos uma configuração inicial, e o desafio é preencher o restante de forma que todas essas restrições sejam respeitadas. O difícil é encontrar números que satisfaçam todas as restrições ao mesmo tempo.
+No jogo de Sudoku, o objetivo é encontrar uma solução para o tabuleiro que satisfaça determinadas restrições. Cada linha deve conter os números de 1 a 9, mas apenas uma vez. O mesmo vale para cada coluna e cada subquadrado 3x3. Recebemos uma configuração inicial, e o desafio é preencher o restante de forma que todas essas restrições sejam respeitadas. O difícil é encontrar números que satisfaçam todas as restrições ao mesmo tempo.
 
 ![Sudoku](../assets/01_sudoku.png 'Desafio de Sudoku')
 
@@ -323,62 +323,62 @@ O verificador recebe o mesmo circuito e a entrada pública, e consegue verificar
 
 Acontece que muitos problemas podem ser expressos como um conjunto de restrições. Na verdade, qualquer problema que possamos resolver com um computador pode ser representado dessa forma.
 
-### Sudoku example
+### Exemplo do Sudoku
 
-Let's apply what we learned about the various parts of a ZKP to the Sudoku example above.
+Vamos aplicar o que aprendemos sobre as diferentes partes de um ZKP ao exemplo do Sudoku acima.
 
-For Sudoku, our special program, the circuit, takes two inputs:
+No caso do Sudoku, nosso programa especial — o circuito — recebe duas entradas:
 
-- A Sudoku puzzle as public input
-- A solution to a Sudoku puzzle as private input
+- Um tabuleiro de Sudoku como entrada pública
+- Uma solução para o Sudoku como entrada privada
 
-The circuit is made up of a set of constraints. All of these constraints have to be true. The constraints look like this:
+O circuito é composto por um conjunto de restrições. Todas essas restrições devem ser verdadeiras. Elas são, por exemplo:
 
-- All digits in the puzzle and solution have to be between 1 and 9
-- The solution has to be equal to the puzzle in all the places where digits are already placed
-- All rows must contain digits 1 through 9 exactly once
-- All columns must contain digits 1 through 9 exactly once
-- All subsquares must contain digits 1 through 9 exactly once
+- Todos os dígitos no tabuleiro e na solução devem estar entre 1 e 9
+- A solução deve manter os mesmos dígitos do tabuleiro nos locais onde eles já estão preenchidos
+- Todas as linhas devem conter os dígitos de 1 a 9 exatamente uma vez
+- Todas as colunas devem conter os dígitos de 1 a 9 exatamente uma vez
+- Todos os subquadrados 3x3 devem conter os dígitos de 1 a 9 exatamente uma vez
 
-If all of these constraints are true for a puzzle and its solution, we know that it is a valid solution.
+Se todas essas restrições forem verdadeiras para um tabuleiro e sua solução, sabemos que a solução é válida.
 
-A prover Peggy uses her magic prover key, the puzzle and the solution, combines it with the special program and creates a proof. The proof is very short, less than 1000 characters. The proof is self-contained and with it the verifier has all information they need to verify the proof. You can think of it as a magic spell that does what you want, without you having to understand the details of it [^35].
+A provadora Peggy usa sua chave mágica de provador (prover key), o tabuleiro e a solução, combina isso com o programa especial e cria uma prova. A prova é bem curta, com menos de 1000 caracteres. Ela é autocontida e fornece ao verificador todas as informações necessárias para validá-la. Você pode pensar nisso como um feitiço mágico que faz o que você quer — sem precisar entender os detalhes [^35].
 
-Here's a spell from a book of magic spells, written by a Welsh physician in the 19th century:
+Aqui está um feitiço de um livro de magia, escrito por um médico galês no século XIX:
 
-![Magic spell](../assets/01_magic-spell.png 'Magic Spells')
+![Feitiço mágico](../assets/01_magic-spell.png 'Feitiços mágicos')
 
-Here's an example of a Zero Knowledge Proof produced by the Circom/snarkjs library:
+Aqui está um exemplo de uma prova de conhecimento zero (Zero Knowledge Proof) gerada pela biblioteca Circom/snarkjs:
 
-![Circom proof](../assets/01_circom-proof.png 'Circom proof')
+![Prova Circom](../assets/01_circom-proof.png 'Prova Circom')
 
-Except in this case, the magic actually works.
+Exceto que, nesse caso, a mágica realmente funciona.
 
-Victor the verifier uses his verifier key, the original puzzle input, and verifies that the proof Peggy sent is indeed correct. If it is, the output is "true", and if it isn't, the output is "false". The spell either works or it doesn't. With this, Victor is convinced that Peggy knows a solution to that specific puzzle, without actually having seen the solution. Et voilà. [^36]
+Victor, o verificador, usa sua chave de verificação, a entrada pública (o tabuleiro original) e valida se a prova enviada por Peggy está correta. Se estiver, o resultado será "verdadeiro"; se não estiver, será "falso". O feitiço funciona — ou não. Com isso, Victor se convence de que Peggy conhece a solução para aquele quebra-cabeça específico, sem nunca ter visto a solução. Et voilà. [^36]
 
-### Some properties
+### Algumas propriedades
 
-We say that a ZKP has certain technical properties:
+Dizemos que um ZKP possui certas propriedades técnicas:
 
-- Completeness - if the statement is true, then the verifier will be convinced by the proof
-- Soundness - if the statement is false, the verifier won't be convinced by the proof, except with a negligible probability
-- Zero Knowledge - if the statement is true, it won't reveal anything but the fact that it is true
+- **Completude** — se a declaração for verdadeira, o verificador será convencido pela prova
+- **Solidez** — se a declaração for falsa, o verificador não será convencido pela prova, exceto com uma probabilidade desprezível
+- **Conhecimento zero** — se a declaração for verdadeira, nada além desse fato é revelado
 
-Additionally, for zk-SNARKs, the proof is succinct, meaning it basically doesn't get bigger as the program gets more complex [^37].
+Além disso, nos zk-SNARKs, a prova é *succinct*, ou seja, ela praticamente não cresce mesmo que o programa fique mais complexo [^37].
 
-There are many other properties we care about when it comes to practical ZKPs:
+Há várias outras propriedades importantes quando falamos de ZKPs aplicáveis na prática:
 
-- What mathematical assumptions is the system making?
-- How secure is it?
-- Does it require a trusted setup?
-- How hard is it to generate the proof? In time and other resources
-- How hard is it to verify the proof? In time and other resources
-- Does the ZKP system allow for aggregating and combining multiple proofs together?
-- Are there any good libraries for a ZKP system that can be used by programmers?
-- How expressive is the language used to write programs for a particular ZKP system?
-- And so on
+- Quais suposições matemáticas o sistema está fazendo?
+- Quão seguro ele é?
+- Ele exige uma configuração confiável (trusted setup)?
+- Quão difícil é gerar a prova? Em tempo e outros recursos
+- Quão difícil é verificar a prova? Em tempo e outros recursos
+- O sistema de ZKP permite agregar e combinar múltiplas provas?
+- Existem boas bibliotecas desse sistema de ZKP para uso por programadores?
+- Quão expressiva é a linguagem usada para escrever programas nesse sistema de ZKP?
+- E assim por diante
 
-As you can see, there are quite a lot of considerations and different variations of ZKPs. Don't worry though, the gist is basically the same, and depending on where your interest lies you can remain blissfully unaware of many of the technical details involved. Going back to the zoo metaphor, just like with animals, you might not want to become a biologist. Instead, you might want to work with some animals, or maybe you just want a pet, or even just pet your friend's dog.
+Como você pode ver, há muitas variações e considerações possíveis nos ZKPs. Mas não se preocupe: o essencial continua o mesmo, e dependendo do seu interesse, você pode ignorar boa parte dos detalhes técnicos sem problemas. Voltando à metáfora do zoológico: assim como com os animais, talvez você não queira virar biólogo. Talvez queira trabalhar com alguns bichos, ter um de estimação — ou apenas fazer carinho no cachorro de um amigo.
 
 ## Applications
 
