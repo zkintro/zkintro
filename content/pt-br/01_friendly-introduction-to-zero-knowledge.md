@@ -450,33 +450,33 @@ Fora da realidade e ousado? Com certeza. Vai acontecer? Talvez não. Mas poderia
 
 ZKPs representam uma ferramenta nova e extremamente poderosa. Muitas vezes, é nossa imaginação sobre como aplicá-la que nos limita.
 
-## Conclusion
+## Conclusão
 
-_This section summarizes the article and provides next steps_
+_Esta seção resume o artigo e aponta os próximos passos_
 
-In this article, we've looked at what ZKPs are, why we should care about them and when they are useful. We've also looked at how they work and what properties they give us. Finally, we looked at some applications, both current and future ones.
+Neste artigo, vimos o que são os ZKPs（Zero-Knowledge Proofs）, por que eles são importantes e em quais situações são úteis. Também exploramos como funcionam e quais propriedades oferecem. Por fim, analisamos algumas aplicações atuais e futuras.
 
-I hope this has led you to better understand the nature of ZKPs, and perhaps led to some aha moments and inspired some new ways of thinking about things. Perhaps it even helps you follow the magic of ZKPs in the future.
+Espero que isso tenha te ajudado a compreender melhor a natureza dos ZKPs, talvez até provocado alguns momentos “eureka” e inspirado novas formas de pensar sobre certos problemas. Quem sabe, até te ajude a acompanhar a mágica dos ZKPs daqui pra frente.
 
-In future posts, we'll go even deeper into some of these aspects, and we'll also look at more technical aspects to better understand how ZKPs work and where they can be used.
+Nos próximos artigos, vamos aprofundar ainda mais alguns desses pontos e abordar aspectos mais técnicos para entender melhor como os ZKPs funcionam e onde podem ser aplicados.
 
-If something specific piqued your interest, or there is something specific you'd like to see in future articles, feel free to contact me on Twitter or by email. I'll include the best comments as footnotes!
+Se algo específico despertou seu interesse, ou se você gostaria de ver algum tema em particular nos próximos artigos, fique à vontade para me contatar pelo Twitter ou por e-mail. Os melhores comentários serão incluídos como notas de rodapé!
 
-## Acknowledgements
+## Agradecimentos
 
-Thanks to Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren and Eve Ko for reading drafts and providing feedback on this.
+Obrigado a Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren e Eve Ko por lerem os rascunhos e oferecerem feedbacks valiosos.
 
-### Images
+### Imagens
 
-- _Where's Waldo_ - Unknown source, Where's Waldo originally created by [Martin Handford](https://en.wikipedia.org/wiki/Where%27s_Wally%3F)
-- _Silent Reading_ - Jorge Royan, CC BY-SA 3.0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Austria_-_Heiligenkreuz_Abbey_-_1726.jpg)
-- _Sherlock Holmes_ - Sidney Paget, Public domain, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Strand_paget.jpg)
-- _Moon landing_ - Neil A. Armstrong, Public domain, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aldrin_Apollo_11.jpg)
-- _Pascal's Calculator_ - kitmasterbloke, CC-BY 2.0, via [Openverse](https://openverse.org/image/0feadae2-6b51-4dc7-8838-18c157f7f0ce)
-- _Moore's law_ - Max Roser, Hannah Ritchie, CC-BY 4.0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png)
-- _Sudoku puzzle_ - Tim Stellmach, CC0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg)
-- _Magic spell_ - National Library of Wales, CC0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Book_of_incantations_f.7v.png)
-- _Cyberpunk_ - bloodlessbaron, Public Domain, via [Openverse](https://openverse.org/image/3d3d3cd9-7df6-4781-9778-cdb1e1738de1)
+- _Where's Waldo_ - Fonte desconhecida, Where's Waldo criado originalmente por [Martin Handford](https://en.wikipedia.org/wiki/Where%27s_Wally%3F)
+- _Leitura silenciosa_ - Jorge Royan, CC BY-SA 3.0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Austria_-_Heiligenkreuz_Abbey_-_1726.jpg)  
+- _Sherlock Holmes_ - Sidney Paget, Domínio público, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Strand_paget.jpg)  
+- _Pouso na Lua_ - Neil A. Armstrong, Domínio público, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aldrin_Apollo_11.jpg)  
+- _Calculadora de Pascal_ - kitmasterbloke, CC-BY 2.0, via [Openverse](https://openverse.org/image/0feadae2-6b51-4dc7-8838-18c157f7f0ce)  
+- _Lei de Moore_ - Max Roser, Hannah Ritchie, CC-BY 4.0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png)  
+- _Desafio de Sudoku_ - Tim Stellmach, CC0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg)  
+- _Feitiço mágico_ - Biblioteca Nacional do País de Gales, CC0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Book_of_incantations_f.7v.png)  
+- _Cyberpunk_ - bloodlessbaron, Domínio público, via [Openverse](https://openverse.org/image/3d3d3cd9-7df6-4781-9778-cdb1e1738de1)
 
 ## References
 
