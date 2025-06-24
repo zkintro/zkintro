@@ -851,6 +851,8 @@ Sometimes quasi-linear, e.g. $O(n \log n)$, is accepted as being "succinct enoug
 
 **Non-interactive** - It is enough for Prover to send $\pi$ to Verifier to convince them, the Verifier can verify proof with $x$ and $\pi$. [^42]
 
+## References
+
 [^1]: STEM graduate means someone who studied Science, Technology, Engineering or Mathematics at a University or equivalent.
 [^2]: For example by using a search engine, LLM (Large Language Model, e.g. using AI tools such as ChatGPT), or a friend. For example, you could ask a LLM to ELI5 (Explain Like I'm Five) a specific concept.
 [^3]: Credit to Aayush Gupta for the idea of using ZKBoo to explain ZKPs, based on his [previous experience (video)](https://www.youtube.com/watch?v=CGWjjEiLN9w). You can also read the [original paper](https://eprint.iacr.org/2016/163.pdf), though it is a bit difficult to penetrate. Geometry Research also has a [post](https://geometry.xyz/notebook/paper-speedrun-zkboo) explaining the protocol, but it requires more background knowledge to understand.
