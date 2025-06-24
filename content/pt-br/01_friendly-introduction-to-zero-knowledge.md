@@ -40,7 +40,7 @@ Deixe-me começar com algumas citações para aguçar sua mente. Algumas podem s
 
 Tecnologia mágica, avanço da civilização, cartas curtas, privacidade e um futuro que já está aqui. Isso é o que são as Provas de Conhecimento Zero (ZKPs) em poucas palavras. O que está acontecendo?
 
-No último século, computadores e a Internet dominaram o mundo. Essas tecnologias estão em toda parte, em tudo o que fazemos, para o bem ou para o mal. Por cima delas, construímos plataformas, empresas, impérios. São coisas como suas MAMAA (Microsoft, Apple, Meta, Alphabet, Amazon). Depois, há o cerne da questão - suas redes de pagamento, serviços governamentais e a infinidade de aplicações B2B que silenciosamente comandam o mundo. Finalmente, há uma longa cauda de outras coisas - seu aplicativo fofo de filtro de imagem, plataforma de aprendizado de idiomas ou comunidade online.
+No último século, computadores e a Internet dominaram o mundo. Essas tecnologias estão em toda parte, em tudo o que fazemos, para o bem ou para o mal. Por cima delas, construímos plataformas, empresas, impérios. São empresas como as MAMAA (Microsoft, Apple, Meta, Alphabet, Amazon). Depois, há o cerne da questão - suas redes de pagamento, serviços governamentais e a infinidade de aplicações B2B que silenciosamente comandam o mundo. Por fim, há uma longa cauda de outras aplicações: seu aplicativo fofo de filtro de imagem, plataforma de aprendizado de idiomas ou comunidade online.
 
 Você espera alcançar um objetivo específico ao inserir dados em mais um serviço online. Pode ser um objetivo pequeno, como falar com um amigo, distrair-se do trabalho, ou algo grande como solicitar uma hipoteca. Mas o que acontece com todos esses dados? Isso inclui os dados que você conhece conscientemente e o iceberg de dados ocultos dos quais você não tem conhecimento. O que você está tentando alcançar realmente acontecerá, ou haverá algum problema, seja imediatamente ou daqui a um ano?
 
@@ -78,14 +78,14 @@ Isso é extremamente poderoso, como veremos a seguir.
 
 _Esta seção explica por que alguém pode se importar com ZKPs, incluindo detalhes sobre privacidade, compressão e a natureza de propósito geral dos ZKPs_
 
-Lendo a seção acima, você pode pensar: "ok, isso é até meio legal, mas por que eu deveria me importar?". Essa é uma perspectiva completamente razoável. Na verdade, você provavelmente não deveria! Assim como você não deveria se importar com como os computadores funcionam, para onde a IA está indo, ou qualquer uma dessas coisas.
+Ao ler a seção acima, você pode pensar: "ok, isso é até interessante, mas por que eu deveria me importar?". Essa é uma perspectiva completamente compreensível. Na verdade, você provavelmente não deveria! Assim como você não deveria se importar com como os computadores funcionam, para onde a IA está indo, ou qualquer uma dessas coisas.
 
 Por que _você poderia se importar_? Porque você é curioso e quer entender como os ZKPs funcionam e que tipo de interações eles desbloqueiam. O mecanismo é muito geral, e a intuição para muitas pessoas que trabalham na área é que se trata fundamentalmente de um novo paradigma que desbloqueia muitas coisas novas. Já estamos vendo isso, e parece que estamos apenas no começo. No restante desta seção, darei a você alguma intuição sobre o porquê e como.
 
 Antes de aprofundar, vamos entender o que os ZKPs nos oferecem em um nível superior. Os ZKPs nos fornecem principalmente uma ou ambas as seguintes propriedades:
 
 1. Privacidade (mais formalmente conhecida como conhecimento zero)
-2. Compressão (mais formalmente conhecida como concisão (_succinctness_))
+2. Compressão (mais formalmente conhecida como concisão - _succinctness_)
 
 O que queremos dizer com essas duas noções? Aqui estão algumas maneiras de pensar sobre essas propriedades.
 
@@ -101,7 +101,7 @@ Privacidade é normal e está ao nosso redor. Ela está intimamente relacionada 
 
 Mais formalmente, a propriedade de privacidade (privacy) em ZKPs é frequentemente chamada de _conhecimento zero (zero-knowledge)_ ou _ocultação de dados_ [^2]. Um ZKP oculta dados que são irrelevantes para o funcionamento de alguma aplicação, e esses dados são então _ligados (bound)_ juntamente com os dados relevantes da aplicação. Essas noções são um pouco mais formais e possibilitam a privacidade. Privacidade é um conceito mais amplo e de aplicação mais geral, então continuaremos focando nele por enquanto.
 
-No mundo digital, também conhecido como ciberespaço, em oposição ao espaço físico, a privacidade também é essencial, mas frequentemente negligenciada. Aqui está a definição de privacidade dada em _A Cypherpunk's Manifesto_:
+No mundo digital - também conhecido como ciberespaço, em oposição ao espaço físico - a privacidade também é essencial, mas frequentemente negligenciada. Aqui está a definição de privacidade dada em _A Cypherpunk's Manifesto_:
 
 > Privacidade é o poder de se revelar seletivamente ao mundo.
 >
@@ -109,7 +109,7 @@ No mundo digital, também conhecido como ciberespaço, em oposição ao espaço 
 
 Conversas, senhas, informações de cartão de crédito. Esses são exemplos de coisas que queremos manter privadas online. A Internet é uma ferramenta fantástica que nos conecta a todos, mas também é um mar aberto e selvagem. Há muitos estranhos e predadores, e manter certas informações privadas é vital. Sem isso, coisas como compras online ou mensagens privadas seriam impossíveis.
 
-Você pode pensar, "Já conseguimos manter coisas como senhas privadas, qual é o grande problema?". Em um sentido limitado, você está correto para esses exemplos específicos. Teremos que usar mais imaginação para realmente entender o que a privacidade programável de propósito geral possibilita.
+Você pode pensar, "Já conseguimos manter senhas privadas, qual é o grande problema?". Em um sentido limitado, você está correto para esses exemplos específicos. Teremos que usar mais imaginação para realmente entender o que a privacidade programável de propósito geral possibilita.
 
 Como um exemplo, considere como Agostinho, em suas _Confissões (400 d.C.)_, achou o ato de "leitura silenciosa" de Santo Ambrósio, um bispo, incomum. Naquela época, a maioria das pessoas lia em voz alta. [^4]
 
@@ -135,9 +135,9 @@ De forma semelhante, concisão (_succinctness_) é definida como:
 
 > o ato de expressar algo de forma clara com poucas palavras
 
-ZKPs com a propriedade de compressão significam que podemos provar que algo é verdadeiro com uma declaração（statement）muito curta. Por exemplo, que todas as etapas de um determinado cálculo foram executadas corretamente. Isso é especialmente útil quando algum recurso está em alta demanda e é caro. É o caso da blockchain da Ethereum, mas essa também é uma propriedade útil em diversos outros contextos. O mais impressionante é que o tamanho dessa prova（proof）permanece o mesmo, não importa o quão complexo seja o que estamos tentando provar!
+ZKPs com a propriedade de compressão significam que podemos provar que algo é verdadeiro com uma declaração (statement) muito curta. Por exemplo, que todas as etapas de um determinado cálculo foram executadas corretamente. Isso é especialmente útil quando algum recurso está em alta demanda e é caro. É o caso da blockchain da Ethereum, mas essa também é uma propriedade útil em diversos outros contextos. O mais impressionante é que o tamanho dessa prova (proof) permanece o mesmo, independentemente da complexidade do que estamos tentando provar!
 
-O que queremos dizer com “prova” e “tamanho da prova”? Esses são conceitos matematicamente bem definidos e cheios de nuances. Em seções futuras, vamos aprofundar essa noção de prova no contexto dos ZKPs. Por enquanto, podemos pensar nisso como uma declaração curta que sabemos que é verdadeira — ou que conseguimos verificar de alguma forma.
+O que queremos dizer com "prova" e "tamanho da prova"? Esses são conceitos matematicamente bem definidos e cheios de nuances. Em seções futuras, vamos aprofundar essa noção de prova no contexto dos ZKPs. Por enquanto, podemos pensar nisso como uma declaração curta que sabemos que é verdadeira — ou que conseguimos verificar de alguma forma.
 
 ![Sherlock Holmes](../assets/01_sherlock-holmes.jpg 'Sherlock Holmes')
 
@@ -145,7 +145,7 @@ Em um típico mistério de assassinato como os de Sherlock Holmes, o detetive re
 
 Mais formalmente, chamamos essa propriedade de concisão (_succinctness_) [^7]. É isso que mantém o tamanho da prova constante, independentemente do que estamos tentando provar. No contexto de blockchains públicas, isso também está ligado à ideia de _escalabilidade_. Em blockchains públicas como a Ethereum, onde o espaço em bloco é limitado e caro, os ZKPs podem tornar as transações muito mais baratas e rápidas. Como? Criamos uma prova de que um conjunto de transações ocorreu e colocamos essa pequena prova na blockchain, em vez de registrar cada transação individualmente. Com ZKPs, isso pode ser feito de forma muito segura.
 
-Concisão é uma propriedade geral e independente de “blockchains” — elas apenas acabam sendo uma boa combinação, por vários motivos. De forma mais ampla, ter uma prova curta de que algo é verdadeiro é extremamente útil. Existem algumas maneiras de entender o porquê.
+Concisão é uma propriedade geral e independente de "blockchains" — elas apenas acabam sendo uma boa combinação, por vários motivos. De forma mais ampla, ter uma prova curta de que algo é verdadeiro é extremamente útil. Existem algumas maneiras de entender o porquê.
 
 Uma maneira de ver isso é considerar os _custos de transação_ [^8]. Em geral, quanto menores esses custos, mais valor e riqueza são gerados. Se há menos coisas para verificar, ou se o processo é mais fácil, então conseguimos fazer mais com maior liberdade e fluidez.
 
@@ -183,7 +183,7 @@ Tudo isso parte do princípio de que conseguimos traduzir alguns dos mecanismos 
 
 ### Propósito geral
 
-Lembre-se de que os ZKPs permitem provar declarações（statements）arbitrárias de forma genérica. Por que isso importa e por que isso é poderoso?
+Lembre-se de que os ZKPs permitem provar declarações (statements) arbitrárias de forma genérica. Por que isso importa e por que isso é poderoso?
 
 A diferença entre ferramentas similares já existentes e os ZKPs é como a diferença entre uma calculadora e um computador. Uma serve para tarefas bem específicas, enquanto a outra tem propósito geral. É a diferença entre esta máquina de calcular [^12] e um computador moderno:
 
@@ -201,7 +201,7 @@ Mesmo que a frase mude muito pouco, os hashes resultantes são totalmente difere
 
 A função SHA256 que usamos acima é uma função de hash criptográfica específica, que levou muito tempo e esforço coletivo para ser considerada segura. O hash, por si só, não prova nada. Ele só faz sentido quando comparado com alguma outra coisa, como ter acesso direto à mensagem ou ao arquivo.
 
-De forma informal, podemos pensar em uma função de hash como algo que oferece uma prova（proof）de que uma determinada mensagem corresponde a um hash específico. Só conseguimos verificar isso com a mensagem original. Às vezes, as pessoas usam isso para provar que escreveram algo e fizeram uma previsão — elas escrevem, por exemplo: "Em 1º de abril de 2040, alienígenas pousarão no Big Ben, em Londres, e o número da loteria 25742069 será o vencedor", e então publicam o hash dessa mensagem com antecedência, digamos, no Twitter. Quando a previsão se concretiza, elas revelam a mensagem original, e as pessoas ficam convencidas de que previram o futuro, e são o novo Nostradamus.
+De forma informal, podemos pensar em uma função de hash como algo que oferece uma prova (proof) de que uma determinada mensagem corresponde a um hash específico. Só conseguimos verificar isso com a mensagem original. Às vezes, as pessoas usam isso para provar que escreveram algo e fizeram uma previsão. Por exemplo: elas escrevem uma mensagem como "Em 1º de abril de 2040, alienígenas pousarão no Big Ben, em Londres, e o número da loteria 25742069 será o vencedor", e então publicam o hash dessa mensagem com antecedência, digamos, no Twitter. Quando a previsão se concretiza, elas revelam a mensagem original, e as pessoas ficam convencidas de que previram o futuro, e são o novo Nostradamus.
 
 Por outro lado, podemos visualizar um ZKP assim:
 
@@ -211,9 +211,9 @@ Diferente da função de hash acima, há algumas diferenças importantes:
 
 - Temos várias entradas públicas e privadas, em vez de apenas uma entrada (pública)
 - Podemos usar qualquer programa, não apenas uma função de hash criptográfica
-- Produzimos uma prova（proof）autônoma que pode ser verificada
+- Produzimos uma prova (proof) autônoma que pode ser verificada
 
-No exemplo da função de hash, precisamos tornar a entrada pública para verificar que a mensagem corresponde ao hash. Já nos ZKPs, podemos ter uma entrada privada _(private input)_. Entrada privada é algo que só você vê. Ou seja, não precisa revelar nada a ninguém para gerar uma prova（proof）.
+No exemplo da função de hash, precisamos tornar a entrada pública para verificar que a mensagem corresponde ao hash. Já nos ZKPs, podemos ter uma entrada privada _(private input)_. Entrada privada é algo que só você vê. Ou seja, não precisa revelar nada a ninguém para gerar uma prova (proof).
 
 Por exemplo, no caso do "Onde Está o Wally" mencionado no início deste artigo, a entrada pública seria a imagem do Wally. A entrada privada seria a localização exata do Wally. Eu posso gerar uma prova de que sei onde ele está sem revelar a localização para você.
 
@@ -225,7 +225,7 @@ Transformamos o que antes era um problema de criptografia ou matemática — def
 
 Agora podemos provar que conhecemos os dados privados que resultam em um hash específico [^17]. Isso significa que é possível provar que você possui determinada mensagem, como um documento importante, sem revelar o conteúdo.
 
-Para entender melhor o poder da computação de propósito geral (_general-purpose computing_), vamos observar o conceito de assinatura em grupo. Assinaturas em grupo permitem que várias pessoas assinem um documento sem revelar suas identidades. Por exemplo, os *Federalist Papers* foram assinados com o pseudônimo "Publius", que representava vários autores [^18]. Assim como no caso do SHA256, é possível implementar assinaturas em grupo com criptografia e matemática — o que é impressionante, e exige bastante engenharia criptográfica. Mas com ZKPs de propósito geral, qualquer pessoa pode expressar isso em poucas dezenas de linhas de código em Circom, uma linguagem para ZKPs [^19].
+Para entender melhor o poder da computação de propósito geral (_general-purpose computing_), vamos observar o conceito de assinatura em grupo. Assinaturas em grupo permitem que várias pessoas assinem um documento sem revelar suas identidades. Por exemplo, os *Federalist Papers* foram assinados com o pseudônimo "Publius", que representava vários autores [^18]. Assim como no caso do SHA256, é possível implementar assinaturas em grupo com criptografia e matemática — o que é impressionante, e exige bastante engenharia criptográfica. Contudo, com ZKPs de propósito geral, qualquer pessoa pode expressar isso em poucas dezenas de linhas de código em Circom, uma linguagem para ZKPs [^19].
 
 Graças à sua natureza genérica, podemos construir soluções ad hoc com facilidade. Por exemplo, imagine que você tem um documento de identidade com seu nome completo, endereço e outras informações pessoais. Para entrar em um evento, é necessário ter mais de 18 anos e um ingresso válido. Você pode não querer que qualquer pessoa ou sistema online veja seu endereço ou corra o risco de ter seu documento roubado. Com ZKPs, você pode provar que:
 
@@ -246,9 +246,9 @@ Na maioria das vezes, o único limite para o que você pode expressar é sua ima
 
 Por que os ZKPs estão ganhando destaque agora? Existem razões tanto técnicas quanto sociais para isso.
 
-Tecnicamente, os ZKPs são relativamente novos. Do ponto de vista matemático, eles existem há apenas algumas décadas [^20]. Assim como a computação, levou um tempo até se tornarem eficientes e práticos — mesmo que apenas na teoria [^21].
+Tecnicamente, os ZKPs são relativamente novos. Do ponto de vista matemático, eles existem há apenas algumas décadas [^20]. Assim como aconteceu com a computação, levou um tempo até se tornarem eficientes e práticos, mesmo que apenas na teoria [^21].
 
-Depois disso, alguém precisou pegar esses artigos e protocolos criptográficos e transformá-los em algo prático. O primeiro exemplo notável disso foi o Zcash, a criptomoeda focada em privacidade, lançada em 2016. Ela nasceu a partir de um artigo escrito por cypherpunks e pesquisadores [^22]. A primeira versão foi uma conquista impressionante de pesquisa e engenharia aplicada a um produto e sistema final. Apesar de apresentar muitos problemas e estar longe do ideal, foi o primeiro exemplo prático real do uso de ZKPs no mundo real. Isso mostrou que era possível e viável usar ZKPs de forma concreta, o que levou a uma explosão de esforços em pesquisa e engenharia na área, especialmente nos últimos anos.
+Depois disso, alguém precisou pegar esses artigos e protocolos criptográficos e transformá-los em algo prático. O primeiro exemplo notável disso foi o Zcash, a criptomoeda focada em privacidade, lançada em 2016. Ela nasceu a partir de um artigo escrito por cypherpunks e pesquisadores [^22]. A primeira versão foi uma conquista impressionante de pesquisa e engenharia aplicada a um produto e sistema final. Apesar de apresentar muitos problemas e estar longe do ideal, foi a primeira implementação prática bem-sucedida de ZKPs no mundo real. Isso demonstrou que era possível e viável usar ZKPs de forma concreta, o que levou a uma explosão de esforços em pesquisa e engenharia na área, especialmente nos últimos anos.
 
 Blockchains públicas como Ethereum e Zcash, essa última uma criptomoeda com foco em privacidade, tiveram um papel fundamental nesse processo. As blockchains se destacam em aspectos como resistência à censura e transparência [^23], mas isso vem ao custo de pouca privacidade e escalabilidade — pontos em que os ZKPs se sobressaem. Nesse sentido, ZKPs e blockchains formam uma combinação natural. Somado a isso, há o grande apetite da comunidade de blockchain por criptografia avançada [^24], o que explica por que tanta inovação está surgindo justamente na interseção entre blockchain e ZKPs [^25]. Com tantos projetos bem financiados no ecossistema, também houve um aumento significativo de investimentos em pesquisa e engenharia — áreas que antes eram mais restritas ao meio acadêmico.
 
@@ -303,7 +303,7 @@ Relembre a ilustração de um ZKP que vimos anteriormente:
 
 Temos um programa especial (formalmente chamado de _circuito_) que codifica a lógica de interesse do usuário. Por exemplo, provar que ele conhece os dados que geram um determinado valor de hash. Diferente de um programa comum, esse é composto por _restrições (constraints)_ [^34]. A prova mostra que todas essas restrições são satisfeitas com as entradas pública e privada.
 
-Por fim, o verificador pega essa prova compacta, combina com a chave de verificação, a entrada pública e o programa especial com todas as restrições, e se convence, além de qualquer dúvida razoável, de que a prova está correta e retorna “verdadeiro”. Caso contrário, retorna “falso”.
+Por fim, o verificador pega essa prova compacta, combina com a chave de verificação, a entrada pública e o programa especial com todas as restrições, e se convence, além de qualquer dúvida razoável, de que a prova está correta e retorna "verdadeiro". Caso contrário, retorna "falso".
 
 Essa é uma visão um pouco simplificada, mas captura a essência do que está acontecendo.
 
@@ -378,7 +378,7 @@ Há várias outras propriedades importantes quando falamos de ZKPs aplicáveis n
 - Quão expressiva é a linguagem usada para escrever programas nesse sistema de ZKP?
 - E assim por diante
 
-Como você pode ver, há muitas variações e considerações possíveis nos ZKPs. Mas não se preocupe: o essencial continua o mesmo, e dependendo do seu interesse, você pode ignorar boa parte dos detalhes técnicos sem problemas. Voltando à metáfora do zoológico: assim como com os animais, talvez você não queira virar biólogo. Talvez queira trabalhar com alguns bichos, ter um de estimação — ou apenas fazer carinho no cachorro de um amigo.
+Como você pode ver, há muitas variações e considerações possíveis nos ZKPs. Mas não se preocupe: o essencial continua o mesmo, e dependendo do seu interesse, você pode ignorar boa parte dos detalhes técnicos sem problemas. Voltando à metáfora do zoológico: assim como com os animais, talvez você não queira virar biólogo. Talvez queira trabalhar com alguns bichos, ter um animal de estimação — ou apenas fazer carinho no cachorro de um amigo.
 
 ## Aplicações
 
@@ -398,7 +398,7 @@ Existem muitas aplicações para ZKPs. De modo geral, ainda estamos nos estágio
 
 **Sinalização anônima.** Frequentemente, precisamos provar que pertencemos a um grupo com certas características — sem revelar nossa identidade. Um exemplo é provar que você faz parte de um determinado grupo de pessoas; outro é votar. Isso permite que você não associe sua identidade a ações sensíveis, como em quem votou, e evita expor informações desnecessárias. Essa funcionalidade já está ativa em sistemas como o Semaphore [^40], com diversas variações semelhantes.
 
-**ZK Rollup.** Permite transações mais rápidas, baratas e em maior volume. O espaço da blockchain da Ethereum é limitado, caro e muito disputado. Com o uso de um rollup de segunda camada (Layer 2 ou L2), as transações ocorrem fora da blockchain principal (L1). Quando acumula um número suficiente de transações, a L2 as “comprime” e envia para a L1. ZKPs são ideais para isso, pois (i) provam que as transações foram executadas corretamente e (ii) geram uma prova concisa que ocupa pouco espaço na L1. Isso barateia e acelera as transações, mantendo segurança quase igual à da L1. Devido à complexidade de provar a execução completa da Ethereum Virtual Machine (EVM), muitas soluções de ZK Rollup se limitam à troca de ativos e mercadorias simples. Hoje, estão ativos projetos como Loopring, zkSync Lite, dYdX e Starknet. [^41]
+**ZK Rollup.** Permite transações mais rápidas, baratas e em maior volume. O espaço da blockchain da Ethereum é limitado, caro e muito disputado. Com o uso de um rollup de segunda camada (Layer 2 ou L2), as transações ocorrem fora da blockchain principal (L1). Quando acumula um número suficiente de transações, a L2 as "comprime" e envia para a L1. ZKPs são ideais para isso, pois (i) provam que as transações foram executadas corretamente e (ii) geram uma prova concisa que ocupa pouco espaço na L1. Isso barateia e acelera as transações, mantendo segurança quase igual à da L1. Devido à complexidade de provar a execução completa da Ethereum Virtual Machine (EVM), muitas soluções de ZK Rollup se limitam à troca de ativos e mercadorias simples. Hoje, estão ativos projetos como Loopring, zkSync Lite, dYdX e Starknet. [^41]
 
 **ZK-EVM.** Semelhante ao ZK Rollup, mas universal, pois permite executar qualquer tipo de transação ou programa. A Ethereum possui uma EVM que funciona como um computador global de uso geral e compartilhado (que qualquer um pode programar). Ao descrever a lógica dessa máquina com ZKPs, conseguimos provar que qualquer programa executado na Ethereum foi corretamente executado, com uma prova concisa. Isso habilita muitos casos de uso, especialmente para escalar a rede e reduzir o custo e tempo das transações. Atualmente, está disponível em sistemas como Polygon zkEVM e zkSync Era, com vários outros a caminho. [^42]
 
@@ -436,9 +436,9 @@ Esses são apenas alguns exemplos — há muitos outros. Não mencionamos coisas
 
 Mais uma vez, isso não cobre tudo o que está sendo explorado ou pensado. Com certeza teremos muitas outras aplicações no futuro. Como você pode ver, há muito o que fazer com ZK.
 
-Você pode estar se perguntando por que tantas dessas aplicações envolvem blockchain. Isso foi parcialmente respondido na seção anterior “Por que agora?”. ZK é uma tecnologia ortogonal a blockchains como Ethereum, e é possível usá-la sem blockchain — mas muitas vezes a blockchain é uma boa ferramenta para se aproveitar.
+Você pode estar se perguntando por que tantas dessas aplicações envolvem blockchain. Isso foi parcialmente respondido na seção anterior "Por que agora?". ZK é uma tecnologia ortogonal a blockchains como Ethereum, e é possível usá-la sem blockchain — mas muitas vezes a blockchain é uma boa ferramenta para se aproveitar.
 
-De forma similar, as pessoas que trabalham nessas áreas e os problemas que as motivam muitas vezes se sobrepõem. À medida que o setor amadurece, é provável que a parte "blockchain" nas aplicações com ZK desapareça como mero detalhe técnico — e isso já começou a acontecer. Olhando mais adiante, até mesmo o “ZK” pode se tornar invisível: será apenas uma aplicação que, por acaso, usa ZKP.
+De forma similar, as pessoas que trabalham nessas áreas e os problemas que as motivam muitas vezes se sobrepõem. À medida que o setor amadurece, é provável que a parte "blockchain" nas aplicações com ZK desapareça como mero detalhe técnico — e isso já começou a acontecer. Olhando mais adiante, até mesmo o "ZK" pode se tornar invisível: será apenas uma aplicação que, por acaso, usa ZKP.
 
 Por fim, quando a criptografia para mensagens online e similares foi desenvolvida, ela foi usada e impulsionada por militares e empresas de Internet. Não foi o correio ou alguma transportadora de objetos físicos quem liderou essa inovação, embora teoricamente pudessem tê-lo feito. [^59]
 
@@ -454,9 +454,9 @@ ZKPs representam uma ferramenta nova e extremamente poderosa. Muitas vezes, é n
 
 _Esta seção resume o artigo e aponta os próximos passos_
 
-Neste artigo, vimos o que são os ZKPs（Zero-Knowledge Proofs）, por que eles são importantes e em quais situações são úteis. Também exploramos como funcionam e quais propriedades oferecem. Por fim, analisamos algumas aplicações atuais e futuras.
+Neste artigo, vimos o que são os ZKPs (Zero-Knowledge Proofs), por que eles são importantes e em quais situações são úteis. Também exploramos como funcionam e quais propriedades oferecem. Por fim, analisamos algumas aplicações atuais e futuras.
 
-Espero que isso tenha te ajudado a compreender melhor a natureza dos ZKPs, talvez até provocado alguns momentos “eureka” e inspirado novas formas de pensar sobre certos problemas. Quem sabe, até te ajude a acompanhar a mágica dos ZKPs daqui pra frente.
+Espero que isso tenha te ajudado a compreender melhor a natureza dos ZKPs, talvez até provocado alguns momentos "eureka" e inspirado novas formas de pensar sobre certos problemas. Quem sabe, até te ajude a acompanhar a mágica dos ZKPs daqui pra frente.
 
 Nos próximos artigos, vamos aprofundar ainda mais alguns desses pontos e abordar aspectos mais técnicos para entender melhor como os ZKPs funcionam e onde podem ser aplicados.
 
@@ -480,8 +480,8 @@ Obrigado a Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren e Eve Ko po
 
 ## Referências
 
-[^1]: Embora os conceitos estejam relacionados, há certa controvérsia jurídica sobre se o “direito à privacidade” é de fato protegido em várias jurisdições ao redor do mundo. Veja o artigo da Wikipédia sobre [direito à privacidade](https://en.wikipedia.org/wiki/Right_to_privacy) para mais detalhes.
-[^2]: Conhecimento zero（zero-knowledge）tem uma definição matemática precisa, mas não abordaremos isso neste artigo. Consulte a [Referência da Comunidade ZKProof](https://docs.zkproof.org/reference.pdf) para uma definição mais rigorosa.
+[^1]: Embora os conceitos estejam relacionados, há certa controvérsia jurídica sobre se o "direito à privacidade" é de fato protegido em várias jurisdições ao redor do mundo. Veja o artigo da Wikipédia sobre [direito à privacidade](https://en.wikipedia.org/wiki/Right_to_privacy) para mais detalhes.
+[^2]: Conhecimento zero (zero-knowledge) tem uma definição matemática precisa, mas não abordaremos isso neste artigo. Consulte a [Referência da Comunidade ZKProof](https://docs.zkproof.org/reference.pdf) para uma definição mais rigorosa.
 [^3]: Veja o [Manifesto Cypherpunk](https://nakamotoinstitute.org/static/docs/cypherpunk-manifesto.txt) para o texto completo. Consulte também a Wikipédia sobre [Cypherpunks](https://en.wikipedia.org/wiki/Cypherpunk).
 [^4]: Algumas pessoas interpretam esse trecho de forma diferente, mas é fato que, em algum momento relativamente recente, os seres humanos fizeram a transição de contar histórias oralmente para a leitura silenciosa. Veja a Wikipédia sobre a [história da leitura silenciosa](https://en.wikipedia.org/wiki/Silent_reading#History_of_silent_reading) para mais informações.
 [^5]: Citação original em francês: _Je n'ai fait celle-ci plus longue que parce que je n'ai pas eu le loisir de la faire plus courte._ Veja a análise no [Quote Investigator](https://quoteinvestigator.com/2012/04/28/shorter-letter).
@@ -515,7 +515,7 @@ Obrigado a Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren e Eve Ko po
 [^33]: Configurações são multifacetadas e uma grande parte das suposições de segurança de um ZKP. Elas envolvem matemática considerável, e para tratá-las adequadamente seria necessário um artigo dedicado. Há um ótimo podcast introdutório sobre a cerimônia da Zcash realizada em 2016, que você pode ouvir [aqui](https://radiolab.org/podcast/ceremony).
 [^34]: Tecnicamente falando, isso é um _circuito aritmético_ (que lida com números), mas não vamos entrar nos detalhes disso neste artigo. Veja mais na [Referência da Comunidade ZKProof](https://docs.zkproof.org/reference.pdf).
 [^35]: A não ser que você queira! ZK às vezes é chamado de "matemática mágica da lua", mas se você realmente estudar, verá que a matemática necessária para ter uma intuição de como tudo funciona por baixo dos panos não é tão complexa quanto parece. Mesmo assim, não abordaremos isso neste artigo. Aqui está uma [apresentação](https://www.youtube.com/watch?v=W1ZkhWNka-c) do autor sobre algumas das bases matemáticas dos ZKPs.
-[^36]: Francês para “aí está”, “voilà”, “bingo”, “pronto” e expressões similares.
+[^36]: Francês para "aí está", "voilà", "bingo", "pronto" e expressões similares.
 [^37]: Existem diferentes noções de concisão, e isso depende do sistema de prova específico. Tecnicamente, chamamos uma prova de *concisa (succinct)* quando sua complexidade temporal é sublinear.
 [^38]: Supostamente uma citação de William Gibson, veja [aqui](https://www.nytimes.com/2012/01/15/books/review/distrust-that-particular-flavor-by-william-gibson-book-review.html).
 [^39]: Com o desenvolvimento de várias novas versões, como [Aztec](https://aztec.network/) e [Railgun](https://railgun.org/). O [Tornado Cash (arquivo)](https://web.archive.org/web/20220808144431/https://tornado.cash/) funciona de forma bem diferente do [Zcash](https://z.cash), atuando mais como um mixer. O Tornado Cash foi recentemente [sancionado](https://en.wikipedia.org/wiki/Tornado_Cash) pelo governo dos EUA. No momento em que este texto é escrito, ainda há muitas incertezas sobre o caso, mas foi um evento [controverso](https://www.eff.org/deeplinks/2022/08/code-speech-and-tornado-cash-mixer) que levou a [processos judiciais](https://www.coincenter.org/coin-center-is-suing-ofac-over-its-tornado-cash-sanction/]). Alguns veem isso como uma continuação das [Guerras Cripto](https://en.wikipedia.org/wiki/Crypto_Wars) dos anos 1990. Existem outras alternativas como [Monero](https://www.getmonero.org/) e [Wasabi Wallet](https://wasabiwallet.io/), que não são baseadas em ZKP, mas têm objetivos de design semelhantes. Leia mais sobre o [Caso do Dinheiro Eletrônico](https://www.coincenter.org/app/uploads/2020/05/the-case-for-electronic-cash-coin-center.pdf) do Coin Center.
