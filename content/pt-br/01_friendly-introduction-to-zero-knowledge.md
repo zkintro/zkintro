@@ -70,7 +70,7 @@ Imagine que tenho uma imagem de "Onde está o Wally?" e um grande pedaço de pap
 
 Este é obviamente um exemplo lúdico, mas espero que dê alguma intuição de como tal prova é possível. Mas o que isso significa? O que estamos provando mais precisamente? Vamos nos aprofundar nisso mais adiante, mas por enquanto vamos ver o que os ZKPs nos oferecem de forma mais geral.
 
-Com ZKPs, você pode provar declarações (statements) arbitrárias de forma generalista. Mais especificamente, os ZKPs nos permitem provar algo de forma privada e concisa.
+Com ZKPs, você pode provar declarações (statements) arbitrárias de forma generalista. Mais especificamente, os ZKPs nos permitem provar algo de forma privada e sucinta.
 
 Isso é extremamente poderoso, como veremos a seguir.
 
@@ -85,7 +85,7 @@ Por que _você poderia se importar_? Porque você é curioso e quer entender com
 Antes de aprofundar, vamos entender o que os ZKPs nos oferecem em um nível superior. Os ZKPs nos fornecem principalmente uma ou ambas as seguintes propriedades:
 
 1. Privacidade (mais formalmente conhecida como conhecimento zero)
-2. Compressão (mais formalmente conhecida como concisão - _succinctness_)
+2. Compressão (mais formalmente conhecida como sucintez - _succinctness_)
 
 O que queremos dizer com essas duas noções? Aqui estão algumas maneiras de pensar sobre essas propriedades.
 
@@ -131,7 +131,7 @@ Comprimir algo é definido como:
 
 > pressionar algo para caber em um espaço menor
 
-De forma semelhante, concisão (_succinctness_) é definida como:
+De forma semelhante, sucintez (_succinctness_) é definida como:
 
 > o ato de expressar algo de forma clara com poucas palavras
 
@@ -143,19 +143,19 @@ O que queremos dizer com "prova" e "tamanho da prova"? Esses são conceitos mate
 
 Em um típico mistério de assassinato como os de Sherlock Holmes, o detetive reúne evidências até poder provar que o culpado cometeu o crime. Ele então mostra exatamente como sabe disso no _grand finale_. Podemos pensar nessa declaração final como a prova. [^6]
 
-Mais formalmente, chamamos essa propriedade de concisão (_succinctness_) [^7]. É isso que mantém o tamanho da prova constante, independentemente do que estamos tentando provar. No contexto de blockchains públicas, isso também está ligado à ideia de _escalabilidade_. Em blockchains públicas como a Ethereum, onde o espaço em bloco é limitado e caro, os ZKPs podem tornar as transações muito mais baratas e rápidas. Como? Criamos uma prova de que um conjunto de transações ocorreu e colocamos essa pequena prova na blockchain, em vez de registrar cada transação individualmente. Com ZKPs, isso pode ser feito de forma muito segura.
+Mais formalmente, chamamos essa propriedade de sucintez (_succinctness_) [^7]. É isso que mantém o tamanho da prova constante, independentemente do que estamos tentando provar. No contexto de blockchains públicas, isso também está ligado à ideia de _escalabilidade_. Em blockchains públicas como a Ethereum, onde o espaço em bloco é limitado e caro, os ZKPs podem tornar as transações muito mais baratas e rápidas. Como? Criamos uma prova de que um conjunto de transações ocorreu e colocamos essa pequena prova na blockchain, em vez de registrar cada transação individualmente. Com ZKPs, isso pode ser feito de forma muito segura.
 
-Concisão é uma propriedade geral e independente de "blockchains" — elas apenas acabam sendo uma boa combinação, por vários motivos. De forma mais ampla, ter uma prova curta de que algo é verdadeiro é extremamente útil. Existem algumas maneiras de entender o porquê.
+Sucintez é uma propriedade geral e independente de "blockchains" — elas apenas acabam sendo uma boa combinação, por vários motivos. De forma mais ampla, ter uma prova curta de que algo é verdadeiro é extremamente útil. Existem algumas maneiras de entender o porquê.
 
 Uma maneira de ver isso é considerar os _custos de transação_ [^8]. Em geral, quanto menores esses custos, mais valor e riqueza são gerados. Se há menos coisas para verificar, ou se o processo é mais fácil, então conseguimos fazer mais com maior liberdade e fluidez.
 
 Às vezes, ao preencher um formulário, somos solicitados a digitar nosso e-mail duas vezes para garantir que está correto. A ideia é proteger contra erros humanos e tornar a transmissão de dados mais robusta. Existem também mecanismos como _checksums_, onde um dígito extra em códigos de rastreio, cartões de crédito ou ISBNs serve como verificação simples de que os números provavelmente estão certos. Todos esses mecanismos — obviamente — não têm como objetivo impedir usos maliciosos, mas sim evitar erros inocentes. [^9]
 
-Em sistemas de arquivos de computador, um _hash_ é frequentemente usado para garantir a integridade dos arquivos. Se algo acontece com uma parte do arquivo, corrompendo-o, o hash muda completamente. Como o hash é conciso (por exemplo, uma string de 64 caracteres), é fácil de armazenar e verificar, mesmo que o arquivo original seja enorme. Nesse caso, as funções de hash garantem a integridade de forma segura. Se fôssemos verificar a integridade mantendo uma cópia completa do arquivo, isso seria muito mais impraticável. Arquivo grande, arquivo pequeno — não importa; o hash continua do mesmo tamanho. A concisão de um hash torna esse caso de uso possível.
+Em sistemas de arquivos de computador, um _hash_ é frequentemente usado para garantir a integridade dos arquivos. Se algo acontece com uma parte do arquivo, corrompendo-o, o hash muda completamente. Como o hash é sucinto (por exemplo, uma string de 64 caracteres), é fácil de armazenar e verificar, mesmo que o arquivo original seja enorme. Nesse caso, as funções de hash garantem a integridade de forma segura. Se fôssemos verificar a integridade mantendo uma cópia completa do arquivo, isso seria muito mais impraticável. Arquivo grande, arquivo pequeno — não importa; o hash continua do mesmo tamanho. A sucintez de um hash torna esse caso de uso possível.
 
 ### O que você sabe?
 
-Vamos dar um passo atrás em relação à compressão, à concisão e às provas. Vamos fazer um pequeno desvio para falar sobre conhecimento, carga mental e confiança. Depois, vamos conectar tudo isso aos ZKPs no final da seção.
+Vamos dar um passo atrás em relação à compressão, à sucintez e às provas. Vamos fazer um pequeno desvio para falar sobre conhecimento, carga mental e confiança. Depois, vamos conectar tudo isso aos ZKPs no final da seção.
 
 No seu dia a dia, o que você sabe que é verdade, e por quê? Se você vê o sol nascer todos os dias, provavelmente espera que ele vá nascer de novo amanhã. No mundo moderno, estamos amplamente protegidos dos ambientes hostis da natureza, mas, por outro lado, lidamos com muitas outras preocupações — mais modernas. Muitas delas estão relacionadas às instituições com as quais interagimos diariamente.
 
@@ -177,7 +177,7 @@ Por exemplo, ao acender o fogão para fazer o jantar, você nem precisa pensar e
 
 ![Aldrin, Apollo 11](../assets/01_apollo-aldrin.jpg 'Aldrin, Apollo 11')
 
-Com ZKPs e provas concisas (_succinct proofs_), conseguimos trazer mais certeza e clareza a sistemas opacos. Isso se torna ainda mais poderoso quando consideramos a *composição* de ZKPs — ou seja, combinar múltiplas provas em uma só, por meio de agregação ou recursão, por exemplo.
+Com ZKPs e provas sucintas (_succinct proofs_), conseguimos trazer mais certeza e clareza a sistemas opacos. Isso se torna ainda mais poderoso quando consideramos a *composição* de ZKPs — ou seja, combinar múltiplas provas em uma só, por meio de agregação ou recursão, por exemplo.
 
 Tudo isso parte do princípio de que conseguimos traduzir alguns dos mecanismos ou regras citados acima — que muitas vezes são confusos e inconsistentes — para uma forma que os ZKPs consigam compreender. Como podemos fazer isso?
 
@@ -189,7 +189,7 @@ A diferença entre ferramentas similares já existentes e os ZKPs é como a dife
 
 ![Calculadora de Pascal](../assets/01_pascals-calculator2.jpg "Calculadora de Pascal")
 
-Relembre os exemplos específicos que demos acima para representar de forma concreta a privacidade e a concisão. Uma senha é uma informação privada que permite fazer login em um serviço [^13]. Já um hash de algum dado de entrada, como um arquivo, nos oferece algo conciso para verificar igualdade.
+Relembre os exemplos específicos que demos acima para representar de forma concreta a privacidade e a sucintez. Uma senha é uma informação privada que permite fazer login em um serviço [^13]. Já um hash de algum dado de entrada, como um arquivo, nos oferece algo sucinto para verificar igualdade.
 
 Podemos visualizar uma função de hash da seguinte forma:
 
@@ -238,7 +238,7 @@ Graças à sua natureza genérica, podemos construir soluções ad hoc com facil
 
 Tudo isso sem revelar nenhum outro dado pessoal além do que está listado acima.
 
-Com os ZKPs, agora temos uma _ferramenta melhor_ para que as pessoas se coordenem de várias formas — especialmente em sistemas onde a _privacidade_ e a _concisão_ são importantes. Veremos mais exemplos na seção de aplicações.
+Com os ZKPs, agora temos uma _ferramenta melhor_ para que as pessoas se coordenem de várias formas — especialmente em sistemas onde a _privacidade_ e a _sucintez_ são importantes. Veremos mais exemplos na seção de aplicações.
 
 Na maioria das vezes, o único limite para o que você pode expressar é sua imaginação.
 
@@ -364,7 +364,7 @@ Dizemos que um ZKP possui certas propriedades técnicas:
 - **Solidez** — se a declaração for falsa, o verificador não será convencido pela prova, exceto com uma probabilidade desprezível
 - **Conhecimento zero** — se a declaração for verdadeira, nada além desse fato é revelado
 
-Além disso, nos zk-SNARKs, a prova é concisa, ou seja, ela praticamente não cresce mesmo que o programa fique mais complexo [^37].
+Além disso, nos zk-SNARKs, a prova é sucinta, ou seja, ela praticamente não cresce mesmo que o programa fique mais complexo [^37].
 
 Há várias outras propriedades importantes quando falamos de ZKPs aplicáveis na prática:
 
@@ -398,11 +398,11 @@ Existem muitas aplicações para ZKPs. De modo geral, ainda estamos nos estágio
 
 **Sinalização anônima.** Frequentemente, precisamos provar que pertencemos a um grupo com certas características — sem revelar nossa identidade. Um exemplo é provar que você faz parte de um determinado grupo de pessoas; outro é votar. Isso permite que você não associe sua identidade a ações sensíveis, como em quem votou, e evita expor informações desnecessárias. Essa funcionalidade já está ativa em sistemas como o Semaphore [^40], com diversas variações semelhantes.
 
-**ZK Rollup.** Permite transações mais rápidas, baratas e em maior volume. O espaço da blockchain da Ethereum é limitado, caro e muito disputado. Com o uso de um rollup de segunda camada (Layer 2 ou L2), as transações ocorrem fora da blockchain principal (L1). Quando acumula um número suficiente de transações, a L2 as "comprime" e envia para a L1. ZKPs são ideais para isso, pois (i) provam que as transações foram executadas corretamente e (ii) geram uma prova concisa que ocupa pouco espaço na L1. Isso barateia e acelera as transações, mantendo segurança quase igual à da L1. Devido à complexidade de provar a execução completa da Ethereum Virtual Machine (EVM), muitas soluções de ZK Rollup se limitam à troca de ativos e mercadorias simples. Hoje, estão ativos projetos como Loopring, zkSync Lite, dYdX e Starknet. [^41]
+**ZK Rollup.** Permite transações mais rápidas, baratas e em maior volume. O espaço da blockchain da Ethereum é limitado, caro e muito disputado. Com o uso de um rollup de segunda camada (Layer 2 ou L2), as transações ocorrem fora da blockchain principal (L1). Quando acumula um número suficiente de transações, a L2 as "comprime" e envia para a L1. ZKPs são ideais para isso, pois (i) provam que as transações foram executadas corretamente e (ii) geram uma prova sucinta que ocupa pouco espaço na L1. Isso barateia e acelera as transações, mantendo segurança quase igual à da L1. Devido à complexidade de provar a execução completa da Ethereum Virtual Machine (EVM), muitas soluções de ZK Rollup se limitam à troca de ativos e mercadorias simples. Hoje, estão ativos projetos como Loopring, zkSync Lite, dYdX e Starknet. [^41]
 
-**ZK-EVM.** Semelhante ao ZK Rollup, mas universal, pois permite executar qualquer tipo de transação ou programa. A Ethereum possui uma EVM que funciona como um computador global de uso geral e compartilhado (que qualquer um pode programar). Ao descrever a lógica dessa máquina com ZKPs, conseguimos provar que qualquer programa executado na Ethereum foi corretamente executado, com uma prova concisa. Isso habilita muitos casos de uso, especialmente para escalar a rede e reduzir o custo e tempo das transações. Atualmente, está disponível em sistemas como Polygon zkEVM e zkSync Era, com vários outros a caminho. [^42]
+**ZK-EVM.** Semelhante ao ZK Rollup, mas universal, pois permite executar qualquer tipo de transação ou programa. A Ethereum possui uma EVM que funciona como um computador global de uso geral e compartilhado (que qualquer um pode programar). Ao descrever a lógica dessa máquina com ZKPs, conseguimos provar que qualquer programa executado na Ethereum foi corretamente executado, com uma prova sucinta. Isso habilita muitos casos de uso, especialmente para escalar a rede e reduzir o custo e tempo das transações. Atualmente, está disponível em sistemas como Polygon zkEVM e zkSync Era, com vários outros a caminho. [^42]
 
-**ZK-VM.** Por conta da complexidade de adaptar uma plataforma "SNARKs-unfriendly" [^43] como a EVM, muitos projetos preferem criar novas blockchains, separadas da Ethereum. Assim, podem otimizar a máquina virtual desde o início para funcionar melhor com ZK. Dependendo do sistema, isso permite mais privacidade e verificação concisa do estado da blockchain. O Mina já está ativo, e projetos como o Aleo estão em desenvolvimento ativo. [^44]
+**ZK-VM.** Por conta da complexidade de adaptar uma plataforma "SNARKs-unfriendly" [^43] como a EVM, muitos projetos preferem criar novas blockchains, separadas da Ethereum. Assim, podem otimizar a máquina virtual desde o início para funcionar melhor com ZK. Dependendo do sistema, isso permite mais privacidade e verificação sucinta do estado da blockchain. O Mina já está ativo, e projetos como o Aleo estão em desenvolvimento ativo. [^44]
 
 **Dark Forest.** Dark Forest é um jogo de estratégia em tempo real com informação incompleta. Jogos com informação incompleta baseados em ZK usam uma "névoa de guerra criptográfica", onde os jogadores só podem ver parte do mundo — garantido por ZK. Diferente de jogos como Starcraft, nem mesmo o servidor central tem acesso a tudo. Isso possibilita formas novas e programáveis de jogar. [^45]
 
@@ -414,7 +414,7 @@ Esses são apenas alguns exemplos — há muitos outros. Não mencionamos coisas
 
 ### No horizonte
 
-**ZK-EVM (Equivalente à Ethereum).** Existem diferentes tipos de ZK-EVM, e os mais difíceis de implementar são aqueles totalmente equivalentes à Ethereum. Outros ZK-EVMs fazem alguns atalhos para facilitar a geração de provas. Com um ZK-EVM totalmente equivalente, não há diferença em relação ao sistema atual da Ethereum. Isso significa que podemos provar a execução correta de cada bloco existente com uma prova concisa. Você pode usar um celular para verificar a integridade de toda a cadeia, confiando apenas em matemática, sem precisar confiar em terceiros ou usar máquinas caras. Atualmente está sendo desenvolvido pela equipe do ZK-EVM Community Edition. [^50]
+**ZK-EVM (Equivalente à Ethereum).** Existem diferentes tipos de ZK-EVM, e os mais difíceis de implementar são aqueles totalmente equivalentes à Ethereum. Outros ZK-EVMs fazem alguns atalhos para facilitar a geração de provas. Com um ZK-EVM totalmente equivalente, não há diferença em relação ao sistema atual da Ethereum. Isso significa que podemos provar a execução correta de cada bloco existente com uma prova sucinta. Você pode usar um celular para verificar a integridade de toda a cadeia, confiando apenas em matemática, sem precisar confiar em terceiros ou usar máquinas caras. Atualmente está sendo desenvolvido pela equipe do ZK-EVM Community Edition. [^50]
 
 **Computação verificável de propósito geral.** A maior parte das computações no mundo não acontece na EVM, mas em outros sistemas. Programas baseados em WASM e LLVM são muito comuns [^51]. Podemos aplicar a mesma abordagem do ZK-EVM para realizar computações privadas verificáveis de uso geral. Por exemplo, podemos provar que um banco de dados contém um determinado registro, sem revelar nenhuma outra informação. Equipes como Delphinus Labs, RISC Zero, Orochi Network e nil.foundation estão trabalhando nisso. [^52]
 
@@ -486,7 +486,7 @@ Obrigado a Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren e Eve Ko po
 [^4]: Algumas pessoas interpretam esse trecho de forma diferente, mas é fato que, em algum momento relativamente recente, os seres humanos fizeram a transição de contar histórias oralmente para a leitura silenciosa. Veja a Wikipédia sobre a [história da leitura silenciosa](https://en.wikipedia.org/wiki/Silent_reading#History_of_silent_reading) para mais informações.
 [^5]: Citação original em francês: _Je n'ai fait celle-ci plus longue que parce que je n'ai pas eu le loisir de la faire plus courte._ Veja a análise no [Quote Investigator](https://quoteinvestigator.com/2012/04/28/shorter-letter).
 [^6]: Méritos para Juraj Bednar por [sugerir](https://twitter.com/jurbed/status/1650782361590669313) o uso de mistério de assassinato como forma de explicar a noção de prova.
-[^7]: Concisão (_succinctness_) tem uma definição matemática precisa, mas não entraremos nesse detalhe neste artigo. Veja a [Referência da Comunidade ZKProof](https://docs.zkproof.org/reference.pdf) para mais detalhes.
+[^7]: Sucintez (_succinctness_) tem uma definição matemática precisa, mas não entraremos nesse detalhe neste artigo. Veja a [Referência da Comunidade ZKProof](https://docs.zkproof.org/reference.pdf) para mais detalhes.
 [^8]: Custos de transação são um conceito da economia. Veja o artigo da Wikipédia sobre [custos de transação](https://en.wikipedia.org/wiki/Transaction_cost).
 [^9]: Em um [checksum](https://en.wikipedia.org/wiki/Checksum), realizamos operações básicas como somar e subtrair os dígitos iniciais e, se o dígito final não bater, sabemos que houve um erro. Curiosidade: ao contrário de outros sistemas de identificação, o Social Security Number (SSN) dos EUA [não tem checksum](https://en.wikipedia.org/wiki/Social_Security_number#Valid_SSNs). Quando o checksum tem apenas um dígito, às vezes é chamado de [dígito verificador](https://en.wikipedia.org/wiki/Check_digit).
 [^10]: Embora mais comum em países menos desenvolvidos, isso ocorreu recentemente com falências bancárias nos EUA. Veja o artigo da Wikipédia sobre os efeitos do [colapso do Silicon Valley Bank](https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank#Effects).
@@ -516,14 +516,14 @@ Obrigado a Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren e Eve Ko po
 [^34]: Tecnicamente falando, isso é um _circuito aritmético_ (que lida com números), mas não vamos entrar nos detalhes disso neste artigo. Veja mais na [Referência da Comunidade ZKProof](https://docs.zkproof.org/reference.pdf).
 [^35]: A não ser que você queira! ZK às vezes é chamado de "matemática mágica da lua", mas se você realmente estudar, verá que a matemática necessária para ter uma intuição de como tudo funciona por baixo dos panos não é tão complexa quanto parece. Mesmo assim, não abordaremos isso neste artigo. Aqui está uma [apresentação](https://www.youtube.com/watch?v=W1ZkhWNka-c) do autor sobre algumas das bases matemáticas dos ZKPs.
 [^36]: Francês para "aí está", "voilà", "bingo", "pronto" e expressões similares.
-[^37]: Existem diferentes noções de concisão, e isso depende do sistema de prova específico. Tecnicamente, chamamos uma prova de *concisa (succinct)* quando sua complexidade temporal é sublinear.
+[^37]: Existem diferentes noções de sucintez, e isso depende do sistema de prova específico. Tecnicamente, chamamos uma prova de *sucinta (succinct)* quando sua complexidade temporal é sublinear.
 [^38]: Supostamente uma citação de William Gibson, veja [aqui](https://www.nytimes.com/2012/01/15/books/review/distrust-that-particular-flavor-by-william-gibson-book-review.html).
 [^39]: Com o desenvolvimento de várias novas versões, como [Aztec](https://aztec.network/) e [Railgun](https://railgun.org/). O [Tornado Cash (arquivo)](https://web.archive.org/web/20220808144431/https://tornado.cash/) funciona de forma bem diferente do [Zcash](https://z.cash), atuando mais como um mixer. O Tornado Cash foi recentemente [sancionado](https://en.wikipedia.org/wiki/Tornado_Cash) pelo governo dos EUA. No momento em que este texto é escrito, ainda há muitas incertezas sobre o caso, mas foi um evento [controverso](https://www.eff.org/deeplinks/2022/08/code-speech-and-tornado-cash-mixer) que levou a [processos judiciais](https://www.coincenter.org/coin-center-is-suing-ofac-over-its-tornado-cash-sanction/]). Alguns veem isso como uma continuação das [Guerras Cripto](https://en.wikipedia.org/wiki/Crypto_Wars) dos anos 1990. Existem outras alternativas como [Monero](https://www.getmonero.org/) e [Wasabi Wallet](https://wasabiwallet.io/), que não são baseadas em ZKP, mas têm objetivos de design semelhantes. Leia mais sobre o [Caso do Dinheiro Eletrônico](https://www.coincenter.org/app/uploads/2020/05/the-case-for-electronic-cash-coin-center.pdf) do Coin Center.
 [^40]: Veja o [Semaphore](https://semaphore.appliedzkp.org), desenvolvido pela equipe de [Privacy & Scaling Explorations](https://www.appliedzkp.org/).
 [^41]: Isso é semelhante ao funcionamento do sistema bancário tradicional, onde também ocorrem múltiplas camadas de liquidação. A diferença é que isso fica oculto da maioria dos usuários finais. Veja o [L2Beat](https://l2beat.com/scaling/summary) para uma visão geral das diferentes soluções de segunda camada, incluindo os ZK Rollups. Veja também [Loopring](https://loopring.org/#/), [dYdX](https://dydx.exchange/faq) e [Starknet](https://www.starknet.io/en).
 [^42]: Existem diferentes tipos de zkEVM, e a diferença entre eles pode ser bastante sutil. Veja [esta postagem](https://vitalik.ca/general/2022/08/04/zkevm.html) do Vitalik para entender melhor. Veja também [Polygon zkEVM](https://polygon.technology/polygon-zkevm) e [zkSync Era](https://zksync.io/).
 [^43]: Plataformas ou funções *SNARK-unfriendly* se referem ao fato de que a maioria dos primitivos computacionais modernos foi projetada para uma arquitetura computacional específica. Essa arquitetura é muito diferente do que é natural ao escrever restrições. Por exemplo, a função de hash SHA256 é um exemplo típico de um hash *SNARK-unfriendly*. Algumas pessoas criam funções *SNARK* ou *ZK-friendly*, como a [função de hash Poseidon](https://www.poseidon-hash.info/), projetada especificamente para uso em ZKPs. Elas são muito mais fáceis de implementar em ZKPs e podem ser 100 vezes mais eficientes ou mais, mas também envolvem outros trade-offs.
-[^44]: Mina permite a verificação *concisa* de toda a cadeia, enquanto Aleo foca mais em privacidade. Veja também [Mina](https://minaprotocol.com/) e [Aleo](https://www.aleo.org/).
+[^44]: Mina permite a verificação *sucinta* de toda a cadeia, enquanto Aleo foca mais em privacidade. Veja também [Mina](https://minaprotocol.com/) e [Aleo](https://www.aleo.org/).
 [^45]: No [Dark Forest](https://zkga.me/), algumas pessoas criam bots extremamente complexos que jogam sozinhos. Eles chegam a formar DAOs privadas e desenvolver contratos inteligentes que jogam o jogo de forma semi-autônoma.
 [^46]: A Succinct Labs criou o [Telepathy](https://docs.telepathy.xyz/), que é um desses projetos. O [zkBridge](https://zkbridge.com/) é outro. Provavelmente existem muitos outros.
 [^47]: Uma afirmação estranha, mas surpreendentemente precisa.
