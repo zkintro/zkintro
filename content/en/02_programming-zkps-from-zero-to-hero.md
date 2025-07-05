@@ -175,7 +175,7 @@ This is our special program, or _circuit_. [^6] Going line by line:
 - `template Multiplier()` - templates are the equivalent to objects in most programming languages, a common form of abstraction
 - `signal input a;` - our first input, `a`; inputs are private by default
 - `signal input b;` - our second input, `b`; also private by default
-- `signal output b;` - our output, `c`; outputs are always public
+- `signal output c;` - our output, `c`; outputs are always public
 - `c <== a * b;` - this does two things: assigns the signal `c` a value _and_ constrains `c` to be equal to the product of `a` and `b`
 - `component main = Multiplier2()` - instantiates our main component
 
