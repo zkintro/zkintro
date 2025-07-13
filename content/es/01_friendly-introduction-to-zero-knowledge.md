@@ -152,94 +152,94 @@ A veces, cuando llenamos un formulario, nos piden escribir el correo dos veces p
 
 En los sistemas de archivos de computadoras, un _hash_ suele usarse para garantizar la integridad de los archivos. Si se corrompe incluso una pequeña parte del archivo, el hash cambia por completo. Como el hash es conciso (por ejemplo, una cadena de 64 caracteres), es fácil de almacenar y verificar, incluso si el archivo original es enorme. En este caso, las funciones de hash garantizan la integridad de forma segura. Si tuviéramos que verificar la integridad de un archivo guardando una copia entera, sería mucho más impráctico. Archivo grande o pequeño, no importa: el hash mantiene el mismo tamaño. La concisión del hash es lo que hace posible este uso.
 
-### What do you know?
+### ¿Qué sabes?
 
-Let's take a step back from compression, succinctness, and proofs. We'll go on a little detour into knowledge, mental overhead, and trust. We'll then connect this back with ZKPs at the end of the section.
+Tomémonos un respiro de la compresión, la concisión y las pruebas. Vamos a hacer una pequeña excursión hacia el conocimiento, la carga mental y la confianza. Al final de la sección, conectaremos todo esto de nuevo con las ZKPs.
 
-In your everyday life, what do you know is true, and why? If you see the sun rise every day, you likely expect it to rise again tomorrow. In the modern world, we are largely protected from the harsh environment in nature, but on the flip side, we have a lot of other, more modern, concerns. Many of these are related to various institutions we deal with on a daily basis.
+En tu vida cotidiana, ¿qué sabés que es verdad y por qué? Si ves salir el sol todos los días, probablemente esperas que vuelva a salir mañana. En el mundo moderno, estamos bastante protegidos del entorno natural hostil, pero a cambio tenemos muchas preocupaciones modernas. Muchas de ellas están relacionadas con instituciones con las que interactuamos a diario.
 
-If you are able to withdraw cash from your bank every day, do you expect to be able to withdraw it again the next day? Most people would probably say yes, but not everyone all the time. This depends on a lot of factors: if the bank is trustworthy, if you're living in a safe jurisdiction, if something major has happened in the world economy recently, what your personal circumstances are like etc. All of these things together make up some data points, and based on that you make a determination.
+Si puedes retirar efectivo de tu banco todos los días, ¿esperas poder hacerlo mañana también? La mayoría diría que sí, pero no todas las personas, ni en todo momento. Depende de muchos factores: si el banco es confiable, si vives en una jurisdicción segura, si pasó algo importante en la economía global recientemente, cuál es tu situación personal, etc. Todos estos factores funcionan como datos que te permiten tomar una decisión.
 
-This is obviously a trivial example, but life is full of such interactions. All of this can be seen as a form of mental overhead. The extent to which this is a concern can depend on your personal situation and the complexity of your day-to-day dealings. For instance, a business might give these factors a lot more thought when entering into a contract with another party.
+Obviamente, este es un ejemplo trivial, pero la vida está llena de este tipo de interacciones. Todo esto puede verse como una forma de carga mental. El grado en que esto te preocupa depende de tu situación personal y de cuán complejas sean tus actividades diarias. Por ejemplo, una empresa probablemente analice todos estos factores mucho más cuidadosamente al firmar un contrato con otra parte.
 
-We create mechanisms and rules to counteract this uncertainty, such as using reputation services, independent auditing, imposing fines to discourage bad behavior, seeking accreditation by some trusted institutions, etc. All these measures are basically duct tape, trying to get to the crux of the matter. Is something what it claims to be? Does it follow the rules we have established? And is it trustworthy and usable?
+Creamos mecanismos y reglas para contrarrestar esta incertidumbre: servicios de reputación, auditorías independientes, multas para desalentar el mal comportamiento, acreditaciones emitidas por instituciones confiables, etc. Todas estas medidas son, en esencia, parches que intentan ir al fondo de la cuestión: ¿algo es lo que dice ser? ¿Cumple con las reglas que definimos? ¿Es confiable y utilizable?
 
-All of this mental overhead gets compounded when you are dealing with multiple institutions, jurisdictions, companies, and people. You can get cascading effects, such as your bank failing and you being unable to pay your employees, thus leading to your business being unable to service its customers [^10]. More control measures are needed. More pauses to consider if things are right and what can go wrong.
+Toda esta carga mental se multiplica cuando estás tratando con múltiples instituciones, jurisdicciones, empresas y personas. Pueden darse efectos en cascada: por ejemplo, si tu banco quiebra, no pruedes pagarle a tus empleados, y entonces tu empresa no puede atender a sus clientes [^10]. Se necesitan más mecanismos de control. Más momentos para frenar y preguntarse si todo está bien y qué puede salir mal.
 
-I'll end this section with a quote:
+Voy a cerrar esta sección con una cita:
 
-> Civilization advances by extending the number of operations we can perform without thinking about them.
+> La civilización avanza al extender la cantidad de operaciones que podemos realizar sin pensar en ellas.  
 >
 > - Alfred North Whitehead [^11]
 
-For example, when you light the stove to make dinner, you don't even have to think about making a fire. This is very different from having to gather wood, keep it dry, create a fire, and keep it going, a very time-consuming process. In mathematics, without calculus, we wouldn't be able to go to the moon.
+Por ejemplo, cuando encendés la cocina para preparar la cena, ni siquiera pensás en hacer fuego. Es muy distinto de tener que juntar leña, mantenerla seca, encenderla y mantenerla viva, un proceso que consume mucho tiempo. En matemáticas, sin el cálculo diferencial, no podríamos haber llegado a la Luna.
 
 ![Aldrin, Apollo 11](../assets/01_apollo-aldrin.jpg 'Aldrin, Apollo 11')
 
-With ZKPs and succinct proofs, we are able to introduce more certainty and clarity into opaque systems. This gets even more powerful when we consider _composing_ ZKPs. That is combining multiple proofs into one in some fashion, such as with aggregation or recursion.
+Con ZKPs y pruebas concisas, podemos introducir más certeza y claridad en sistemas opacos. Esto se vuelve aún más poderoso cuando consideramos la _composición_ de ZKPs. Es decir, combinar múltiples pruebas en una sola, ya sea mediante agregación o recursión.
 
-All of this presumes we can translate some of the mechanisms or rules mentioned above - which are often messy and inconsistent - into a form that ZKPs can comprehend. How can we do that?
+Todo esto parte de la idea de que podemos traducir algunos de los mecanismos o reglas mencionados —que muchas veces son desordenados e inconsistentes— a una forma que las ZKPs puedan entender. ¿Cómo lo hacemos?
 
-### General-purpose
+### De propósito general
 
-Recall that ZKPs allow us to prove arbitrary statements in a general-purpose fashion. Why does this matter and how is this powerful?
+Recuerda que las ZKPs nos permiten probar declaraciones arbitrarias de forma general. ¿Por qué importa esto y por qué es tan poderoso?
 
-The difference between similar existing tools and ZKPs is like the difference between a calculator and a computer. One is meant for a very specific task, and the other is general-purpose. It is the difference between this calculating machine [^12] and a modern computer:
+La diferencia entre herramientas similares que ya existen y las ZKPs es como la diferencia entre una calculadora y una computadora. Una sirve para tareas muy específicas, la otra es de propósito general. Es como comparar esta máquina de calcular [^12] con una computadora moderna:
 
-![Pascal's calculator](../assets/01_pascals-calculator2.jpg "Pascal's Calculator")
+![Pascal's calculator](../assets/01_pascals-calculator2.jpg "Calculadora de Pascal")
 
-Recall the specific examples we gave above to represent privacy and succinctness more concretely. A password is a private piece of information that allows you to log in to some service [^13]. In the case of a hash of some input data, such as a file, it gives us something succinct to check equality to.
+Recuerda los ejemplos anteriores que usamos para ilustrar la privacidad y la concisión de forma más concreta. Una contraseña es un dato privado que te permite acceder a un servicio [^13]. En el caso del hash de algún dato de entrada —como un archivo—, nos da algo conciso para verificar igualdad.
 
-We can visualize a hash function as follows:
+Podemos visualizar una función hash de la siguiente manera:
 
-![Hash function](../assets/01_graphviz-hash.png 'Hash function')
+![Hash function](../assets/01_graphviz-hash.png 'Función hash')
 
-We apply a specific hash function, such as SHA256 [^14], on some known input data. For example, using the sentence "The quick brown fox jumps over the lazy dog" (without quotation marks) as input and applying the SHA256 hash function results in the hash `d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592`. Adding a "." at the end of the sentence gives a completely different hash value: "The quick brown fox jumps over the lazy dog." hashes to `ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c`.
+Aplicamos una función hash específica, como SHA256 [^14], sobre un dato de entrada conocido. Por ejemplo, usar la frase “The quick brown fox jumps over the lazy dog” (sin comillas) como entrada y aplicar SHA256 da como resultado el hash `d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592`. Si le agregamos un punto al final de la frase, obtenemos un hash completamente distinto: “The quick brown fox jumps over the lazy dog.” da `ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c`.
 
-Even though the sentence just changed a tiny bit, the resulting hashes are very different [^15]. Hash functions that are secure are hard to "break" and have some nice properties. For example, if you have the hash value, you can't recreate the initial input. You also can't easily construct a message that hashes to a specific, predetermined hash value. These hash functions are called _cryptographic hash functions_. [^16]
+Aunque la frase cambió solo un poquito, los hashes resultantes son muy distintos [^15]. Las funciones hash seguras son difíciles de romper y tienen propiedades muy útiles. Por ejemplo, si tienes solo el hash, no puedes reconstruir el mensaje original. Tampoco puedes generar fácilmente un mensaje que produzca un hash específico. Estas funciones se conocen como _funciones hash criptográficas_. [^16]
 
-The SHA256 hash function we used above is a specific cryptographic hash function that took a lot of time and many people to make secure. The hash itself also doesn't prove anything. It only makes sense when compared with something else, such as having direct access to the message or file.
+La función SHA256 que usamos arriba es una función hash criptográfica particular que tomó mucho tiempo y muchas personas para lograr que fuera segura. El hash por sí solo no prueba nada. Solo tiene sentido cuando se compara con otra cosa, como el mensaje o archivo original.
 
-Informally, we can think of a hash function as providing a proof that some specific message corresponds to a particular hash. We can only verify this with the original message. Sometimes people use this to prove they wrote something and make predictions - they write "On April 1, 2040, aliens will land on top of Big Ben in London, and the lottery number 25742069 will win a jackpot." and then post the hash of this message publicly ahead of time, say on Twitter. When it turns out they are right, they can reveal the original message, and people can be convinced that they did predict the future and are the next Nostradamus.
+Informalmente, podemos pensar que una función de hash sirve para demostrar que un mensaje específico corresponde a un hash particular. Pero solo podemos verificarlo si tenemos el mensaje original. A veces la gente usa esto para demostrar que escribió algo o hizo una predicción: escriben, por ejemplo, "El 1 de abril de 2040, alienígenas aterrizarán sobre el Big Ben en Londres, y el número 25742069 ganará la lotería", y publican el hash de ese mensaje en Twitter. Si llega a cumplirse, revelan el mensaje original y convencen a todos de que son el nuevo Nostradamus.
 
-In contrast, we can visualize a ZKP as follows:
+En cambio, una ZKP se puede visualizar así:
 
 ![ZKP](../assets/01_graphviz-zkp.png 'ZKP')
 
-Unlike in the hash function above, there are a few big differences:
+A diferencia de la función hash anterior, hay varias diferencias importantes:
 
-- We have multiple private and public inputs as opposed to only a single (public) input
-- We can use any program, not just a cryptographic hash function
-- We produce a self-contained proof that can be verified
+- Podemos tener múltiples entradas privadas y públicas, no solo una entrada pública  
+- Podemos usar cualquier programa, no solo una función hash  
+- Generamos una prueba autónoma que se puede verificar
 
-In the hash function example above, we need to make the input public in order to verify that the message corresponds to the hash. For ZKPs, we can also have _private input_. Private input is something that only you can see. That is, you don't need to reveal it to anyone in order to produce a proof.
+En el ejemplo anterior con hash, necesitamos hacer pública la entrada para verificar que el mensaje corresponde al hash. En las ZKPs, también podemos tener _entradas privadas_. Una entrada privada es algo que solo tu puedes ver. No necesitas revelarla a nadie para generar la prueba.
 
-For example, in the "Where's Waldo" case at the beginning of this article, the public input would be the picture of Where's Waldo. The private input is the actual location of Waldo. I can produce a proof that I know where Waldo is without revealing the private input, the location of Waldo, to you.
+Por ejemplo, en el caso de “¿Dónde está Waldo?” del inicio del artículo, la entrada pública sería la imagen de Waldo. La entrada privada es la ubicación exacta. Yo puedo generar una prueba de que sé dónde está Waldo sin revelarte esa ubicación.
 
-Similarly, if I have a Sudoku puzzle (a popular logic puzzle), I can prove to you that I know a solution to the puzzle without revealing the solution to you. In this case, the public input is the initial puzzle, and the private input is the solution to the puzzle.
+De forma similar, si tengo un Sudoku (un popular juego de lógica), puedo demostrar que tengo una solución válida sin mostrarte la solución. En este caso, la entrada pública es el Sudoku inicial y la privada es la solución.
 
-You might have noticed that Where's Waldo and solving a Sudoku puzzle are two very different problems. Yet we can write a simple program that expresses how either of these works and uses ZKP to create a proof. That is because the logic inside this special program is general-purpose and can compute anything a computer can.
+Quizás notaste que “¿Dónde está Waldo?” y resolver un Sudoku son problemas muy distintos. Sin embargo, podemos escribir un programa que exprese cómo funciona cualquiera de los dos y use ZKPs para generar una prueba. Esto es posible porque la lógica de este tipo de programas es de propósito general y puede computar cualquier cosa que pueda hacer una computadora.
 
-We have turned what was originally a problem of cryptography or math - defining and making a cryptographic hash function secure - into one of programming. To see why this is extremely powerful, consider some of the following examples.
+Transformamos lo que originalmente era un problema de criptografía o matemática —definir y asegurar una función hash— en un problema de programación. Para ver por qué esto es tan poderoso, veamos algunos ejemplos.
 
-We can now prove that we know the private data that results in a certain hash [^17]. This means you can prove that you are in possession of a certain message, such as an important document, without revealing the message itself.
+Ahora podemos probar que conocemos los datos privados que producen cierto hash [^17]. Es decir, podemos demostrar que tenemos un mensaje —como un documento importante— sin revelar el contenido del mensaje.
 
-To better understand the power of doing general-purpose computing, let's take a closer look at group signature. Group signatures are a way for a group of individuals to sign a document together, without revealing who they are. For example, the Federalist Papers were signed by the pseudonym Publius which represented multiple individuals [^18]. Just like in the case of the SHA256 hash function, there's a way to express group signatures with cryptography and math. This is very impressive and took a lot of cryptographic engineering to develop. But with general-purpose ZKPs anyone can express the same thing in just a few dozen lines of Circom, a programming language for ZKPs, code [^19].
+Para entender mejor el poder del cómputo de propósito general, veamos el caso de las firmas de grupo. Son una forma de que un grupo de personas firme un documento sin revelar quiénes son. Por ejemplo, los _Federalist Papers_ fueron firmados por el seudónimo Publius, que representaba a varias personas [^18]. Al igual que con SHA256, hay una forma de expresar estas firmas grupales con criptografía y matemática. Eso es muy impresionante y requirió mucha ingeniería criptográfica. Pero con ZKPs de propósito general cualquiera puede expresar lo mismo con apenas unas pocas decenas de líneas de código en Circom, un lenguaje para ZKPs [^19].
 
-Due to its general nature, we can easily make ad hoc constructions. For example, you might have an ID card that has your full name, address, and other personal information. To enter an event, you might need to be over 18 and have a valid ticket. You might not want a random person or online system to see your address or risk having your ID stolen. With ZKPs you can prove that:
+Gracias a su naturaleza general, podemos construir soluciones ad hoc con facilidad. Por ejemplo, posiblemente poseas un DNI con tu nombre completo, dirección y otros datos personales. Para ingresar a un evento, solo necesitas probar que tienes más de 18 años y un ticket válido. No quieres que cualquier persona o sistema vea tu dirección ni arriesgarte a que te roben la identidad. Con ZKPs podés demostrar que:
 
-- You possess a valid ID
-- The ID has been issued by an approved institution in the last 5 years
-- The ID has not been revoked or reported stolen recently
-- You are over 18 years of age
-- You have paid for a valid ticket to the event
-- The ticket has not been used before
+- Tenés una identificación válida  
+- Fue emitida por una institución aprobada en los últimos 5 años  
+- No ha sido revocada ni reportada como robada
+- Eres mayor de 18 años  
+- Pagaste un ticket válido para el evento  
+- El ticket no fue usado antes
 
-All without revealing any single fact about yourself other than what is listed above.
+Todo eso sin revelar ni un solo dato más sobre ti que los indicados arriba.
 
-With ZKPs, we now have a _better tool_ for people to coordinate in various ways, especially when it comes to systems where you want _privacy_ and _succinctness_. We'll see even more examples in the application section.
+Con ZKPs, ahora tenemos una _mejor herramienta_ para que las personas puedan coordinar de diversas formas, especialmente en sistemas donde se necesita _privacidad_ y _concisión_. Veremos más ejemplos en la sección de aplicaciones.
 
-Often, it is your imagination that is the limit in terms of what you can express.
+Muchas veces, el límite está en tu imaginación y en lo que puedas llegar a expresar.
 
 ### Why now?
 
