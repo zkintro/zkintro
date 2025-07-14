@@ -241,70 +241,72 @@ Con ZKPs, ahora tenemos una _mejor herramienta_ para que las personas puedan coo
 
 Muchas veces, el límite está en tu imaginación y en lo que puedas llegar a expresar.
 
-### Why now?
+### ¿Por qué ahora?
 
-Why are ZKPs becoming a thing now? There are both technical and social reasons for this.
+¿Por qué las ZKPs están cobrando relevancia justo ahora? Hay razones tanto técnicas como sociales para esto.
 
-Technically, ZKPs are fairly new. Mathematically they've only existed for a few decades [^20]. Similar to computing itself, it then took a while to become performant and practical, even in theory. [^21]
+Técnicamente, las ZKPs son bastante nuevas. Matemáticamente, existen desde hace solo unas pocas décadas [^20]. Al igual que pasó con la computación misma, tomó tiempo hasta que fueran eficientes y prácticas, incluso en teoría [^21].
 
-After that, someone had to take these papers and cryptographic protocols and turn them into something practical. The first notable example of this was Zcash, the privacy-preserving cryptocurrency, in 2016. It started as a paper written by cypherpunks and researchers [^22]. The first version was an impressive feat of research and engineering applied to an end product and system. While the system had many issues and was far from optimal, it was the first real practical example of using ZKPs in the real world. This showed people that it was possible and practical to use ZKPs in the real world. This has led to an explosion of research and engineering efforts in ZKP, especially in recent years.
+Después, alguien tenía que tomar esos papers y protocolos criptográficos y convertirlos en algo práctico. El primer ejemplo notable fue Zcash, la criptomoneda orientada a la privacidad, en 2016. Comenzó como un paper escrito por cypherpunks e investigadores [^22]. La primera versión fue un logro impresionante de investigación e ingeniería aplicada a un producto y sistema reales. Aunque el sistema tenía muchos problemas y estaba lejos de ser óptimo, fue el primer ejemplo práctico y funcional del uso de ZKPs en el mundo real. Eso demostró que no solo era posible, sino también útil. Desde entonces, la investigación y el desarrollo en ZKPs se dispararon, especialmente en los últimos años.
 
-Public blockchains like Ethereum and Zcash, a privacy-preserving cryptocurrency, had a big role to play in this. What blockchains excel at are things like censorship resistance and transparency [^23]. This comes at the cost of a lack of privacy and scalability, something that ZKPs excel at. In this sense, they are a natural fit. Couple that with the blockchain community's appetite for advanced cryptography [^24], and it is no wonder a lot of the innovation is happening at the intersection between blockchain and ZKPs [^25]. Due to the many well-capitalized blockchain projects, this has also led to more investment into research and engineering in a traditionally more academic space.
+Blockchains públicas como Ethereum y Zcash, una criptomoneda que preserva la privacidad, jugaron un rol clave en este proceso. Las blockchains se destacan por su resistencia a la censura y su transparencia [^23]. Pero esto suele venir con un costo: la falta de privacidad y escalabilidad —exactamente donde brillan las ZKPs. Por eso son una combinación natural. Súmale a eso el entusiasmo de la comunidad cripto por la criptografía avanzada [^24], y no sorprende que mucha de la innovación esté ocurriendo en la intersección entre blockchain y ZKPs [^25]. Además, los muchos proyectos de blockchain bien financiados llevaron a que se invierta más en investigación e ingeniería, algo que antes estaba limitado al ámbito académico.
 
-Considering the complexity involved, spanning applied mathematics, cryptography, papers on specific ZKP systems, implementing novel proof systems, tooling, and applications that touch other complex domains, things are moving extremely fast. Every year - even every month - there are new research papers with novel techniques, improved tooling, and applications. The feedback loop between new research and it being implemented and then used is getting tighter. While still difficult, it is getting easier and easier to get started. As tooling is improved, developers need to understand the math behind ZKPs less and less.
+Teniendo en cuenta toda la complejidad que involucra —matemática aplicada, criptografía, papers sobre sistemas de prueba concretos, implementación de nuevos esquemas, herramientas y aplicaciones en dominios técnicos—, el avance es increíblemente rápido. Cada año —incluso cada mes— aparecen nuevos papers con técnicas novedosas, herramientas mejoradas y aplicaciones concretas. El ciclo entre investigación, implementación y uso se acorta cada vez más. Aunque sigue siendo un tema difícil, cada vez es más accesible empezar. A medida que las herramientas mejoran, los desarrolladores necesitan entender cada vez menos la matemática detrás de las ZKPs.
 
-In terms of the performance of ZKPs, there's a form of Moore's law happening. Moore's law is the observation that the number of transistors doubles about every two years. This is what led to the computer revolution. In ZKPs, projects that were just pipe dreams a few years ago, seen as completely unpractical, are now being executed on, things like _zkVM_ and _zkML_. As a rule of thumb, it has been observed in the ZKP world that things improve by an order of magnitude every other year or so [^26]. This is because it is a new technology, and it is possible to aggressively optimize on many layers of the stack, from the programs we write, to the systems we use, to the hardware itself. We have no reason to believe this will stop any time soon.
+En cuanto al rendimiento de las ZKPs, está ocurriendo una especie de ley de Moore. La ley de Moore observa que la cantidad de transistores se duplica aproximadamente cada dos años, lo que impulsó la revolución informática. En ZKPs, proyectos que hace apenas unos años parecían imposibles o imprácticos —como _zkVM_ o _zkML_— hoy se están ejecutando. Como regla general, se ha observado que en el mundo de las ZKPs todo mejora en un orden de magnitud cada dos años aproximadamente [^26]. Esto se debe a que es una tecnología nueva, y es posible optimizar agresivamente muchas capas del stack: desde los programas que escribimos, hasta los sistemas que usamos y el hardware mismo. No hay señales de que esta tendencia vaya a frenarse pronto.
 
-![Moore's Law](../assets/01_moores-law.png "Moore's Law")
+![Moore's Law](../assets/01_moores-law.png "Ley de Moore")
 
-## How does it work?
+## ¿Cómo funciona?
 
-_This section explains how Zero Knowledge Proofs work at a high level_
+_Esta sección explica cómo funcionan las pruebas de conocimiento cero desde una perspectiva general_
 
-This section provides a high-level overview of how ZKPs work. It will not include any mathematics or code.
+Esta sección ofrece una visión general de cómo funcionan las ZKPs. No incluye matemáticas ni código.
 
-### Basics
+### Conceptos básicos
 
 We start by introducing some terminology. There'll be a few new terms to learn, but as we go along, you'll get the hang of it.
 
-- **Protocol**: system of rules that explain the correct conduct to be followed
-- **Proof**: argument establishing the truth of a statement
-- **Prover**: someone who proves or demonstrates something
-- **Verifier**: someone who vouches for the correctness of a statement
-- **Private input**: Input that only the prover can see, often called **witness**
-- **Public input**: Input that both prover and verifier can see, often called **instance**
+Empecemos con algo de terminología. Vas a encontrarte con algunos términos nuevos, pero a medida que avancemos, te vas a ir acostumbrando.
 
-While it is useful to learn the terminology used in the field, some metaphors can be helpful in getting a better sense of what's going on. We'll introduce more terms as we go.
+- **Protocolo**: sistema de reglas que define la conducta correcta a seguir  
+- **Prueba**: argumento que establece la verdad de una declaración  
+- **Demostrador**: quien prueba o demuestra algo  
+- **Verificador**: quien valida que una declaración es correcta  
+- **Entrada privada**: input que solo el demostrador puede ver, también llamado **testigo**  
+- **Entrada pública**: input que tanto el demostrador como el verificador pueden ver, también llamado **instancia**
 
-Protocols exist everywhere and can be implicit or explicit. In the game of chess, the protocol is that you have two players who take turns to play a move according to the rules of the game until the game ends, and one person wins, or there is a draw. In theory, the time it takes to make a move doesn't matter, but in practice, we try to minimize the communication costs between the two parties interacting. We can thus think of it as a really fast game of chess.
+Aunque es útil aprender la terminología del área, algunas metáforas pueden ayudarte a entender mejor de qué se trata todo esto. Vamos a ir presentando más términos a lo largo del texto.
 
-We can think of Sherlock Holmes as the prover, and in his final statement he produces an elegant series of arguments, a proof, that someone is the murderer. This must then be verified by a verifier to be true, for example by a judge or jury, _beyond a reasonable doubt_ [^27]. The 'prover' refers to an entity, here Holmes, producing the proof, which must then be verified. Because the proof is self-contained, anyone can be a verifier, including you as the reader, who must be convinced of the reasoning provided to make the story believable. [^28]
+Los protocolos están en todos lados y pueden ser implícitos o explícitos. En el ajedrez, el protocolo es que dos jugadores se turnan para mover piezas según las reglas del juego hasta que uno gana o hay un empate. En teoría, no importa cuánto tiempo tarde cada jugada, pero en la práctica, tratamos de reducir al mínimo la fricción en la comunicación entre las partes. Podés pensar en esto como una partida de ajedrez rapidísima.
 
-The private input would be some knowledge that only Sherlock Holmes knows, for example some secret information someone whispered in his ears. This is often confusingly called witness, presumably because a witness in a courtroom has some private information, and this is added to the pile of evidence. In the case of ZKPs, this private information would not be shared with the verifier, or judge and jury in this example.
+Podemos imaginar a Sherlock Holmes como el demostrador: en su discurso final presenta una elegante cadena de argumentos, una prueba, que demuestra quién es el asesino. Esa prueba debe ser verificada por un verificador —como un juez o un jurado— y debe ser convincente _más allá de toda duda razonable_ [^27]. El “demostrador” es la entidad —en este caso Holmes— que presenta la prueba, y luego debe ser verificada. Como la prueba es autónoma, cualquiera puede ser verificador, incluso tu como lector, que necesitas creer en el razonamiento para que la historia funcione. [^28]
 
-ZKPs establish a _protocol_ between a _prover_ and a _verifier_. This protocol is _non-interactive_ if the prover and verifier don't have to interact or communicate directly, like in a game of chess or in a dance. Instead, the prover produces a single self-contained proof, and at some later point, this gets verified. Most ZKPs start off as _interactive_ - that is, requiring multiple back and forths - and we then use some mathematical tricks to make it non-interactive [^29]. You can think of non-interactivity kind of as two chess players who, after uttering a few words, know every single move the other player will play, so they don't even start the game because they already know how it will end.
+La entrada privada sería información que solo Holmes conoce, como algún secreto que alguien le susurró al oído. A esto se lo llama testigo (witness), aunque el nombre puede confundir: se refiere al hecho de que, en un juicio, un testigo tiene datos privados que se suman a la evidencia. En el caso de las ZKPs, esta información privada no se comparte con el verificador —ni con el juez o el jurado en este ejemplo.
 
-There are many types of ZKPs. We often talk about *zk-SNARK*s, which stands for Zero Knowledge Succinct Non-Interactive ARguments of Knowledge. Zero Knowledge and Succinctness correspond to privacy and compression above, respectively. Non-interactive was mentioned. "ARguments of knowledge" is basically the same thing as a proof [^30]. There are many different types of zk-SNARKs too.
+Las ZKPs establecen un _protocolo_ entre un _demostrador_ y un _verificador_. Este protocolo es _no interactivo_ cuando no hace falta que el demostrador y el verificador se comuniquen directamente, como en una partida de ajedrez o en un baile. En su lugar, el demostrador genera una prueba autónoma y, más adelante, alguien la verifica. La mayoría de las ZKPs empiezan siendo _interactivas_ —es decir, requieren varios intercambios— y después se transforman en no interactivas usando ciertos trucos matemáticos [^29]. Podés pensar en la no interactividad como si dos jugadores de ajedrez supieran, con solo decir unas palabras, exactamente cómo jugará el otro. Entonces ni siquiera hacen falta las jugadas, porque ya saben cómo terminará la partida.
 
-A good mental model is to think of ZKPs as a zoo. There are a lot of animals there, and we can categorize them in various ways: these animals have four legs, these have stripes, Bob brought these in last year [^31], etc. Some categories are more useful than others. In fact, some of these systems don't even have Zero Knowledge! These are usually called just SNARKs. As a community, we often call this zoo of different animals ZK, even if there are many systems that don't actually use the Zero Knowledge property. [^32]
+Hay muchos tipos de ZKPs. A menudo hablamos de *zk-SNARKs*, que significa _Zero Knowledge Succinct Non-Interactive ARguments of Knowledge_. “Zero Knowledge” y “Succinct” se corresponden con los conceptos de privacidad y compresión que vimos antes. “Non-Interactive” ya lo explicamos. “ARguments of Knowledge” es básicamente otra forma de decir prueba [^30]. Hay muchos tipos distintos de zk-SNARKs.
 
-### Protocol
+Un buen modelo mental es imaginar que las ZKPs son como un zoológico. Hay muchos animales distintos, y podemos agruparlos de varias formas: estos tienen cuatro patas, aquellos tienen rayas, estos los trajo Bob el año pasado [^31], etc. Algunas categorías son más útiles que otras. De hecho, algunos de estos sistemas ni siquiera tienen la propiedad de Zero Knowledge. A esos usualmente se los llama simplemente SNARKs. En la comunidad, solemos llamar ZK a todo este zoológico, aunque muchos de estos sistemas no usan realmente la propiedad de conocimiento cero [^32].
 
-Going back to our protocol, we have a prover and verifier. The prover creates a proof using a _prover key_, private input and public input. The verifier verifies the proof using a _verification key_ and public input, and outputs true or false.
+### Protocolo
 
-We have two new things, a prover key and a verifier key. This is what allows the prover and verifier to do their magic. You can think of them as a regular key that allows you to enter somewhere and do something, or you can think of them as a magic wand that allows you to do something. We get these keys from a special ceremony called a _setup_, which is an initial preparation phase that we won't go into detail about in this article [^33].
+Volviendo a nuestro protocolo, tenemos un demostrador y un verificador. El demostrador genera una prueba usando una _clave del demostrador_, una entrada privada y una entrada pública. El verificador valida esa prueba usando una _clave del verificador_ y la entrada pública, y devuelve como resultado “verdadero” o “falso”.
 
-Notice that only the prover has access to the private input. How does the prover use the prover key, private input and public input to turn it into a proof?
+Hay dos elementos nuevos: la clave del demostrador y la clave del verificador. Son las que permiten que el demostrador y el verificador hagan su magia. Puedes pensarlas como una llave común que te deja entrar a algún lugar y hacer algo, o como una varita mágica que te permite ejecutar una acción. Estas llaves se obtienen a partir de una ceremonia especial llamada _configuración confiable_ (trusted setup), que es una fase de preparación inicial que no vamos a detallar en este artículo [^33].
 
-Recall the illustration of a ZKP from before:
+Fíjate que solo el demostrador tiene acceso a la entrada privada. ¿Cómo hace para usar su clave, la entrada privada y la pública para convertir todo eso en una prueba?
+
+Recuerda la ilustración anterior de una ZKP:
 
 ![ZKP](../assets/01_graphviz-zkp.png 'ZKP')
 
-We have a special program (formally known as a _circuit_) that encodes the logic a user cares about. For example, proving that they know the data that results in a certain hash value. Unlike a normal computer program, this program is made up of _constraints_ [^34]. We are proving that all the constraints hold together with the private and public input.
+Usamos un programa especial (formalmente conocido como _circuito_) que representa la lógica que nos interesa probar. Por ejemplo, demostrar que conocemos los datos que producen cierto valor hash. A diferencia de un programa tradicional, este programa está compuesto por _restricciones_ [^34]. Lo que estamos probando es que todas las restricciones se cumplen al combinar la entrada privada con la pública.
 
-Finally, the verifier takes this short proof, combines it with the verification key, public input and the special program with all the constraints and convinces itself beyond a reasonable doubt that the proof is correct and outputs "true". If it isn't correct it'll output "false".
+Finalmente, el verificador toma esta prueba breve, la combina con la clave de verificación, la entrada pública y el programa especial con todas sus restricciones, y se convence _más allá de toda duda razonable_ de que la prueba es válida, devolviendo “verdadero”. Si no es válida, devuelve “falso”.
 
-This is a somewhat simplified view but it captures the essence of what is going on.
+Esta es una versión algo simplificada, pero capta la esencia de lo que está pasando.
 
 ### Constraints
 
