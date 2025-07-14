@@ -308,54 +308,56 @@ Finalmente, el verificador toma esta prueba breve, la combina con la clave de ve
 
 Esta es una versión algo simplificada, pero capta la esencia de lo que está pasando.
 
-### Constraints
+### Restricciones
 
-What are these constraints that make up the special program above? A constraint is a limitation or restriction. For example, "a number between 1 and 9" is a constraint. The number 7 satisfies this constraint, and the number 11 doesn't. How do we write a program as a set of constraints? This is an art on its own, but let's start by looking at a simple example: Sudoku.
+¿Qué son estas restricciones que forman parte del programa especial que mencionamos antes? Una restricción es una limitación o condición. Por ejemplo, “un número entre 1 y 9” es una restricción. El número 7 la cumple, pero el número 11 no. ¿Cómo escribimos un programa como un conjunto de restricciones? Esto es casi un arte, pero empecemos con un ejemplo simple: el Sudoku.
 
-In the game of Sudoku the goal is to find a solution to a board that satisfies some constraints. Each row should include the numbers 1 to 9 but only once. The same goes for each column and each 3x3 subsquare. We are given some initial starting position, and then our job is to fill in the rest in a way that satisfies all these constraints. The tricky part is finding numbers that satisfy all the constraints at once.
+En el juego del Sudoku, el objetivo es encontrar una solución para el tablero que cumpla con ciertas restricciones. Cada fila debe incluir los números del 1 al 9, pero solo una vez. Lo mismo aplica para cada columna y para cada subcuadro de 3x3. Se nos da una posición inicial con algunos números, y el desafío consiste en completar el resto de forma que se cumplan todas esas restricciones. Lo difícil es encontrar valores que las cumplan todas al mismo tiempo.
 
 ![Sudoku](../assets/01_sudoku.png 'Sudoku puzzler')
 
-With ZKPs, a prover can construct a proof that they know the solution to a certain puzzle. In this case, the proving consists of using some public input, the initial board position, and some private input, their solution to the puzzle, and a circuit. The circuit consists of all the constraints that express the puzzle.
+Con ZKPs, un demostrador puede construir una prueba de que conoce la solución a un determinado rompecabezas. En este caso, demostrar significa usar una entrada pública —la posición inicial del tablero—, una entrada privada —la solución completa— y un circuito. El circuito está compuesto por todas las restricciones que definen el rompecabezas.
 
-It is called a circuit because these constraints are related to each other, and we wire these constraints together, kind of like an electric circuit. In this case the circuit isn't dealing with current, but with values. For example, we can't stick any value like "banana" in our row constraint, it has to be a number, and the number has to be between 1 and 9, and so on.
+Se lo llama circuito porque estas restricciones están conectadas entre sí, como los componentes de un circuito eléctrico. Pero en este caso, el circuito no transporta corriente, sino valores. Por ejemplo, no podemos meter cualquier cosa como “banana” en una fila: tiene que ser un número, y ese número debe estar entre 1 y 9, etc.
 
-The verifier has the same circuit and public input, and can verify the proof the prover sent them. Assuming the proof is valid, the verifier is convinced that the prover has a solution to that specific puzzle.
+El verificador tiene el mismo circuito y la misma entrada pública, y puede verificar la prueba que el demostrador le envió. Si la prueba es válida, el verificador queda convencido de que el demostrador tiene una solución para ese rompecabezas específico.
 
-It turns out that a lot of problems can be expressed as a set of constraints. In fact, any problem we can solve with a computer can be expressed as a set of constraints.
+Resulta que muchos problemas pueden expresarse como un conjunto de restricciones. De hecho, cualquier problema que podamos resolver con una computadora puede expresarse de esa forma.
 
-### Sudoku example
+### Ejemplo de Sudoku
 
-Let's apply what we learned about the various parts of a ZKP to the Sudoku example above.
+Apliquemos lo que aprendimos sobre las distintas partes de una ZKP al ejemplo del Sudoku.
 
-For Sudoku, our special program, the circuit, takes two inputs:
+Para el Sudoku, nuestro programa especial —el circuito— recibe dos entradas:
 
-- A Sudoku puzzle as public input
-- A solution to a Sudoku puzzle as private input
+- Un tablero de Sudoku como entrada pública  
+- Una solución al Sudoku como entrada privada
 
-The circuit is made up of a set of constraints. All of these constraints have to be true. The constraints look like this:
+El circuito está compuesto por un conjunto de restricciones. Todas deben cumplirse. Las restricciones se ven así:
 
-- All digits in the puzzle and solution have to be between 1 and 9
-- The solution has to be equal to the puzzle in all the places where digits are already placed
-- All rows must contain digits 1 through 9 exactly once
-- All columns must contain digits 1 through 9 exactly once
-- All subsquares must contain digits 1 through 9 exactly once
+- Todos los dígitos del tablero y la solución deben estar entre 1 y 9  
+- La solución debe coincidir con el tablero en todas las casillas donde ya hay números  
+- Cada fila debe contener los números del 1 al 9 exactamente una vez  
+- Cada columna debe contener los números del 1 al 9 exactamente una vez  
+- Cada subcuadro de 3x3 debe contener los números del 1 al 9 exactamente una vez
 
-If all of these constraints are true for a puzzle and its solution, we know that it is a valid solution.
+Si todas estas restricciones se cumplen para un tablero y una solución, sabemos que es una solución válida.
 
 A prover Peggy uses her magic prover key, the puzzle and the solution, combines it with the special program and creates a proof. The proof is very short, less than 1000 characters. The proof is self-contained and with it the verifier has all information they need to verify the proof. You can think of it as a magic spell that does what you want, without you having to understand the details of it [^35].
 
-Here's a spell from a book of magic spells, written by a Welsh physician in the 19th century:
+La demostradora Peggy usa su clave mágica de demostrador, el tablero y la solución, los combina con el programa especial y genera una prueba. La prueba es muy breve, menos de 1000 caracteres. Es autónoma, y con ella el verificador tiene toda la información necesaria para comprobar que la prueba es válida. Puedes pensarla como un hechizo mágico que hace lo que necesitas, sin que tengas que entender todos los detalles [^35].
 
-![Magic spell](../assets/01_magic-spell.png 'Magic Spells')
+Este es un hechizo sacado de un libro de magia escrito por un médico galés en el siglo XIX:
 
-Here's an example of a Zero Knowledge Proof produced by the Circom/snarkjs library:
+![Magic spell](../assets/01_magic-spell.png 'Hechizos mágicos')
 
-![Circom proof](../assets/01_circom-proof.png 'Circom proof')
+Este es un ejemplo de una prueba de conocimiento cero generada con la biblioteca Circom/snarkjs:
 
-Except in this case, the magic actually works.
+![Circom proof](../assets/01_circom-proof.png 'Prueba con Circom')
 
-Victor the verifier uses his verifier key, the original puzzle input, and verifies that the proof Peggy sent is indeed correct. If it is, the output is "true", and if it isn't, the output is "false". The spell either works or it doesn't. With this, Victor is convinced that Peggy knows a solution to that specific puzzle, without actually having seen the solution. Et voilà. [^36]
+Solo que en este caso, la magia realmente funciona.
+
+Víctor, el verificador, usa su clave de verificador, la entrada pública (el tablero original), y verifica que la prueba que le envió Peggy sea correcta. Si lo es, el resultado es “verdadero”; si no, “falso”. El hechizo funciona o no. Así, Víctor queda convencido de que Peggy conoce una solución válida para ese tablero, sin haber visto jamás la solución. Et voilà. [^36]
 
 ### Some properties
 
