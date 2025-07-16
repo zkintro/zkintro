@@ -114,7 +114,7 @@ Como ejemplo, pensemos en cómo Agustín, en sus _Confesiones (400 d.C.)_, encon
 
 > Cuando [Ambrosio] leía, sus ojos recorrían la página y su corazón buscaba el sentido, pero su voz estaba en silencio y su lengua quieta. Cualquiera podía acercarse libremente y los visitantes no solían ser anunciados, así que a menudo, cuando íbamos a verlo, lo encontrábamos leyendo así, en silencio, pues nunca leía en voz alta.
 
-![Silent reading](../assets/01_silent-reading.jpg 'Lectura en silencio')
+![Silent reading](../assets/01_silent-reading.jpg 'Lectura silenciosa')
 
 Hoy en día, damos por hecho que leemos en silencio. Incluso cuesta imaginar que eso tuvo que ser inventado. La idea de que lo que lees es solo para tus ojos antes era impensable. ¿Qué otras invenciones similares son posibles en nuestra era? Cosas que, por ahora, la mayoría ni siquiera puede imaginar.
 
@@ -174,7 +174,7 @@ Voy a cerrar esta sección con una cita:
 
 Por ejemplo, cuando encendés la cocina para preparar la cena, ni siquiera pensás en hacer fuego. Es muy distinto de tener que juntar leña, mantenerla seca, encenderla y mantenerla viva, un proceso que consume mucho tiempo. En matemáticas, sin el cálculo diferencial, no podríamos haber llegado a la Luna.
 
-![Aldrin, Apollo 11](../assets/01_apollo-aldrin.jpg 'Aldrin, Apollo 11')
+![Aldrin, Apollo 11](../assets/01_apollo-aldrin.jpg 'Alunizaje')
 
 Con ZKPs y pruebas concisas, podemos introducir más certeza y claridad en sistemas opacos. Esto se vuelve aún más poderoso cuando consideramos la _composición_ de ZKPs. Es decir, combinar múltiples pruebas en una sola, ya sea mediante agregación o recursión.
 
@@ -314,7 +314,7 @@ Esta es una versión algo simplificada, pero capta la esencia de lo que está pa
 
 En el juego del Sudoku, el objetivo es encontrar una solución para el tablero que cumpla con ciertas restricciones. Cada fila debe incluir los números del 1 al 9, pero solo una vez. Lo mismo aplica para cada columna y para cada subcuadro de 3x3. Se nos da una posición inicial con algunos números, y el desafío consiste en completar el resto de forma que se cumplan todas esas restricciones. Lo difícil es encontrar valores que las cumplan todas al mismo tiempo.
 
-![Sudoku](../assets/01_sudoku.png 'Sudoku puzzler')
+![Sudoku](../assets/01_sudoku.png 'Sudoku puzzle')
 
 Con ZKPs, un demostrador puede construir una prueba de que conoce la solución a un determinado rompecabezas. En este caso, demostrar significa usar una entrada pública —la posición inicial del tablero—, una entrada privada —la solución completa— y un circuito. El circuito está compuesto por todas las restricciones que definen el rompecabezas.
 
@@ -359,141 +359,143 @@ Solo que en este caso, la magia realmente funciona.
 
 Víctor, el verificador, usa su clave de verificador, la entrada pública (el tablero original), y verifica que la prueba que le envió Peggy sea correcta. Si lo es, el resultado es “verdadero”; si no, “falso”. El hechizo funciona o no. Así, Víctor queda convencido de que Peggy conoce una solución válida para ese tablero, sin haber visto jamás la solución. Et voilà. [^36]
 
-### Some properties
+### Algunas propiedades
 
-We say that a ZKP has certain technical properties:
+Decimos que una ZKP tiene ciertas propiedades técnicas:
 
-- Completeness - if the statement is true, then the verifier will be convinced by the proof
-- Soundness - if the statement is false, the verifier won't be convinced by the proof, except with a negligible probability
-- Zero Knowledge - if the statement is true, it won't reveal anything but the fact that it is true
+- Completitud (completeness) - si la declaración es verdadera, el verificador se convencerá con la prueba  
+- Solvencia (soundness) - si la declaración es falsa, el verificador no se convencerá con la prueba, salvo con una probabilidad despreciable  
+- Conocimiento cero (Zero Knowledge) - si la declaración es verdadera, no se revela nada más que el hecho de que es verdadera
 
-Additionally, for zk-SNARKs, the proof is succinct, meaning it basically doesn't get bigger as the program gets more complex [^37].
+Además, en el caso de los zk-SNARKs, la prueba es concisa, lo que significa que prácticamente no crece en tamaño aunque el programa se vuelva más complejo [^37].
 
-There are many other properties we care about when it comes to practical ZKPs:
+También hay muchas otras propiedades importantes en las ZKPs prácticas:
 
-- What mathematical assumptions is the system making?
-- How secure is it?
-- Does it require a trusted setup?
-- How hard is it to generate the proof? In time and other resources
-- How hard is it to verify the proof? In time and other resources
-- Does the ZKP system allow for aggregating and combining multiple proofs together?
-- Are there any good libraries for a ZKP system that can be used by programmers?
-- How expressive is the language used to write programs for a particular ZKP system?
-- And so on
+- ¿Qué supuestos matemáticos hace el sistema?  
+- ¿Qué tan seguro es?  
+- ¿Requiere una configuración confiable（trusted setup）?  
+- ¿Qué tan costoso es generar la prueba? En tiempo y otros recursos  
+- ¿Qué tan costoso es verificar la prueba? En tiempo y otros recursos  
+- ¿Permite el sistema de ZKPs agregar o combinar múltiples pruebas en una sola?  
+- ¿Existen buenas librerías disponibles que puedan usar los programadores?  
+- ¿Qué tan expresivo es el lenguaje para escribir programas en ese sistema de ZKPs?  
+- Y así sucesivamente
 
-As you can see, there are quite a lot of considerations and different variations of ZKPs. Don't worry though, the gist is basically the same, and depending on where your interest lies you can remain blissfully unaware of many of the technical details involved. Going back to the zoo metaphor, just like with animals, you might not want to become a biologist. Instead, you might want to work with some animals, or maybe you just want a pet, or even just pet your friend's dog.
+Como ves, hay muchas cosas a tener en cuenta y muchas variantes de ZKPs. Pero no te preocupes: lo esencial es básicamente lo mismo, y según tu interés, puedes ignorar felizmente muchos de los detalles técnicos. Volviendo a la metáfora del zoológico: como con los animales, no tienes que ser biólogo para interactuar con ellos. Tal vez quieras trabajar con algunos, o simplemente tener una mascota, o incluso solo acariciar el perro de tu amiga.
 
-## Applications
+## Aplicaciones
 
-_This section gives examples of current and future applications of ZK_
+_Esta sección presenta ejemplos de aplicaciones actuales y futuras de ZK_
 
-There are many applications of ZKPs. Generally speaking, we are still in the early stages. A lot of the focus is still on the underlying protocols and infrastructure, as well as blockchain-specific applications. To better appreciate the blockchain-specific examples, it is useful to have some understanding of how public blockchains work and the challenges they have. However, this isn't a requirement. In this section we'll look at some of the more interesting applications. We'll start by looking at applications that are live now and then look at those on the horizon.
+Existen muchas aplicaciones de las ZKPs. En términos generales, todavía estamos en una etapa temprana. Mucho del trabajo actual sigue enfocado en los protocolos base y la infraestructura, así como en aplicaciones específicas para blockchain. Para entender mejor los ejemplos ligados a blockchain, ayuda tener una idea general de cómo funcionan las blockchains públicas y los desafíos que enfrentan. Pero no es un requisito. En esta sección vamos a ver algunas de las aplicaciones más interesantes. Empezaremos con las que ya están activas hoy y luego exploraremos las que vienen en camino.
 
-> The future is already here. It's just not evenly distributed yet.
+> El futuro ya está aquí. Solo que aún no está distribuido de forma equitativa.  
 >
 > - William Gibson [^38]
 
-![ZKP Magic](../assets/01_zkp-magic.png 'ZKP Magic')
+![ZKP Magic](../assets/01_zkp-magic.png 'Magia ZKP')
 
-### Live now
+### Aplicaciones actuales
 
-**Electronic cash**. To make a cash-like payments systems online it needs to be fungible and private like physical cash. Fungibility refers to the property of a commodity being replaceable by another identical item. That is, there's no difference between your money and my money; they are equally valid forms of payment. We can use ZK to make the transaction graph private, unlike in Bitcoin or Ethereum. This way, your transaction history remains private, ensuring that electronic cash is fungible. This is currently live in systems like Zcash, and related systems like Tornado Cash [^39].
+**Dinero electrónico.** Para que un sistema de pagos online se parezca al efectivo, debe ser fungible y privado, igual que el dinero físico. La fungibilidad significa que una unidad puede reemplazarse por otra idéntica: no hay diferencia entre tu dinero y el mío; ambos valen lo mismo. Con ZK podemos hacer que el grafo de transacciones sea privado, a diferencia de Bitcoin o Ethereum. Así, tu historial de transacciones permanece oculto y el efectivo digital sigue siendo fungible. Esto ya funciona en sistemas como Zcash y otros similares como Tornado Cash [^39].
 
-**Anonymous signaling.** Often, we might need to prove our affiliation with a group that possesses certain characteristics, without revealing our identities. One such example is proving that you are part of some group of people; another is voting. This means you don't tie your identity to sensitive actions such as which party you voted for, or reveal other unnecessary information. Currently live in systems like Semaphore [^40], and similar mechanisms with many variations exist.
+**Señalización anónima.** A veces necesitamos probar que pertenecemos a un grupo con ciertas características, sin revelar nuestra identidad. Un ejemplo es demostrar que formás parte de un grupo; otro, votar sin que se sepa a qué partido. Esto permite separar tu identidad de acciones sensibles. Ya está en uso en sistemas como Semaphore [^40], y existen muchas variantes similares.
 
-**ZK Rollup.** Allow for more, cheaper and faster transactions. The Ethereum blockchain space is limited and expensive with a lot of demand. We use a so-called Layer 2 (L2) rollup, that does transactions separate from the main blockchain (L1). Once a certain number of transactions have hit the L2, it "rolls it up" to the L1. ZKPs are great for this because we can (i) prove that transactions are executed correctly and (ii) create a succinct proof that takes up a small amount of space on the L1. This makes transactions cheaper and faster for users, with near-equal security. Due to the complexity of proving the execution of the entire Ethereum Virtual Machine (EVM) many ZK Rollup solutions only focus on the exchange of simple commodities and assets. Currently live in systems like Loopring, zkSync Lite, dYdX, and Starknet. [^41]
+**ZK Rollup.** Permite realizar más transacciones, de forma más rápida y barata. El espacio en la blockchain de Ethereum es limitado y costoso debido a la alta demanda. Un rollup de Capa 2 (L2) procesa transacciones fuera de la cadena principal (L1) y luego las “empaqueta” para subirlas a la L1. Las ZKPs son ideales porque permiten (i) probar que las transacciones se ejecutaron correctamente y (ii) generar una prueba concisa que ocupa poco espacio en la L1. Esto reduce costos y mejora la velocidad sin comprometer la seguridad. Debido a la complejidad de probar toda la ejecución de la EVM, muchos ZK Rollups actuales solo se enfocan en el intercambio de activos simples. Ya está funcionando en sistemas como Loopring, zkSync Lite, dYdX y Starknet [^41].
 
-**ZK-EVM.** Similar to ZK Rollup, but universal, since any type of transaction or program can be executed. Ethereum has an EVM that acts as a worldwide globally shared, general purpose computer (that anyone can write to). By writing the logic of this machine using ZKPs we can prove the correct execution of any program written on Ethereum and construct a succinct proof that it was executed correctly. This has several use cases, but most immediately for scaling and allowing for cheaper and faster transactions. Currently live in systems like Polygon zkEVM, zkSync Era, with several others on their way. [^42]
+**ZK-EVM.** Similar a los ZK Rollups, pero de propósito general: permite ejecutar cualquier tipo de transacción o programa. Ethereum tiene una EVM que actúa como una computadora global compartida a la que cualquiera puede escribir. Al expresar la lógica de esa máquina con ZKPs, podemos probar que cualquier programa en Ethereum se ejecutó correctamente y generar una prueba concisa de ello. Tiene múltiples aplicaciones, pero la más inmediata es escalar la red y abaratar transacciones. Ya está activo en Polygon zkEVM, zkSync Era y hay otros en camino [^42].
 
-**ZK-VM.** Partially due to the complexity of targeting a "snark-unfriendly" [^43] platform like the EVM, many projects have chosen to do a new blockchain, separate from Ethereum. This means they can optimize the VM to work better with ZK in the first place. Depending on the specific system, this allows for privacy and succinct verification of the blockchain state. Mina is live, and systems like Aleo are under active development. [^44]
+**ZK-VM.** Debido a que la EVM no es muy compatible con SNARKs [^43], muchos proyectos optaron por crear nuevas blockchains separadas de Ethereum. Esto les permite optimizar su máquina virtual (VM) desde el inicio para trabajar mejor con ZK. Según el sistema, esto permite privacidad y verificación concisa del estado de la cadena. Mina ya está en funcionamiento, y sistemas como Aleo están en desarrollo activo [^44].
 
-**Dark Forest**. Dark Forest is an incomplete information real-time-strategy game. Incomplete information games based on ZK have a "cryptographic fog of war" where players can only see part of the world, as enforced by ZK. Compared to traditional games like Starcraft, not even a central server has access to all the information. Due to its programmatic nature this enables novel ways of playing a game. [^45]
+**Dark Forest.** Es un juego de estrategia en tiempo real con información incompleta. Gracias a las ZKPs, se implementa una “niebla criptográfica” de guerra: los jugadores solo pueden ver parte del mundo del juego, y ni siquiera el servidor central tiene acceso completo. Esta naturaleza programática permite nuevas formas de jugar que no son posibles en los juegos tradicionales como Starcraft [^45].
 
-**ZK Bridges**. Bridges allow you to move assets between different blockchains and systems. These bridges can be hard to make secure, and they often get hacked. With ZK, we can bridge assets more securely and faster, without relying on trusted third parties or error-prone approaches. Currently live with zkBridge and also being worked on by projects such as Succinct Labs. [^46]
+**ZK Bridges.** Los bridges permiten mover activos entre distintas blockchains y sistemas. Es difícil hacerlos seguros, y a menudo son blanco de ataques. Con ZK, podemos hacer puentes más seguros y rápidos, sin depender de terceros confiables ni soluciones propensas a errores. Ya existen implementaciones como zkBridge, y otros proyectos como Succinct Labs están trabajando en ello [^46].
 
-**Private identity**. As more siloed systems require and host our online identities [^47], it is desirable for individuals to be able to own, aggregate and keep these fragmented online identities private. Currently live projects like Sismo enable this, and other projects are working on similar systems. [^48]
+**Identidad privada.** A medida que más sistemas fragmentados requieren y alojan nuestras identidades online [^47], es deseable que los usuarios puedan controlar, unificar y mantener privada su identidad digital. Ya existen proyectos como Sismo que permiten esto, y otros están desarrollando soluciones similares [^48].
 
-These are just a few examples and by no means complete. We didn't talk about things like private non-repudiable reputation, exporting web2 reputation, sybil-resistant denial-of-service protection, coercion-resistant proving, proof of replication, anonymous airdrops, proving degrees of separation, etc. [^49]
+Estos son solo algunos ejemplos, y de ninguna manera es una lista completa. No mencionamos cosas como reputación privada e irrefutable, exportación de reputación desde web2, protección contra ataques Sybil, pruebas resistentes a coerción, pruebas de replicación, airdrops anónimos, pruebas de grados de separación, etc. [^49]
 
-### On the horizon
+### En el horizonte
 
-**ZK-EVM (Ethereum-equivalence)**. There are different types of ZK-EVM, and the more challenging ones to implement are the ones that are fully Ethereum-equivalent. Other ZK-EVM takes some shortcuts to make it easier to generate proofs. With a fully Ethereum-equivalent ZK-EVM there's no difference with the current Ethereum system. This means we can prove the correct execution of every single block in existence in a succinct proof. You can use a phone to verify the integrity of the entire chain, relying solely on mathematics, without needing to trust third parties or use expensive machines. Currently being worked on by the ZK-EVM Community Edition team. [^50]
+**ZK-EVM (equivalente a Ethereum)**. Existen distintos tipos de ZK-EVM, y los más difíciles de implementar son los que son completamente equivalentes a Ethereum. Otros ZK-EVM hacen algunos atajos para facilitar la generación de pruebas (proofs). Con un ZK-EVM totalmente equivalente, no hay diferencia con el sistema actual de Ethereum. Esto significa que se puede probar la ejecución correcta de cada bloque existente mediante una prueba sucinta. Incluso se podría usar un celular para verificar la integridad de toda la cadena, basándose únicamente en matemáticas, sin depender de terceros ni de máquinas costosas. Actualmente lo está desarrollando el equipo de ZK-EVM Community Edition. [^50]
 
-**General purpose provable computation**. Most computation in the world doesn't happen in the EVM, but in other systems. WASM and LLVM-based programs are very common [^51]. We can leverage the same approach in ZK-EVM to do general-purpose private provable computation. For example, we can prove that a database contains a specific record, without revealing any other information. Currently being worked on by many different teams, for example Delphinus Labs, RISC Zero, Orochi Network, and nil.foundation. [^52]
+**Cómputo demostrable de propósito general**. La mayor parte del cómputo en el mundo no ocurre en la EVM, sino en otros sistemas. Los programas basados en WASM y LLVM son muy comunes [^51]. Podemos aplicar el mismo enfoque de ZK-EVM para realizar cómputo privado demostrable de propósito general. Por ejemplo, se puede probar que una base de datos contiene un registro específico sin revelar ninguna otra información. Actualmente están trabajando en esto varios equipos, como Delphinus Labs, RISC Zero, Orochi Network y nil.foundation. [^52]
 
-**ZK Machine Learning (ZK ML)**. We can prove that some computation was done correctly privately, off-chain, and then publish a proof that the computation was done correctly. This means we can use private data for training better models, without revealing that data. For example, sensitive documents, voice or even things like DNA to find health problems. This improves both scalability and privacy for users. Current proof of concept (PoC) exists for things like MNIST, a common test used in Machine Learning to recognize handwritten digits, and people are working on more complex things like neural networks inside ZKPs. [^53]
+**ZK Machine Learning (ZK ML)**. Podemos probar que cierto cómputo se realizó correctamente de forma privada, fuera de la cadena, y luego publicar una prueba（proof）de que fue correcto. Esto permite usar datos privados para entrenar mejores modelos sin revelar esa información. Por ejemplo, documentos sensibles, voz o incluso ADN para detectar problemas de salud. Esto mejora tanto la escalabilidad como la privacidad para los usuarios. Ya existe una prueba de concepto (PoC) para casos como MNIST, un test común en Machine Learning para reconocer dígitos escritos a mano, y hay equipos trabajando en redes neuronales dentro de pruebas de conocimiento cero（ZKPs）. [^53]
 
-**Photo authenticity**. Prove provenance of content such as photos and videos, including standard post-processing edits. That is, prove that a photo was taken at a certain time and place, and has only been edited with basic resizing, cropping, and use of greyscale (AP approved list of operations). Some work has been done, including a PoC. [^54]
+**Autenticidad de fotos**. Probar la procedencia de contenido como fotos y videos, incluyendo ediciones estándar de postproducción. Es decir, demostrar que una foto fue tomada en un lugar y momento determinados, y que solo ha sido editada con operaciones básicas como redimensionado, recorte o escala de grises (según la lista aprobada por AP). Ya se han hecho avances, incluyendo una prueba de concepto. [^54]
 
-**Compliance**. Prove that a private transaction is compliant with some regulation, or that an asset isn't on a specific blacklist. Prove that an exchange is solvent without revealing its assets. Some work has been done by systems such as Espresso Labs, and some systems have simple versions of this already.
+**Cumplimiento normativo**. Probar que una transacción privada cumple con cierta regulación, o que un activo no está en una lista negra específica. Probar que un exchange es solvente sin revelar sus activos. Algunos sistemas como Espresso Labs ya han trabajado en esto, y existen versiones simples en producción.
 
-**Shielded and private intents.** Users of public blockchains have specific goals they want to achieve, which can be expressed as _intents_. For example, a user might have the intent to exchange one token for another. A user can tell other users about their intents and be matched with a suitable counterparty. It is desirable to keep these intents shielded (hiding the "who" but not the "what", similar to shielded transactions in Zcash) or completely private. Currently worked on by Anoma, starting with shielded intent-matching. To make intents-matching fully private likely requires breakthrough advances in cryptography, similar to the last example in this section.
+**Intenciones privadas y protegidas**. Los usuarios de blockchains públicas tienen metas específicas que pueden expresarse como _intenciones_. Por ejemplo, un usuario puede tener la intención de intercambiar un token por otro. Puede comunicar su intención a otros usuarios y ser emparejado con una contraparte adecuada. Es deseable que estas intenciones sean protegidas (ocultando el “quién” pero no el “qué”, como en las transacciones protegidas de Zcash) o completamente privadas. Anoma está trabajando actualmente en esto, empezando por el emparejamiento protegido de intenciones. Lograr que sea completamente privado probablemente requiera avances significativos en criptografía, similares al último ejemplo de esta sección.
 
-**Autonomous worlds**. A continuation of things like Dark Forest. A world can be physical or conceptual, like The World of Narnina, Christianity, The World of the US Dollar, Bitcoin or Commonwealth law. Depending on where these worlds run, these can be autonomous if anyone can change the rules without damaging its objectivity. Currently being explored by the 0xPARC Foundation in the context of games and creating these worlds. [^55]
+**Mundos autónomos**. Una continuación de proyectos como Dark Forest. Un mundo puede ser físico o conceptual, como el Mundo de Narnia, el cristianismo, el dólar estadounidense, Bitcoin o el derecho del Commonwealth. Dependiendo de dónde se ejecuten, estos mundos pueden ser autónomos si cualquiera puede cambiar sus reglas sin afectar su objetividad. Actualmente lo está explorando la Fundación 0xPARC en el contexto de juegos y creación de mundos. [^55]
 
-**Proof of data authenticity**. Export data from web applications and prove facts about it in a private way. Uses the TLS protocol which means it works on any modern website. Currently being worked on by TLSNotary. [^56]
+**Prueba de autenticidad de datos**. Exportar datos de aplicaciones web y probar hechos sobre ellos de forma privada. Usa el protocolo TLS, lo cual permite que funcione con cualquier sitio moderno. Actualmente lo desarrolla TLSNotary. [^56]
 
-**Nuclear disarmament.** Allow people inspecting nuclear sites to confirm that an object is or isn't a nuclear weapon without inspecting any of the sensitive internal workings of said object. Paper with physical simulation work exists. [^57]
+**Desarme nuclear.** Permitir que inspectores de sitios nucleares confirmen si un objeto es o no un arma nuclear sin examinar sus mecanismos internos sensibles. Existe un artículo con simulaciones físicas sobre esto. [^57]
 
-**Peace talks and high-stakes negotiation**. Often in negotiations people have certain hard limits that they do not wish to reveal to their counterparty to weaken their ability to negotiate. By explicitly encoding these, two parties can negotiate over some highly complex domain and reach an agreement without revealing the details of their precise parameters and limits. This allows people who do not trust each other to fruitfully come to some agreement. Likely requires some breakthroughs in Multi-Party Computation (MPC), which allows us to do computation on shared secrets. [^58]
+**Negociaciones de paz y acuerdos de alto riesgo**. En negociaciones, las partes suelen tener límites que no quieren revelar para no debilitar su posición. Si esos límites se codifican de forma explícita, dos partes pueden negociar en dominios muy complejos y llegar a un acuerdo sin revelar los detalles de sus parámetros. Esto permite que personas que no confían entre sí logren acuerdos fructíferos. Probablemente requiera avances en Computación Multipartita (MPC), que permite realizar cómputos sobre secretos compartidos. [^58]
 
-Again, this didn't mention all the types of things people are working on or thinking about. There will surely be many more things in the future. As you can tell there are a lot of things we can do with ZK.
+Esto no cubre todos los tipos de aplicaciones en las que la gente está trabajando o pensando. Seguramente habrá muchas más en el futuro. Como ves, hay muchas cosas que podemos hacer con ZK.
 
-You might wonder why many of these applications involve a blockchain. This was partially answered in the previous section "Why now?". ZK is an orthogonal technology to blockchains like Ethereum and we can do without the blockchain, but quite often it is simply a good tool that makes sense to leverage.
+Quizás te preguntes por qué muchas de estas aplicaciones involucran una blockchain. Parte de la respuesta está en la sección anterior “¿Por qué ahora?”. ZK es una tecnología ortogonal a blockchains como Ethereum y no siempre se necesita una blockchain, pero muchas veces es una herramienta útil que vale la pena aprovechar.
 
-Similarly, the group of people working on these things and the immediate problems they care about are often overlapping. As the space matures, we can expect the "blockchain" part of ZK applications to disappear as simply an implementation detail, and this has already happened to some degree. Looking further, the "ZK" part will likely also fall into the background and it'll simply be an application that happens to use ZKP.
+De forma similar, las personas que trabajan en estos temas suelen compartir intereses y problemas inmediatos. A medida que este campo madura, es probable que la parte “blockchain” de las aplicaciones ZK desaparezca como un simple detalle de implementación (y en algunos casos ya sucede). Y más adelante, incluso la parte “ZK” quedará en segundo plano: será simplemente una aplicación que utiliza ZKP.
 
-Finally, when cryptography for online messaging and similar was developed, it was used and developed by the military and Internet companies. It was not something that was innovated on by the post office or some company involved in the secure transport of physical goods, even if in theory that was a possibility. [^59].
+Finalmente, cuando se desarrolló criptografía para mensajería en línea y similares, quienes la adoptaron fueron el ejército y empresas de internet. No fue algo impulsado por el correo tradicional ni por empresas de transporte seguro de bienes físicos, aunque en teoría podrían haberlo hecho. [^59]
 
-I'll end this section with a quote from Barry Whitehat, a well-known ZK researcher who works with the Privacy and Scalability Explorations (PSE) team at the Ethereum Foundation, when asked for predictions on the future of ZK:
+Cierro esta sección con una frase de Barry Whitehat, un reconocido investigador de ZK que trabaja en el equipo Privacy and Scalability Explorations (PSE) de la Ethereum Foundation, cuando se le preguntó sobre el futuro de ZK:
 
-> "By 2040, someone will have won a Nobel Peace Prize for using Zero Knowledge Proofs." [^60]
+> “Para 2040, alguien habrá ganado el Premio Nobel de la Paz por usar pruebas de conocimiento cero（Zero Knowledge Proofs）.” [^60]
 
-Outlandish and bold? Certainly. Will it turn out to be true? Maybe not. But could it? Absolutely. It is an intriguing prospect to consider. What is the difference between the mental model that sees this as a real possibility, versus one that writes it off immediately? What would have to happen for such an event to be a realistic outcome?
+¿Exagerado y audaz? Sin dudas. ¿Se cumplirá? Tal vez no. ¿Pero es posible? Totalmente. Es una idea fascinante. ¿Cuál es la diferencia entre una mentalidad que lo ve como algo posible, y otra que lo descarta de entrada? ¿Qué tendría que pasar para que ese escenario fuera realista?
 
-ZKPs represent a new and incredibly potent tool. Often, it's our imagination about its potential applications that limits us.
+Las pruebas de conocimiento cero（ZKPs）son una herramienta nueva y extremadamente poderosa. Muchas veces, lo único que limita su uso es nuestra imaginación sobre lo que podrían lograr.
 
-## Conclusion
+## Conclusión
 
-_This section summarizes the article and provides next steps_
+_Esta sección resume el artículo y ofrece próximos pasos_
 
-In this article, we've looked at what ZKPs are, why we should care about them and when they are useful. We've also looked at how they work and what properties they give us. Finally, we looked at some applications, both current and future ones.
+En este artículo vimos qué son las pruebas de conocimiento cero (ZKPs), por qué deberíamos prestarles atención y cuándo resultan útiles. También exploramos cómo funcionan y qué propiedades nos ofrecen. Finalmente, analizamos algunas de sus aplicaciones actuales y futuras.
 
-I hope this has led you to better understand the nature of ZKPs, and perhaps led to some aha moments and inspired some new ways of thinking about things. Perhaps it even helps you follow the magic of ZKPs in the future.
+Espero que esto te haya ayudado a comprender mejor la naturaleza de las ZKPs, y que haya despertado algunos momentos de “ajá” o nuevas formas de ver ciertos problemas. Tal vez incluso te sirva para seguirle la pista a la magia de las ZKPs en el futuro.
 
-In future posts, we'll go even deeper into some of these aspects, and we'll also look at more technical aspects to better understand how ZKPs work and where they can be used.
+En próximas publicaciones profundizaremos en varios de estos temas, y también abordaremos aspectos más técnicos para entender mejor cómo funcionan las ZKPs y dónde pueden aplicarse.
 
-If something specific piqued your interest, or there is something specific you'd like to see in future articles, feel free to contact me on Twitter or by email. I'll include the best comments as footnotes!
+Si hubo algo que te llamó especialmente la atención, o hay algún tema que te gustaría ver en futuros artículos, no dudes en escribirme por Twitter o por email. ¡Voy a incluir los mejores comentarios como notas al pie!
 
-## Acknowledgements
+## Agradecimientos
 
-Thanks to Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren and Eve Ko for reading drafts and providing feedback on this.
+Gracias a Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren y Eve Ko por leer los borradores y dar su valioso feedback.
 
 ### Images
 
-- _Where's Waldo_ - Unknown source, Where's Waldo originally created by [Martin Handford](https://en.wikipedia.org/wiki/Where%27s_Wally%3F)
-- _Silent Reading_ - Jorge Royan, CC BY-SA 3.0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Austria_-_Heiligenkreuz_Abbey_-_1726.jpg)
+- _¿Dónde está Waldo?_ - Unknown source, Where's Waldo originally created by [Martin Handford](https://en.wikipedia.org/wiki/Where%27s_Wally%3F)
+- _Lectura silenciosa_ - Jorge Royan, CC BY-SA 3.0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Austria_-_Heiligenkreuz_Abbey_-_1726.jpg)
 - _Sherlock Holmes_ - Sidney Paget, Public domain, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Strand_paget.jpg)
-- _Moon landing_ - Neil A. Armstrong, Public domain, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aldrin_Apollo_11.jpg)
-- _Pascal's Calculator_ - kitmasterbloke, CC-BY 2.0, via [Openverse](https://openverse.org/image/0feadae2-6b51-4dc7-8838-18c157f7f0ce)
-- _Moore's law_ - Max Roser, Hannah Ritchie, CC-BY 4.0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png)
+- _Alunizaje_ - Neil A. Armstrong, Public domain, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aldrin_Apollo_11.jpg)
+- _Calculadora de Pascal_ - kitmasterbloke, CC-BY 2.0, via [Openverse](https://openverse.org/image/0feadae2-6b51-4dc7-8838-18c157f7f0ce)
+- _Ley de Moore_ - Max Roser, Hannah Ritchie, CC-BY 4.0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png)
 - _Sudoku puzzle_ - Tim Stellmach, CC0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg)
-- _Magic spell_ - National Library of Wales, CC0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Book_of_incantations_f.7v.png)
+- _Hechizos mágicos_ - National Library of Wales, CC0, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Book_of_incantations_f.7v.png)
 - _Cyberpunk_ - bloodlessbaron, Public Domain, via [Openverse](https://openverse.org/image/3d3d3cd9-7df6-4781-9778-cdb1e1738de1)
 
-## References
+## References  
+## Referencias
 
-[^1]: While the concepts are related, there's some legal controversy around if the "the right to privacy" itself is protected in many jurisdictions around the world. See the Wikipedia article on [Right to privacy](https://en.wikipedia.org/wiki/Right_to_privacy) for more.
-[^2]: Zero knowledge has a precise mathematical definition, but we won't go into this in this article. See [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) for a more precise definition.
-[^3]: See [A Cypherpunk Manifesto](https://nakamotoinstitute.org/static/docs/cypherpunk-manifesto.txt) for the full text. Also see Wikipedia on [Cypherpunks](https://en.wikipedia.org/wiki/Cypherpunk).
-[^4]: Some people have different interpretations of this specific passage, but it is still the case that humans made the transition from primarily oral storytelling to silent reading at some point not too long ago. See Wikipedia on [History of silent reading](https://en.wikipedia.org/wiki/Silent_reading#History_of_silent_reading) for more on silent reading.
-[^5]: Original quote in French: _Je n'ai fait celle-ci plus longue que parce que je n'ai pas eu le loisir de la faire plus courte._ See [Quote Investigator ](https://quoteinvestigator.com/2012/04/28/shorter-letter) on this quote.
-[^6]: Kudos to Juraj Bednar for [suggesting](https://twitter.com/jurbed/status/1650782361590669313) using murder mystery as a way to explain the notion of a proof.
-[^7]: Succinctness has a precise mathematical definition, but we won't go into this in this article. See [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) for a more precise definition.
-[^8]: Transaction costs is an economic concept. See this Wikipedia article on [transaction costs](https://en.wikipedia.org/wiki/Transaction_cost).
-[^9]: In a [checksum](https://en.wikipedia.org/wiki/Checksum), we do some basic operations like adding and subtracting the initial digits, and if the final digit isn't the same we know something went wrong. Fun fact: Unlike most similar ID systems, a Social Security Number (SSN) in the US [does not have a checksum](https://en.wikipedia.org/wiki/Social_Security_number#Valid_SSNs). If a checksum is just one digit long it is sometimes just called a [check digit](https://en.wikipedia.org/wiki/Check_digit).
-[^10]: While more common in less developed countries, this happened recently with bank failures in the US. See Wikipedia article on effects of [Collapse of Silicon Valley Bank](https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank#Effects).
-[^11]: Full quote: "It is a profoundly erroneous truism, repeated by all copy-books and by eminent people when they are making speeches, that we should cultivate the habit of thinking of what we are doing. The precise opposite is the case. **Civilization advances by extending the number of important operations which we can perform without thinking about them.** Operations of thought are like cavalry charges in a battle — they are strictly limited in number, they require fresh horses, and must only be made at decisive moments." See [Wikiquote](<https://en.wikiquote.org/wiki/Alfred_North_Whitehead#An_Introduction_to_Mathematics_(1911)>).
+[^1]: Aunque los conceptos están relacionados, existe cierta controversia legal sobre si el “derecho a la privacidad” está protegido en muchas jurisdicciones del mundo. Ver el artículo en Wikipedia sobre el [derecho a la privacidad](https://es.wikipedia.org/wiki/Derecho_a_la_privacidad) para más información.
+[^2]: Conocimiento cero tiene una definición matemática precisa, pero no entraremos en eso en este artículo. Ver [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) para una definición más técnica.
+[^3]: Ver el [Manifiesto Cypherpunk](https://nakamotoinstitute.org/static/docs/cypherpunk-manifesto.txt) para el texto completo. También puedes consultar Wikipedia sobre los [Cypherpunks](https://es.wikipedia.org/wiki/Cypherpunk).
+[^4]: Algunas personas interpretan de forma distinta este pasaje, pero lo cierto es que en algún momento no tan lejano los humanos pasamos de contar historias oralmente a leer en silencio. Ver Wikipedia sobre la [historia de la lectura silenciosa](https://en.wikipedia.org/wiki/Silent_reading#History_of_silent_reading) para más detalles.
+[^5]: Cita original en francés: _Je n'ai fait celle-ci plus longue que parce que je n'ai pas eu le loisir de la faire plus courte._ Ver [Quote Investigator](https://quoteinvestigator.com/2012/04/28/shorter-letter) para más contexto.
+[^6]: Créditos a Juraj Bednar por [sugerir](https://twitter.com/jurbed/status/1650782361590669313) usar un misterio de asesinato para explicar el concepto de una prueba（proof）.
+[^7]: La concisión tiene una definición matemática específica, pero no entraremos en eso aquí. Consultá la [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) para una explicación más precisa.
+[^8]: Los costos de transacción son un concepto económico. Ver el artículo en Wikipedia sobre [costos de transacción](https://es.wikipedia.org/wiki/Coste_de_transacci%C3%B3n).
+[^9]: En un [checksum](https://en.wikipedia.org/wiki/Checksum), se realizan operaciones básicas como sumar o restar dígitos, y si el dígito final no coincide, algo salió mal. Dato curioso: a diferencia de otros sistemas de identificación, el número de seguro social (SSN) en EE. UU. [no tiene un checksum](https://en.wikipedia.org/wiki/Social_Security_number#Valid_SSNs). Si tiene solo un dígito, también se lo llama [digito verificador](https://en.wikipedia.org/wiki/Check_digit).
+[^10]: Aunque es más común en países menos desarrollados, esto ocurrió recientemente con quiebras bancarias en EE. UU. Ver el artículo en Wikipedia sobre el [colapso del Silicon Valley Bank](https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank#Effects).
+[^11]: Cita completa: “Es un lugar común profundamente erróneo, repetido en libros de texto y discursos, que debemos cultivar el hábito de pensar en lo que estamos haciendo. En realidad es todo lo contrario. **La civilización avanza al aumentar la cantidad de operaciones importantes que podemos realizar sin pensar en ellas.** Las operaciones mentales son como cargas de caballería: limitadas en número, requieren caballos frescos y deben usarse solo en momentos decisivos.” Ver [Wikiquote](<https://en.wikiquote.org/wiki/Alfred_North_Whitehead#An_Introduction_to_Mathematics_(1911)>).
+
 [^12]: Pascal's calculator, the _Pascaline_, is a mechanical calculator. It was very impressive when it came out in 1642. See [Pascal's calculator](https://en.wikipedia.org/wiki/Pascal%27s_calculator).
 [^13]: In well-designed authentication schemes the provider doesn't see your password either, just a salted hash of it. See Wikipedia on [form of stored passwords](https://en.wikipedia.org/wiki/Password#Form_of_stored_passwords).
 [^14]: SHA256 is a an often used cryptographic hash function. See [SHA2](https://en.wikipedia.org/wiki/SHA-2).
