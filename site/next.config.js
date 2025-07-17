@@ -85,6 +85,7 @@ module.exports = withBundleAnalyzer({
   images: {
     unoptimized: true,
   },
+  // (i18n block removed – incompatible with next export)
   // Add exportPathMap to handle static exports
   async exportPathMap(defaultPathMap) {
     // Filter out dynamic tag routes that are causing issues
@@ -95,7 +96,13 @@ module.exports = withBundleAnalyzer({
         return acc;
       }, {});
 
-    return filteredPaths;
+    // Add PT-BR routes for static export
+    const ptBrPaths = {
+      '/pt-br': { page: '/pt-br' },
+      '/pt-br/articles': { page: '/pt-br/articles' },
+    };
+
+    return { ...filteredPaths, ...ptBrPaths };
   },
   async headers() {
     return [

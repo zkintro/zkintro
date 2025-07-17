@@ -18,3 +18,6 @@ site/public/sitemap.xml
 site/public/tags/**/feed.xml
 site/.next/
 site/out/
+
+# Build-time asset copies
+site/public/assets/
