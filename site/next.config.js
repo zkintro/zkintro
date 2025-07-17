@@ -77,6 +77,7 @@ const securityHeaders = [
 ]
 
 module.exports = withBundleAnalyzer({
+  trailingSlash: true,
   reactStrictMode: true,
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   eslint: {
