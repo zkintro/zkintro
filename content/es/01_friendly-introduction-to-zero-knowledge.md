@@ -9,6 +9,8 @@ images: ['../assets/01_zkp-magic.png']
 summary: "Zero Knowledge Proofs are magic. They allow us to do things we couldn't dream of before. This is the first in a series of posts on Zero Knowledge Proofs and their application. In it we'll look at what Zero Knowledge Proofs are, why you should care, how they work, and see where they can be used."
 ---
 
+_Este artículo fue traducido por Gelois, Alex y Yago Pajariño_
+
 ![ZKP Magic](../assets/01_zkp-magic.png 'ZKP Magic')
 
 ## Introducción
@@ -468,6 +470,8 @@ Si hubo algo que te llamó especialmente la atención, o hay algún tema que te 
 ## Agradecimientos
 
 Gracias a Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren y Eve Ko por leer los borradores y dar su valioso feedback.
+
+Gracias a Alex, Gelois y Yago Pajariño por la traducción de este artículo.
 
 ### Images
 
