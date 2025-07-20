@@ -1,12 +1,12 @@
 ---
-title: 'A Friendly Introduction to Zero Knowledge'
+title: 'Una introducción amigable a Zero Knowledge'
 date: '2023-07-17'
 tags: ['zero-knowledge']
 draft: false
 layout: PostSimple
 slug: "friendly-introduction-to-zero-knowledge"
 images: ['../assets/01_zkp-magic.png']
-summary: "Zero Knowledge Proofs are magic. They allow us to do things we couldn't dream of before. This is the first in a series of posts on Zero Knowledge Proofs and their application. In it we'll look at what Zero Knowledge Proofs are, why you should care, how they work, and see where they can be used."
+summary: "Las pruebas de conocimiento cero（Zero Knowledge Proofs）son mágicas. Nos permiten hacer cosas que antes ni siquiera podíamos imaginar. Este es el primero de una serie de artículos sobre pruebas de conocimiento cero y sus aplicaciones. Veremos qué son, por qué importan, cómo funcionan y dónde pueden usarse."
 ---
 
 _Este artículo fue traducido por Gelois, Alex y Yago Pajariño_
