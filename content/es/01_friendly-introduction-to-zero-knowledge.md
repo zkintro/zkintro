@@ -9,7 +9,7 @@ images: ['../assets/01_zkp-magic.png']
 summary: "Las pruebas de conocimiento cero（Zero Knowledge Proofs）son mágicas. Nos permiten hacer cosas que antes ni siquiera podíamos imaginar. Este es el primero de una serie de artículos sobre pruebas de conocimiento cero y sus aplicaciones. Veremos qué son, por qué importan, cómo funcionan y dónde pueden usarse."
 ---
 
-_Este artículo fue traducido por Gelois, Alex y [Yago Pajariño](https://x.com/0xyago)_
+_Este artículo fue traducido por Gelois, Alex y Yago Pajariño_
 
 ![ZKP Magic](../assets/01_zkp-magic.png 'ZKP Magic')
 
@@ -471,7 +471,7 @@ Si hubo algo que te llamó especialmente la atención, o hay algún tema que te 
 
 Gracias a Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren y Eve Ko por leer los borradores y dar su valioso feedback.
 
-Gracias a Alex, Gelois y Yago Pajariño por la traducción de este artículo.
+Gracias a Alex, Gelois y [Yago Pajariño](https://x.com/0xyago) por la traducción de este artículo.
 
 ### Images
 
