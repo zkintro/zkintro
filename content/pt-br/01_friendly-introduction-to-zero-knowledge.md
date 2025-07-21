@@ -10,7 +10,7 @@ summary: "As Provas de Conhecimento Zero (ZKPs) são mágicas. Elas nos permitem
 translator: 'Thiago Rocha Duarte'
 ---
 
-_Este artigo foi traduzido por [Thiago Rocha](https://thiagorochatr.com/)._
+_Este artigo foi traduzido por Thiago Rocha._
 
 ![Magia do ZKP](../assets/01_zkp-magic.png 'Magia do ZKP')
 
