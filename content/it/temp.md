@@ -348,3 +348,110 @@ Grazie alle ZKPs e alle prove sintetiche, possiamo introdurre maggiore certezza 
 All of this presumes we can translate some of the mechanisms or rules mentioned above - which are often messy and inconsistent - into a form that ZKPs can comprehend. How can we do that?
 
 Tutto questo presuppone che possiamo tradurre almeno alcune delle regole o dei meccanismi citati, spesso confusi e incoerenti, in una forma che le ZKPs possano comprendere. Come possiamo riuscirci?
+
+
+### General-purpose
+
+### General-purpose
+
+Recall that ZKPs allow us to prove arbitrary statements in a general-purpose fashion. Why does this matter and how is this powerful?
+
+Ricordiamo che le ZKPs ci permettono di dimostrare asserzioni arbitrarie in modo general-purpose (generico). Perché questo è importante e in che modo rappresenta un vantaggio?
+
+The difference between similar existing tools and ZKPs is like the difference between a calculator and a computer. One is meant for a very specific task, and the other is general-purpose. It is the difference between this calculating machine\[^12] and a modern computer:
+
+La differenza tra strumenti esistenti simili e le ZKPs è paragonabile alla differenza tra una calcolatrice e un computer. Una è pensata per un compito molto specifico, l’altro è general-purpose. È la differenza tra questa macchina calcolatrice\[^12] e un computer moderno:
+
+![Pascal's calculator](../assets/01_pascals-calculator2.jpg "Calcolatrice di Pascal")
+
+Recall the specific examples we gave above to represent privacy and succinctness more concretely. A password is a private piece of information that allows you to log in to some service\[^13]. In the case of a hash of some input data, such as a file, it gives us something succinct to check equality to.
+
+Ricorda gli esempi specifici che abbiamo usato prima per rappresentare in modo concreto privacy e sinteticità. Una password è un'informazione privata che ti permette di accedere a un servizio\[^13]. Un hash di un dato in ingresso, come un file, ci offre invece un riferimento sintetico per verificarne l’identità.
+
+We can visualize a hash function as follows:
+
+Possiamo rappresentare graficamente una funzione di hash in questo modo:
+
+![Hash function](../assets/01_graphviz-hash.png "Funzione di hash")
+
+We apply a specific hash function, such as SHA256\[^14], on some known input data. For example, using the sentence "The quick brown fox jumps over the lazy dog" (without quotation marks) as input and applying the SHA256 hash function results in the hash `d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592`. Adding a "." at the end of the sentence gives a completely different hash value: "The quick brown fox jumps over the lazy dog." hashes to `ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c`.
+
+Applichiamo una specifica funzione di hash, come SHA256\[^14], su un dato noto. Ad esempio, usando come input la frase "The quick brown fox jumps over the lazy dog" (senza virgolette) e applicando la funzione SHA256, otteniamo l’hash `d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592`. Basta aggiungere un punto alla fine della frase per ottenere un hash completamente diverso: "The quick brown fox jumps over the lazy dog." produce `ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c`.
+
+Even though the sentence just changed a tiny bit, the resulting hashes are very different\[^15]. Hash functions that are secure are hard to "break" and have some nice properties. For example, if you have the hash value, you can't recreate the initial input. You also can't easily construct a message that hashes to a specific, predetermined hash value. These hash functions are called *cryptographic hash functions*\[^16].
+
+Anche se la frase cambia solo di poco, gli hash risultanti sono completamente diversi\[^15]. Le funzioni di hash sicure sono difficili da “rompere” e hanno proprietà interessanti. Ad esempio, dato un hash non si può risalire all’input originale. Inoltre, non è facile costruire un messaggio che produca un hash specifico prestabilito. Queste funzioni sono dette *funzioni di hash crittografiche*\[^16].
+
+The SHA256 hash function we used above is a specific cryptographic hash function that took a lot of time and many people to make secure. The hash itself also doesn't prove anything. It only makes sense when compared with something else, such as having direct access to the message or file.
+
+La funzione SHA256 usata sopra è una funzione di hash crittografica specifica, il cui sviluppo ha richiesto molto tempo e lavoro collettivo. Ma l’hash in sé non dimostra nulla. Ha senso solo se confrontato con qualcos’altro, come l’accesso diretto al messaggio o al file originale.
+
+Informally, we can think of a hash function as providing a proof that some specific message corresponds to a particular hash. We can only verify this with the original message. Sometimes people use this to prove they wrote something and make predictions - they write "On April 1, 2040, aliens will land on top of Big Ben in London, and the lottery number 25742069 will win a jackpot." and then post the hash of this message publicly ahead of time, say on Twitter. When it turns out they are right, they can reveal the original message, and people can be convinced that they did predict the future and are the next Nostradamus.
+
+In modo informale, possiamo considerare una funzione di hash come una prova che un certo messaggio corrisponde a un dato hash. Ma possiamo verificarlo solo conoscendo il messaggio originale. A volte, le persone usano questa tecnica per dimostrare di aver scritto qualcosa in anticipo e fare previsioni, scrivono frasi tipo "Il 1° aprile 2040, gli alieni atterreranno sul Big Ben a Londra e il numero 25742069 vincerà la lotteria", e poi pubblicano l’hash di quel messaggio, ad esempio su Twitter. Se poi si rivelano avere ragione, possono mostrare il messaggio originale e convincere tutti di essere i nuovi Nostradamus.
+
+In contrast, we can visualize a ZKP as follows:
+
+Al contrario, possiamo rappresentare una ZKP in questo modo:
+
+![ZKP](../assets/01_graphviz-zkp.png "ZKP")
+
+Unlike in the hash function above, there are a few big differences:
+
+A differenza della funzione di hash vista prima, ci sono alcune differenze fondamentali:
+
+* We have multiple private and public inputs as opposed to only a single (public) input
+* Possiamo avere più input pubblici e privati, non solo un singolo input pubblico
+* We can use any program, not just a cryptographic hash function
+* Possiamo usare qualsiasi programma, non solo una funzione crittografica di hash
+* We produce a self-contained proof that can be verified
+* Otteniamo una prova autosufficiente che può essere verificata
+
+In the hash function example above, we need to make the input public in order to verify that the message corresponds to the hash. For ZKPs, we can also have *private input*. Private input is something that only you can see. That is, you don't need to reveal it to anyone in order to produce a proof.
+
+Nel caso dell’hash, dobbiamo rendere pubblico l’input per verificare che corrisponda all’hash. Con le ZKPs invece possiamo avere anche un *input privato*. L’input privato è qualcosa che solo tu conosci, e che non devi rivelare a nessuno per generare una prova.
+
+For example, in the "Where's Waldo" case at the beginning of this article, the public input would be the picture of Where's Waldo. The private input is the actual location of Waldo. I can produce a proof that I know where Waldo is without revealing the private input, the location of Waldo, to you.
+
+Ad esempio, nel caso di "Dov’è Wally" visto all’inizio, l’input pubblico è l’immagine. L’input privato è la posizione di Wally. Posso generare una prova che dimostra che so dove si trova Wally senza rivelarti la posizione.
+
+Similarly, if I have a Sudoku puzzle (a popular logic puzzle), I can prove to you that I know a solution to the puzzle without revealing the solution to you. In this case, the public input is the initial puzzle, and the private input is the solution to the puzzle.
+
+Allo stesso modo, se ho un Sudoku (un popolare rompicapo logico), posso dimostrarti di conoscere la soluzione senza rivelartela. In questo caso, l’input pubblico è il puzzle iniziale e quello privato è la soluzione.
+
+You might have noticed that Where's Waldo and solving a Sudoku puzzle are two very different problems. Yet we can write a simple program that expresses how either of these works and uses ZKP to create a proof. That is because the logic inside this special program is general-purpose and can compute anything a computer can.
+
+Avrai notato che "Dov’è Wally" e risolvere un Sudoku sono due problemi molto diversi. Eppure possiamo scrivere un semplice programma che descrive entrambi e usare una ZKP per creare la prova. Questo è possibile perché la logica del programma è general-purpose e può calcolare qualsiasi cosa sia computabile da un computer.
+
+We have turned what was originally a problem of cryptography or math - defining and making a cryptographic hash function secure - into one of programming. To see why this is extremely powerful, consider some of the following examples.
+
+Abbiamo trasformato quello che era un problema di crittografia o matematica — definire e rendere sicura una funzione di hash — in un problema di programmazione. Per capire perchè questo è estremamente potente, considera i seguenti esempi.
+
+We can now prove that we know the private data that results in a certain hash\[^17]. This means you can prove that you are in possession of a certain message, such as an important document, without revealing the message itself.
+
+Ora possiamo dimostrare di conoscere il dato privato che genera un determinato hash\[^17]. Questo significa che puoi provare di avere un certo messaggio, come un documento importante, senza mostrarlo.
+
+To better understand the power of doing general-purpose computing, let's take a closer look at group signature. Group signatures are a way for a group of individuals to sign a document together, without revealing who they are. For example, the Federalist Papers were signed by the pseudonym Publius which represented multiple individuals\[^18]. Just like in the case of the SHA256 hash function, there's a way to express group signatures with cryptography and math. This is very impressive and took a lot of cryptographic engineering to develop. But with general-purpose ZKPs anyone can express the same thing in just a few dozen lines of Circom, a programming language for ZKPs, code\[^19].
+
+Per capire meglio la potenza della computazione general-purpose, guardiamo più da vicino le firme di gruppo. Le *group signature* permettono a più persone di firmare un documento insieme, senza rivelare chi sono. Ad esempio, i Federalist Papers furono firmati dallo pseudonimo "Publius", che rappresentava più autori\[^18]. Come per la funzione SHA256, è possibile rappresentare le firme di gruppo tramite crittografia e matematica. È un risultato straordinario, frutto di grande ingegneria crittografica. Ma con ZKPs general-purpose, chiunque può esprimere lo stesso concetto con poche decine di righe in Circom, un linguaggio di programmaione per scrivere ZKPs\[^19].
+
+Due to its general nature, we can easily make ad hoc constructions. For example, you might have an ID card that has your full name, address, and other personal information. To enter an event, you might need to be over 18 and have a valid ticket. You might not want a random person or online system to see your address or risk having your ID stolen. With ZKPs you can prove that:
+
+Grazie alla loro natura generale, possiamo costruire facilmente soluzioni su misura. Ad esempio, potresti avere una carta d’identità con nome, indirizzo e altri dati personali. Per accedere a un evento potresti dover dimostrare di avere più di 18 anni e un biglietto valido. Ma potresti non voler mostrare il tuo indirizzo o rischiare che ti venga rubato il documento. Con le ZKPs puoi dimostrare che:
+
+* Possiedi un documento valido
+* È stato emesso da un ente autorizzato negli ultimi 5 anni
+* Non è stato revocato o denunciato
+* Hai più di 18 anni
+* Hai acquistato un biglietto valido per l’evento
+* Il biglietto non è già stato usato
+
+Tutto ciò senza rivelare nessuna informazione personale oltre a quelle elencate.
+
+With ZKPs, we now have a *better tool* for people to coordinate in various ways, especially when it comes to systems where you want *privacy* and *succinctness*. We'll see even more examples in the application section.
+
+Con le ZKPs abbiamo ora uno *strumento migliore* per coordinare persone e sistemi, soprattutto in contesti dove servono *privacy* e *sinteticità*. Vedremo altri esempi nella sezione dedicata alle applicazioni.
+
+Often, it is your imagination that is the limit in terms of what you can express.
+
+Spesso, il limite di ciò che puoi esprimere è solo la tua immaginazione.
