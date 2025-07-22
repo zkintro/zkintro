@@ -337,7 +337,7 @@ Concludo questa sezione con una citazione:
 
 For example, when you light the stove to make dinner, you don't even have to think about making a fire. This is very different from having to gather wood, keep it dry, create a fire, and keep it going, a very time-consuming process. In mathematics, without calculus, we wouldn't be able to go to the moon.
 
-Per esempio, quando accendi il fornello per cucinare, non devi nemmeno pensare a come accendere un fuoco. È ben diverso da raccogliere legna, mantenerla asciutta, accendere la fiamma e tenerla viva — un processo che richiede tempo. In matematica, senza il calcolo infinitesimale, non saremmo mai andati sulla Luna.
+Per esempio, quando accendi il fornello per cucinare, non devi nemmeno pensare a come accendere un fuoco. È ben diverso da raccogliere legna, mantenerla asciutta, accendere la fiamma e tenerla viva, un processo che richiede tempo. In matematica, senza il calcolo infinitesimale, non saremmo mai andati sulla Luna.
 
 ![Aldrin, Apollo 11](../assets/01_apollo-aldrin.jpg "Aldrin, Apollo 11")
 
