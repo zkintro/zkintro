@@ -169,3 +169,66 @@ What do we mean by these two notions? Here are some ways to think about these pr
 
 Ma cosa intendiamo con questi due concetti? Ecco alcuni modi per comprendere meglio queste proprietà.
 
+### Privacy
+
+### Privacy
+
+There are a lot of things we want to keep private. Here's the definition of "private" in the Oxford Dictionary:
+
+Ci sono tante cose che desideriamo mantenere private. Ecco la definizione di "privato" secondo l’Oxford Dictionary:
+
+> belonging to or for the use of one particular person or group of people only.
+
+> appartenente o destinato esclusivamente all'uso di una determinata persona o gruppo di persone.
+
+We have private conversations, private bathrooms, private parts. Business secrets, sensitive personal information, in the privacy of your own home. Keys, doors and locks.
+
+Abbiamo conversazioni private, bagni privati, parti intime (private). Segreti aziendali, informazioni personali sensibili, la privacy della nostra casa. Chiavi, porte e serrature.
+
+Privacy is normal, and it is all around us. It is closely related to notions of self-sovereignty, self-determination, and independence. These notions come so naturally to us that many important documents, such as the *US Bill of Rights* and the *United Nations Charter* recognize them as fundamental rights for individuals and nations, respectively.\[^1] Privacy is a prerequisite for freedom.
+
+La privacy è normale e ci circonda continuamente. È strettamente legata a concetti come sovranità individuale, autodeterminazione e indipendenza. Questi principi sono così radicati nella nostra cultura che documenti fondamentali come la *Carta dei Diritti degli Stati Uniti* e lo *Statuto delle Nazioni Unite* li riconoscono rispettivamente come diritti essenziali per individui e nazioni.\[^1] La privacy è un presupposto fondamentale per la libertà.
+
+More formally, the privacy property in ZKPs is often called *zero knowledge* or *data hiding*.\[^2] A ZKP hides data that is irrelevant for some application to function, and this data is then *bound* together with the relevant application data. These notions are a bit more formal, and they enable privacy. Privacy is a broader and more generally applicable concept, so we'll keep focusing on that for now.
+
+In termini più formali, la proprietà di privacy nelle ZKPs è spesso definita *zero knowledge* (conoscenza zero) o *data hiding* (occultamento dei dati).\[^2] Una ZKP nasconde dati che risultano irrilevanti per il funzionamento di una certa applicazione, vincolandoli (*bound*) ai dati rilevanti dell’applicazione stessa. Queste definizioni sono più tecniche, ma consentono la privacy. Siccome il concetto di privacy è più ampio e più facilmente applicabile, continueremo a concentrarci principalmente su questo.
+
+In the digital world, also known as cyberspace, as opposed to meatspace, privacy is essential too, but often neglected. Here's the definition of privacy given in *A Cypherpunk's Manifesto*:
+
+Nel mondo digitale, chiamato anche cyberspazio (contrapposto allo spazio fisico, detto *meatspace*), la privacy è altrettanto fondamentale, ma spesso trascurata. Ecco la definizione di privacy secondo *Un manifesto Cypherpunk*:
+
+> Privacy is the power to selectively reveal oneself to the world.
+>
+> * A Cypherpunk's Manifesto\[^3]
+
+> La privacy è il potere di rivelarsi al mondo in modo selettivo.
+>
+> * Un manifesto Cypherpunk\[^3]
+
+Conversations, passwords, credit card information. These are examples of things we want to keep private online. The Internet is a fantastic tool that connects us all, but it is also an open and wild sea. There are a lot of strangers and predators, and keeping certain information private is vital. Without it, things like online shopping or private messaging would be impossible.
+
+Conversazioni, password, informazioni delle carte di credito. Questi sono esempi di cose che vogliamo mantenere private online. Internet è uno strumento straordinario che ci connette tutti, ma è anche un mare aperto e pericoloso. Ci sono molti estranei e malintenzionati, e mantenere private certe informazioni è vitale. Senza privacy, attività come lo shopping online o la messaggistica privata sarebbero impossibili.
+
+You might think, "We can already keep things like passwords private, what's the big deal?". In a limited sense, you are correct for these specific examples. We'll have to use more imagination to truly understand what general-purpose programmable privacy enables.
+
+Potresti pensare: "Possiamo già mantenere private informazioni come le password, dov'è la novità?". In senso limitato, hai ragione se ci limitiamo a questi esempi specifici. Ma dobbiamo sforzarci di immaginare qualcosa di più per comprendere appieno cosa renda possibile la privacy programmabile di natura general-purpose.
+
+As an example, consider how Augustine, in his *Confessions (400 AD)* found the act of "silent reading" by St Ambrose, a bishop, out of the ordinary. At the time, most people would read out loud.\[^4]
+
+Ad esempio, considera come Agostino, nelle sue *Confessioni (400 d.C.)*, trovasse insolito il fatto che il vescovo Ambrogio praticasse la "lettura silenziosa". All'epoca era normale leggere ad alta voce.\[^4]
+
+> When \[Ambrose] read, his eyes scanned the page and his heart sought out the meaning, but his voice was silent and his tongue was still. Anyone could approach him freely and guests were not commonly announced, so that often, when we came to visit him, we found him reading like this in silence, for he never read aloud.
+
+> Quando \[Ambrogio] leggeva, gli occhi percorrevano le pagine e il cuore ne coglieva il significato, ma la voce taceva e la lingua restava immobile. Chiunque poteva avvicinarsi liberamente, e gli ospiti non venivano comunemente annunciati. Spesso quindi, quando andavamo a trovarlo, lo sorprendevamo assorto in silenzio in tale lettura, poiché non leggeva mai ad alta voce.
+
+![Silent reading](../assets/01_silent-reading.jpg "Lettura silenziosa")
+
+Nowadays, everyone takes silent reading for granted. It is even hard to imagine that it had to be invented. The idea that what you read was something for your eyes only used to be foreign. What other similar inventions are possible in our modern era? Things that most of us are currently unable to imagine.
+
+Oggi diamo per scontata la lettura silenziosa, al punto da faticare a immaginare che sia stato necessario inventarla. Un tempo, l’idea che ciò che si legge potesse essere riservato ai soli occhi del lettore era inconcepibile. Quali altre invenzioni simili saranno possibili nella nostra era moderna? Cose che oggi molti di noi non riescono ancora neanche a immaginare.
+
+In future sections, we'll get a glimpse of what such inventions using ZKPs, both existing and upcoming, look like.
+
+Nelle prossime sezioni daremo uno sguardo a come potrebbero apparire queste invenzioni basate su ZKPs, sia quelle già esistenti sia quelle in arrivo.
+
+
