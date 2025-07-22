@@ -1,3 +1,16 @@
+---
+title: 'ZKPs 的程式教學: From Zero to Hero'
+date: '2024-08-30'
+tags: ['zero-knowledge']
+draft: false
+layout: PostSimple
+slug: "programming-zkps-from-zero-to-hero"
+images: [../assets/02_combined.png']
+summary: "學習從零開始撰寫和修改 Zero Knowledge Proof！你會用 hash-based commitment 實作一個數位簽章系統，整個過程會幫助你建立對 ZKP 的直覺和實作能力。到最後，你會有足夠的工具可以實作像是 group signatures 這類的東西。"
+---
+
+本文由 Nicole、PinHao 和 Anton 翻譯
+
 _給程式開發者的學習教材。_
 
 
@@ -668,3 +681,61 @@ just verify_proof example3
 我們也學到了足夠的技能和工具，能夠實現群簽章，這在沒有 ZKP 的情況下是很難實現的。
 
 我希望你對於撰寫 ZKP 涉及的內容已經建立了一個更好的心智模型，並且對於編輯-執行-除錯的循環在實務中是什麼樣子有了更好的感覺。無論你使用哪種技術，這都會為你未來編寫的任何其他 ZKP 程式奠定良好的基礎。
+
+## Acknowledgements
+
+感謝 Hanno Cornelius、Marc Köhlbrugge、Michelle Lai、lenilsonjr 與 Chih-Cheng Liang 閱讀初稿並提供寶貴建議。
+
+感謝 Nicole、PinHao 和 Anton 協助翻譯。
+
+### Images
+
+- _Bourbaki Congress 1938_ - Unknown, Public domain, via [Wikimedia](https://commons.wikimedia.org/wiki/File:Bourbaki_congress1938.png)
+- _Hartmann's Zebras_ - J. Huber, CC BY-SA 2.0, via [Wikimedia](https://commons.wikimedia.org/wiki/File:Hartmann_zebras_hobatereS.jpg)
+- _Trapdoor Spider_ - P.S. Foresman, Public domain, via [Wikimedia](<https://commons.wikimedia.org/wiki/File:Trapdoor_(PSF).png>)
+- _Kingsley Lockbox_ - P.S. Foresman, Public domain, via [Wikimedia](https://commons.wikimedia.org/wiki/File:Kingsley_lockbox.jpg)
+
+## References
+
+[^1]: While illustrative as a metaphor, this is just one of several theories. If you are curious, check out https://en.wikipedia.org/wiki/Zebra#Function.
+[^2]: See [Federalist Papers (Wikipedia)](https://en.wikipedia.org/wiki/The_Federalist_Papers#Authorship).
+[^3]: See [Bourbaki (Wikipedia)](https://en.wikipedia.org/wiki/Nicolas_Bourbaki#Membership).
+[^4]: Unless you have done some form of declarative programming (as in: non-procedural, like Prolog, this is probably new to you. To some extent we do this in SQL too. We describe _what_ we want, not necessarily _how_ we want it done.
+[^5]: Technically, zero constraint is also a set of constraints. While said in jest, under-constrained circuits are a big problem that can lead to many serious bugs. We will see an example of this later on.
+[^6]: We call it a _circuit_, or more precisely an _arithmetic circuit_, because it connects inputs and outputs in a similar fashion to logical gates such as NAND, AND, NOT, XOR, etc gates. From this we can build a universal computer, or universal circuit.
+[^7]: In general, using `<--` is not recommended and you should almost always avoid it by using `<==` instead.
+[^8]: This makes writing constraints quite challenging, as you can imagine. See https://docs.circom.io/circom-language/constraint-generation/ for more details on constraints in Circom.
+[^9]: To say "this number is between 1 and 9" we have to implement a _range check_. This includes decomposing the number into bits and performing equality checks on them them. Luckily, a lot of these types of constraints have already been written and be re-used, as we'll see later with _circomlib_.
+[^10]: For example `p(x) = ax^2 + bx + c` can easily be added, multiplied together or compared with `q(x) = dx^2 + 2bx + e`. It is worth noting that in ZKPs we operate over finite fields, not real numbers. This is out of scope of this article, thoguh.
+[^11]: While most ZKPs use _arithmetic circuits_, there are other proving systems work with other abstractions. For example, zkSTARKs and Bulletproofs.
+[^12]: Linear constraint means it can be expressed as a linear combination using only addition. This is equivalent to using multiplications with constants. The main thing to be aware of is that linear constraints are less complex than non-linear ones. See [constraint generation](https://docs.circom.io/circom-language/constraint-generation/) for more details. Wires and labels refers to what the _arithmetic circuit_ looks like. This is not something you usually have to care about. See [arithmetic circuits](https://docs.circom.io/background/background/#arithmetic-circuits) for more details.
+[^13]: Mathematically, what we are doing is making sure the equation `Az * Bz = Cz` holds, where `Z=(W,x,1)`. `A`, `B,` and `C` are matrices, `W` is the witness (private input), and `x` is public input/out. While useful to know, it is not necessary to understand this for writing circuits. See [Rank-1 constraint system](https://docs.circom.io/background/background/#rank-1-constraint-system) for more details.
+[^14]: : A better, but less commonly used, term here would be "proving parameters" and "verification parameters", respectively. This would be a bit more intuitive as keys are usually meant to be private. We will keep using "key" as opposed to "parameter" because that is what you are most likely to run into in the wild.
+[^15]: As [mentioned](https://zkintro.com/articles/friendly-introduction-to-zero-knowledge#user-content-fn-33) in the _friendly introduction_ article, there's a great layman's podcast on The Ceremony Zcash held in 2016 that you can listen to [here](https://radiolab.org/podcast/ceremony). Since then, a lot has changed in terms of trusted setups, and they are much easier to run and participate in.
+[^16]: This is because we rely on randomness to make the generation of proving and verification keys secure. In a real trusted setup, getting more sources of entropy is often desirable.
+[^17]: We call this a 1-out-of N trust model. There are many other trust models; the one you are most familiar with is probably majority rule, where you trust the majority to make the right decision. This is basically how democracy and most voting works.
+[^18]: Since we always generate the witness together with the proof, the resulting binary file `witness.wtns` is mostly an intermediate step and an implementation detail. We use it straight away to generate the proof, which is why it is omitted from the diagram.
+[^19]: In the literature, a witness is just the `W` part of the vector `Z=(W,x,1)` used in R1CS, where `x` is all the public/input signals. In Circom, the whole vector is referred to as the witness. Also see note 13.
+[^20]: The numbers have been abbreviated for brevity with `[...]`. Mathematically, these are elliptic curve points on the _bn128_ curve, with a field size of 254-bits. A 254-bit number can have up to 77 digits in its decimal representation.
+[^21]: The output is a bit unintuitive in that it doesn't map to the original signal name like this: `{"c": "33"}`. This requires the developer to re-map the outputs according to the order they were defined in the circuit. This is due to the implementation of `snarkjs` where we lose the variable information for proof generation.
+[^22]: Also known as a _cryptographic hardness assumption_. See [Computational hardness assumption (Wikipedia)](https://en.wikipedia.org/wiki/Computational_hardness_assumption#Common_cryptographic_hardness_assumptions).
+[^23]: See https://en.wikipedia.org/wiki/Integer_factorization for more.
+[^24]: While we can add _asserts_, these aren't actually constraints but only used for sanitizing input. See https://docs.circom.io/circom-language/code-quality/code-assertion/ for how that works and https://www.chainsecurity.com/blog/circom-assertions-misconceptions-and-deceptions for an example of how misusing asserts can go wrong. For more intuition on what constraints are, see the previous section _On constraints_.
+[^25]: This resource by 0xPARC is excellent if you want to dive deeper into the art of writing (Circom) circuits: https://learn.0xparc.org/materials/circom/learning-group-1/circom-1/ (in particular the Circom workshops). Reading the standard library can also be illuminating, see note 26.
+[^26]: Due to the nature of writing constraints, this comes up a lot. See https://en.wikipedia.org/wiki/Truth_table.
+[^27]: See https://github.com/iden3/circomlib for more on circomlib.
+[^28]: See https://github.com/iden3/circomlib/blob/master/circuits/comparators.circom.
+[^29]: People usually share these `ptau` files across projects for increased security. See https://github.com/privacy-scaling-explorations/perpetualpowersoftau for details. You can also find a list of these ptau files, of various size, in https://github.com/iden3/snarkjs.
+[^30]: Here the ladder represents some value that allows us to go the opposite, "hard" way. Another way to think about it is as a padlock. You can easily lock it, but hard to unlock it, unless you have a key. Trapdoor functions also have a more formal definition, see https://en.wikipedia.org/wiki/Trapdoor_function.
+[^31]: Screenshot from Wikipedia. See [ECDSA (Wikipedia)](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm#Signature_verification_algorithm).
+[^32]: This command should work on most Unix-style systems. We use `-n` to specify no newline character (`foo`, not `foo\n`), and `-a` to specify we want SHA256.
+[^33]: See https://en.wikipedia.org/wiki/Commitment_scheme. Note that we don't always need the "hidden" property. For example, when it comes to using ZKPs to make Ethereum more scalable, we only want an efficient subset reveal of the state trie.
+[^34]: We use Poseidon, but there are many others. Why is it faster? These ZK-friendly hash functions are implemented using arithmetic operations on prime fields, not bitwise operations like SHA256. it takes a lot fewer constraints to implement, which results in faster proving time. The performance difference between the two can be up to two orders of magnitude. On the flip side, a hash function like SHA256 has been studied more rigorously than most of these new ZK-friendly hash functions.
+[^35]: In ZKPs, we often want to hash multiple things together. Unlike a traditional context, we can't just concatenate strings together ("foo bar"), so we instead specify how many inputs we have to our hash function.
+[^36]: As mentioned in the note above, if this was using SHA-256 or doing some elliptic curve math the constraint count would be a lot higher. If we had more than 4000 constraints, we'd have to perform (or re-use) another phase 1 trusted setup with a higher capacity ptau.
+[^37]: We can however encode our string as a byte array, using Unicode or ASCII. In a real application you'd probably use the hash of your message in its BigInt representation instead.
+[^38]: In a real-world digital signature scheme, where multiple messages are exchange, we'd also probably want to introduce a cryptographic nonce. This is to avoid replay attacks, where someone could re-use the same signature at a later time. See https://en.wikipedia.org/wiki/Replay_attack.
+[^39]: For real-world applications, try to re-use existing work and best practices as much as possible. There are a lot of things that can go wrong if you aren't careful. Luckily, this is getting easier and easier as the ZKP ecosystem mature. At a certain stage, a lot of high-risk applications do security audits to make sure their applications are secure (or at least not provably insecure).
+[^40]: Implementing group signatures in ZKP was inspired by 0xPARC, see https://0xparc.org/blog/zk-group-sigs.
+[^41]: See https://docs.circom.io/circom-language/control-flow/.
+[^42]: In comparison, a paper implementing group signatures like https://eprint.iacr.org/2015/043.pdf involves some heavy cryptography and math.
