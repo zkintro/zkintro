@@ -332,8 +332,8 @@ $$
 \xrightarrow{\text{回應： } (c_i, d_i, e_i, r_i), (c_j, d_j, e_j, r_j)} \\
 \text{驗證者檢查：} \\
 \begin{aligned}
-4. &\quad c_i + d_i \stackrel{?}{=} e_i, \, c_j + d_j \stackrel{?}{=} e_j, \\
-5. &\quad \text{com}_i \stackrel{?}{=} \text{hash}(c_i, d_i, e_i, r_i), \, \text{com}_j \stackrel{?}{=} \text{hash}(c_j, d_j, e_j, r_j).
+1. &\quad c_i + d_i \stackrel{?}{=} e_i, \, c_j + d_j \stackrel{?}{=} e_j, \\
+2. &\quad \text{com}_i \stackrel{?}{=} \text{hash}(c_i, d_i, e_i, r_i), \, \text{com}_j \stackrel{?}{=} \text{hash}(c_j, d_j, e_j, r_j).
 \end{aligned}
 \end{array}
 $$
@@ -460,6 +460,7 @@ $$
 $$
 
 驗證者將進行（a）一致性檢查 和（b）承諾檢查，兩項檢查：
+
 (a). 一致性檢查：
 - 驗證 $a \cdot b = c$ 的份額：
   - $c_i \stackrel{?}{=} (a_i b_i + a_i b_j + a_j b_i) + (r_i - r_j)$,
