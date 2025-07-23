@@ -120,11 +120,11 @@ ZKP 雖然很新，但已經在公鏈中被廣泛應用，例如實現隱私支�
 為安裝上述工具並簡化建置與執行流程，你可以透過 clone [github repo](https://github.com/oskarth/zkintro-tutorial)。此方法適用於 MacOS、Linux 等 Unix-like 系統；若是使用 Windows，建議透過 Linux VM、WSL 等方式開發。
 
 ```shell
-# Clone the repo and run the prepare script
+# Clone 此 repo 並執行 prepare 腳本
 git clone git@github.com:oskarth/zkintro-tutorial.git
 cd zkintro-tutorial
 
-# Skim the contents of this file before executing it
+# 執行前請先查看此檔案內容
 less ./scripts/prepare.sh
 ./scripts/prepare.sh
 ```
@@ -630,7 +630,7 @@ just verify_proof example3
 
 恭喜你，你現在已經學會如何編寫密碼學程式了！[^39]
 
-### Exercise
+### 練習
 9. 數位簽章機制的三個組成部分是什麼？
 10. 使用像 Poseidon 這樣的「ZK 友善雜湊函數」的目的是什麼？
 11. 什麼是承諾？我們如何將它們用於數位簽章機制？
@@ -660,7 +660,7 @@ just verify_proof example3
 
 使用傳統工具創建像這樣的密碼學協議會是一項艱鉅的任務，需要大量專業知識。[^42] 而借助零知識證明，你可以在短時間內快速上手並實現，將這些複雜問題轉化為程式設計任務來處理。而這還只是我們能實現的冰山一角。
 
-### Exercises
+### 練習題
 
 15. 相較於一般簽章，群簽章能做什麼？它們可以如何被使用？
 
@@ -682,20 +682,20 @@ just verify_proof example3
 
 我希望你對於撰寫 ZKP 涉及的內容已經建立了一個更好的心智模型，並且對於編輯-執行-除錯的循環在實務中是什麼樣子有了更好的感覺。無論你使用哪種技術，這都會為你未來編寫的任何其他 ZKP 程式奠定良好的基礎。
 
-## Acknowledgements
+## 致謝
 
 感謝 Hanno Cornelius、Marc Köhlbrugge、Michelle Lai、lenilsonjr 與 Chih-Cheng Liang 閱讀初稿並提供寶貴建議。
 
 感謝 Nicole、PinHao 和 Anton 協助翻譯。
 
-### Images
+### 圖片來源
 
 - _Bourbaki Congress 1938_ - Unknown, Public domain, via [Wikimedia](https://commons.wikimedia.org/wiki/File:Bourbaki_congress1938.png)
 - _Hartmann's Zebras_ - J. Huber, CC BY-SA 2.0, via [Wikimedia](https://commons.wikimedia.org/wiki/File:Hartmann_zebras_hobatereS.jpg)
 - _Trapdoor Spider_ - P.S. Foresman, Public domain, via [Wikimedia](<https://commons.wikimedia.org/wiki/File:Trapdoor_(PSF).png>)
 - _Kingsley Lockbox_ - P.S. Foresman, Public domain, via [Wikimedia](https://commons.wikimedia.org/wiki/File:Kingsley_lockbox.jpg)
 
-## References
+## 參考資料
 
 [^1]: While illustrative as a metaphor, this is just one of several theories. If you are curious, check out https://en.wikipedia.org/wiki/Zebra#Function.
 [^2]: See [Federalist Papers (Wikipedia)](https://en.wikipedia.org/wiki/The_Federalist_Papers#Authorship).

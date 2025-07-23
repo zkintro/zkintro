@@ -851,7 +851,7 @@ $$
 **非互動性（Non-interactive）** - 證明者只需將 $\pi$ 發送給驗證者即可說服對方，驗證者可以通過 $x$ 和 $\pi$ 驗證證明[^42]。
 
 
-### References
+### 參考資料
 
 [^1]: STEM graduate means someone who studied Science, Technology, Engineering or Mathematics at a University or equivalent.
 [^2]: For example by using a search engine, LLM (Large Language Model, e.g. using AI tools such as ChatGPT), or a friend. For example, you could ask a LLM to ELI5 (Explain Like I'm Five) a specific concept.
