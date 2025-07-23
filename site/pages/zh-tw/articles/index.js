@@ -14,7 +14,7 @@ export async function getStaticProps() {
             ...post.front,
             slug: slug
         }
-    })
+    }).sort((a, b) => new Date(b.date) - new Date(a.date))
 
     const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
     const pagination = {
@@ -33,7 +33,7 @@ export default function ZhTwArticles({ posts, initialDisplayPosts, pagination })
                 posts={posts}
                 initialDisplayPosts={initialDisplayPosts}
                 pagination={pagination}
-                title="所有文章"
+                title="zkintro"
             />
         </>
     )

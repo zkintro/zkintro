@@ -9,7 +9,7 @@ images: ['../assets/02_combined.png']
 summary: "學習從零開始撰寫和修改 Zero Knowledge Proof！你會用 hash-based commitment 實作一個數位簽章系統，整個過程會幫助你建立對 ZKP 的直覺和實作能力。到最後，你會有足夠的工具可以實作像是 group signatures 這類的東西。"
 ---
 
-本文由 Nicole、PinHao 和 Anton 翻譯
+*本文由 Nicole、PinHao 和 Anton 翻譯*
 
 _給程式開發者的學習教材。_
 
@@ -120,11 +120,11 @@ ZKP 雖然很新，但已經在公鏈中被廣泛應用，例如實現隱私支�
 為安裝上述工具並簡化建置與執行流程，你可以透過 clone [github repo](https://github.com/oskarth/zkintro-tutorial)。此方法適用於 MacOS、Linux 等 Unix-like 系統；若是使用 Windows，建議透過 Linux VM、WSL 等方式開發。
 
 ```shell
-# Clone 此 repo 並執行 prepare 腳本
+# Clone the repo and run the prepare script
 git clone git@github.com:oskarth/zkintro-tutorial.git
 cd zkintro-tutorial
 
-# 執行前請先查看此檔案內容
+# Skim the contents of this file before executing it
 less ./scripts/prepare.sh
 ./scripts/prepare.sh
 ```

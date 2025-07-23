@@ -9,7 +9,7 @@ images: ['../assets/01_zkp-magic.png']
 summary: "零知識證明就像魔法，讓我們能做到過去想都沒想過的事。本篇文章將介紹為何你應該關注 ZKP、它們的運作方式，以及它們的應用場景。"
 ---
 
-本文由 Nicole、PinHao 和 Anton 翻譯
+*本文由 Nicole、PinHao 和 Anton 翻譯*
 
 ![ZKP 魔法](../assets/01_zkp-magic.png "ZKP Magic")
 
@@ -460,6 +460,7 @@ _本節將總結本文內容，並提供後續方向_
 ## 致謝
 
 感謝 Michelle Lai、Chih-Cheng Liang、Jenny Lin、Anna Lindegren 與 Eve Ko 閱讀初稿並提供寶貴建議。
+
 感謝 Nicole、Pinhao、Anton 協助翻譯。
 
 ### 圖片來源

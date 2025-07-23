@@ -9,7 +9,7 @@ images: ['../assets/03_zkboo_headshot.png']
 summary: "本文將解釋零知識證明（ZKPs）背後的數學原理。內容適合聰明的中學生或生疏的理工科畢業生閱讀。我們將直觀地理解底層運作原理，並建立關鍵概念的基礎框架。文章附帶不到100行程式碼的玩具實作，無需多項式或橢圓曲線知識。"
 ---
 
-本文由 Nicole、PinHao 和 Anton 翻譯
+*本文由 Nicole、PinHao 和 Anton 翻譯*
 
 ![ZKBoo](../assets/03_zkboo_headshot.png 'ZKBoo')
 
