@@ -197,20 +197,6 @@ Podemos visualizar el circuito de la siguiente manera:
 
 ![02_example1_circuit](https://hackmd.io/_uploads/HkYWCqAIll.png)
 
-
-### Construyendo nuestro circuito
-
-Para tu referencia, el archivo final se encuentra en `example1-solution.circom`. Para más detalles sobre la sintaxis, consulta la [documentación oficial](https://docs.circom.io/circom-language/signals/).
-
-Podemos compilar nuestro circuito ejecutando:
-
-```shell
-just build example1
-```
-<img width="688" height="191" alt="02_example1_build" src="https://github.com/user-attachments/assets/17200d82-7b07-429b-9ce3-128e04841f4b" />
-
-
-
 ### Construyendo nuestro circuito
 
 Para tu referencia, el archivo final se encuentra en `example1-solution.circom`. Para más detalles sobre la sintaxis, consulta la [documentación oficial](https://docs.circom.io/circom-language/signals/).
