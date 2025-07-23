@@ -1,5 +1,5 @@
 ---
-title: '零知識入門指南（A Friendly Introduction to Zero Knowledge）'
+title: '零知識入門指南'
 date: '2023-07-17'
 tags: ['zero-knowledge']
 draft: false

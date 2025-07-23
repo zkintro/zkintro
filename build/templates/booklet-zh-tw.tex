@@ -17,6 +17,9 @@
 % Chinese font support
 \usepackage{fontspec}
 \setmainfont{PingFang TC}
+% Enable proper Chinese line breaking
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 0.1pt
 \linespread{1.15}   % tighten vertical spacing
 \setlength{\parskip}{0.4em}
 \setlength{\parindent}{1.2em}
@@ -153,7 +156,7 @@ $endif$
 \maketitle
 
 % Include prelude content
-\input{build/templates/prelude}
+\input{build/templates/prelude-zh-tw}
 \newpage
 
 % Table of Contents

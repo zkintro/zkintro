@@ -50,6 +50,7 @@ build-pdf:
 build-pdf-en:
     mkdir -p output/pdf
     pandoc content/en/*.md \
+        --top-level-division=chapter \
         --template=build/templates/booklet-en.tex \
         --resource-path=content/assets \
         --pdf-engine=xelatex \
@@ -59,11 +60,58 @@ build-pdf-en:
 build-pdf-zh-tw:
     mkdir -p output/pdf
     pandoc content/zh-tw/*.md \
+        --top-level-division=chapter \
         --template=build/templates/booklet-zh-tw.tex \
         --resource-path=content/assets \
         --include-before-body=build/templates/prelude-zh-tw.tex \
         --pdf-engine=xelatex \
         -o output/pdf/zkintro-zh-tw.pdf
+
+# Build PDFs per article for English
+build-pdfs-en:
+    @echo "Building individual PDFs for EN…"
+    @mkdir -p output/pdf
+    pandoc content/en/01_friendly-introduction-to-zero-knowledge.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-en.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/01_friendly-introduction-to-zero-knowledge-en.pdf
+    pandoc content/en/02_programming-zkps-from-zero-to-hero.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-en.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/02_programming-zkps-from-zero-to-hero-en.pdf
+    pandoc content/en/03_understanding-math-behind-zkps.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-en.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/03_understanding-math-behind-zkps-en.pdf
+
+# Build PDFs per article for Traditional Chinese  
+build-pdfs-zh-tw:
+    @echo "Building individual PDFs for ZH‑TW…"
+    @mkdir -p output/pdf
+    pandoc content/zh-tw/01_friendly-introduction-to-zero-knowledge.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-zh-tw.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/01_friendly-introduction-to-zero-knowledge-zh-tw.pdf
+    pandoc content/zh-tw/02_programming-zkps-from-zero-to-hero.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-zh-tw.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/02_programming-zkps-from-zero-to-hero-zh-tw.pdf
+    pandoc content/zh-tw/03_understanding-the-math-behind-zkps.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-zh-tw.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/03_understanding-the-math-behind-zkps-zh-tw.pdf
 
 # Development
 # dev: prepare-content
