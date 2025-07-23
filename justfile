@@ -50,7 +50,7 @@ build-pdf:
 build-pdf-en:
     mkdir -p output/pdf
     pandoc content/en/*.md \
-        --template={{TEMPLATE}} \
+        --template=build/templates/booklet-en.tex \
         --resource-path=content/assets \
         --pdf-engine=xelatex \
         -o output/pdf/zkintro.pdf
@@ -59,7 +59,7 @@ build-pdf-en:
 build-pdf-zh-tw:
     mkdir -p output/pdf
     pandoc content/zh-tw/*.md \
-        --template={{TEMPLATE}} \
+        --template=build/templates/booklet-zh-tw.tex \
         --resource-path=content/assets \
         --include-before-body=build/templates/prelude-zh-tw.tex \
         --pdf-engine=xelatex \
