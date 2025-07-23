@@ -14,8 +14,8 @@ _Una introducción práctica para programadores en ejercicio._
 
 ¿Sabes por qué las cebras tienen rayas? Una teoría sugiere que funcionan como camuflaje. Al moverse en manada, las rayas confunden al león y le impiden identificar una presa concreta. Para atacar, necesita aislarla del grupo. [^1]
 
+A los humanos también les gusta esconderse en la multitud. Un ejemplo específico es cuando varias personas actúan como una sola bajo un nombre colectivo. Esto se hizo en los Federalist Papers que llevaron a la ratificación de la Constitución de Estados Unidos. Varios individuos escribieron ensayos bajo el seudónimo único "Publius". [^2] Otro ejemplo es Bourbaki, un seudónimo colectivo para un grupo de matemáticos franceses en los años 30. Esto llevó a una reescritura completa de grandes partes de las matemáticas modernas, enfocándose en el rigor y el método axiomático. [^3]
 
-A los humanos también les gusta ocultarse entre la multitud. Un ejemplo concreto de esto es cuando varias personas actúan como una sola bajo un nombre colectivo. Esto se hizo con los *Federalist Papers*, que llevaron a la ratificación de la Constitución de los Estados Unidos. Varios individuos escribieron ensayos bajo el seudónimo único de "Publius". \[2] Otro ejemplo es Bourbaki, un seudónimo colectivo utilizado por un grupo de matemáticos franceses en la década de 1930. Esto condujo a una reescritura completa de grandes partes de las matemáticas modernas, con un enfoque en el rigor y el método axiomático.
 
 
 ![02_bourbaki](https://hackmd.io/_uploads/Hk1EN8N8lg.png)
