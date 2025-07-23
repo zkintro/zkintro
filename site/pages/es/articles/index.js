@@ -34,6 +34,7 @@ export default function EsArticles({ posts, initialDisplayPosts, pagination }) {
                 initialDisplayPosts={initialDisplayPosts}
                 pagination={pagination}
                 title="All Posts (Español)"
+                locale="es"
             />
         </>
     )

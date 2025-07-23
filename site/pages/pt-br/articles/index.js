@@ -34,6 +34,7 @@ export default function PtBrArticles({ posts, initialDisplayPosts, pagination })
                 initialDisplayPosts={initialDisplayPosts}
                 pagination={pagination}
                 title="All Posts (PT-BR)"
+                locale="pt-br"
             />
         </>
     )
