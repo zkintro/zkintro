@@ -48,6 +48,14 @@ just clean
 
 PDFs will be generated in the `output/pdf` directory.
 
+### PDFs
+We generate one PDF per article for each locale:
+
+* `just build-pdfs-en` – builds English PDFs
+* `just build-pdfs-zh-tw` – builds Traditional‑Chinese PDFs
+
+All files are written to `output/pdf/`.
+
 ## Translation
 
 The site supports locale-aware routing:
