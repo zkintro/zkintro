@@ -33,7 +33,7 @@ export default function ZhTwArticles({ posts, initialDisplayPosts, pagination })
                 posts={posts}
                 initialDisplayPosts={initialDisplayPosts}
                 pagination={pagination}
-                title="zkintro"
+                title="所有文章"
                 locale="zh-tw"
             />
         </>
