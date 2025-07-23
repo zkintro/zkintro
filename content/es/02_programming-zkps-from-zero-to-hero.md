@@ -223,7 +223,7 @@ just build example1
 ```
 ![02_example1_build](https://hackmd.io/_uploads/rkgFp9C8gl.png)
 
-Este es un envoltorio ligero para ejecutar `circom` y crear los archivos `example1.r1cs` y `example1.wasm`. Deberías ver algo como:
+Este es un contenedor ligero para llamar a circom y crear los archivos example1.r1cs y example1.wasm. Deberías ver algo como:
 
 ```shell
 template instances: 1
