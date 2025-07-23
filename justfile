@@ -17,6 +17,9 @@ DEPLOY_USER := `grep DEPLOY_USER .env | cut -d= -f2`
 DEPLOY_HOST := `grep DEPLOY_HOST .env | cut -d= -f2`
 DEPLOY_PATH := `grep DEPLOY_PATH .env | cut -d= -f2`
 
+# Template for PDF builds
+TEMPLATE := "build/templates/booklet.tex"
+
 # Build web
 # build-web: prepare-content
 #     cd site-astro && npm run build
@@ -42,6 +45,25 @@ build-pdf:
         --pdf-engine=xelatex \
         --template=template.tex \
         -o output/pdf/zkintro.pdf
+
+# English PDF
+build-pdf-en:
+    mkdir -p output/pdf
+    pandoc content/en/*.md \
+        --template={{TEMPLATE}} \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/zkintro.pdf
+
+# Traditional-Chinese PDF
+build-pdf-zh-tw:
+    mkdir -p output/pdf
+    pandoc content/zh-tw/*.md \
+        --template={{TEMPLATE}} \
+        --resource-path=content/assets \
+        --include-before-body=build/templates/prelude-zh-tw.tex \
+        --pdf-engine=xelatex \
+        -o output/pdf/zkintro-zh-tw.pdf
 
 # Development
 # dev: prepare-content

@@ -15,7 +15,7 @@ export async function getStaticProps() {
             ...post.front,
             slug: slug
         }
-    })
+    }).sort((a, b) => new Date(a.date) - new Date(b.date))
 
     return { props: { posts } }
 }
