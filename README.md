@@ -10,8 +10,10 @@ See [zkintro.com](https://zkintro.com)
 .
 ├── content/          # Markdown content and assets
 │   ├── assets/      # Images and other static assets
-│   └── en/          # English content
-│   └── pt-br/       # Portuguese (Brazilian) content
+│   ├── en/          # English content
+│   ├── pt-br/       # Portuguese (Brazilian) content
+│   ├── es/          # Spanish content
+│   └── zh-tw/       # Traditional Chinese (Taiwan) content
 └── site/            # Next.js frontend
 ```
 
@@ -51,14 +53,16 @@ PDFs will be generated in the `output/pdf` directory.
 The site supports locale-aware routing:
 
 * `/` or `/en` – English
-* `/pt-br` – Brazilian Portuguese
+* `/pt-br` – Português do Brasil
+* `/es` – Español
+* `/zh-tw` – 繁體中文
 
 ### Add a new language
 1. Create `content/<locale>/` and add Markdown files with the **same filenames** as English.
-2. Add the locale code in `site/next.config.js → i18n.locales`.
-3. Run `just build-web` – images are auto-copied from `content/assets/` to `site/public/assets/`.
+2. Add the locale code to **lib/locale.js (LOCALES array)** and create wrapper routes under `pages/<locale>/` (see `pages/pt-br/`).
+3. Add entry to **components/LocaleMenu.js**.
 
-> Tip: Use absolute image paths in Markdown: `/assets/<file>.png`.
+> Tip: Use relative paths like `../assets/<file>.png`.
 
 Missing translations simply don't appear in that locale's index. A future `just check-translations` task will flag gaps.
 
