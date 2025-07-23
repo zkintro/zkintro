@@ -33,7 +33,7 @@ export default function ZhTwArticles({ posts, initialDisplayPosts, pagination })
                 posts={posts}
                 initialDisplayPosts={initialDisplayPosts}
                 pagination={pagination}
-                title="All Posts (繁體中文)"
+                title="所有文章"
             />
         </>
     )
