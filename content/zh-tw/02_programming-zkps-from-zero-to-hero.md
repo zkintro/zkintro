@@ -5,7 +5,7 @@ tags: ['zero-knowledge']
 draft: false
 layout: PostSimple
 slug: "programming-zkps-from-zero-to-hero"
-images: [../assets/02_combined.png']
+images: ['../assets/02_combined.png']
 summary: "學習從零開始撰寫和修改 Zero Knowledge Proof！你會用 hash-based commitment 實作一個數位簽章系統，整個過程會幫助你建立對 ZKP 的直覺和實作能力。到最後，你會有足夠的工具可以實作像是 group signatures 這類的東西。"
 ---
 
@@ -208,7 +208,7 @@ just build example1
 
 這是一個輕量的 wrap，用來呼叫 `circom` 來建立一個 `example1.r1cs` 和 `example1.wasm` 檔案。你應該會看到類似以下的輸出：
 
-```shell=
+```shell
 template instances: 1
 non-linear constraints: 1
 linear constraints: 0

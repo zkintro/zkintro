@@ -1,10 +1,11 @@
+---
 title: '零知識入門指南（A Friendly Introduction to Zero Knowledge）'
 date: '2023-07-17'
-tags: \['zero-knowledge']
+tags: ['zero-knowledge']
 draft: false
 layout: PostSimple
 slug: "friendly-introduction-to-zero-knowledge"
-images: \['../assets/01\_zkp-magic.png']
+images: ['../assets/01_zkp-magic.png']
 summary: "零知識證明就像魔法，讓我們能做到過去想都沒想過的事。本篇文章將介紹為何你應該關注 ZKP、它們的運作方式，以及它們的應用場景。"
 ---
 
