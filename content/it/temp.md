@@ -1,6 +1,6 @@
 ---
 
-title: 'Guida introduttiva alle Zero Knowledge Proofs'
+title: 'Introduzione semplificata alla Zero Knowledge'
 date: '2023-07-17'
 tags: \['zero-knowledge']
 draft: false
@@ -8,9 +8,9 @@ layout: PostSimple
 slug: "/it/friendly-introduction-to-zero-knowledge"
 images: \['../assets/01\_zkp-magic.png']
 summary: "Le Zero Knowledge Proofs sono pura magia. Ci permettono di realizzare cose che prima non avremmo nemmeno immaginato. Questo è il primo di una serie di articoli sulle Zero Knowledge Proofs e le loro applicazioni. Vedremo cosa sono, perché dovrebbero interessarci, come funzionano e dove possono essere utilizzate."
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
-![La magia degli ZKP](../assets/01_zkp-magic.png "La magia degli ZKP")
+![La magia della ZKP](../assets/01_zkp-magic.png "La magia della ZKP")
 
 ## Introduction
 
@@ -26,43 +26,43 @@ Cominciamo con alcune citazioni per stuzzicare la curiosità. Alcune vi saranno 
 
 > Any sufficiently advanced technology is indistinguishable from magic.
 >
-> * Arthur C. Clarke
+> - Arthur C. Clarke
 
 > Ogni tecnologia sufficientemente avanzata è indistinguibile dalla magia.
 >
-> * Arthur C. Clarke
+> - Arthur C. Clarke
 
 > Civilization advances by extending the number of operations we can perform without thinking about them.
 >
-> * Alfred North Whitehead
+> - Alfred North Whitehead
 
 > La civiltà avanza aumentando il numero di operazioni che possiamo compiere senza pensarci.
 >
-> * Alfred North Whitehead
+> - Alfred North Whitehead
 
 > I have made this longer than usual, only because I have not had the time to make it shorter.
 >
-> * Blaise Pascal
+> - Blaise Pascal
 
 > L'ho reso più lungo del solito, soltanto perché non ho avuto il tempo per farlo più breve.
 >
-> * Blaise Pascal
+> - Blaise Pascal
 
 > Privacy is the power to selectively reveal oneself to the world.
 >
-> * A Cypherpunk's Manifesto
+> - A Cypherpunk's Manifesto
 
 > La privacy è il potere di rivelarsi al mondo in modo selettivo.
 >
-> * Un manifesto Cypherpunk
+> - Un manifesto Cypherpunk
 
 > The future is already here. It's just not evenly distributed yet.
 >
-> * William Gibson
+> - William Gibson
 
 > Il futuro è già qui, semplicemente non è ancora equamente distribuito.
 >
-> * William Gibson
+> - William Gibson
 
 Magic technology, advancing civilization, short letters, privacy, and a future that's already here. That's Zero Knowledge Proofs (ZKPs) in a nutshell. What's going on?
 
@@ -99,17 +99,17 @@ Le ZKPs possono aiutare. Magari non per tutto, ovunque, o esattamente ora. Ma so
 
 ## Cos'è una Zero Knowledge Proof?
 
-*This section introduces the notion of a Zero Knowledge Proof*
+_This section introduces the notion of a Zero Knowledge Proof_
 
-*Questa sezione introduce il concetto di Zero Knowledge Proof*
+_Questa sezione introduce il concetto di Zero Knowledge Proof_
 
 This is the first in a series of posts on Zero Knowledge Proofs and their application. We'll look at what Zero Knowledge Proofs are, why you should care, how they work, and see where they can be used.
 
 Questo è il primo di una serie di articoli sulle Zero Knowledge Proofs e le loro applicazioni. Vedremo cosa sono le Zero Knowledge Proofs, perché dovrebbero interessarci, come funzionano e dove possono essere utilizzate.
 
-Imagine you go to a bar and can prove you are over 18 without revealing anything else, including your ID with personal information on it. Or you can prove that you've paid your taxes correctly, without revealing the details of your income or assets to anyone. These are the kind of things Zero Knowledge Proofs (ZKPs) enables. The term *zero knowledge* simply means we don't reveal any more information beyond what is intended.
+Imagine you go to a bar and can prove you are over 18 without revealing anything else, including your ID with personal information on it. Or you can prove that you've paid your taxes correctly, without revealing the details of your income or assets to anyone. These are the kind of things Zero Knowledge Proofs (ZKPs) enables. The term _zero knowledge_ simply means we don't reveal any more information beyond what is intended.
 
-Immagina di entrare in un bar e dimostrare di avere più di 18 anni senza rivelare nient’altro, nemmeno il tuo documento con tutte le informazioni personali. Oppure immagina di dimostrare di aver pagato correttamente le tasse, senza rivelare dettagli sul tuo reddito o patrimonio. Questi sono esempi di quello che le Zero Knowledge Proofs (ZKPs) consentono di fare. Il termine *zero knowledge* ("conoscenza zero") significa semplicemente che non viene rivelata alcuna informazione oltre quella strettamente necessaria.
+Immagina di entrare in un bar e dimostrare di avere più di 18 anni senza rivelare nient’altro, nemmeno il tuo documento con tutte le informazioni personali. Oppure immagina di dimostrare di aver pagato correttamente le tasse, senza rivelare dettagli sul tuo reddito o patrimonio. Questi sono esempi di quello che le Zero Knowledge Proofs (ZKPs) consentono di fare. Il termine _zero knowledge_ ("conoscenza zero") significa semplicemente che non viene rivelata alcuna informazione oltre quella strettamente necessaria.
 
 ZKPs allow you to prove something without revealing anything but that the statement is true.
 
@@ -141,17 +141,17 @@ Come vedremo, questa proprietà è incredibilmente potente.
 
 ## Perché dovrebbero interessarti?
 
-*This section explains why someone might care about ZKPs, including going into detail on privacy, compression, and the general-purpose nature of ZKPs*
+_This section explains why someone might care about ZKPs, including going into detail on privacy, compression, and the general-purpose nature of ZKPs_
 
-*Questa sezione spiega perché qualcuno potrebbe interessarsi alle ZKPs, approfondendo aspetti come privacy, compressione e la loro natura general-purpose.*
+_Questa sezione spiega perché qualcuno potrebbe interessarsi alle ZKPs, approfondendo aspetti come privacy, compressione e la loro natura general-purpose._
 
 Reading the above section you might think, "ok, that's kinda neat I guess, but why should I care". That's a completely reasonable take. In fact, you probably shouldn't! Just like you shouldn't care about how computers work, where AI is going, or any of these things.
 
 Dopo aver letto la sezione precedente potresti pensare: "Va bene, carino, ma perché dovrebbe interessarmi?". È un pensiero più che ragionevole. Anzi, forse non dovrebbe proprio interessarti! Così come potresti non interessarti di come funzionano i computer, dove ci porterà l’intelligenza artificiale o cose simili.
 
-Why *might you care*? Because you are curious and want to understand how ZKPs work, and what type of interactions it unlocks. The mechanism is very general, and the intuition for many people working in the space is that it is fundamentally a new paradigm that unlocks a lot of new things. We are seeing this already, and it seems like we are just at the very beginning of this. In the rest of this section, I'll give you some intuition as to why and how.
+Why _might you care_? Because you are curious and want to understand how ZKPs work, and what type of interactions it unlocks. The mechanism is very general, and the intuition for many people working in the space is that it is fundamentally a new paradigm that unlocks a lot of new things. We are seeing this already, and it seems like we are just at the very beginning of this. In the rest of this section, I'll give you some intuition as to why and how.
 
-Perché allora *potrebbe* interessarti? Perché sei curioso, vuoi capire come funzionano le ZKPs e quali tipi di interazioni possono abilitare. Si tratta di un meccanismo molto generale, e per molti di coloro che lavorano in questo ambito rappresenta fondamentalmente un nuovo paradigma che rende possibili molte cose nuove. È un cambiamento che sta già avvenendo, e sembra che siamo soltanto agli inizi. Nel resto di questa sezione proverò a fornirti qualche intuizione sul perché e sul come.
+Perché allora _potrebbe_ interessarti? Perché sei curioso, vuoi capire come funzionano le ZKPs e quali tipi di interazioni possono abilitare. Si tratta di un meccanismo molto generale, e per molti di coloro che lavorano in questo ambito rappresenta fondamentalmente un nuovo paradigma che rende possibili molte cose nuove. È un cambiamento che sta già avvenendo, e sembra che siamo soltanto agli inizi. Nel resto di questa sezione proverò a fornirti qualche intuizione sul perché e sul come.
 
 Before going deeper into that, let's understand what ZKPs give us at a higher level. ZKPs give us primarily one or both of the following properties:
 
@@ -185,25 +185,25 @@ We have private conversations, private bathrooms, private parts. Business secret
 
 Abbiamo conversazioni private, bagni privati, parti intime (private). Segreti aziendali, informazioni personali sensibili, la privacy della nostra casa. Chiavi, porte e serrature.
 
-Privacy is normal, and it is all around us. It is closely related to notions of self-sovereignty, self-determination, and independence. These notions come so naturally to us that many important documents, such as the *US Bill of Rights* and the *United Nations Charter* recognize them as fundamental rights for individuals and nations, respectively.\[^1] Privacy is a prerequisite for freedom.
+Privacy is normal, and it is all around us. It is closely related to notions of self-sovereignty, self-determination, and independence. These notions come so naturally to us that many important documents, such as the _US Bill of Rights_ and the _United Nations Charter_ recognize them as fundamental rights for individuals and nations, respectively. [^1] Privacy is a prerequisite for freedom.
 
-La privacy è normale e ci circonda continuamente. È strettamente legata a concetti come sovranità individuale, autodeterminazione e indipendenza. Questi principi sono così radicati nella nostra cultura che documenti fondamentali come la *Carta dei Diritti degli Stati Uniti* e lo *Statuto delle Nazioni Unite* li riconoscono rispettivamente come diritti essenziali per individui e nazioni.\[^1] La privacy è un presupposto fondamentale per la libertà.
+La privacy è normale e ci circonda continuamente. È strettamente legata a concetti come sovranità individuale, autodeterminazione e indipendenza. Questi principi sono così radicati nella nostra cultura che documenti fondamentali come la _Carta dei Diritti degli Stati Uniti_ e lo _Statuto delle Nazioni Unite_ li riconoscono rispettivamente come diritti essenziali per individui e nazioni. [^1] La privacy è un presupposto fondamentale per la libertà.
 
-More formally, the privacy property in ZKPs is often called *zero knowledge* or *data hiding*.\[^2] A ZKP hides data that is irrelevant for some application to function, and this data is then *bound* together with the relevant application data. These notions are a bit more formal, and they enable privacy. Privacy is a broader and more generally applicable concept, so we'll keep focusing on that for now.
+More formally, the privacy property in ZKPs is often called _zero knowledge_ or _data hiding_. [^2] A ZKP hides data that is irrelevant for some application to function, and this data is then _bound_ together with the relevant application data. These notions are a bit more formal, and they enable privacy. Privacy is a broader and more generally applicable concept, so we'll keep focusing on that for now.
 
-In termini più formali, la proprietà di privacy nelle ZKPs è spesso definita *zero knowledge* (conoscenza zero) o *data hiding* (occultamento dei dati).\[^2] Una ZKP nasconde dati che risultano irrilevanti per il funzionamento di una certa applicazione, vincolandoli (*bound*) ai dati rilevanti dell’applicazione stessa. Queste definizioni sono più tecniche, ma consentono la privacy. Siccome il concetto di privacy è più ampio e più facilmente applicabile, continueremo a concentrarci principalmente su questo.
+In termini più formali, la proprietà di privacy nelle ZKPs è spesso definita _zero knowledge_ (conoscenza zero) o _data hiding_ (occultamento dei dati). [^2] Una ZKP nasconde dati che risultano irrilevanti per il funzionamento di una certa applicazione, vincolandoli (_bound_) ai dati rilevanti dell’applicazione stessa. Queste nozioni, essendo un po' più formali, permettono di tutelare la privacy. Dato che quest'ultima è un concetto più ampio e versatile, per ora continueremo a concentrarci su di essa.
 
-In the digital world, also known as cyberspace, as opposed to meatspace, privacy is essential too, but often neglected. Here's the definition of privacy given in *A Cypherpunk's Manifesto*:
+In the digital world, also known as cyberspace, as opposed to meatspace, privacy is essential too, but often neglected. Here's the definition of privacy given in _A Cypherpunk's Manifesto_:
 
-Nel mondo digitale, chiamato anche cyberspazio (contrapposto allo spazio fisico, detto *meatspace*), la privacy è altrettanto fondamentale, ma spesso trascurata. Ecco la definizione di privacy secondo *Un manifesto Cypherpunk*:
+Nel mondo digitale, chiamato anche cyberspazio (contrapposto allo spazio fisico, detto _meatspace_), la privacy è altrettanto fondamentale, ma spesso trascurata. Ecco la definizione di privacy secondo _A Cypherpunk's Manifesto_:
 
 > Privacy is the power to selectively reveal oneself to the world.
 >
-> * A Cypherpunk's Manifesto\[^3]
+> - A Cypherpunk's Manifesto [^3]
 
 > La privacy è il potere di rivelarsi al mondo in modo selettivo.
 >
-> * Un manifesto Cypherpunk\[^3]
+> - A Cypherpunk's Manifesto [^3]
 
 Conversations, passwords, credit card information. These are examples of things we want to keep private online. The Internet is a fantastic tool that connects us all, but it is also an open and wild sea. There are a lot of strangers and predators, and keeping certain information private is vital. Without it, things like online shopping or private messaging would be impossible.
 
@@ -211,15 +211,15 @@ Conversazioni, password, informazioni delle carte di credito. Questi sono esempi
 
 You might think, "We can already keep things like passwords private, what's the big deal?". In a limited sense, you are correct for these specific examples. We'll have to use more imagination to truly understand what general-purpose programmable privacy enables.
 
-Potresti pensare: "Possiamo già mantenere private informazioni come le password, dov'è la novità?". In senso limitato, hai ragione se ci limitiamo a questi esempi specifici. Ma dobbiamo sforzarci di immaginare qualcosa di più per comprendere appieno cosa renda possibile la privacy programmabile di natura general-purpose.
+Potresti pensare: "Possiamo già mantenere private informazioni come le password, dov'è la novità?". In un certo senso, hai ragione per questi esempi specifici. Ma dobbiamo sforzarci di immaginare qualcosa di più per comprendere appieno cosa renda possibile la privacy programmabile di natura general-purpose.
 
-As an example, consider how Augustine, in his *Confessions (400 AD)* found the act of "silent reading" by St Ambrose, a bishop, out of the ordinary. At the time, most people would read out loud.\[^4]
+As an example, consider how Augustine, in his _Confessions (400 AD)_ found the act of "silent reading" by St Ambrose, a bishop, out of the ordinary. At the time, most people would read out loud. [^4]
 
-Ad esempio, considera come Agostino, nelle sue *Confessioni (400 d.C.)*, trovasse insolito il fatto che il vescovo Ambrogio praticasse la "lettura silenziosa". All'epoca era normale leggere ad alta voce.\[^4]
+Ad esempio, considera come Agostino, nelle sue _Confessioni (400 d.C.)_, trovasse insolito il fatto che il vescovo Ambrogio praticasse la "lettura silenziosa". All'epoca era normale leggere ad alta voce. [^4]
 
-> When \[Ambrose] read, his eyes scanned the page and his heart sought out the meaning, but his voice was silent and his tongue was still. Anyone could approach him freely and guests were not commonly announced, so that often, when we came to visit him, we found him reading like this in silence, for he never read aloud.
+> When [Ambrose] read, his eyes scanned the page and his heart sought out the meaning, but his voice was silent and his tongue was still. Anyone could approach him freely and guests were not commonly announced, so that often, when we came to visit him, we found him reading like this in silence, for he never read aloud.
 
-> Quando \[Ambrogio] leggeva, gli occhi percorrevano le pagine e il cuore ne coglieva il significato, ma la voce taceva e la lingua restava immobile. Chiunque poteva avvicinarsi liberamente, e gli ospiti non venivano comunemente annunciati. Spesso quindi, quando andavamo a trovarlo, lo sorprendevamo assorto in silenzio in tale lettura, poiché non leggeva mai ad alta voce.
+> Quando [Ambrogio] leggeva, gli occhi percorrevano le pagine e il cuore ne coglieva il significato, ma la voce taceva e la lingua restava immobile. Chiunque poteva avvicinarsi liberamente, e gli ospiti non venivano comunemente annunciati. Spesso quindi, quando andavamo a trovarlo, lo sorprendevamo assorto in silenzio in tale lettura, poiché non leggeva mai ad alta voce.
 
 ![Silent reading](../assets/01_silent-reading.jpg "Lettura silenziosa")
 
@@ -238,11 +238,11 @@ Nelle prossime sezioni daremo uno sguardo a come potrebbero apparire queste inve
 
 > I have made this longer than usual, only because I have not had the time to make it shorter.
 >
-> * Blaise Pascal\[^5]
+> - Blaise Pascal\[^5]
 
 > L'ho reso più lungo del solito, soltanto perché non ho avuto il tempo per farlo più breve.
 >
-> * Blaise Pascal\[^5]
+> - Blaise Pascal\[^5]
 
 To compress something is defined as:
 
@@ -274,25 +274,25 @@ In a typical whodunit like a Sherlock Holmes murder mystery, the detective gathe
 
 In un classico giallo alla Sherlock Holmes, il detective raccoglie indizi finché non può dimostrare chi ha commesso l’omicidio. E poi, nel gran finale, spiega esattamente come è arrivato a questa conclusione. Possiamo considerare questa dichiarazione finale come la prova.\[^6]
 
-More formally, we call this property *succinctness*.\[^7] This is what keeps the size of the proof the same regardless of what we are trying to prove. In the context of public blockchains, this also relates to the notion of *scalability*. For public blockchains like Ethereum, where block space is limited and expensive, ZKPs can make transactions a lot cheaper and faster. How? We create a proof that some set of transactions have taken place and put that tiny proof on-chain, as opposed to having all transactions take up space on the blockchain. With ZKPs, this can be made very secure.
+More formally, we call this property _succinctness_.\[^7] This is what keeps the size of the proof the same regardless of what we are trying to prove. In the context of public blockchains, this also relates to the notion of _scalability_. For public blockchains like Ethereum, where block space is limited and expensive, ZKPs can make transactions a lot cheaper and faster. How? We create a proof that some set of transactions have taken place and put that tiny proof on-chain, as opposed to having all transactions take up space on the blockchain. With ZKPs, this can be made very secure.
 
-In termini più tecnici, questa proprietà si chiama *succinctness* (sinteticità).\[^7] È ciò che consente alla prova di mantenere la stessa dimensione indipendentemente da ciò che vogliamo dimostrare. Nel contesto delle blockchain pubbliche, questa proprietà è legata anche al concetto di *scalabilità*. Per blockchain come Ethereum, dove lo spazio nei blocchi è limitato e costoso, le ZKPs possono rendere le transazioni molto più economiche e rapide. Come? Creando una prova che certi insiemi di transazioni sono avvenuti, e registrando solo quella prova sintetica sulla blockchain, anziché l’intero contenuto delle transazioni. Con le ZKPs, questo processo può essere realizzato in modo estremamente sicuro.
+In termini più tecnici, questa proprietà si chiama _succinctness_ (sinteticità).\[^7] È ciò che consente alla prova di mantenere la stessa dimensione indipendentemente da ciò che vogliamo dimostrare. Nel contesto delle blockchain pubbliche, questa proprietà è legata anche al concetto di _scalabilità_. Per blockchain come Ethereum, dove lo spazio nei blocchi è limitato e costoso, le ZKPs possono rendere le transazioni molto più economiche e rapide. Come? Creando una prova che certi insiemi di transazioni sono avvenuti, e registrando solo quella prova sintetica sulla blockchain, anziché l’intero contenuto delle transazioni. Con le ZKPs, questo processo può essere realizzato in modo estremamente sicuro.
 
 Succinctness is a general property and orthogonal to "blockchains" - they just happen to be a good fit, for many reasons. More generally, having a short proof that something is true is very useful. There are a few ways to see why.
 
 La sinteticità è una proprietà generale e indipendente dalle blockchain: semplicemente, queste ne traggono particolare beneficio per molte ragioni. In generale, avere una prova breve che qualcosa è vero è estremamente utile. Vediamo alcuni motivi.
 
-One way of looking at it is to consider *transaction costs*.\[^8] Generally speaking, the lower these are, the more value and wealth is created. If there are fewer things to verify, or it is easier to do, then we can do things more freely and with ease.
+One way of looking at it is to consider _transaction costs_.\[^8] Generally speaking, the lower these are, the more value and wealth is created. If there are fewer things to verify, or it is easier to do, then we can do things more freely and with ease.
 
-Un modo per comprenderlo è pensare ai *costi di transazione*.\[^8] In linea generale, più questi sono bassi, più valore e ricchezza si generano. Se ci sono meno cose da verificare, o se è più facile farlo, possiamo agire con maggiore libertà ed efficienza.
+Un modo per comprenderlo è pensare ai _costi di transazione_.\[^8] In linea generale, più questi sono bassi, più valore e ricchezza si generano. Se ci sono meno cose da verificare, o se è più facile farlo, possiamo agire con maggiore libertà ed efficienza.
 
 Sometimes when we fill in a form we are asked to write our email twice to confirm it is correct. The idea is to protect against human errors and make the transmission of data more robust. There are also things like checksums, where an extra digit in your UPS package code, credit card number, or ISBN code for books acts as a simple check that all the numbers are probably correct. All of these are - obviously - not meant to protect against malicious use, but only against innocent mistakes. \[^9]
 
 A volte, quando compiliamo un modulo online, ci viene chiesto di inserire due volte l’email per confermare che sia corretta. L’obiettivo è prevenire errori umani e rendere la trasmissione dei dati più affidabile. Esistono anche strumenti come i checksum: un numero extra nei codici dei pacchi UPS, nei numeri delle carte di credito o nei codici ISBN dei libri, che serve da controllo semplificato per verificare che tutto sia probabilmente corretto. Tutti questi meccanismi non servono – ovviamente – a proteggere da attacchi malevoli, ma solo da errori involontari.\[^9]
 
-In computer file systems, a *hash* is often used to ensure the integrity of files. If something happens to just a small part of a file, corrupting it, the hash changes completely. Because the hash is succinct (say, a 64 character string), it is easy to keep around and check even if the underlying file is huge. In this case, hash functions ensure integrity in a secure way. If we checked the integrity of a file by just keeping a copy of the file it'd be a lot more impractical. Big file, small file, it doesn't matter; the hash stays the same size. The succinctness of a hash enables this use case.
+In computer file systems, a _hash_ is often used to ensure the integrity of files. If something happens to just a small part of a file, corrupting it, the hash changes completely. Because the hash is succinct (say, a 64 character string), it is easy to keep around and check even if the underlying file is huge. In this case, hash functions ensure integrity in a secure way. If we checked the integrity of a file by just keeping a copy of the file it'd be a lot more impractical. Big file, small file, it doesn't matter; the hash stays the same size. The succinctness of a hash enables this use case.
 
-Nei file system dei computer, un *hash* viene spesso usato per garantire l’integrità dei file. Se anche solo una piccola parte del file viene alterata, l’hash cambia completamente. Poiché un hash è sintetico (per esempio, una stringa di 64 caratteri), è facile da conservare e verificare anche quando il file originale è molto grande. In questo caso, le funzioni hash assicurano l’integrità in modo sicuro. Se dovessimo verificare l’integrità di un file conservandone una copia completa, sarebbe molto più complesso. File grande o piccolo, non importa: l’hash mantiene sempre la stessa dimensione. È proprio la sinteticità dell’hash a rendere possibile tutto questo.
+Nei file system dei computer, un _hash_ viene spesso usato per garantire l’integrità dei file. Se anche solo una piccola parte del file viene alterata, l’hash cambia completamente. Poiché un hash è sintetico (per esempio, una stringa di 64 caratteri), è facile da conservare e verificare anche quando il file originale è molto grande. In questo caso, le funzioni hash assicurano l’integrità in modo sicuro. Se dovessimo verificare l’integrità di un file conservandone una copia completa, sarebbe molto più complesso. File grande o piccolo, non importa: l’hash mantiene sempre la stessa dimensione. È proprio la sinteticità dell’hash a rendere possibile tutto questo.
 
 
 ### What do you know?
@@ -329,11 +329,11 @@ Concludo questa sezione con una citazione:
 
 > Civilization advances by extending the number of operations we can perform without thinking about them.
 >
-> * Alfred North Whitehead\[^11]
+> - Alfred North Whitehead\[^11]
 
 > La civiltà avanza aumentando il numero di operazioni che possiamo compiere senza pensarci.
 >
-> * Alfred North Whitehead\[^11]
+> - Alfred North Whitehead\[^11]
 
 For example, when you light the stove to make dinner, you don't even have to think about making a fire. This is very different from having to gather wood, keep it dry, create a fire, and keep it going, a very time-consuming process. In mathematics, without calculus, we wouldn't be able to go to the moon.
 
@@ -341,9 +341,9 @@ Per esempio, quando accendi il fornello per cucinare, non devi nemmeno pensare a
 
 ![Aldrin, Apollo 11](../assets/01_apollo-aldrin.jpg "Aldrin, Apollo 11")
 
-With ZKPs and succinct proofs, we are able to introduce more certainty and clarity into opaque systems. This gets even more powerful when we consider *composing* ZKPs. That is combining multiple proofs into one in some fashion, such as with aggregation or recursion.
+With ZKPs and succinct proofs, we are able to introduce more certainty and clarity into opaque systems. This gets even more powerful when we consider _composing_ ZKPs. That is combining multiple proofs into one in some fashion, such as with aggregation or recursion.
 
-Grazie alle ZKPs e alle prove sintetiche, possiamo introdurre maggiore certezza e trasparenza in sistemi opachi. Questo diventa ancora più potente quando consideriamo la *composizione* delle ZKPs: ovvero la possibilità di combinare più prove in una sola, ad esempio tramite aggregazione o ricorsione.
+Grazie alle ZKPs e alle prove sintetiche, possiamo introdurre maggiore certezza e trasparenza in sistemi opachi. Questo diventa ancora più potente quando consideriamo la _composizione_ delle ZKPs: ovvero la possibilità di combinare più prove in una sola, ad esempio tramite aggregazione o ricorsione.
 
 All of this presumes we can translate some of the mechanisms or rules mentioned above - which are often messy and inconsistent - into a form that ZKPs can comprehend. How can we do that?
 
@@ -378,9 +378,9 @@ We apply a specific hash function, such as SHA256\[^14], on some known input dat
 
 Applichiamo una specifica funzione di hash, come SHA256\[^14], su un dato noto. Ad esempio, usando come input la frase "The quick brown fox jumps over the lazy dog" (senza virgolette) e applicando la funzione SHA256, otteniamo l’hash `d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592`. Basta aggiungere un punto alla fine della frase per ottenere un hash completamente diverso: "The quick brown fox jumps over the lazy dog." produce `ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c`.
 
-Even though the sentence just changed a tiny bit, the resulting hashes are very different\[^15]. Hash functions that are secure are hard to "break" and have some nice properties. For example, if you have the hash value, you can't recreate the initial input. You also can't easily construct a message that hashes to a specific, predetermined hash value. These hash functions are called *cryptographic hash functions*\[^16].
+Even though the sentence just changed a tiny bit, the resulting hashes are very different\[^15]. Hash functions that are secure are hard to "break" and have some nice properties. For example, if you have the hash value, you can't recreate the initial input. You also can't easily construct a message that hashes to a specific, predetermined hash value. These hash functions are called _cryptographic hash functions_\[^16].
 
-Anche se la frase cambia solo di poco, gli hash risultanti sono completamente diversi\[^15]. Le funzioni di hash sicure sono difficili da “rompere” e hanno proprietà interessanti. Ad esempio, dato un hash non si può risalire all’input originale. Inoltre, non è facile costruire un messaggio che produca un hash specifico prestabilito. Queste funzioni sono dette *funzioni di hash crittografiche*\[^16].
+Anche se la frase cambia solo di poco, gli hash risultanti sono completamente diversi\[^15]. Le funzioni di hash sicure sono difficili da “rompere” e hanno proprietà interessanti. Ad esempio, dato un hash non si può risalire all’input originale. Inoltre, non è facile costruire un messaggio che produca un hash specifico prestabilito. Queste funzioni sono dette _funzioni di hash crittografiche_\[^16].
 
 The SHA256 hash function we used above is a specific cryptographic hash function that took a lot of time and many people to make secure. The hash itself also doesn't prove anything. It only makes sense when compared with something else, such as having direct access to the message or file.
 
@@ -400,16 +400,16 @@ Unlike in the hash function above, there are a few big differences:
 
 A differenza della funzione di hash vista prima, ci sono alcune differenze fondamentali:
 
-* We have multiple private and public inputs as opposed to only a single (public) input
-* Possiamo avere più input pubblici e privati, non solo un singolo input pubblico
-* We can use any program, not just a cryptographic hash function
-* Possiamo usare qualsiasi programma, non solo una funzione crittografica di hash
-* We produce a self-contained proof that can be verified
-* Otteniamo una prova autosufficiente che può essere verificata
+- We have multiple private and public inputs as opposed to only a single (public) input
+- Possiamo avere più input pubblici e privati, non solo un singolo input pubblico
+- We can use any program, not just a cryptographic hash function
+- Possiamo usare qualsiasi programma, non solo una funzione crittografica di hash
+- We produce a self-contained proof that can be verified
+- Otteniamo una prova autosufficiente che può essere verificata
 
-In the hash function example above, we need to make the input public in order to verify that the message corresponds to the hash. For ZKPs, we can also have *private input*. Private input is something that only you can see. That is, you don't need to reveal it to anyone in order to produce a proof.
+In the hash function example above, we need to make the input public in order to verify that the message corresponds to the hash. For ZKPs, we can also have _private input_. Private input is something that only you can see. That is, you don't need to reveal it to anyone in order to produce a proof.
 
-Nel caso dell’hash, dobbiamo rendere pubblico l’input per verificare che corrisponda all’hash. Con le ZKPs invece possiamo avere anche un *input privato*. L’input privato è qualcosa che solo tu conosci, e che non devi rivelare a nessuno per generare una prova.
+Nel caso dell’hash, dobbiamo rendere pubblico l’input per verificare che corrisponda all’hash. Con le ZKPs invece possiamo avere anche un _input privato_. L’input privato è qualcosa che solo tu conosci, e che non devi rivelare a nessuno per generare una prova.
 
 For example, in the "Where's Waldo" case at the beginning of this article, the public input would be the picture of Where's Waldo. The private input is the actual location of Waldo. I can produce a proof that I know where Waldo is without revealing the private input, the location of Waldo, to you.
 
@@ -433,24 +433,24 @@ Ora possiamo dimostrare di conoscere il dato privato che genera un determinato h
 
 To better understand the power of doing general-purpose computing, let's take a closer look at group signature. Group signatures are a way for a group of individuals to sign a document together, without revealing who they are. For example, the Federalist Papers were signed by the pseudonym Publius which represented multiple individuals\[^18]. Just like in the case of the SHA256 hash function, there's a way to express group signatures with cryptography and math. This is very impressive and took a lot of cryptographic engineering to develop. But with general-purpose ZKPs anyone can express the same thing in just a few dozen lines of Circom, a programming language for ZKPs, code\[^19].
 
-Per capire meglio la potenza della computazione general-purpose, guardiamo più da vicino le firme di gruppo. Le *group signature* permettono a più persone di firmare un documento insieme, senza rivelare chi sono. Ad esempio, i Federalist Papers furono firmati dallo pseudonimo "Publius", che rappresentava più autori\[^18]. Come per la funzione SHA256, è possibile rappresentare le firme di gruppo tramite crittografia e matematica. È un risultato straordinario, frutto di grande ingegneria crittografica. Ma con ZKPs general-purpose, chiunque può esprimere lo stesso concetto con poche decine di righe in Circom, un linguaggio di programmaione per scrivere ZKPs\[^19].
+Per capire meglio la potenza della computazione general-purpose, guardiamo più da vicino le firme di gruppo. Le _group signature_ permettono a più persone di firmare un documento insieme, senza rivelare chi sono. Ad esempio, i Federalist Papers furono firmati dallo pseudonimo "Publius", che rappresentava più autori\[^18]. Come per la funzione SHA256, è possibile rappresentare le firme di gruppo tramite crittografia e matematica. È un risultato straordinario, frutto di grande ingegneria crittografica. Ma con ZKPs general-purpose, chiunque può esprimere lo stesso concetto con poche decine di righe in Circom, un linguaggio di programmaione per scrivere ZKPs\[^19].
 
 Due to its general nature, we can easily make ad hoc constructions. For example, you might have an ID card that has your full name, address, and other personal information. To enter an event, you might need to be over 18 and have a valid ticket. You might not want a random person or online system to see your address or risk having your ID stolen. With ZKPs you can prove that:
 
 Grazie alla loro natura generale, possiamo costruire facilmente soluzioni su misura. Ad esempio, potresti avere una carta d’identità con nome, indirizzo e altri dati personali. Per accedere a un evento potresti dover dimostrare di avere più di 18 anni e un biglietto valido. Ma potresti non voler mostrare il tuo indirizzo o rischiare che ti venga rubato il documento. Con le ZKPs puoi dimostrare che:
 
-* Possiedi un documento valido
-* È stato emesso da un ente autorizzato negli ultimi 5 anni
-* Non è stato revocato o denunciato
-* Hai più di 18 anni
-* Hai acquistato un biglietto valido per l’evento
-* Il biglietto non è già stato usato
+- Possiedi un documento valido
+- È stato emesso da un ente autorizzato negli ultimi 5 anni
+- Non è stato revocato o denunciato
+- Hai più di 18 anni
+- Hai acquistato un biglietto valido per l’evento
+- Il biglietto non è già stato usato
 
 Tutto ciò senza rivelare nessuna informazione personale oltre a quelle elencate.
 
-With ZKPs, we now have a *better tool* for people to coordinate in various ways, especially when it comes to systems where you want *privacy* and *succinctness*. We'll see even more examples in the application section.
+With ZKPs, we now have a _better tool_ for people to coordinate in various ways, especially when it comes to systems where you want _privacy_ and _succinctness_. We'll see even more examples in the application section.
 
-Con le ZKPs abbiamo ora uno *strumento migliore* per coordinare persone e sistemi, soprattutto in contesti dove servono *privacy* e *sinteticità*. Vedremo altri esempi nella sezione dedicata alle applicazioni.
+Con le ZKPs abbiamo ora uno _strumento migliore_ per coordinare persone e sistemi, soprattutto in contesti dove servono _privacy_ e _sinteticità_. Vedremo altri esempi nella sezione dedicata alle applicazioni.
 
 Often, it is your imagination that is the limit in terms of what you can express.
 
@@ -481,7 +481,7 @@ Considering the complexity involved, spanning applied mathematics, cryptography,
 
 Considerando la complessità in gioco, che spazia tra matematica applicata, crittografia, articoli su sistemi ZKP specifici, implementazione di nuovi sistemi di prova, strumenti di sviluppo e applicazioni in domini complessi, i progressi sono rapidissimi. Ogni anno, persino ogni mese, vengono pubblicati nuovi articoli con tecniche inedite, strumenti migliori e nuove applicazioni. Il ciclo tra ricerca, implementazione e utilizzo si sta facendo sempre più corto. Anche se resta difficile, iniziare oggi è molto più facile di qualche anno fa. E man mano che gli strumenti migliorano, agli sviluppatori è richiesto di comprendere sempre meno la matematica che sta alla base delle ZKPs.
 
-In terms of the performance of ZKPs, there's a form of Moore's law happening. Moore's law is the observation that the number of transistors doubles about every two years. This is what led to the computer revolution. In ZKPs, projects that were just pipe dreams a few years ago, seen as completely unpractical, are now being executed on, things like *zkVM* and *zkML*. As a rule of thumb, it has been observed in the ZKP world that things improve by an order of magnitude every other year or so\[^26]. This is because it is a new technology, and it is possible to aggressively optimize on many layers of the stack, from the programs we write, to the systems we use, to the hardware itself. We have no reason to believe this will stop any time soon.
+In terms of the performance of ZKPs, there's a form of Moore's law happening. Moore's law is the observation that the number of transistors doubles about every two years. This is what led to the computer revolution. In ZKPs, projects that were just pipe dreams a few years ago, seen as completely unpractical, are now being executed on, things like _zkVM_ and _zkML_. As a rule of thumb, it has been observed in the ZKP world that things improve by an order of magnitude every other year or so\[^26]. This is because it is a new technology, and it is possible to aggressively optimize on many layers of the stack, from the programs we write, to the systems we use, to the hardware itself. We have no reason to believe this will stop any time soon.
 
 In termini di prestazioni, nel mondo delle ZKPs sta avvenendo una sorta di legge di Moore. La legge di Moore osserva che il numero di transistor raddoppia circa ogni due anni. Questo è ciò che ha reso possibile la rivoluzione informatica. Nelle ZKPs, progetti che pochi anni fa sembravano pura fantasia, sono oggi eseguiti su cose come _zkVM_ e _zkML_. Come regola empirica, si è osservato che i progressi nel campo delle ZKPs migliorano di un ordine di grandezza ogni anno circa\[^26]. Questo perché si tratta di una tecnologia nuova, in cui è possibile ottimizzare in modo aggressivo su ogni livello dello stack: dai programmi che scriviamo, ai sistemi che usiamo, fino all’hardware stesso. E non ci sono motivi per credere che questa tendenza si fermerà a breve.
 
