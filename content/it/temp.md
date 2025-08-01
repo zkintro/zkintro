@@ -570,7 +570,7 @@ Un buon modello mentale è pensare alle ZKPs come a uno zoo. Ci sono molti anima
 
 Going back to our protocol, we have a prover and verifier. The prover creates a proof using a _prover key_, private input and public input. The verifier verifies the proof using a _verification key_ and public input, and outputs true or false.
 
-Tornando al nostro protocollo, abbiamo un prover (dimostratore) e un verifier (verificatore). Il prover crea una prova usando una _prover key_, l’input privato e l’input pubblico. Il verifier verifica la prova utilizzando una _verification key_ e l’input pubblico, e restituisce come risultato `true` o `false`.
+Tornando al nostro protocollo, abbiamo un prover (dimostratore) e un verifier (verificatore). Il prover crea una prova usando una _prover key_, l’input privato e l’input pubblico. Il verifier verifica la prova utilizzando una _verification key_ e l’input pubblico, e restituisce come risultato true o false.
 
 We have two new things, a prover key and a verifier key. This is what allows the prover and verifier to do their magic. You can think of them as a regular key that allows you to enter somewhere and do something, or you can think of them as a magic wand that allows you to do something. We get these keys from a special ceremony called a _setup_, which is an initial preparation phase that we won't go into detail about in this article [^33].
 
@@ -954,7 +954,7 @@ Vorrei ringraziare in modo particolare [Silvio Meneguzzo](https://meneguzzo.eth.
 ### Immagini
 
 - _Dov'è Wally?_ - Fonte sconosciuta, Where's Waldo creato originariamente da [Martin Handford](https://en.wikipedia.org/wiki/Where%27s_Wally%3F)
-- _Lettura Silenziosa (Silent Reading)_ - Jorge Royan, CC BY-SA 3.0, tramite [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Austria_-_Heiligenkreuz_Abbey_-_1726.jpg)
+- _Lettura Silenziosa_ - Jorge Royan, CC BY-SA 3.0, tramite [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Austria_-_Heiligenkreuz_Abbey_-_1726.jpg)
 - _Sherlock Holmes_ - Sidney Paget, Pubblico dominio, tramite [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Strand_paget.jpg)
 - _Allunaggio_ - Neil A. Armstrong, Pubblico dominio, tramite [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aldrin_Apollo_11.jpg)
 - _Calcolatrice di Pascal_ - kitmasterbloke, CC-BY 2.0, tramite [Openverse](https://openverse.org/image/0feadae2-6b51-4dc7-8838-18c157f7f0ce)
