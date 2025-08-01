@@ -8,6 +8,7 @@ layout: PostSimple
 slug: "/it/friendly-introduction-to-zero-knowledge"
 images: \['../assets/01\_zkp-magic.png']
 summary: "Le Zero Knowledge Proofs sono pura magia. Ci permettono di realizzare cose che prima non avremmo nemmeno immaginato. Questo è il primo di una serie di articoli sulle Zero Knowledge Proofs e le loro applicazioni. Vedremo cosa sono, perché dovrebbero interessarci, come funzionano e dove possono essere utilizzate."
+translator: 'Silvio Meneguzzo'
 ---
 _Questo Libro è stato tradotto e adattato da Silvio Meneguzzo_
 
@@ -945,4 +946,263 @@ Thanks to Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren and Eve Ko f
 
 Grazie a Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren e Eve Ko per aver letto le bozze e aver fornito preziosi suggerimenti.
 
-Grazie a Silvio Meneguzzo [Silvio Meneguzzo](https://x.com/SilvioMeneguzzo) per la traduzione e adattamento di questo artico.
+Vorrei ringraziare in modo particolare [Silvio Meneguzzo](https://meneguzzo.eth.limo/) per aver tradotto e adattato questo articolo. Ci auguriamo che questo contenuto sia utile e fonte di ispirazione per la comunità italiana e per tutti gli italiani interessati alla ZK e alla crittografia.
+
+
+### Images
+
+### Immagini
+
+- _Dov'è Wally?_ - Fonte sconosciuta, Where's Waldo creato originariamente da [Martin Handford](https://en.wikipedia.org/wiki/Where%27s_Wally%3F)
+- _Lettura Silenziosa (Silent Reading)_ - Jorge Royan, CC BY-SA 3.0, tramite [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Austria_-_Heiligenkreuz_Abbey_-_1726.jpg)
+- _Sherlock Holmes_ - Sidney Paget, Pubblico dominio, tramite [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Strand_paget.jpg)
+- _Allunaggio_ - Neil A. Armstrong, Pubblico dominio, tramite [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aldrin_Apollo_11.jpg)
+- _Calcolatrice di Pascal_ - kitmasterbloke, CC-BY 2.0, tramite [Openverse](https://openverse.org/image/0feadae2-6b51-4dc7-8838-18c157f7f0ce)
+- _Legge di Moore_ - Max Roser, Hannah Ritchie, CC-BY 4.0, tramite [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png)
+- _Sudoku puzzle_ - Tim Stellmach, CC0, tramite [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sudoku_Puzzle_by_L2G-20050714_standardized_layout.svg)
+- _Incantesimo_ - National Library of Wales, CC0, tramite [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Book_of_incantations_f.7v.png)
+- _Cyberpunk_ - bloodlessbaron, Pubblico dominio, tramite [Openverse](https://openverse.org/image/3d3d3cd9-7df6-4781-9778-cdb1e1738de1)
+
+## References
+
+## Riferimenti
+
+[^1]: While the concepts are related, there's some legal controversy around if the "the right to privacy" itself is protected in many jurisdictions around the world. See the Wikipedia article on [Right to privacy](https://en.wikipedia.org/wiki/Right_to_privacy) for more.
+
+[^1]: Sebbene i concetti siano collegati, esiste controversia legale sul fatto che il "diritto alla privacy" sia effettivamente tutelato in molte giurisdizioni nel mondo. Vedi la voce Wikipedia sul [Right to privacy](https://en.wikipedia.org/wiki/Right_to_privacy) per approfondire.
+
+[^2]: Zero knowledge has a precise mathematical definition, but we won't go into this in this article. See [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) for a more precise definition.
+
+[^2]: Il concetto di Zero Knowledge ha una definizione matematica precisa, ma non entreremo nei dettagli in questo articolo. Vedi [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) per una definizione più rigorosa.
+
+[^3]: See [A Cypherpunk Manifesto](https://nakamotoinstitute.org/static/docs/cypherpunk-manifesto.txt) for the full text. Also see Wikipedia on [Cypherpunks](https://en.wikipedia.org/wiki/Cypherpunk).
+
+[^3]: Vedi [A Cypherpunk Manifesto](https://nakamotoinstitute.org/static/docs/cypherpunk-manifesto.txt) per il testo completo. Consulta anche Wikipedia sulla voce [Cypherpunks](https://en.wikipedia.org/wiki/Cypherpunk).
+
+[^4]: Some people have different interpretations of this specific passage, but it is still the case that humans made the transition from primarily oral storytelling to silent reading at some point not too long ago. See Wikipedia on [History of silent reading](https://en.wikipedia.org/wiki/Silent_reading#History_of_silent_reading) for more on silent reading.
+
+[^4]: Alcune persone interpretano diversamente questo passaggio specifico, ma è comunque vero che gli esseri umani sono passati dalla narrazione orale alla lettura silenziosa solo in tempi relativamente recenti. Vedi Wikipedia su [History of silent reading](https://en.wikipedia.org/wiki/Silent_reading#History_of_silent_reading) per approfondire.
+
+[^5]: Original quote in French: _Je n'ai fait celle-ci plus longue que parce que je n'ai pas eu le loisir de la faire plus courte._ See [Quote Investigator](https://quoteinvestigator.com/2012/04/28/shorter-letter) on this quote.
+
+[^5]: Citazione originale in francese: _Je n'ai fait celle-ci plus longue que parce que je n'ai pas eu le loisir de la faire plus courte._ Consulta [Quote Investigator](https://quoteinvestigator.com/2012/04/28/shorter-letter) per ulteriori informazioni.
+
+[^6]: Kudos to Juraj Bednar for [suggesting](https://twitter.com/jurbed/status/1650782361590669313) using murder mystery as a way to explain the notion of a proof.
+
+[^6]: Ringraziamenti a Juraj Bednar per aver [suggerito](https://twitter.com/jurbed/status/1650782361590669313) di usare il mistero di un omicidio come modo per spiegare il concetto di prova.
+
+[^7]: Succinctness has a precise mathematical definition, but we won't go into this in this article. See [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) for a more precise definition.
+
+[^7]: La proprietà della sinteticità (succinctness) ha una definizione matematica precisa, ma non approfondiremo in questo articolo. Vedi [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) per maggiori dettagli.
+
+[^8]: Transaction costs is an economic concept. See this Wikipedia article on [transaction costs](https://en.wikipedia.org/wiki/Transaction_cost).
+
+[^8]: I costi di transazione sono un concetto economico. Vedi la voce Wikipedia sui [transaction costs](https://en.wikipedia.org/wiki/Transaction_cost).
+
+[^9]: In a [checksum](https://en.wikipedia.org/wiki/Checksum), we do some basic operations like adding and subtracting the initial digits, and if the final digit isn't the same we know something went wrong. Fun fact: Unlike most similar ID systems, a Social Security Number (SSN) in the US [does not have a checksum](https://en.wikipedia.org/wiki/Social_Security_number#Valid_SSNs). If a checksum is just one digit long it is sometimes just called a [check digit](https://en.wikipedia.org/wiki/Check_digit).
+
+[^9]: In un [checksum](https://en.wikipedia.org/wiki/Checksum), eseguiamo alcune operazioni basilari come addizioni e sottrazioni sulle cifre iniziali, e se il risultato finale non coincide sappiamo che qualcosa è andato storto. Curiosità: a differenza della maggior parte dei sistemi di identificazione, il Social Security Number (SSN) negli Stati Uniti [non ha un checksum](https://en.wikipedia.org/wiki/Social_Security_number#Valid_SSNs). Se un checksum è composto da una sola cifra, è chiamato [check digit](https://en.wikipedia.org/wiki/Check_digit).
+
+[^10]: While more common in less developed countries, this happened recently with bank failures in the US. See Wikipedia article on effects of [Collapse of Silicon Valley Bank](https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank#Effects).
+
+[^10]: Anche se più comune nei paesi meno sviluppati, ciò è successo recentemente anche con fallimenti bancari negli Stati Uniti. Vedi la voce Wikipedia sugli effetti del [Collapse of Silicon Valley Bank](https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank#Effects).
+
+[^11]: Full quote: "It is a profoundly erroneous truism, repeated by all copy-books and by eminent people when they are making speeches, that we should cultivate the habit of thinking of what we are doing. The precise opposite is the case. **Civilization advances by extending the number of important operations which we can perform without thinking about them.** Operations of thought are like cavalry charges in a battle — they are strictly limited in number, they require fresh horses, and must only be made at decisive moments." See [Wikiquote](https://en.wikiquote.org/wiki/Alfred_North_Whitehead#An_Introduction_to_Mathematics_%281911%29).
+
+[^11]: Citazione completa: "È un errore profondo, ripetuto da tutti i libri di testo e dalle persone eminenti nei loro discorsi, quello di coltivare l'abitudine di pensare a ciò che facciamo. È vero esattamente il contrario. **La civiltà avanza aumentando il numero di operazioni importanti che possiamo eseguire senza pensarci.** Le operazioni mentali sono come le cariche di cavalleria in una battaglia: sono rigorosamente limitate nel numero, richiedono cavalli "freschi" e vanno utilizzate solo nei momenti decisivi." Vedi [Wikiquote](https://en.wikiquote.org/wiki/Alfred_North_Whitehead#An_Introduction_to_Mathematics_%281911%29).
+
+[^12]: Pascal's calculator, the _Pascaline_, is a mechanical calculator. It was very impressive when it came out in 1642. See [Pascal's calculator](https://en.wikipedia.org/wiki/Pascal%27s_calculator).
+
+[^12]: La calcolatrice di Pascal, la _Pascalina_, è una calcolatrice meccanica che suscitò grande ammirazione al suo lancio nel 1642. Vedi [Pascal's calculator](https://en.wikipedia.org/wiki/Pascal%27s_calculator).
+
+[^13]: In well-designed authentication schemes the provider doesn't see your password either, just a salted hash of it. See Wikipedia on [form of stored passwords](https://en.wikipedia.org/wiki/Password#Form_of_stored_passwords).
+
+[^13]: Nei sistemi di autenticazione ben progettati, nemmeno il provider vede la tua password, ma soltanto un hash salato. Vedi Wikipedia sulla [form of stored passwords](https://en.wikipedia.org/wiki/Password#Form_of_stored_passwords).
+
+[^14]: SHA256 is an often-used cryptographic hash function. See [SHA2](https://en.wikipedia.org/wiki/SHA-2).
+
+[^14]: SHA256 è una funzione di hash crittografica molto utilizzata. Vedi [SHA2](https://en.wikipedia.org/wiki/SHA-2).
+
+[^15]: You can verify this yourself with a [SHA256 calculator online](https://www.movable-type.co.uk/scripts/sha256.html) or do it yourself at your computer with the `sha256sum` utility.
+
+[^15]: Puoi verificare personalmente questa operazione con un [SHA256 calculator online](https://www.movable-type.co.uk/scripts/sha256.html) o sul tuo computer tramite il comando `sha256sum`.
+
+[^16]: Cryptography studies how to keep information safe and hide it from adversaries. It is a blend of mathematics, computer science and engineering. You can also read more about cryptographic hash functions and their purpose [here](https://en.wikipedia.org/wiki/Cryptographic_hash_function).
+
+[^16]: La crittografia studia come proteggere le informazioni e nasconderle agli avversari. È una disciplina che combina matematica, informatica e ingegneria. Puoi approfondire la funzione e lo scopo degli hash crittografici [qui](https://en.wikipedia.org/wiki/Cryptographic_hash_function).
+
+[^17]: Technically this is called proving knowledge of the _pre-image_ of a hash.
+
+[^17]: Tecnicamente, questa operazione si chiama dimostrare la conoscenza della _pre-immagine_ di un hash.
+
+[^18]: See the [Federalist Papers](https://en.wikipedia.org/wiki/The_Federalist_Papers).
+
+[^18]: Vedi i [Federalist Papers](https://en.wikipedia.org/wiki/The_Federalist_Papers).
+
+[^19]: See this article on [group signatures](https://0xparc.org/blog/zk-group-sigs) by 0xPARC. Includes the relevant Circom code.
+
+[^19]: Vedi questo articolo sulle [group signatures](https://0xparc.org/blog/zk-group-sigs) scritto da 0xPARC. Include il codice Circom corrispondente.
+
+[^20]: Zero Knowledge Proofs have [existed since 1985](https://en.wikipedia.org/wiki/Zero-knowledge_proof#History), and the authors later won a Gödel Prize for their work. We can compare this to [public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography#History), which took many decades until it was used for things like [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security), a now indispensable building block for secure Internet usage.
+
+[^20]: Le Zero Knowledge Proofs [esistono dal 1985](https://en.wikipedia.org/wiki/Zero-knowledge_proof#History), e i loro autori hanno successivamente ricevuto il Premio Gödel per il loro lavoro. Possiamo fare un confronto con la [crittografia a chiave pubblica](https://en.wikipedia.org/wiki/Public-key_cryptography#History), che impiegò decenni prima di essere utilizzata in tecnologie come il [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security), ora elemento fondamentale per un utilizzo di Internet sicuro.
+
+[^21]: For example, Lambda calculus with [Church numerals](https://en.wikipedia.org/wiki/Church_encoding#Church_numerals) and Lisp were initially theoretical and largely unpractical when first proposed. Dan Boneh and others have made the [observation](https://zk-learning.org/) that making prover time quasilinear is what really made ZKPs practical, even in theory.
+
+[^21]: Ad esempio, il Lambda calcolo con i [numeri di Church](https://en.wikipedia.org/wiki/Church_encoding#Church_numerals) e il Lisp erano inizialmente teorici e poco pratici quando proposti. Dan Boneh e altri hanno fatto notare che rendere quasi-lineare il tempo del prover è ciò che ha reso pratiche le ZKPs, anche teoricamente. Vedi [qui](https://zk-learning.org/).
+
+[^22]: See the origins of Zcash, the [Zerocoin paper](https://eprint.iacr.org/2014/349.pdf).
+
+[^22]: Vedi le origini di Zcash nel [paper Zerocoin](https://eprint.iacr.org/2014/349.pdf).
+
+[^23]: Censorship-resistance means anyone can transact on a public blockchain without permission as long as they follow the basic rules of the protocol. It also means it is very costly for an attacker to alter or disrupt the operation of the system. Transparency refers to transactions being publicly auditable and immutable on the blockchain forever. These notions are closely related to decentralization and security, and are a big part of the value proposition of public blockchains compared to other systems.
+
+[^23]: La resistenza alla censura significa che chiunque può effettuare transazioni su una blockchain pubblica senza permessi, a patto che rispetti le regole del protocollo. Significa anche che è molto costoso per un attaccante alterare o interrompere il funzionamento del sistema. La trasparenza indica che le transazioni sono pubblicamente verificabili e immutabili sulla blockchain per sempre. Questi concetti sono strettamente legati alla decentralizzazione e alla sicurezza, e rappresentano gran parte del valore delle blockchain pubbliche rispetto ad altri sistemi.
+
+[^24]: BLS signatures used in the [Ethereum Consensus Layer](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/keys/) were deployed and used to secure billions of dollars just a few years after it was [developed](https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-bls-signature-04). See Wikipedia for more on [BLS Signatures](https://en.wikipedia.org/wiki/BLS_digital_signature).
+
+[^24]: Le firme BLS utilizzate nell'[Ethereum Consensus Layer](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/keys/) sono state implementate per proteggere miliardi di dollari pochi anni dopo il loro [sviluppo](https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-bls-signature-04). Vedi Wikipedia per approfondimenti sulle [BLS Signatures](https://en.wikipedia.org/wiki/BLS_digital_signature).
+
+[^25]: Dan Boneh, an applied cryptography professor at Stanford, is a great example of this in terms of his involvement in various cryptocurrency-related projects.
+
+[^25]: Dan Boneh, professore di crittografia applicata a Stanford, è un ottimo esempio di questo, vista la sua partecipazione a numerosi progetti legati alle criptovalute.
+
+[^26]: The author heard about this from gubsheep at [0xPARC](https://0xparc.org/), but it has popped up a few times. This also matches the author's own experience, working on RLN and noticing 1-2 order of magnitude improvements in things like prover time in a few years.
+
+[^26]: L’autore ne ha sentito parlare da gubsheep di [0xPARC](https://0xparc.org/), ma il concetto è emerso più volte. Questo rispecchia anche l’esperienza personale dell'autore, che lavorando su RLN ha notato miglioramenti di uno o due ordini di grandezza nel tempo di generazione delle prove in pochi anni.
+
+[^27]: In a legal setting, false positives do happen, see for example the [Innocence Project](https://en.wikipedia.org/wiki/Innocence_Project). In a mathematical setting we can make this false positive rate very precise, and it isn't even close to a fair game. That's the power of mathematics. We'll look at this more in future articles on probabilistic proofs.
+
+[^27]: In ambito giuridico, i falsi positivi possono capitare: vedi ad esempio l’[Innocence Project](https://en.wikipedia.org/wiki/Innocence_Project). Tuttavia, in ambito matematico possiamo definire con precisione la probabilità di questi falsi positivi, rendendo il gioco decisamente impari. È il potere della matematica. Approfondiremo questo aspetto nei prossimi articoli dedicati alle prove probabilistiche.
+
+[^28]: You'd probably want to ask Sherlock Holmes some follow-up questions first though, before throwing our prospective murderer in jail. It is possible Sherlock Holmes is trying to fool you! In ZKPs we assume the prover is untrusted.
+
+[^28]: Probabilmente vorresti porre qualche domanda aggiuntiva a Sherlock Holmes prima di gettare il sospettato in prigione. Potrebbe infatti essere che Sherlock Holmes stia tentando di ingannarti! Nelle ZKP si assume sempre che il dimostratore (prover) non sia fidato.
+
+[^29]: This is done using the [Fiat-Shamir heuristic](https://en.wikipedia.org/wiki/Fiat%E2%80%93Shamir_heuristic).
+
+[^29]: Questo risultato si ottiene utilizzando l’euristica di [Fiat-Shamir](https://en.wikipedia.org/wiki/Fiat%E2%80%93Shamir_heuristic).
+
+[^30]: Sometimes people make a distinction between these two, but it is a technical one (computational vs statistical soundness) and not something we have to concern ourselves with right now. See [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) for more.
+
+[^30]: A volte si fa una distinzione tecnica tra i due concetti (solidità computazionale vs statistica), ma non è qualcosa di cui dobbiamo occuparci adesso. Vedi [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) per approfondire.
+
+[^31]: Alice and Bob are commonly used characters in cryptographic systems, see [Wikipedia](https://en.wikipedia.org/wiki/Alice_and_Bob).
+
+[^31]: Alice e Bob sono personaggi comunemente utilizzati nei sistemi crittografici. Vedi [Wikipedia](https://en.wikipedia.org/wiki/Alice_and_Bob).
+
+[^32]: There are also zk-STARKs, so one could argue a more accurate name might be (zk)S(T|N)ARKs. This is obviously a bit of a mouthful, so people tend to use ZK as a shorthand. See for example the name of the ZK podcast, the ZK proof standard, etc. ZK is the most magical property of ZKPs, in the author's opinion.
+
+[^32]: Esistono anche gli zk-STARK, quindi un nome più accurato potrebbe essere (zk)S(T|N)ARKs. Ovviamente è un po' complicato da pronunciare, quindi si preferisce semplicemente la sigla ZK. Ad esempio, vedi il nome del podcast ZK, lo standard ZK proof, ecc. Secondo l’autore, la Zero Knowledge è la proprietà più "magica" delle ZKP.
+
+[^33]: Setups are multi-faceted and a big part of the security assumptions of a ZKP. They are a bit involved mathematically, and to give them full justice would need a dedicated article. There's a great layman's podcast on The Ceremony Zcash held in 2016 that you can listen to [here](https://radiolab.org/podcast/ceremony).
+
+[^33]: Le fasi iniziali (setup) sono complesse e rappresentano una parte importante delle ipotesi di sicurezza nelle ZKP. Richiedono nozioni matematiche avanzate e meriterebbero un articolo dedicato per essere approfondite adeguatamente. Esiste un ottimo podcast divulgativo sulla cerimonia svolta da Zcash nel 2016 che puoi ascoltare [qui](https://radiolab.org/podcast/ceremony).
+
+[^34]: Technically speaking this is an *arithmetic circuit* (dealing with numbers), but we won't introduce details of this in this article. See [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) for more.
+
+[^34]: Tecnicamente, si tratta di un *circuito aritmetico* (arithmetic circuit) che gestisce operazioni numeriche, ma non introdurremo dettagli in questo articolo. Per approfondimenti vedi [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf).
+
+[^35]: Unless you want to! ZK is sometimes called "Magic Moon Math", but if you really study it, the mathematics you need to get an intuition for how they actually work under the hood isn't as complex as you might think. We won't go into it in this article, though. Here's a [presentation](https://www.youtube.com/watch?v=W1ZkhWNka-c) by the author on some of the mathematical foundations of ZKPs.
+
+[^35]: A meno che tu non lo voglia! Le ZK sono a volte chiamate "Magic Moon Math" (matematica lunare magica), ma se studi veramente l'argomento, la matematica necessaria per intuire il funzionamento non è così complessa come si potrebbe pensare. Non approfondiremo in questo articolo, ma puoi vedere una [presentazione](https://www.youtube.com/watch?v=W1ZkhWNka-c) dell’autore sulle basi matematiche delle ZKPs.
+
+[^36]: French for here you go, presto, bingo, ta-da, and Bob's your uncle.
+
+[^36]: Dal francese: eccoti servito, voilà, ta-da, ed ecco fatto.
+
+[^37]: There are different notions of succinctness, and this depends on the specific proof system. Technically, we call proofs succinct if they are sublinear in time complexity.
+
+[^37]: Esistono diverse definizioni di "succinctness" (sinteticità), e dipendono dal sistema di prova specifico. Tecnicamente, chiamiamo succinta una prova se la sua complessità temporale è sublineare.
+
+[^38]: Allegedly a quote by William Gibson, see [here](https://www.nytimes.com/2012/01/15/books/review/distrust-that-particular-flavor-by-william-gibson-book-review.html).
+
+[^38]: Attribuita a William Gibson, vedi [qui](https://www.nytimes.com/2012/01/15/books/review/distrust-that-particular-flavor-by-william-gibson-book-review.html).
+
+[^39]: With many new versions being developed, like [Aztec](https://aztec.network/) and [Railgun](https://railgun.org/). [Tornado Cash (archive)](https://web.archive.org/web/20220808144431/https://tornado.cash/) works quite differently from [Zcash](https://z.cash), acting more as a mixer. Tornado Cash was also recently [sanctioned](https://en.wikipedia.org/wiki/Tornado_Cash) by the US government. As of this writing there are still a lot of unknowns about this case, but it was a [controversial](https://www.eff.org/deeplinks/2022/08/code-speech-and-tornado-cash-mixer) event that lead to [lawsuits](https://www.coincenter.org/coin-center-is-suing-ofac-over-its-tornado-cash-sanction/]). Some see this as a sequel to the [Crypto Wars](https://en.wikipedia.org/wiki/Crypto_Wars) in the 1990s. There are other alternatives like [Monero](https://www.getmonero.org/) and [Wasabi Wallet](https://wasabiwallet.io/), that are not based on ZKP but have similar design goals. Read more about the [Case for Electronic Cash](https://www.coincenter.org/app/uploads/2020/05/the-case-for-electronic-cash-coin-center.pdf) by Coin Center.
+
+[^39]: Con diverse nuove versioni in sviluppo, come [Aztec](https://aztec.network/) e [Railgun](https://railgun.org/). [Tornado Cash (archivio)](https://web.archive.org/web/20220808144431/https://tornado.cash/) funziona in modo molto diverso da [Zcash](https://z.cash), agendo principalmente come un mixer. Tornado Cash è stato recentemente [sanzionato](https://en.wikipedia.org/wiki/Tornado_Cash) dal governo statunitense. Nel momento in cui scriviamo ci sono ancora molte incertezze sul caso, ma è stato un evento [controverso](https://www.eff.org/deeplinks/2022/08/code-speech-and-tornado-cash-mixer) che ha portato a diverse [cause legali](https://www.coincenter.org/coin-center-is-suing-ofac-over-its-tornado-cash-sanction/]). Alcuni lo vedono come il seguito delle [Crypto Wars](https://en.wikipedia.org/wiki/Crypto_Wars) degli anni '90. Ci sono altre alternative come [Monero](https://www.getmonero.org/) e [Wasabi Wallet](https://wasabiwallet.io/), che non si basano su ZKP ma perseguono obiettivi simili. Puoi approfondire leggendo [Case for Electronic Cash](https://www.coincenter.org/app/uploads/2020/05/the-case-for-electronic-cash-coin-center.pdf) del Coin Center.
+
+[^40]: See [Semaphore](https://semaphore.appliedzkp.org) by the [Privacy & Scaling Explorations team](https://www.appliedzkp.org/).
+
+[^40]: Vedi [Semaphore](https://semaphore.appliedzkp.org) del [Privacy & Scaling Explorations team](https://www.appliedzkp.org/).
+
+[^41]: This is similar to how the traditional banking system works too, where there are multiple layers of settlement happening. It is just hidden from most end users. See [L2Beat](https://l2beat.com/scaling/summary) for an overview of different Layer 2 solutions, including ZK Rollups. Also see [Loopring](https://loopring.org/#/), [dYdX](https://dydx.exchange/faq). and [Starknet](https://www.starknet.io/en).
+
+[^41]: Questo approccio è simile al funzionamento del sistema bancario tradizionale, in cui esistono molteplici livelli di regolamento nascosti all'utente finale. Vedi [L2Beat](https://l2beat.com/scaling/summary) per una panoramica delle diverse soluzioni Layer 2, incluse le ZK Rollups. Consulta anche [Loopring](https://loopring.org/#/), [dYdX](https://dydx.exchange/faq) e [Starknet](https://www.starknet.io/en).
+
+[^42]: There are different types of zkEVM, and the difference can be quite subtle. See [this post](https://vitalik.ca/general/2022/08/04/zkevm.html) by Vitalik for more on the difference. Also see [Polygon zkEVM](https://polygon.technology/polygon-zkevm), [zkSync Era](https://zksync.io/).
+
+[^42]: Esistono diversi tipi di zkEVM, con differenze anche piuttosto sottili. Vedi [questo articolo](https://vitalik.ca/general/2022/08/04/zkevm.html) di Vitalik per ulteriori dettagli. Consulta anche [Polygon zkEVM](https://polygon.technology/polygon-zkevm), [zkSync Era](https://zksync.io/).
+
+[^43]: SNARK-unfriendly platforms or functions refer to the fact that most modern computer primitives were designed for a specific computer architecture. This architecture is very different from what is natural when writing constraints. For example, the SHA256 hash function is a typical example of a SNARK-unfriendly hash. Some people create SNARK or ZK-friendly functions, such as the [Poseidon hash function](https://www.poseidon-hash.info/), that are designed specifically to be used in ZKPs. These are much easier to implement in ZKPs, and can be 100 or more times more efficient, but they come with other trade-offs.
+
+[^43]: Piattaforme o funzioni "SNARK-unfriendly" si riferiscono al fatto che la maggior parte delle primitive informatiche moderne sono state progettate per architetture specifiche, molto diverse da ciò che risulta naturale quando si scrivono vincoli per circuiti. Ad esempio, la funzione hash SHA256 è tipicamente considerata SNARK-unfriendly. Per ovviare a questo problema, alcuni progettano funzioni SNARK o ZK-friendly come la [funzione hash Poseidon](https://www.poseidon-hash.info/), pensata specificatamente per essere usata nelle ZKPs. Queste funzioni sono più facili da implementare nei circuiti ZKPs e possono essere 100 volte o più efficienti, anche se introducono altri compromessi.
+
+[^44]: Mina allows for succinct verification of the whole chain, whereas Aleo focuses more on privacy. Also see [Mina](https://minaprotocol.com/) and [Aleo](https://www.aleo.org/).
+
+[^44]: Mina permette una verifica succinta di tutta la blockchain, mentre Aleo si concentra di più sulla privacy. Vedi anche [Mina](https://minaprotocol.com/) e [Aleo](https://www.aleo.org/).
+
+[^45]: In [Dark Forest](https://zkga.me/), some people write very complex bots that play the game on its own. They even form private DAOs and create smart contracts that play the game semi-autonomously.
+
+[^45]: In [Dark Forest](https://zkga.me/), alcune persone scrivono bot molto complessi che giocano autonomamente. Alcuni gruppi formano persino DAO private e creano smart contract che giocano semi-autonomamente.
+
+[^46]: Succinct Labs made [Telepathy](https://docs.telepathy.xyz/) is one such project. [zkBridge](https://zkbridge.com/) is another. There are likely many others.
+
+[^46]: [Telepathy](https://docs.telepathy.xyz/) di Succinct Labs è un esempio di questo tipo di progetto. Anche [zkBridge](https://zkbridge.com/) ne è un altro, e probabilmente ne esistono molti altri ancora.
+
+[^47]: A weird, but surprisingly accurate, statement.
+
+[^47]: Un'affermazione insolita, ma sorprendentemente accurata.
+
+[^48]: Proof Carrying Data by 0xPARC is one such example. See [PCD](https://pcd.team). Also see [Sismo](https://www.sismo.io/).
+
+[^48]: Proof Carrying Data di 0xPARC è uno di questi esempi. Vedi [PCD](https://pcd.team). Vedi anche [Sismo](https://www.sismo.io/).
+
+[^49]: We won't go into these here, but I encourage the curious reader to search the web to find out how various projects are using or thinking about using ZKPs to achieve their design goals. Example: [Unirep](https://developer.unirep.io/docs/welcome), [Interep](https://interep.link/), [RLN](https://rate-limiting-nullifier.github.io/rln-docs/), [RLNP2P](https://rlnp2p.vac.dev/), [MACI](https://privacy-scaling-explorations.github.io/maci/), [Filecoin](https://docs.filecoin.io/basics/the-blockchain/proofs/), [Stealthdrop](https://github.com/stealthdrop/stealthdrop), [ETHDos](https://ethdos.xyz/), and many more.
+
+[^49]: Non approfondiremo qui questi progetti, ma invito i lettori curiosi a cercare online per scoprire come diversi progetti utilizzano o stanno pensando di utilizzare le ZKP per raggiungere i propri obiettivi. Alcuni esempi: [Unirep](https://developer.unirep.io/docs/welcome), [Interep](https://interep.link/), [RLN](https://rate-limiting-nullifier.github.io/rln-docs/), [RLNP2P](https://rlnp2p.vac.dev/), [MACI](https://privacy-scaling-explorations.github.io/maci/), [Filecoin](https://docs.filecoin.io/basics/the-blockchain/proofs/), [Stealthdrop](https://github.com/stealthdrop/stealthdrop), [ETHDos](https://ethdos.xyz/) e molti altri.
+
+[^50]: See [^42] above for more on this distinction.
+
+[^50]: Vedi [^42] sopra per maggiori informazioni su questa distinzione.
+
+[^51]: LLVM and WASM are compiler and toolchain technologies. Very roughly speaking, they allow you to write code in different programming languages that run in different types of environments, such as in different web browsers and on different types of computers. Understanding the specifics of these systems isn't important for our purposes, just that they allow us to write and use programs in many different environments. See [LLVM](https://en.wikipedia.org/wiki/LLVM), [WASM](https://en.wikipedia.org/wiki/WebAssembly).
+
+[^51]: LLVM e WASM sono tecnologie relative a compilatori e toolchain. In estrema sintesi, consentono di scrivere codice in linguaggi di programmazione diversi che possono essere eseguiti in ambienti differenti, come vari browser web o tipologie diverse di computer. Comprendere i dettagli di questi sistemi non è rilevante ai nostri fini; ciò che conta è che ci permettono di scrivere ed eseguire programmi in ambienti molto eterogenei. Vedi [LLVM](https://en.wikipedia.org/wiki/LLVM) e [WASM](https://en.wikipedia.org/wiki/WebAssembly).
+
+[^52]: See [Delphinus Labs](https://delphinuslab.com/zk-wasm/), [RISC Zero](https://www.risczero.com/), [Orochi Network](https://orochi.network/), [nil.foundation](https://nil.foundation/).
+
+[^52]: Vedi [Delphinus Labs](https://delphinuslab.com/zk-wasm/), [RISC Zero](https://www.risczero.com/), [Orochi Network](https://orochi.network/) e [nil.foundation](https://nil.foundation/).
+
+[^53]: See [zk-MNIST](https://0xparc.org/blog/zk-mnist) and [EZKL](https://docs.ezkl.xyz/). There are also projects doing things like [neural networks](https://github.com/lyronctk/zator) in more modern efficient proof systems like [Nova](https://github.com/microsoft/Nova).
+
+[^53]: Vedi [zk-MNIST](https://0xparc.org/blog/zk-mnist) ed [EZKL](https://docs.ezkl.xyz/). Ci sono anche progetti dedicati a [reti neurali](https://github.com/lyronctk/zator) utilizzando sistemi di prova più moderni ed efficienti come [Nova](https://github.com/microsoft/Nova).
+
+[^54]: See article on [fighting disinformation with ZK](https://medium.com/@boneh/using-zk-proofs-to-fight-disinformation-17e7d57fe52f).
+
+[^54]: Vedi l’articolo sull’[uso delle ZK per combattere la disinformazione](https://medium.com/@boneh/using-zk-proofs-to-fight-disinformation-17e7d57fe52f).
+
+[^55]: See [this essay](https://0xparc.org/blog/autonomous-worlds) by ludens at 0xPARC for more details on this idea.
+
+[^55]: Vedi [questo saggio](https://0xparc.org/blog/autonomous-worlds) di ludens su 0xPARC per ulteriori dettagli su quest’idea.
+
+[^56]: See [TLS Notary](https://tlsnotary.org).
+
+[^56]: Vedi [TLS Notary](https://tlsnotary.org).
+
+[^57]: See [article (archive)](https://web.archive.org/web/20170703142802/https://www.pppl.gov/news/2016/09/pppl-and-princeton-demonstrate-novel-technique-may-have-applicability-future-nuclear).
+
+[^57]: Vedi [questo articolo (archivio)](https://web.archive.org/web/20170703142802/https://www.pppl.gov/news/2016/09/pppl-and-princeton-demonstrate-novel-technique-may-have-applicability-future-nuclear).
+
+[^58]: Unlike Zero Knowledge Proofs, which allow you to make statements about private data, [Multi-Party Computation](https://en.wikipedia.org/wiki/Secure_multi-party_computation) (MPC) generalizes this concept and allows us to do computation on shared secrets. That is, if Alice and Bob have their own secret, we can write a program that combines these two secrets in some non-trivial way, without revealing anyone's secrets. This is what we want in a negotiation setting, because we want to compare stakeholder's private information in some way to reach an acceptable compromise. Most MPCs that exist today are quite limited and inefficient, but it is an exciting area of research with a lot of potential.
+
+[^58]: A differenza delle Zero Knowledge Proofs, che consentono di dimostrare affermazioni su dati privati, la [Multi-Party Computation](https://en.wikipedia.org/wiki/Secure_multi-party_computation) (MPC) generalizza questo concetto permettendo calcoli su segreti condivisi. Ad esempio, se Alice e Bob hanno ciascuno un segreto, si può scrivere un programma che combina questi segreti senza rivelarli. È ciò che si vuole in un contesto negoziale, dove è necessario confrontare informazioni private per raggiungere un compromesso accettabile. La maggior parte degli MPC esistenti oggi è piuttosto limitata e inefficiente, ma si tratta di un ambito di ricerca entusiasmante con grande potenziale.
+
+[^59]: A familiar story: see [Sears vs Amazon](https://fortune.com/longform/sears-couldve-been-amazon/).
+
+[^59]: Una storia familiare: vedi [Sears vs Amazon](https://fortune.com/longform/sears-couldve-been-amazon/).
+
+[^60]: Quote from a [panel at Devcon5](https://www.youtube.com/watch?v=hBupNf1igbY&t=1897s).
+
+[^60]: Citazione tratta da un [panel a Devcon5](https://www.youtube.com/watch?v=hBupNf1igbY&t=1897s).
