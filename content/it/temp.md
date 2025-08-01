@@ -238,11 +238,11 @@ Nelle prossime sezioni daremo uno sguardo a come potrebbero apparire queste inve
 
 > I have made this longer than usual, only because I have not had the time to make it shorter.
 >
-> - Blaise Pascal\[^5]
+> - Blaise Pascal [^5]
 
 > L'ho reso più lungo del solito, soltanto perché non ho avuto il tempo per farlo più breve.
 >
-> - Blaise Pascal\[^5]
+> - Blaise Pascal [^5]
 
 To compress something is defined as:
 
@@ -270,25 +270,25 @@ Cosa intendiamo con "prova" e "dimensione della prova"? Si tratta di concetti ma
 
 ![Sherlock Holmes](../assets/01_sherlock-holmes.jpg "Sherlock Holmes")
 
-In a typical whodunit like a Sherlock Holmes murder mystery, the detective gathers evidence until they can prove that the perpetrator has committed the murder. They then prove exactly how they know this in a grand finale. We can think of this final statement as the proof. \[^6]
+In a typical whodunit like a Sherlock Holmes murder mystery, the detective gathers evidence until they can prove that the perpetrator has committed the murder. They then prove exactly how they know this in a grand finale. We can think of this final statement as the proof. [^6]
 
-In un classico giallo alla Sherlock Holmes, il detective raccoglie indizi finché non può dimostrare chi ha commesso l’omicidio. E poi, nel gran finale, spiega esattamente come è arrivato a questa conclusione. Possiamo considerare questa dichiarazione finale come la prova.\[^6]
+In un classico giallo alla Sherlock Holmes, il detective raccoglie indizi finché non può dimostrare chi ha commesso l’omicidio. E poi, nel gran finale, spiega esattamente come è arrivato a questa conclusione. Possiamo considerare questa dichiarazione finale come la prova. [^6]
 
-More formally, we call this property _succinctness_.\[^7] This is what keeps the size of the proof the same regardless of what we are trying to prove. In the context of public blockchains, this also relates to the notion of _scalability_. For public blockchains like Ethereum, where block space is limited and expensive, ZKPs can make transactions a lot cheaper and faster. How? We create a proof that some set of transactions have taken place and put that tiny proof on-chain, as opposed to having all transactions take up space on the blockchain. With ZKPs, this can be made very secure.
+More formally, we call this property _succinctness_. [^7] This is what keeps the size of the proof the same regardless of what we are trying to prove. In the context of public blockchains, this also relates to the notion of _scalability_. For public blockchains like Ethereum, where block space is limited and expensive, ZKPs can make transactions a lot cheaper and faster. How? We create a proof that some set of transactions have taken place and put that tiny proof on-chain, as opposed to having all transactions take up space on the blockchain. With ZKPs, this can be made very secure.
 
-In termini più tecnici, questa proprietà si chiama _succinctness_ (sinteticità).\[^7] È ciò che consente alla prova di mantenere la stessa dimensione indipendentemente da ciò che vogliamo dimostrare. Nel contesto delle blockchain pubbliche, questa proprietà è legata anche al concetto di _scalabilità_. Per blockchain come Ethereum, dove lo spazio nei blocchi è limitato e costoso, le ZKPs possono rendere le transazioni molto più economiche e rapide. Come? Creando una prova che certi insiemi di transazioni sono avvenuti, e registrando solo quella prova sintetica sulla blockchain, anziché l’intero contenuto delle transazioni. Con le ZKPs, questo processo può essere realizzato in modo estremamente sicuro.
+In termini più tecnici, questa proprietà si chiama _succinctness_ (sinteticità). [^7] È ciò che consente alla prova di mantenere la stessa dimensione indipendentemente da ciò che vogliamo dimostrare. Nel contesto delle blockchain pubbliche, questa proprietà è legata anche al concetto di _scalabilità_. Per blockchain come Ethereum, dove lo spazio nei blocchi è limitato e costoso, le ZKPs possono rendere le transazioni molto più economiche e rapide. Come? Creando una prova che certi insiemi di transazioni sono avvenuti, e registrando solo quella prova sintetica sulla blockchain, anziché l’intero contenuto delle transazioni. Con le ZKPs, questo processo può essere realizzato in modo estremamente sicuro.
 
 Succinctness is a general property and orthogonal to "blockchains" - they just happen to be a good fit, for many reasons. More generally, having a short proof that something is true is very useful. There are a few ways to see why.
 
 La sinteticità è una proprietà generale e indipendente dalle blockchain: semplicemente, queste ne traggono particolare beneficio per molte ragioni. In generale, avere una prova breve che qualcosa è vero è estremamente utile. Vediamo alcuni motivi.
 
-One way of looking at it is to consider _transaction costs_.\[^8] Generally speaking, the lower these are, the more value and wealth is created. If there are fewer things to verify, or it is easier to do, then we can do things more freely and with ease.
+One way of looking at it is to consider _transaction costs_. [^8] Generally speaking, the lower these are, the more value and wealth is created. If there are fewer things to verify, or it is easier to do, then we can do things more freely and with ease.
 
-Un modo per comprenderlo è pensare ai _costi di transazione_.\[^8] In linea generale, più questi sono bassi, più valore e ricchezza si generano. Se ci sono meno cose da verificare, o se è più facile farlo, possiamo agire con maggiore libertà ed efficienza.
+Un modo per comprenderlo è pensare ai _costi di transazione_. [^8] In linea generale, più questi sono bassi, più valore e ricchezza si generano. Se ci sono meno cose da verificare, o se è più facile farlo, possiamo agire con maggiore libertà ed efficienza.
 
-Sometimes when we fill in a form we are asked to write our email twice to confirm it is correct. The idea is to protect against human errors and make the transmission of data more robust. There are also things like checksums, where an extra digit in your UPS package code, credit card number, or ISBN code for books acts as a simple check that all the numbers are probably correct. All of these are - obviously - not meant to protect against malicious use, but only against innocent mistakes. \[^9]
+Sometimes when we fill in a form we are asked to write our email twice to confirm it is correct. The idea is to protect against human errors and make the transmission of data more robust. There are also things like checksums, where an extra digit in your UPS package code, credit card number, or ISBN code for books acts as a simple check that all the numbers are probably correct. All of these are - obviously - not meant to protect against malicious use, but only against innocent mistakes.  [^9]
 
-A volte, quando compiliamo un modulo online, ci viene chiesto di inserire due volte l’email per confermare che sia corretta. L’obiettivo è prevenire errori umani e rendere la trasmissione dei dati più affidabile. Esistono anche strumenti come i checksum: un numero extra nei codici dei pacchi UPS, nei numeri delle carte di credito o nei codici ISBN dei libri, che serve da controllo semplificato per verificare che tutto sia probabilmente corretto. Tutti questi meccanismi non servono – ovviamente – a proteggere da attacchi malevoli, ma solo da errori involontari.\[^9]
+A volte, quando compiliamo un modulo online, ci viene chiesto di inserire due volte l’email per confermare che sia corretta. L’obiettivo è prevenire errori umani e rendere la trasmissione dei dati più affidabile. Esistono anche strumenti come i checksum: un numero extra nei codici dei pacchi UPS, nei numeri delle carte di credito o nei codici ISBN dei libri, che serve da controllo semplificato per verificare che tutto sia probabilmente corretto. Tutti questi meccanismi non servono – ovviamente – a proteggere da attacchi malevoli, ma solo da errori involontari. [^9]
 
 In computer file systems, a _hash_ is often used to ensure the integrity of files. If something happens to just a small part of a file, corrupting it, the hash changes completely. Because the hash is succinct (say, a 64 character string), it is easy to keep around and check even if the underlying file is huge. In this case, hash functions ensure integrity in a secure way. If we checked the integrity of a file by just keeping a copy of the file it'd be a lot more impractical. Big file, small file, it doesn't matter; the hash stays the same size. The succinctness of a hash enables this use case.
 
@@ -319,9 +319,9 @@ We create mechanisms and rules to counteract this uncertainty, such as using rep
 
 Creiamo meccanismi e regole per gestire questa incertezza: servizi di reputazione, audit indipendenti, sanzioni per scoraggiare comportamenti scorretti, richiesta di accreditamento presso alcune istituzioni fidate, ecc. Tutte queste misure sono in sostanza dei cerotti, tentativi di arrivare al cuore del problema. È davvero ciò che dichiara di essere? Rispetta le regole che abbiamo stabilito? È affidabile e utilizzabile?
 
-All of this mental overhead gets compounded when you are dealing with multiple institutions, jurisdictions, companies, and people. You can get cascading effects, such as your bank failing and you being unable to pay your employees, thus leading to your business being unable to service its customers.\[^10] More control measures are needed. More pauses to consider if things are right and what can go wrong.
+All of this mental overhead gets compounded when you are dealing with multiple institutions, jurisdictions, companies, and people. You can get cascading effects, such as your bank failing and you being unable to pay your employees, thus leading to your business being unable to service its customers. [^10] More control measures are needed. More pauses to consider if things are right and what can go wrong.
 
-Questo carico cognitivo aumenta drasticamente quando si interagisce con più istituzioni, giurisdizioni, aziende e persone. Possono verificarsi effetti a catena: la tua banca fallisce, non riesci a pagare i dipendenti, e di conseguenza la tua attività non riesce a servire i clienti.\[^10] Servono più controlli. Più momenti per chiedersi se tutto stia funzionando e cosa potrebbe andare storto.
+Questo carico cognitivo aumenta drasticamente quando si interagisce con più istituzioni, giurisdizioni, aziende e persone. Possono verificarsi effetti a catena: la tua banca fallisce, non riesci a pagare i dipendenti, e di conseguenza la tua attività non riesce a servire i clienti. [^10] Servono più controlli. Più momenti per chiedersi se tutto stia funzionando e cosa potrebbe andare storto.
 
 I'll end this section with a quote:
 
@@ -329,11 +329,11 @@ Concludo questa sezione con una citazione:
 
 > Civilization advances by extending the number of operations we can perform without thinking about them.
 >
-> - Alfred North Whitehead\[^11]
+> - Alfred North Whitehead [^11]
 
 > La civiltà avanza aumentando il numero di operazioni che possiamo compiere senza pensarci.
 >
-> - Alfred North Whitehead\[^11]
+> - Alfred North Whitehead [^11]
 
 For example, when you light the stove to make dinner, you don't even have to think about making a fire. This is very different from having to gather wood, keep it dry, create a fire, and keep it going, a very time-consuming process. In mathematics, without calculus, we wouldn't be able to go to the moon.
 
@@ -358,15 +358,15 @@ Recall that ZKPs allow us to prove arbitrary statements in a general-purpose fas
 
 Ricordiamo che le ZKPs ci permettono di dimostrare asserzioni arbitrarie in modo general-purpose (generico). Perché questo è importante e in che modo rappresenta un vantaggio?
 
-The difference between similar existing tools and ZKPs is like the difference between a calculator and a computer. One is meant for a very specific task, and the other is general-purpose. It is the difference between this calculating machine\[^12] and a modern computer:
+The difference between similar existing tools and ZKPs is like the difference between a calculator and a computer. One is meant for a very specific task, and the other is general-purpose. It is the difference between this calculating machine [^12] and a modern computer:
 
-La differenza tra strumenti esistenti simili e le ZKPs è paragonabile alla differenza tra una calcolatrice e un computer. Una è pensata per un compito molto specifico, l’altro è general-purpose. È la differenza tra questa macchina calcolatrice\[^12] e un computer moderno:
+La differenza tra strumenti esistenti simili e le ZKPs è paragonabile alla differenza tra una calcolatrice e un computer. Una è pensata per un compito molto specifico, l’altro è general-purpose. È la differenza tra questa macchina calcolatrice [^12] e un computer moderno:
 
 ![Pascal's calculator](../assets/01_pascals-calculator2.jpg "Calcolatrice di Pascal")
 
-Recall the specific examples we gave above to represent privacy and succinctness more concretely. A password is a private piece of information that allows you to log in to some service\[^13]. In the case of a hash of some input data, such as a file, it gives us something succinct to check equality to.
+Recall the specific examples we gave above to represent privacy and succinctness more concretely. A password is a private piece of information that allows you to log in to some service [^13]. In the case of a hash of some input data, such as a file, it gives us something succinct to check equality to.
 
-Ricorda gli esempi specifici che abbiamo usato prima per rappresentare in modo concreto privacy e sinteticità. Una password è un'informazione privata che ti permette di accedere a un servizio\[^13]. Un hash di un dato in ingresso, come un file, ci offre invece un riferimento sintetico per verificarne l’identità.
+Ricorda gli esempi specifici che abbiamo usato prima per rappresentare in modo concreto privacy e sinteticità. Una password è un'informazione privata che ti permette di accedere a un servizio [^13]. Un hash di un dato in ingresso, come un file, ci offre invece un riferimento sintetico per verificarne l’identità.
 
 We can visualize a hash function as follows:
 
@@ -374,13 +374,13 @@ Possiamo rappresentare graficamente una funzione di hash in questo modo:
 
 ![Hash function](../assets/01_graphviz-hash.png "Funzione di hash")
 
-We apply a specific hash function, such as SHA256\[^14], on some known input data. For example, using the sentence "The quick brown fox jumps over the lazy dog" (without quotation marks) as input and applying the SHA256 hash function results in the hash `d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592`. Adding a "." at the end of the sentence gives a completely different hash value: "The quick brown fox jumps over the lazy dog." hashes to `ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c`.
+We apply a specific hash function, such as SHA256 [^14], on some known input data. For example, using the sentence "The quick brown fox jumps over the lazy dog" (without quotation marks) as input and applying the SHA256 hash function results in the hash `d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592`. Adding a "." at the end of the sentence gives a completely different hash value: "The quick brown fox jumps over the lazy dog." hashes to `ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c`.
 
-Applichiamo una specifica funzione di hash, come SHA256\[^14], su un dato noto. Ad esempio, usando come input la frase "The quick brown fox jumps over the lazy dog" (senza virgolette) e applicando la funzione SHA256, otteniamo l’hash `d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592`. Basta aggiungere un punto alla fine della frase per ottenere un hash completamente diverso: "The quick brown fox jumps over the lazy dog." produce `ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c`.
+Applichiamo una specifica funzione di hash, come SHA256 [^14], su un dato noto. Ad esempio, usando come input la frase "The quick brown fox jumps over the lazy dog" (senza virgolette) e applicando la funzione SHA256, otteniamo l’hash `d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592`. Basta aggiungere un punto alla fine della frase per ottenere un hash completamente diverso: "The quick brown fox jumps over the lazy dog." produce `ef537f25c895bfa782526529a9b63d97aa631564d5d789c2b765448c8635fb6c`.
 
-Even though the sentence just changed a tiny bit, the resulting hashes are very different\[^15]. Hash functions that are secure are hard to "break" and have some nice properties. For example, if you have the hash value, you can't recreate the initial input. You also can't easily construct a message that hashes to a specific, predetermined hash value. These hash functions are called _cryptographic hash functions_\[^16].
+Even though the sentence just changed a tiny bit, the resulting hashes are very different [^15]. Hash functions that are secure are hard to "break" and have some nice properties. For example, if you have the hash value, you can't recreate the initial input. You also can't easily construct a message that hashes to a specific, predetermined hash value. These hash functions are called _cryptographic hash functions_ [^16].
 
-Anche se la frase cambia solo di poco, gli hash risultanti sono completamente diversi\[^15]. Le funzioni di hash sicure sono difficili da “rompere” e hanno proprietà interessanti. Ad esempio, dato un hash non si può risalire all’input originale. Inoltre, non è facile costruire un messaggio che produca un hash specifico prestabilito. Queste funzioni sono dette _funzioni di hash crittografiche_\[^16].
+Anche se la frase cambia solo di poco, gli hash risultanti sono completamente diversi [^15]. Le funzioni di hash sicure sono difficili da “rompere” e hanno proprietà interessanti. Ad esempio, dato un hash non si può risalire all’input originale. Inoltre, non è facile costruire un messaggio che produca un hash specifico prestabilito. Queste funzioni sono dette _funzioni di hash crittografiche_ [^16].
 
 The SHA256 hash function we used above is a specific cryptographic hash function that took a lot of time and many people to make secure. The hash itself also doesn't prove anything. It only makes sense when compared with something else, such as having direct access to the message or file.
 
@@ -425,26 +425,28 @@ Avrai notato che "Dov’è Wally" e risolvere un Sudoku sono due problemi molto 
 
 We have turned what was originally a problem of cryptography or math - defining and making a cryptographic hash function secure - into one of programming. To see why this is extremely powerful, consider some of the following examples.
 
-Abbiamo trasformato quello che era un problema di crittografia o matematica — definire e rendere sicura una funzione di hash — in un problema di programmazione. Per capire perchè questo è estremamente potente, considera i seguenti esempi.
+Abbiamo trasformato quello che era un problema di crittografia o matematica (definire e rendere sicura una funzione di hash) in un problema di programmazione. Per capire perchè questo è estremamente potente, considera i seguenti esempi.
 
-We can now prove that we know the private data that results in a certain hash\[^17]. This means you can prove that you are in possession of a certain message, such as an important document, without revealing the message itself.
+We can now prove that we know the private data that results in a certain hash [^17]. This means you can prove that you are in possession of a certain message, such as an important document, without revealing the message itself.
 
-Ora possiamo dimostrare di conoscere il dato privato che genera un determinato hash\[^17]. Questo significa che puoi provare di avere un certo messaggio, come un documento importante, senza mostrarlo.
+Ora possiamo dimostrare di conoscere il dato privato che genera un determinato hash [^17]. Questo significa che puoi provare di avere un certo messaggio, come un documento importante, senza mostrarlo.
 
-To better understand the power of doing general-purpose computing, let's take a closer look at group signature. Group signatures are a way for a group of individuals to sign a document together, without revealing who they are. For example, the Federalist Papers were signed by the pseudonym Publius which represented multiple individuals\[^18]. Just like in the case of the SHA256 hash function, there's a way to express group signatures with cryptography and math. This is very impressive and took a lot of cryptographic engineering to develop. But with general-purpose ZKPs anyone can express the same thing in just a few dozen lines of Circom, a programming language for ZKPs, code\[^19].
+To better understand the power of doing general-purpose computing, let's take a closer look at group signature. Group signatures are a way for a group of individuals to sign a document together, without revealing who they are. For example, the Federalist Papers were signed by the pseudonym Publius which represented multiple individuals [^18]. Just like in the case of the SHA256 hash function, there's a way to express group signatures with cryptography and math. This is very impressive and took a lot of cryptographic engineering to develop. But with general-purpose ZKPs anyone can express the same thing in just a few dozen lines of Circom, a programming language for ZKPs, code [^19].
 
-Per capire meglio la potenza della computazione general-purpose, guardiamo più da vicino le firme di gruppo. Le _group signature_ permettono a più persone di firmare un documento insieme, senza rivelare chi sono. Ad esempio, i Federalist Papers furono firmati dallo pseudonimo "Publius", che rappresentava più autori\[^18]. Come per la funzione SHA256, è possibile rappresentare le firme di gruppo tramite crittografia e matematica. È un risultato straordinario, frutto di grande ingegneria crittografica. Ma con ZKPs general-purpose, chiunque può esprimere lo stesso concetto con poche decine di righe in Circom, un linguaggio di programmaione per scrivere ZKPs\[^19].
+Per capire meglio la potenza della computazione general-purpose, guardiamo più da vicino le firme di gruppo. Le _group signature_ permettono a più persone di firmare un documento insieme, senza rivelare chi sono. Ad esempio, i Federalist Papers furono firmati dallo pseudonimo "Publius", che rappresentava più autori [^18]. Come per la funzione SHA256, è possibile rappresentare le firme di gruppo tramite crittografia e matematica. È un risultato straordinario, frutto di grande ingegneria crittografica. Ma con ZKPs general-purpose, chiunque può esprimere lo stesso concetto con poche decine di righe in Circom, un linguaggio di programmaione per scrivere ZKPs [^19].
 
 Due to its general nature, we can easily make ad hoc constructions. For example, you might have an ID card that has your full name, address, and other personal information. To enter an event, you might need to be over 18 and have a valid ticket. You might not want a random person or online system to see your address or risk having your ID stolen. With ZKPs you can prove that:
 
 Grazie alla loro natura generale, possiamo costruire facilmente soluzioni su misura. Ad esempio, potresti avere una carta d’identità con nome, indirizzo e altri dati personali. Per accedere a un evento potresti dover dimostrare di avere più di 18 anni e un biglietto valido. Ma potresti non voler mostrare il tuo indirizzo o rischiare che ti venga rubato il documento. Con le ZKPs puoi dimostrare che:
 
 - Possiedi un documento valido
-- È stato emesso da un ente autorizzato negli ultimi 5 anni
-- Non è stato revocato o denunciato
+- Il documento è stato emesso da un ente autorizzato negli ultimi 5 anni
+- Il documento non è stato revocato o denunciato come rubato nell'ultimo periodo
 - Hai più di 18 anni
 - Hai acquistato un biglietto valido per l’evento
 - Il biglietto non è già stato usato
+
+All without revealing any single fact about yourself other than what is listed above.
 
 Tutto ciò senza rivelare nessuna informazione personale oltre a quelle elencate.
 
@@ -465,24 +467,24 @@ Why are ZKPs becoming a thing now? There are both technical and social reasons f
 
 Perché le ZKPs stanno diventando così rilevanti proprio adesso? Ci sono motivi sia tecnici che sociali.
 
-Technically, ZKPs are fairly new. Mathematically they've only existed for a few decades\[^20]. Similar to computing itself, it then took a while to become performant and practical, even in theory\[^21].
+Technically, ZKPs are fairly new. Mathematically they've only existed for a few decades [^20]. Similar to computing itself, it then took a while to become performant and practical, even in theory [^21].
 
-Dal punto di vista tecnico, le ZKPs sono piuttosto recenti. Matematicamente esistono solo da qualche decennio\[^20]. Come accaduto per l’informatica in generale, ci è voluto del tempo perché diventassero efficienti e praticabili, anche solo a livello teorico\[^21].
+Dal punto di vista tecnico, le ZKPs sono piuttosto recenti. Matematicamente esistono solo da qualche decennio [^20]. Come accaduto per l’informatica in generale, ci è voluto del tempo perché diventassero efficienti e praticabili, anche solo a livello teorico [^21].
 
-After that, someone had to take these papers and cryptographic protocols and turn them into something practical. The first notable example of this was Zcash, the privacy-preserving cryptocurrency, in 2016. It started as a paper written by cypherpunks and researchers\[^22]. The first version was an impressive feat of research and engineering applied to an end product and system. While the system had many issues and was far from optimal, it was the first real practical example of using ZKPs in the real world. This showed people that it was possible and practical to use ZKPs in the real world. This has led to an explosion of research and engineering efforts in ZKP, especially in recent years.
+After that, someone had to take these papers and cryptographic protocols and turn them into something practical. The first notable example of this was Zcash, the privacy-preserving cryptocurrency, in 2016. It started as a paper written by cypherpunks and researchers [^22]. The first version was an impressive feat of research and engineering applied to an end product and system. While the system had many issues and was far from optimal, it was the first real practical example of using ZKPs in the real world. This showed people that it was possible and practical to use ZKPs in the real world. This has led to an explosion of research and engineering efforts in ZKP, especially in recent years.
 
-Successivamente, qualcuno ha dovuto trasformare quei paper e quei protocolli crittografici in qualcosa di pratico. Il primo esempio degno di nota è stato Zcash, la criptovaluta orientata alla privacy, nel 2016. Il progetto nacque da un paper scritto da cypherpunk e ricercatori\[^22]. La prima versione fu un’impresa notevole di ricerca e ingegneria applicata a un prodotto e sistema reale. Anche se presentava molte criticità ed era ben lontana dall’essere ottimale, fu il primo esempio concreto di uso delle ZKPs nel mondo reale. Questo dimostrò che era davvero possibile e pratico utilizzare le ZKPs. Da lì è esplosa la ricerca e lo sviluppo in questo campo, specialmente negli ultimi anni.
+Successivamente, qualcuno ha dovuto trasformare quei paper e quei protocolli crittografici in qualcosa di pratico. Il primo esempio degno di nota è stato Zcash, la criptovaluta orientata alla privacy, nel 2016. Il progetto nacque da un paper scritto da cypherpunk e ricercatori [^22]. La prima versione fu un’impresa notevole di ricerca e ingegneria applicata a un prodotto e sistema reale. Anche se presentava molte criticità ed era ben lontana dall’essere ottimale, fu il primo esempio concreto di uso delle ZKPs nel mondo reale. Questo dimostrò che era davvero possibile e pratico utilizzare le ZKPs. Da lì è esplosa la ricerca e lo sviluppo in questo campo, specialmente negli ultimi anni.
 
-Public blockchains like Ethereum and Zcash, a privacy-preserving cryptocurrency, had a big role to play in this. What blockchains excel at are things like censorship resistance and transparency\[^23]. This comes at the cost of a lack of privacy and scalability, something that ZKPs excel at. In this sense, they are a natural fit. Couple that with the blockchain community's appetite for advanced cryptography\[^24], and it is no wonder a lot of the innovation is happening at the intersection between blockchain and ZKPs\[^25]. Due to the many well-capitalized blockchain projects, this has also led to more investment into research and engineering in a traditionally more academic space.
+Public blockchains like Ethereum and Zcash, a privacy-preserving cryptocurrency, had a big role to play in this. What blockchains excel at are things like censorship resistance and transparency[^23]. This comes at the cost of a lack of privacy and scalability, something that ZKPs excel at. In this sense, they are a natural fit. Couple that with the blockchain community's appetite for advanced cryptography [^24], and it is no wonder a lot of the innovation is happening at the intersection between blockchain and ZKPs [^25]. Due to the many well-capitalized blockchain projects, this has also led to more investment into research and engineering in a traditionally more academic space.
 
-Le blockchain pubbliche come Ethereum e Zcash, una criptovaluta orientata alla privacy, hanno avuto un ruolo fondamentale in questo. Le blockchain eccellono in caratteristiche come la resistenza alla censura e la trasparenza\[^23]. Tuttavia, tutto questo avviene a scapito della privacy e della scalabilità, esattamente i punti forti delle ZKPs. Da questo punto di vista, la combinazione è naturale. Aggiungiamo anche la forte propensione della community blockchain verso la crittografia avanzata\[^24], e non sorprende che molta dell’innovazione si stia concentrando proprio nell’intersezione tra blockchain e ZKPs\[^25]. Inoltre, i numerosi progetti blockchain ben finanziati hanno portato a nuovi investimenti in ricerca e sviluppo in un ambito storicamente più accademico.
+Le blockchain pubbliche come Ethereum e Zcash, una criptovaluta orientata alla privacy, hanno avuto un ruolo fondamentale in questo. Le blockchain eccellono in caratteristiche come la resistenza alla censura e la trasparenza [^23]. Tuttavia, tutto questo avviene a scapito della privacy e della scalabilità, esattamente i punti forti delle ZKPs. Da questo punto di vista, la combinazione è naturale. Aggiungiamo anche la forte propensione della community blockchain verso la crittografia avanzata [^24], e non sorprende che molta dell’innovazione si stia concentrando proprio nell’intersezione tra blockchain e ZKPs [^25]. Inoltre, i numerosi progetti blockchain ben finanziati hanno portato a nuovi investimenti in ricerca e sviluppo in un ambito storicamente più accademico.
 
 Considering the complexity involved, spanning applied mathematics, cryptography, papers on specific ZKP systems, implementing novel proof systems, tooling, and applications that touch other complex domains, things are moving extremely fast. Every year - even every month - there are new research papers with novel techniques, improved tooling, and applications. The feedback loop between new research and it being implemented and then used is getting tighter. While still difficult, it is getting easier and easier to get started. As tooling is improved, developers need to understand the math behind ZKPs less and less.
 
-Considerando la complessità in gioco, che spazia tra matematica applicata, crittografia, articoli su sistemi ZKP specifici, implementazione di nuovi sistemi di prova, strumenti di sviluppo e applicazioni in domini complessi, i progressi sono rapidissimi. Ogni anno, persino ogni mese, vengono pubblicati nuovi articoli con tecniche inedite, strumenti migliori e nuove applicazioni. Il ciclo tra ricerca, implementazione e utilizzo si sta facendo sempre più corto. Anche se resta difficile, iniziare oggi è molto più facile di qualche anno fa. E man mano che gli strumenti migliorano, agli sviluppatori è richiesto di comprendere sempre meno la matematica che sta alla base delle ZKPs.
+Considerando la complessità in gioco, che spazia tra matematica applicata, crittografia, articoli su sistemi ZKP specifici, implementazione di nuovi sistemi di prova, strumenti di sviluppo e applicazioni che vanno a toccare altri domini complessi, i progressi sono rapidissimi. Ogni anno, persino ogni mese, vengono pubblicati nuovi articoli con tecniche inedite, strumenti migliori e nuove applicazioni. Il ciclo tra ricerca, implementazione e utilizzo si sta facendo sempre più corto. Anche se resta difficile, iniziare oggi è molto più facile di qualche anno fa. E man mano che gli strumenti migliorano, agli sviluppatori è richiesto di comprendere sempre meno la matematica che sta alla base delle ZKPs.
 
-In terms of the performance of ZKPs, there's a form of Moore's law happening. Moore's law is the observation that the number of transistors doubles about every two years. This is what led to the computer revolution. In ZKPs, projects that were just pipe dreams a few years ago, seen as completely unpractical, are now being executed on, things like _zkVM_ and _zkML_. As a rule of thumb, it has been observed in the ZKP world that things improve by an order of magnitude every other year or so\[^26]. This is because it is a new technology, and it is possible to aggressively optimize on many layers of the stack, from the programs we write, to the systems we use, to the hardware itself. We have no reason to believe this will stop any time soon.
+In terms of the performance of ZKPs, there's a form of Moore's law happening. Moore's law is the observation that the number of transistors doubles about every two years. This is what led to the computer revolution. In ZKPs, projects that were just pipe dreams a few years ago, seen as completely unpractical, are now being executed on, things like _zkVM_ and _zkML_. As a rule of thumb, it has been observed in the ZKP world that things improve by an order of magnitude every other year or so [^26]. This is because it is a new technology, and it is possible to aggressively optimize on many layers of the stack, from the programs we write, to the systems we use, to the hardware itself. We have no reason to believe this will stop any time soon.
 
-In termini di prestazioni, nel mondo delle ZKPs sta avvenendo una sorta di legge di Moore. La legge di Moore osserva che il numero di transistor raddoppia circa ogni due anni. Questo è ciò che ha reso possibile la rivoluzione informatica. Nelle ZKPs, progetti che pochi anni fa sembravano pura fantasia, sono oggi eseguiti su cose come _zkVM_ e _zkML_. Come regola empirica, si è osservato che i progressi nel campo delle ZKPs migliorano di un ordine di grandezza ogni anno circa\[^26]. Questo perché si tratta di una tecnologia nuova, in cui è possibile ottimizzare in modo aggressivo su ogni livello dello stack: dai programmi che scriviamo, ai sistemi che usiamo, fino all’hardware stesso. E non ci sono motivi per credere che questa tendenza si fermerà a breve.
+In termini di prestazioni, nel mondo delle ZKPs sta avvenendo una sorta di legge di Moore. La legge di Moore osserva che il numero di transistor raddoppia circa ogni due anni. Questo è ciò che ha reso possibile la rivoluzione informatica. Nelle ZKPs, progetti che pochi anni fa sembravano pura fantasia, sono oggi eseguiti su cose come _zkVM_ e _zkML_. In linea di massima, si è osservato che i progressi nel campo delle ZKPs migliorano di un ordine di grandezza ogni anno circa [^26]. Questo perché si tratta di una tecnologia nuova, in cui è possibile ottimizzare in modo aggressivo su ogni livello dello stack: dai programmi che scriviamo, ai sistemi che usiamo, fino all’hardware stesso. Non abbiamo motivo di credere che questa tendenza si fermerà a breve.
 
 ![Moore's Law](../assets/01_moores-law.png "Legge di Moore")
