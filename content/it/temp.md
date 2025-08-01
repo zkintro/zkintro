@@ -9,6 +9,7 @@ slug: "/it/friendly-introduction-to-zero-knowledge"
 images: \['../assets/01\_zkp-magic.png']
 summary: "Le Zero Knowledge Proofs sono pura magia. Ci permettono di realizzare cose che prima non avremmo nemmeno immaginato. Questo è il primo di una serie di articoli sulle Zero Knowledge Proofs e le loro applicazioni. Vedremo cosa sono, perché dovrebbero interessarci, come funzionano e dove possono essere utilizzate."
 ---
+_Questo Libro è stato tradotto e adattato da Silvio Meneguzzo_
 
 ![La magia della ZKP](../assets/01_zkp-magic.png "La magia della ZKP")
 
@@ -884,4 +885,64 @@ Again, this didn't mention all the types of things people are working on or thin
 
 Ancora una volta, questa non è una panoramica completa di tutte le idee e progetti attualmente in corso. Sicuramente ne emergeranno molti altri in futuro. Come puoi intuire, ci sono davvero molte possibilità offerte dalla ZK.
 
+You might wonder why many of these applications involve a blockchain. This was partially answered in the previous section "Why now?". ZK is an orthogonal technology to blockchains like Ethereum and we can do without the blockchain, but quite often it is simply a good tool that makes sense to leverage.
 
+Potresti chiederti perché molte di queste applicazioni coinvolgano la blockchain. Questo punto è stato parzialmente chiarito nella sezione precedente "Perché proprio ora?". Le ZK sono una tecnologia ortogonale rispetto alle blockchain come Ethereum e possono essere usate anche senza blockchain, ma spesso quest’ultima rappresenta semplicemente uno strumento utile da sfruttare.
+
+Similarly, the group of people working on these things and the immediate problems they care about are often overlapping. As the space matures, we can expect the "blockchain" part of ZK applications to disappear as simply an implementation detail, and this has already happened to some degree. Looking further, the "ZK" part will likely also fall into the background and it'll simply be an application that happens to use ZKP.
+
+Analogamente, le persone che lavorano a queste applicazioni e i problemi che affrontano sono spesso sovrapponibili. Man mano che il settore maturerà, possiamo aspettarci che il concetto di "blockchain" nelle applicazioni ZK finisca per diventare un semplice dettaglio implementativo, cosa che in parte è già successa. In un futuro ancora più lontano, anche la componente "ZK" potrebbe diventare meno visibile, fino al punto in cui si tratterà semplicemente di un’applicazione che utilizza le ZKP come elemento secondario.
+
+Finally, when cryptography for online messaging and similar was developed, it was used and developed by the military and Internet companies. It was not something that was innovated on by the post office or some company involved in the secure transport of physical goods, even if in theory that was a possibility. [^59].
+
+Infine, quando è stata sviluppata la crittografia per la messaggistica online e simili, è stata sfruttata e perfezionata principalmente dai militari e dalle aziende Internet. Non è stato qualcosa di innovato dalle poste o da aziende coinvolte nel trasporto sicuro di beni fisici, anche se teoricamente ciò sarebbe stato possibile. [^59]
+
+I'll end this section with a quote from Barry Whitehat, a well-known ZK researcher who works with the Privacy and Scalability Explorations (PSE) team at the Ethereum Foundation, when asked for predictions on the future of ZK:
+
+Termino questa sezione con una citazione di Barry Whitehat, un noto ricercatore ZK che lavora con il team Privacy and Scalability Explorations (PSE) della Ethereum Foundation, quando gli è stato chiesto di fare previsioni sul futuro delle ZK:
+
+> "By 2040, someone will have won a Nobel Peace Prize for using Zero Knowledge Proofs." [^60]
+
+> "Entro il 2040, qualcuno avrà vinto il Premio Nobel per la Pace per aver utilizzato le Zero Knowledge Proofs." [^60]
+
+Outlandish and bold? Certainly. Will it turn out to be true? Maybe not. But could it? Absolutely. It is an intriguing prospect to consider. What is the difference between the mental model that sees this as a real possibility, versus one that writes it off immediately? What would have to happen for such an event to be a realistic outcome?
+
+Stravagante e audace? Sicuramente. Accadrà davvero? Forse no. Ma potrebbe? Assolutamente sì. È una prospettiva intrigante da considerare. Qual è la differenza tra il modello mentale di chi la considera una possibilità concreta e quello di chi invece la scarta immediatamente? Cosa dovrebbe accadere affinché tale evento diventi un esito realistico?
+
+ZKPs represent a new and incredibly potent tool. Often, it's our imagination about its potential applications that limits us.
+
+Le ZKP rappresentano uno strumento nuovo e incredibilmente potente. Spesso, è solo la nostra immaginazione riguardo alle possibili applicazioni che ci limita.
+
+## Conclusion
+
+## Conclusione
+
+_This section summarizes the article and provides next steps_
+
+_Questa sezione riassume l’articolo e indica i passi successivi_
+
+In this article, we've looked at what ZKPs are, why we should care about them and when they are useful. We've also looked at how they work and what properties they give us. Finally, we looked at some applications, both current and future ones.
+
+In questo articolo abbiamo esplorato cosa sono le ZKPs, perché dovremmo interessarcene e quando possono risultare utili. Abbiamo inoltre analizzato il loro funzionamento e le proprietà che offrono. Infine, abbiamo visto alcune applicazioni, sia attuali che future.
+
+I hope this has led you to better understand the nature of ZKPs, and perhaps led to some aha moments and inspired some new ways of thinking about things. Perhaps it even helps you follow the magic of ZKPs in the future.
+
+Mi auguro che tutto ciò ti abbia aiutato a comprendere meglio la natura delle ZKPs, magari facendoti vivere qualche momento di illuminazione e ispirandoti nuove prospettive su questi temi. Forse ti aiuterà anche a seguire più da vicino la magia delle ZKPs in futuro.
+
+In future posts, we'll go even deeper into some of these aspects, and we'll also look at more technical aspects to better understand how ZKPs work and where they can be used.
+
+Nei prossimi articoli, approfondiremo ulteriormente alcuni di questi aspetti e analizzeremo dettagli più tecnici per capire meglio come funzionano le ZKPs e in quali contesti possono essere utilizzate.
+
+If something specific piqued your interest, or there is something specific you'd like to see in future articles, feel free to contact me on Twitter or by email. I'll include the best comments as footnotes!
+
+Se qualcosa in particolare ha attirato la tua attenzione, o se c’è qualche argomento che vorresti vedere trattato in futuro, non esitare a contattarmi su Twitter o via email. Includerò i commenti migliori come note a piè di pagina!
+
+## Acknowledgements
+
+## Ringraziamenti
+
+Thanks to Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren and Eve Ko for reading drafts and providing feedback on this.
+
+Grazie a Michelle Lai, Chih-Cheng Liang, Jenny Lin, Anna Lindegren e Eve Ko per aver letto le bozze e aver fornito preziosi suggerimenti.
+
+Grazie a Silvio Meneguzzo [Silvio Meneguzzo](https://x.com/SilvioMeneguzzo) per la traduzione e adattamento di questo artico.
