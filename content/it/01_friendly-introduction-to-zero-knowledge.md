@@ -127,28 +127,15 @@ Oggi diamo per scontata la lettura silenziosa, al punto da non riuscire quasi a 
 
 Nelle prossime sezioni daremo uno sguardo a come potrebbero apparire queste invenzioni basate sulle ZKPs, sia quelle già esistenti, sia quelle che emergeranno in futuro.
 
-
-### Compression
-
 ### Compressione
 
-> I have made this longer than usual, only because I have not had the time to make it shorter.
+> L'ho reso più lungo del solito, soltanto perché non ho avuto il tempo di farlo più breve.
 >
 > - Blaise Pascal [^5]
-
-> L'ho reso più lungo del solito, soltanto perché non ho avuto il tempo per farlo più breve.
->
-> - Blaise Pascal [^5]
-
-To compress something is defined as:
 
 La definizione di comprimere qualcosa è:
 
-> to press something into a smaller space
-
 > spingere qualcosa in uno spazio più piccolo
-
-Similarly, succinctness is defined as:
 
 Allo stesso modo, la sinteticità è definita come:
 
@@ -156,39 +143,23 @@ Allo stesso modo, la sinteticità è definita come:
 
 > l'atto di esprimere qualcosa in modo chiaro e conciso
 
-ZKPs having the property of compression means we can prove that something is true with a very short statement. For example, that all the steps in some computation have been executed correctly. This is most immediately useful when some resource is in high demand and expensive. This is true in the case of the Ethereum blockchain, but it is also a very useful property in other circumstances. What is more remarkable, is that the size of this proof stays the same regardless of how complex the thing we are trying to prove is!
+Quando diciamo che le ZKPs possiedono la proprietà di compressione, intendiamo dire che è possibile dimostrare la veridicità di qualcosa con una dichiarazione molto breve (succinct). Ad esempio, possiamo dimostrare che tutti i passaggi di un certo calcolo sono stati eseguiti correttamente. Questo è particolarmente utile quando una risorsa è molto richiesta e costosa. È il caso della blockchain di Ethereum, ma si tratta di una proprietà utile anche in molti altri contesti. Ancora più notevole è il fatto che la dimensione della prova rimanga invariata indipendentemente dalla complessità di ciò che vogliamo dimostrare!
 
-Quando diciamo che le ZKPs possiedono la proprietà di compressione, intendiamo che possiamo dimostrare la veridicità di qualcosa con una dichiarazione molto breve (succinct). Per esempio, che tutti i passaggi di un certo calcolo sono stati eseguiti correttamente. Questo è particolarmente utile quando una risorsa è molto richiesta e costosa. È il caso della blockchain di Ethereum, ma si tratta di una proprietà utile anche in molti altri contesti. E ciò che colpisce è che la dimensione della prova rimane invariata indipendentemente dalla complessità di ciò che si sta dimostrando!
-
-What do we mean by "proof" and the "size of the proof"? These are mathematically precise notions that possess a great deal of nuance. In future sections, we'll go deeper into this notion of a proof in the context of ZKPs. For now, we can think of it as a short statement that we know is true, or can somehow verify is true.
-
-Cosa intendiamo con "prova" e "dimensione della prova"? Si tratta di concetti matematicamente ben definiti e ricchi di sfumature. Nelle prossime sezioni approfondiremo cosa significa prova nel contesto delle ZKPs. Per ora possiamo considerarla come una dichiarazione breve che sappiamo essere vera, o che possiamo verificare come tale.
+Cosa intendiamo con "prova" e "dimensione della prova"? Si tratta di concetti matematicamente ben definiti e ricchi di sfumature. Nelle prossime sezioni approfondiremo meglio cosa significa una "prova" nel contesto delle ZKPs. Per ora, possiamo considerarla semplicemente come una dichiarazione breve che sappiamo essere vera, o che possiamo in qualche modo verificare come tale.
 
 ![Sherlock Holmes](../assets/01_sherlock-holmes.jpg "Sherlock Holmes")
 
-In a typical whodunit like a Sherlock Holmes murder mystery, the detective gathers evidence until they can prove that the perpetrator has committed the murder. They then prove exactly how they know this in a grand finale. We can think of this final statement as the proof. [^6]
+In un classico giallo alla Sherlock Holmes, il detective raccoglie indizi finché non riesce a dimostrare con certezza chi sia l’assassino. Nel gran finale, espone esattamente come è arrivato a questa conclusione. Possiamo considerare questa dichiarazione finale come la "prova". [^6]
 
-In un classico giallo alla Sherlock Holmes, il detective raccoglie indizi finché non può dimostrare chi ha commesso l’omicidio. E poi, nel gran finale, spiega esattamente come è arrivato a questa conclusione. Possiamo considerare questa dichiarazione finale come la prova. [^6]
+In termini più tecnici, questa proprietà si chiama _succinctness_ (sinteticità). [^7] È ciò che consente alla prova di mantenere la stessa dimensione indipendentemente dalla complessità di ciò che vogliamo dimostrare. Nel contesto delle blockchain pubbliche, questa proprietà è legata anche al concetto di _scalabilità_. In blockchain come Ethereum, dove lo spazio disponibile nei blocchi è limitato e costoso, le ZKPs possono rendere le transazioni molto più economiche e veloci. Come? Creando una prova che certifichi che un insiemi di transazioni sono avvenute, e registrando solo quella prova sintetica sulla blockchain, anziché l’intero contenuto delle transazioni. Con le ZKPs, questo processo può essere realizzato in modo estremamente sicuro.
 
-More formally, we call this property _succinctness_. [^7] This is what keeps the size of the proof the same regardless of what we are trying to prove. In the context of public blockchains, this also relates to the notion of _scalability_. For public blockchains like Ethereum, where block space is limited and expensive, ZKPs can make transactions a lot cheaper and faster. How? We create a proof that some set of transactions have taken place and put that tiny proof on-chain, as opposed to having all transactions take up space on the blockchain. With ZKPs, this can be made very secure.
+La sinteticità è una proprietà generale e indipendente dal concetto stesso di "blockchain": semplicemente, queste ne traggono particolare beneficio per molte ragioni. In generale, avere una prova breve che qualcosa è vero è estremamente utile. Vediamo alcuni punti di vista per capirne meglio il motivo.
 
-In termini più tecnici, questa proprietà si chiama _succinctness_ (sinteticità). [^7] È ciò che consente alla prova di mantenere la stessa dimensione indipendentemente da ciò che vogliamo dimostrare. Nel contesto delle blockchain pubbliche, questa proprietà è legata anche al concetto di _scalabilità_. Per blockchain come Ethereum, dove lo spazio nei blocchi è limitato e costoso, le ZKPs possono rendere le transazioni molto più economiche e rapide. Come? Creando una prova che certi insiemi di transazioni sono avvenuti, e registrando solo quella prova sintetica sulla blockchain, anziché l’intero contenuto delle transazioni. Con le ZKPs, questo processo può essere realizzato in modo estremamente sicuro.
+Un modo per comprenderlo è pensare ai _costi di transazione_. [^8] In generale, più bassi sono, maggiore sarà il valore e la ricchezza che possiamo generare. Se le cose da verificare sono poche, o se verificarle diventa più semplice, possiamo agire con maggiore libertà e facilità.
 
-Succinctness is a general property and orthogonal to "blockchains" - they just happen to be a good fit, for many reasons. More generally, having a short proof that something is true is very useful. There are a few ways to see why.
+A volte, quando compiliamo un modulo online, ci viene chiesto di inserire due volte la nostra email per confermare che sia corretta. Questo serve a prevenire errori umani e a rendere più affidabile la trasmissione dei dati. Esistono anche meccanismi come i checksum: una cifra aggiuntiva presente nei codici dei pacchi UPS, nei numeri delle carte di credito o nei codici ISBN dei libri, che funziona come un semplice controllo per verificare che tutti i numeri inseriti siano corretti. Ovviamente, questi metodi non proteggono da usi malevoli, ma solo da errori involontari. [^9]
 
-La sinteticità è una proprietà generale e indipendente dalle blockchain: semplicemente, queste ne traggono particolare beneficio per molte ragioni. In generale, avere una prova breve che qualcosa è vero è estremamente utile. Vediamo alcuni motivi.
-
-One way of looking at it is to consider _transaction costs_. [^8] Generally speaking, the lower these are, the more value and wealth is created. If there are fewer things to verify, or it is easier to do, then we can do things more freely and with ease.
-
-Un modo per comprenderlo è pensare ai _costi di transazione_. [^8] In linea generale, più questi sono bassi, più valore e ricchezza si generano. Se ci sono meno cose da verificare, o se è più facile farlo, possiamo agire con maggiore libertà ed efficienza.
-
-Sometimes when we fill in a form we are asked to write our email twice to confirm it is correct. The idea is to protect against human errors and make the transmission of data more robust. There are also things like checksums, where an extra digit in your UPS package code, credit card number, or ISBN code for books acts as a simple check that all the numbers are probably correct. All of these are - obviously - not meant to protect against malicious use, but only against innocent mistakes.  [^9]
-
-A volte, quando compiliamo un modulo online, ci viene chiesto di inserire due volte l’email per confermare che sia corretta. L’obiettivo è prevenire errori umani e rendere la trasmissione dei dati più affidabile. Esistono anche strumenti come i checksum: un numero extra nei codici dei pacchi UPS, nei numeri delle carte di credito o nei codici ISBN dei libri, che serve da controllo semplificato per verificare che tutto sia probabilmente corretto. Tutti questi meccanismi non servono – ovviamente – a proteggere da attacchi malevoli, ma solo da errori involontari. [^9]
-
-In computer file systems, a _hash_ is often used to ensure the integrity of files. If something happens to just a small part of a file, corrupting it, the hash changes completely. Because the hash is succinct (say, a 64 character string), it is easy to keep around and check even if the underlying file is huge. In this case, hash functions ensure integrity in a secure way. If we checked the integrity of a file by just keeping a copy of the file it'd be a lot more impractical. Big file, small file, it doesn't matter; the hash stays the same size. The succinctness of a hash enables this use case.
-
-Nei file system dei computer, un _hash_ viene spesso usato per garantire l’integrità dei file. Se anche solo una piccola parte del file viene alterata, l’hash cambia completamente. Poiché un hash è sintetico (per esempio, una stringa di 64 caratteri), è facile da conservare e verificare anche quando il file originale è molto grande. In questo caso, le funzioni hash assicurano l’integrità in modo sicuro. Se dovessimo verificare l’integrità di un file conservandone una copia completa, sarebbe molto più complesso. File grande o piccolo, non importa: l’hash mantiene sempre la stessa dimensione. È proprio la sinteticità dell’hash a rendere possibile tutto questo.
+Nei file system dei computer, un _hash_ viene spesso usato per garantire l’integrità dei file. Se anche solo una piccola parte del file viene alterata, l’hash cambia completamente. Essendo sintetico (ad esempio, una stringa di 64 caratteri), l’hash è semplice da conservare e verificare anche se il file originale è molto grande. In questo caso, le funzioni hash garantiscono l’integrità in modo sicuro. Se invece verificassimo l’integrità di un file conservandone una copia completa, il processo sarebbe estremamente inefficiente. Che il file sia grande o piccolo non importa: l’hash mantiene sempre la stessa dimensione. È proprio la sinteticità dell’hash a rendere possibile tutto questo.
 
 
 ### What do you know?
