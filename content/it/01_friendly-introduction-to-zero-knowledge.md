@@ -161,60 +161,33 @@ A volte, quando compiliamo un modulo online, ci viene chiesto di inserire due vo
 
 Nei file system dei computer, un _hash_ viene spesso usato per garantire l’integrità dei file. Se anche solo una piccola parte del file viene alterata, l’hash cambia completamente. Essendo sintetico (ad esempio, una stringa di 64 caratteri), l’hash è semplice da conservare e verificare anche se il file originale è molto grande. In questo caso, le funzioni hash garantiscono l’integrità in modo sicuro. Se invece verificassimo l’integrità di un file conservandone una copia completa, il processo sarebbe estremamente inefficiente. Che il file sia grande o piccolo non importa: l’hash mantiene sempre la stessa dimensione. È proprio la sinteticità dell’hash a rendere possibile tutto questo.
 
-
-### What do you know?
-
-### Cosa sai davvero?
-
-Let's take a step back from compression, succinctness, and proofs. We'll go on a little detour into knowledge, mental overhead, and trust. We'll then connect this back with ZKPs at the end of the section.
+### Che cosa sai?
 
 Facciamo un passo indietro rispetto a compressione, sinteticità e prove. Prendiamoci una breve deviazione per parlare di conoscenza, carico cognitivo e fiducia. Alla fine della sezione, collegheremo tutto questo di nuovo alle ZKPs.
 
-In your everyday life, what do you know is true, and why? If you see the sun rise every day, you likely expect it to rise again tomorrow. In the modern world, we are largely protected from the harsh environment in nature, but on the flip side, we have a lot of other, more modern, concerns. Many of these are related to various institutions we deal with on a daily basis.
+Nella vita quotidiana, cosa sai essere vero e perché? Se vedi il sole sorgere ogni giorno, probabilmente ti aspetti che sorga anche domani. Nel mondo moderno siamo perlopiù protetti dalle avversità della natura, ma al contempo dobbiamo affrontare altre preoccupazioni, più moderne. Molte di queste hanno a che fare con le istituzioni con cui interagiamo ogni giorno.
 
-Nella vita quotidiana, cosa sai essere vero e perché? Se vedi il sole sorgere ogni giorno, probabilmente ti aspetti che sorga anche domani. Nel mondo moderno siamo in gran parte protetti dalla costanza che ci da la natura, ma in compenso abbiamo tante altre preoccupazioni, più moderne. Molte di queste hanno a che fare con le istituzioni con cui interagiamo ogni giorno.
-
-If you are able to withdraw cash from your bank every day, do you expect to be able to withdraw it again the next day? Most people would probably say yes, but not everyone all the time. This depends on a lot of factors: if the bank is trustworthy, if you're living in a safe jurisdiction, if something major has happened in the world economy recently, what your personal circumstances are like etc. All of these things together make up some data points, and based on that you make a determination.
-
-Se riesci a prelevare contanti dalla tua banca ogni giorno, ti aspetti di poterlo fare anche domani? La maggior parte delle persone probabilmente direbbe di sì, ma non è sempre così per tutti. Dipende da diversi fattori: se la banca è affidabile, se vivi in una giurisdizione stabile, se recentemente ci sono stati eventi importanti nell’economia globale, o qual è la tua situazione personale. Tutti questi elementi forniscono indizi, e su quella base prendi una decisione.
-
-This is obviously a trivial example, but life is full of such interactions. All of this can be seen as a form of mental overhead. The extent to which this is a concern can depend on your personal situation and the complexity of your day-to-day dealings. For instance, a business might give these factors a lot more thought when entering into a contract with another party.
+Se riesci a prelevare contanti dalla tua banca ogni giorno, ti aspetti di poterlo fare anche domani? La maggior parte delle persone probabilmente direbbe di sì, ma non è sempre così per tutti. Dipende da molti fattori: dall'affidabilità della banca, dalla stabilità del paese in cui vivi, da eventuali eventi rilevanti nell’economia globale, o dalla tua situazione personale. Tutti questi elementi forniscono indizi, e su quella base prendi una decisione.
 
 Questo è ovviamente un esempio banale, ma la vita ne è piena. Tutto ciò può essere visto come una forma di carico cognitivo. Quanto questo incida dipende dalla tua situazione personale e dalla complessità delle tue interazioni quotidiane. Per esempio, un’azienda prenderà in seria considerazione questi fattori quando stipula un contratto con un’altra parte.
 
-We create mechanisms and rules to counteract this uncertainty, such as using reputation services, independent auditing, imposing fines to discourage bad behavior, seeking accreditation by some trusted institutions, etc. All these measures are basically duct tape, trying to get to the crux of the matter. Is something what it claims to be? Does it follow the rules we have established? And is it trustworthy and usable?
-
 Creiamo meccanismi e regole per gestire questa incertezza: servizi di reputazione, audit indipendenti, sanzioni per scoraggiare comportamenti scorretti, richiesta di accreditamento presso alcune istituzioni fidate, ecc. Tutte queste misure sono in sostanza dei cerotti, tentativi di arrivare al cuore del problema. È davvero ciò che dichiara di essere? Rispetta le regole che abbiamo stabilito? È affidabile e utilizzabile?
-
-All of this mental overhead gets compounded when you are dealing with multiple institutions, jurisdictions, companies, and people. You can get cascading effects, such as your bank failing and you being unable to pay your employees, thus leading to your business being unable to service its customers. [^10] More control measures are needed. More pauses to consider if things are right and what can go wrong.
 
 Questo carico cognitivo aumenta drasticamente quando si interagisce con più istituzioni, giurisdizioni, aziende e persone. Possono verificarsi effetti a catena: la tua banca fallisce, non riesci a pagare i dipendenti, e di conseguenza la tua attività non riesce a servire i clienti. [^10] Servono più controlli. Più momenti per chiedersi se tutto stia funzionando e cosa potrebbe andare storto.
 
-I'll end this section with a quote:
-
 Concludo questa sezione con una citazione:
-
-> Civilization advances by extending the number of operations we can perform without thinking about them.
->
-> - Alfred North Whitehead [^11]
 
 > La civiltà avanza aumentando il numero di operazioni che possiamo compiere senza pensarci.
 >
 > - Alfred North Whitehead [^11]
 
-For example, when you light the stove to make dinner, you don't even have to think about making a fire. This is very different from having to gather wood, keep it dry, create a fire, and keep it going, a very time-consuming process. In mathematics, without calculus, we wouldn't be able to go to the moon.
-
-Per esempio, quando accendi il fornello per cucinare, non devi nemmeno pensare a come accendere un fuoco. È ben diverso da raccogliere legna, mantenerla asciutta, accendere la fiamma e tenerla viva, un processo che richiede tempo. In matematica, senza il calcolo infinitesimale, non saremmo mai andati sulla Luna.
+Per esempio, quando accendi il fornello per cucinare, non devi nemmeno pensare a come accendere un fuoco. È ben diverso dal dover raccogliere la legna, mantenerla asciutta, accendere la fiamma e tenerla viva: un processo lungo e faticoso. In matematica, senza il calcolo infinitesimale, non saremmo mai andati sulla Luna.
 
 ![Aldrin, Apollo 11](../assets/01_apollo-aldrin.jpg "Aldrin, Apollo 11")
 
-With ZKPs and succinct proofs, we are able to introduce more certainty and clarity into opaque systems. This gets even more powerful when we consider _composing_ ZKPs. That is combining multiple proofs into one in some fashion, such as with aggregation or recursion.
-
 Grazie alle ZKPs e alle prove sintetiche, possiamo introdurre maggiore certezza e trasparenza in sistemi opachi. Questo diventa ancora più potente quando consideriamo la _composizione_ delle ZKPs: ovvero la possibilità di combinare più prove in una sola, ad esempio tramite aggregazione o ricorsione.
 
-All of this presumes we can translate some of the mechanisms or rules mentioned above - which are often messy and inconsistent - into a form that ZKPs can comprehend. How can we do that?
-
-Tutto questo presuppone che possiamo tradurre almeno alcune delle regole o dei meccanismi citati, spesso confusi e incoerenti, in una forma che le ZKPs possano comprendere. Come possiamo riuscirci?
+Tutto ciò presuppone che almeno alcune delle regole o dei meccanismi citati, spesso confusi e incoerenti, possano essere tradotti in una forma comprensibile alle ZKPs. Come possiamo riuscirci?
 
 
 ### General-purpose
