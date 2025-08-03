@@ -297,212 +297,96 @@ Esistono molte tipologie di ZKPs. Spesso parliamo di *zk-SNARK*s, acronimo di Ze
 
 Un buon modello mentale è pensare alle ZKPs come a uno zoo. Ci sono molti animali diversi e possiamo classificarli in vari modi: questi hanno quattro zampe, questi altri hanno strisce, questi li ha portati Bob l’anno scorso [^31], ecc. Alcune categorie sono più utili di altre. Infatti, alcuni di questi sistemi non possiedono nemmeno la proprietà di Zero Knowledge! Questi vengono chiamati semplicemente SNARKs. Come comunità, chiamiamo spesso questo variegato insieme di animali semplicemente ZK, anche se molti sistemi in realtà non sfruttano la proprietà Zero Knowledge. [^32]
 
-### Protocol
-
 ### Protocollo
 
-Going back to our protocol, we have a prover and verifier. The prover creates a proof using a _prover key_, private input and public input. The verifier verifies the proof using a _verification key_ and public input, and outputs true or false.
-
-Tornando al nostro protocollo, abbiamo un prover (dimostratore) e un verifier (verificatore). Il prover crea una prova usando una _prover key_, l’input privato e l’input pubblico. Il verifier verifica la prova utilizzando una _verification key_ e l’input pubblico, e restituisce come risultato true o false.
-
-We have two new things, a prover key and a verifier key. This is what allows the prover and verifier to do their magic. You can think of them as a regular key that allows you to enter somewhere and do something, or you can think of them as a magic wand that allows you to do something. We get these keys from a special ceremony called a _setup_, which is an initial preparation phase that we won't go into detail about in this article [^33].
+Tornando al nostro protocollo, abbiamo un prover (dimostratore) e un verifier (verificatore). Il prover genera una prova usando una _prover key_, l’input privato e l’input pubblico. Il verifier verifica la prova utilizzando una _verification key_ e l’input pubblico, e restituisce come risultato true o false.
 
 Abbiamo introdotto due nuovi concetti: la _prover key_ e la _verifier key_. Queste consentono al prover e al verifier di compiere la loro magia. Puoi immaginarle come chiavi normali che permettono di entrare in un luogo e svolgere un'azione, oppure come bacchette magiche che abilitano determinate operazioni. Queste chiavi derivano da una cerimonia speciale chiamata _setup_, una fase iniziale di preparazione su cui non entreremo nei dettagli in questo articolo [^33].
 
-Notice that only the prover has access to the private input. How does the prover use the prover key, private input and public input to turn it into a proof?
-
 Nota che solo il prover ha accesso all’input privato. In che modo il prover utilizza la prover key, l’input privato e quello pubblico per generare una prova?
-
-Recall the illustration of a ZKP from before:
 
 Ricorda l’illustrazione precedente di una ZKP:
 
 ![ZKP](../assets/01_graphviz-zkp.png "ZKP")
 
-We have a special program (formally known as a _circuit_) that encodes the logic a user cares about. For example, proving that they know the data that results in a certain hash value. Unlike a normal computer program, this program is made up of _constraints_ [^34]. We are proving that all the constraints hold together with the private and public input.
+Abbiamo un programma speciale (formalmente chiamato _circuit_) che codifica la logica di interesse per l’utente. Per esempio, potrebbe dimostrare di conoscere i dati che generano un determinato valore di hash. Diversamente da un normale programma per computer, questo programma è composto da _vincoli_ (constraints) [^34]. La prova consiste nel dimostrare che tutti questi vincoli vengono soddisfatti insieme al dato input privato e pubblico.
 
-Abbiamo un programma speciale (formalmente chiamato _circuit_) che codifica la logica di interesse per l’utente. Per esempio, potrebbe dimostrare di conoscere i dati che generano un determinato valore di hash. Diversamente da un normale programma per computer, questo programma è composto da _vincoli_ (constraints) [^34]. La prova consiste nel dimostrare che tutti questi vincoli vengono soddisfatti insieme all’input privato e pubblico.
-
-Finally, the verifier takes this short proof, combines it with the verification key, public input and the special program with all the constraints and convinces itself beyond a reasonable doubt that the proof is correct and outputs "true". If it isn't correct it'll output "false".
-
-Alla fine, il verifier prende questa prova breve, la combina con la verification key, l’input pubblico e il programma speciale contenente tutti i vincoli, convincendosi _oltre ogni ragionevole dubbio_ che la prova sia corretta e restituisce come risultato "true". In caso contrario restituirà "false".
-
-This is a somewhat simplified view but it captures the essence of what is going on.
+Alla fine, il verifier unisce la prova, la verification key, l’input pubblico e il circuito di vincoli; se tutto torna _oltre ogni ragionevole dubbio_, restituisce "true", altrimenti "false".
 
 Questa visione è leggermente semplificata, ma coglie l’essenza di quello che sta accadendo.
 
-
-### Constraints
-
 ### Vincoli
 
-What are these constraints that make up the special program above? A constraint is a limitation or restriction. For example, "a number between 1 and 9" is a constraint. The number 7 satisfies this constraint, and the number 11 doesn't. How do we write a program as a set of constraints? This is an art on its own, but let's start by looking at a simple example: Sudoku.
-
 Cosa sono questi vincoli (constraints) che compongono il programma speciale di cui abbiamo parlato sopra? Un vincolo è una limitazione o una restrizione. Ad esempio, “un numero compreso tra 1 e 9” è un vincolo. Il numero 7 soddisfa questo vincolo, mentre il numero 11 no. Come si scrive un programma sotto forma di vincoli? Questa è una vera e propria arte, ma partiamo con un esempio semplice: il Sudoku.
-
-In the game of Sudoku the goal is to find a solution to a board that satisfies some constraints. Each row should include the numbers 1 to 9 but only once. The same goes for each column and each 3x3 subsquare. We are given some initial starting position, and then our job is to fill in the rest in a way that satisfies all these constraints. The tricky part is finding numbers that satisfy all the constraints at once.
 
 Nel Sudoku l’obiettivo è trovare una soluzione per una griglia che soddisfi alcuni vincoli. Ogni riga deve contenere i numeri da 1 a 9 esattamente una volta. Lo stesso vale per ogni colonna e per ciascun quadrante 3x3. Viene fornita una configurazione iniziale parziale e il nostro compito è completarla soddisfacendo tutti questi vincoli. La parte difficile sta nel trovare dei numeri che soddisfino contemporaneamente tutti i vincoli.
 
 ![Sudoku](../assets/01_sudoku.png "Rompicapo Sudoku")
 
-With ZKPs, a prover can construct a proof that they know the solution to a certain puzzle. In this case, the proving consists of using some public input, the initial board position, and some private input, their solution to the puzzle, and a circuit. The circuit consists of all the constraints that express the puzzle.
-
 Con le ZKPs, il prover può costruire una prova (proof) che dimostri di conoscere la soluzione di un determinato rompicapo. In questo caso, la dimostrazione utilizza come input pubblico la configurazione iniziale della griglia e come input privato la soluzione completa, insieme a un circuito (circuit). Il circuito è costituito da tutti i vincoli che esprimono le regole del rompicapo.
 
-It is called a circuit because these constraints are related to each other, and we wire these constraints together, kind of like an electric circuit. In this case the circuit isn't dealing with current, but with values. For example, we can't stick any value like "banana" in our row constraint, it has to be a number, and the number has to be between 1 and 9, and so on.
-
-Viene chiamato circuito perché questi vincoli sono correlati fra loro e vengono "collegati" insieme, un po’ come in un circuito elettrico. In questo caso il circuito non gestisce corrente elettrica, ma valori. Ad esempio, non possiamo inserire valori casuali come "banana" nel vincolo della riga: deve trattarsi di un numero e quel numero deve essere compreso tra 1 e 9.
-
-The verifier has the same circuit and public input, and can verify the proof the prover sent them. Assuming the proof is valid, the verifier is convinced that the prover has a solution to that specific puzzle.
+Viene chiamato circuito perché questi vincoli sono correlati fra loro e vengono "collegati" insieme, un po’ come in un circuito elettrico. In questo caso il circuito non gestisce corrente elettrica, ma valori. Ad esempio, non possiamo inserire valori arbitrari come “banana” nel vincolo di riga: deve essere un numero compreso fra 1 e 9.
 
 Il verifier possiede lo stesso circuito e lo stesso input pubblico e può verificare la prova ricevuta dal prover. Se la prova è valida, il verifier sarà convinto che il prover abbia realmente una soluzione al rompicapo.
 
-It turns out that a lot of problems can be expressed as a set of constraints. In fact, any problem we can solve with a computer can be expressed as a set of constraints.
-
 Risulta che molti problemi possano essere espressi come un insieme di vincoli. Infatti, qualsiasi problema risolvibile da un computer può essere espresso come un insieme di vincoli.
-
-
-### Sudoku example
 
 ### Esempio con il Sudoku
 
-Let's apply what we learned about the various parts of a ZKP to the Sudoku example above.
-
-Applichiamo ora quello che abbiamo imparato sulle diverse parti delle ZKPs all’esempio del Sudoku visto sopra.
-
-For Sudoku, our special program, the circuit, takes two inputs:
+Applichiamo ora quanto abbiamo imparato sulle varie componenti di una ZKP all’esempio del Sudoku.
 
 Per il Sudoku, il nostro programma speciale, ovvero il circuito, prende in ingresso due input:
 
-- A Sudoku puzzle as public input
-
 - Un puzzle Sudoku come input pubblico
-
-- A solution to a Sudoku puzzle as private input
-
 - Una soluzione al Sudoku come input privato
-
-The circuit is made up of a set of constraints. All of these constraints have to be true. The constraints look like this:
 
 Il circuito è composto da una serie di vincoli. Tutti questi vincoli devono essere soddisfatti contemporaneamente. I vincoli sono i seguenti:
 
-- All digits in the puzzle and solution have to be between 1 and 9
-
 - Tutte le cifre nel puzzle e nella soluzione devono essere comprese tra 1 e 9
-
-- The solution has to be equal to the puzzle in all the places where digits are already placed
-
 - La soluzione deve corrispondere al puzzle in tutti i punti in cui le cifre erano già state inserite
-
-- All rows must contain digits 1 through 9 exactly once
-
 - Tutte le righe devono contenere le cifre da 1 a 9 esattamente una volta
-
-- All columns must contain digits 1 through 9 exactly once
-
 - Tutte le colonne devono contenere le cifre da 1 a 9 esattamente una volta
-
-- All subsquares must contain digits 1 through 9 exactly once
-
 - Tutti i quadranti devono contenere le cifre da 1 a 9 esattamente una volta
-
-If all of these constraints are true for a puzzle and its solution, we know that it is a valid solution.
 
 Se tutti questi vincoli sono soddisfatti per un puzzle e la sua soluzione, sappiamo che la soluzione è valida.
 
-A prover Peggy uses her magic prover key, the puzzle and the solution, combines it with the special program and creates a proof. The proof is very short, less than 1000 characters. The proof is self-contained and with it the verifier has all information they need to verify the proof. You can think of it as a magic spell that does what you want, without you having to understand the details of it [^35].
-
-Una dimostratrice (prover) chiamata Peggy utilizza la sua magica prover key, il puzzle e la soluzione, li combina con il programma speciale e crea una prova (proof). La prova è molto breve, meno di 1000 caratteri. È autosufficiente e contiene tutte le informazioni necessarie al verificatore (verifier) per poterla controllare. Puoi pensarla come una formula magica che fa esattamente quello che desideri, senza che tu debba comprenderne i dettagli [^35].
-
-Here's a spell from a book of magic spells, written by a Welsh physician in the 19th century:
+Una dimostratrice (prover) chiamata Peggy usa la sua prover key, il puzzle e la soluzione, li combina con il circuito speciale e genera una prova (proof). La prova è brevissima, meno di 1000 caratteri, ed è autosufficiente: contiene tutto ciò che serve al verificatore (verifier) per controllarla. Puoi pensarla come una formula magica che fa esattamente ciò che desideri, senza che tu debba capirne i dettagli [^35].
 
 Ecco una formula magica tratta da un libro di incantesimi, scritto da un medico gallese nel XIX secolo:
 
 ![Magic spell](../assets/01_magic-spell.png "Formula magica")
 
-Here's an example of a Zero Knowledge Proof produced by the Circom/snarkjs library:
-
 Ecco invece un esempio reale di Zero Knowledge Proof generata dalla libreria Circom/snarkjs:
 
 ![Circom proof](../assets/01_circom-proof.png "Prova generata con Circom")
 
-Except in this case, the magic actually works.
-
 Solo che in questo caso, la magia funziona davvero.
 
-Victor the verifier uses his verifier key, the original puzzle input, and verifies that the proof Peggy sent is indeed correct. If it is, the output is "true", and if it isn't, the output is "false". The spell either works or it doesn't. With this, Victor is convinced that Peggy knows a solution to that specific puzzle, without actually having seen the solution. Et voilà. [^36]
-
-Victor, il verificatore, usa la sua verifier key e il puzzle originale per verificare che la prova inviata da Peggy sia effettivamente corretta. Se lo è, il risultato (output) sarà "true", altrimenti sarà "false". La formula magica funziona o non funziona, non c’è via di mezzo. In questo modo, Victor è convinto che Peggy conosca la soluzione del puzzle, pur non avendola mai effettivamente vista. Et voilà. [^36]
-
-
-### Some properties
+Victor, il verificatore, usa la sua verifier key e il puzzle originale per controllare che la prova inviata da Peggy sia corretta. Se lo è, l’output sarà true; altrimenti false. La magia o funziona o non funziona, non c’è via di mezzo. Così Victor è certo che Peggy conosce la soluzione a quel specifico problema, senza averla mai vista. Et voilà [^36]
 
 ### Alcune proprietà
 
-We say that a ZKP has certain technical properties:
-
 Diciamo che una ZKP possiede alcune proprietà tecniche fondamentali:
 
-- Completeness - if the statement is true, then the verifier will be convinced by the proof
-
 - Completezza (Completeness): se l’asserzione è vera, allora il verifier sarà convinto dalla prova.
-
-- Soundness - if the statement is false, the verifier won't be convinced by the proof, except with a negligible probability
-
 - Solidità (Soundness): se l’asserzione è falsa, il verifier non sarà convinto dalla prova, tranne che con una probabilità trascurabile.
-
-- Zero Knowledge - if the statement is true, it won't reveal anything but the fact that it is true
-
 - Conoscenza zero (Zero Knowledge): se l’asserzione è vera, non verrà rivelato nulla oltre al fatto che sia vera.
 
-Additionally, for zk-SNARKs, the proof is succinct, meaning it basically doesn't get bigger as the program gets more complex [^37].
-
-Inoltre, nel caso degli zk-SNARK, la prova è succinta (succinct), il che significa che praticamente non aumenta di dimensione anche quando il programma diventa più complesso [^37].
-
-There are many other properties we care about when it comes to practical ZKPs:
+Inoltre, nel caso degli zk-SNARKs, la prova è succinta (succinct), il che significa che non aumenta di dimensione anche quando il programma diventa più complesso [^37].
 
 Ci sono anche altre proprietà che consideriamo importanti nel caso pratico delle ZKPs:
 
-- What mathematical assumptions is the system making?
-
 - Quali ipotesi matematiche fa il sistema?
-
-- How secure is it?
-
 - Quanto è sicuro?
-
-- Does it require a trusted setup?
-
 - Richiede una trusted setup (fase iniziale fidata per generare parametri di sistema)?
-
-- How hard is it to generate the proof? In time and other resources
-
 - Quanto è complesso generare la prova, in termini di tempo e risorse?
-
-- How hard is it to verify the proof? In time and other resources
-
 - Quanto è complesso verificare la prova, in termini di tempo e risorse?
-
-- Does the ZKP system allow for aggregating and combining multiple proofs together?
-
 - Il sistema ZKP permette di aggregare o combinare più prove tra loro?
-
-- Are there any good libraries for a ZKP system that can be used by programmers?
-
 - Esistono buone librerie per un determinato sistema ZKP che possono essere usate dagli sviluppatori?
-
-- How expressive is the language used to write programs for a particular ZKP system?
-
 - Quanto è espressivo il linguaggio utilizzato per scrivere programmi per un determinato sistema ZKP?
-
-- And so on
-
 - E così via.
 
-As you can see, there are quite a lot of considerations and different variations of ZKPs. Don't worry though, the gist is basically the same, and depending on where your interest lies you can remain blissfully unaware of many of the technical details involved. Going back to the zoo metaphor, just like with animals, you might not want to become a biologist. Instead, you might want to work with some animals, or maybe you just want a pet, or even just pet your friend's dog.
-
-Come puoi vedere, ci sono molte considerazioni da fare e numerose varianti di ZKP. Non preoccuparti troppo, però: il concetto di base rimane sempre lo stesso, e a seconda dei tuoi interessi puoi tranquillamente ignorare molti dettagli tecnici. Tornando alla metafora dello zoo, proprio come con gli animali, potresti non voler diventare un biologo. Magari vorrai semplicemente lavorare con alcuni animali, oppure adottarne uno come animale domestico, o magari soltanto accarezzare il cane di un tuo amico.
+Come puoi vedere, ci sono molte considerazioni da fare e numerose varianti di ZKPs. Non preoccuparti troppo però, perchè il concetto di base rimane sempre lo stesso, e a seconda dei tuoi interessi puoi tranquillamente ignorare molti dettagli tecnici. Tornando alla metafora dello zoo, non è necessario diventare biologi, potresti voler lavorare solo con alcuni animali, adottarne uno oppure semplicemente accarezzare il cane di un amico.
 
 ## Applications
 
