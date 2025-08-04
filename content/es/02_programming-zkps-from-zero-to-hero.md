@@ -4,10 +4,12 @@ date: '2025-07-23'
 tags: ['zero-knowledge']
 draft: false
 layout: PostSimple
-slug: "/es/programming-zkps-from-zero-to-hero"
+slug: "programming-zkps-from-zero-to-hero"
 images: [../assets/02_combined.png']
 summary: "Aprende a escribir y modificar pruebas de conocimiento cero desde cero. Construirás un esquema de firma digital usando compromisos basados en hash, adquiriendo habilidades prácticas e intuición en programación de ZKP. Al final, tendrás todas las herramientas necesarias para implementar cosas como firmas grupales."
 ---
+
+_Este artículo fue traducido por Gelois, Alex y Yago Pajariño_
 
 
 _Una introducción práctica para programadores en ejercicio._
@@ -17,8 +19,7 @@ _Una introducción práctica para programadores en ejercicio._
 A los humanos también les gusta esconderse en la multitud. Un ejemplo específico es cuando varias personas actúan como una sola bajo un nombre colectivo. Esto se hizo en los Federalist Papers que llevaron a la ratificación de la Constitución de Estados Unidos. Varios individuos escribieron ensayos bajo el seudónimo único "Publius". [^2] Otro ejemplo es Bourbaki, un seudónimo colectivo para un grupo de matemáticos franceses en los años 30. Esto llevó a una reescritura completa de grandes partes de las matemáticas modernas, enfocándose en el rigor y el método axiomático. [^3]
 
 
-
-![02_bourbaki](https://hackmd.io/_uploads/Hk1EN8N8lg.png)
+![Bourbaki Congress](../assets/02_bourbaki.png 'Bourbaki Congress')
 
 
 *_Congreso de Bourbaki en 1938_*
@@ -195,7 +196,7 @@ La línea más importante es `c <== a * b;`. Aquí es donde realmente declaramos
 
 Podemos visualizar el circuito de la siguiente manera:
 
-![02_example1_circuit](https://hackmd.io/_uploads/HkYWCqAIll.png)
+![example1 circuit](../assets/02_example1_circuit.png 'example1 circuit')
 
 ### Construyendo nuestro circuito
 
@@ -245,7 +246,7 @@ Con los artefactos que generamos arriba, podemos realizar una _configuración co
 
 El Trust Setup es un proceso que se ejecuta una sola vez como paso previo. Esto genera lo que se llama una _Cadena de Referencia Común_ (CRS, por sus siglas en inglés), que consiste en una _clave de prueba_ (proving key) y una _clave de verificación_ (verification key). Estas claves se usan cada vez que queremos generar y verificar pruebas, respectivamente.
 
-![02_example1_setup1](https://hackmd.io/_uploads/BkYuei0Iex.png)
+![Trusted setup](../assets/02_example1_setup1.png 'Trusted setup')
 
 ¿Por qué necesitamos estas claves y quién debería tener acceso a ellas? La clave del demostrador contiene toda la información necesaria para poder generar una prueba que preserve el conocimiento cero para ese circuito específico. De manera similar, la clave del verificador contiene toda la información necesaria para verificar que la prueba es correcta. Estas no son claves privadas, sino información que puede y debe distribuirse públicamente. Cualquier parte que necesite generar o verificar una prueba debería tener acceso a ellas. [^14]
 
@@ -255,7 +256,7 @@ Como punto de partida, vamos a ejecutar la trusted setup nosotros mismos. Ejecut
 
 `just trusted_setup example1`
 
-![02_example1_setup2](https://hackmd.io/_uploads/rJY5boRLex.png)
+![example1 trusted setup](../assets/02_example1_setup2.png 'example1 trusted setup')
 
 Se te pedirá proporcionar texto aleatorio o entropía dos veces. [^16] Una vez completado, deberías ver "Trusted setup completed." y la ubicación de las claves. El archivo que termina en `.zkey` es nuestra clave de prueba（proving key）. Aunque entrar en detalles sobre trusted setups está fuera del alcance de este artículo, hay algunas cosas importantes que conviene conocer.
 
@@ -286,7 +287,7 @@ Podemos crear una prueba usando nuestro circuito compilado (en forma WASM), nues
 
 `just generate_proof example1`
 
-![02_example1_generate_proof](https://hackmd.io/_uploads/HyhLNjCUex.png)
+![example1 generate proof](../assets/02_example1_generate_proof.png 'example1 generate proof')
 
 En esencia, este comando toma la entrada y genera un _testigo_ para nuestro circuito específico. [^18] Normalmente, por testigo simplemente entendemos la entrada privada que usamos para generar una prueba. En el contexto de Circom, un testigo es la asignación completa de todas las señales, tanto privadas como públicas, en una forma que el software del demostrador pueda procesar. Esta forma es una representación interna en formato binario. [^19]
 
@@ -330,7 +331,7 @@ A continuación, verifiquemos esta prueba. Ejecutá:
 
 `just verify_proof example1`
 
-![02_example1_verify_proof](https://hackmd.io/_uploads/r1xiLs08xl.png)
+![example1 verify proof](../assets/02_example1_verify_proof.png 'example1 verify proof')
 
 Esto toma la clave de verificación（verification key）, la salida pública y la prueba. Con eso, podemos verificar la prueba. Debería imprimirse "Proof verified". Notá cómo el verificador nunca accede a las entradas privadas.
 
@@ -409,7 +410,7 @@ Con Circom y Groth16, cada vez que modificamos nuestro circuito tenemos que volv
 
 Más específicamente, solo tenemos que volver a correr la parte específica del circuito (fase 2) del trusted setup. Esto se debe a que la fase 1 es genérica para _cualquier_ circuito Groth16 escrito en Circom, hasta cierto tamaño. Cuando hicimos el trusted setup antes, corrimos ambas fases, pero omitimos los detalles de la fase 1 para simplificar. Acá te dejo más detalles de la fase 1 para que tengas una imagen más completa.
 
-![02_example2_setup_both](https://hackmd.io/_uploads/Hkp2tsCLxe.png)
+![Trusted setup (both phases)](../assets/02_example2_setup_both.png 'Trusted setup (both phases)')
 
 El resultado de la fase 1 del trusted setup se guarda en un archivo `.ptau`, donde ptau significa powers of tau (potencias de tau). [^29] Matemáticamente, este archivo contiene potencias de algunos secretos aleatorios. Esto es lo que nos permite "alojar" cierta cantidad de restricciones. No hace falta entender cómo funciona matemáticamente, pero hay dos datos clave que conviene saber: (a) `.ptau` es independiente del circuito (b) su tamaño indica su capacidad. La "capacidad" de un ptau dado es `2^n - 1` restricciones, donde `n` es un número. Por ejemplo, `pot12.ptau` indica que puede alojar `2^12 - 1`, un poco más de 4000 restricciones.
 
@@ -419,8 +420,7 @@ Como no queremos volver a correr la fase 1, solo ejecutamos la fase 2. Esta usar
 just trusted_setup_phase2 example2
 ```
 
-![02_example2_setup2](https://hackmd.io/_uploads/Hyp-qo0Lgg.png)
-
+![example2 trusted setup](../assets/02_example2_setup2.png 'example2 trusted setup')
 
 ### Probando nuestros cambios
 
@@ -438,7 +438,7 @@ Si cambiamos las entradas en `example2/input.json` a, por ejemplo, `1` y `33` y 
 
 Ahora que hemos recorrido todo el flujo dos veces, demos un paso atrás y veamos cómo encajan todas las piezas.
 
-![02_example2_complete_flow](https://hackmd.io/_uploads/HyGfoo0Ulg.png)
+![example2 complete flow](../assets/02_example2_complete_flow.png 'example2 complete flow')
 
 Esperamos que las cosas estén empezando a tener sentido. Con eso, vamos a subir el nivel y hacer nuestro circuito más útil.
 
@@ -466,7 +466,7 @@ Un esquema de firma digital consta de las siguientes partes:
 - **Verificación de la firma**: Verificar que el mensaje fue firmado con la clave pública correspondiente
 - 
 Aunque los detalles parezcan diferentes, el programa que escribimos y el algoritmo de generación de claves comparten un elemento común: ambos usan una _función unidireccional_, y más específicamente una _función con trampa_. Una trampa es algo en lo que es fácil caer y difícil salir (a menos que puedas encontrar una escalera oculta). [^30]
-![02_example3_trapdoor](https://hackmd.io/_uploads/ry_9k3AUgl.png)
+![example3 trapdoor](../assets/02_example3_trapdoor.png 'example3 trapdoor')
 
 En la criptografía de clave pública, es fácil construir la clave pública a partir de la clave privada, pero muy difícil hacerlo al revés. Lo mismo ocurre con nuestro programa anterior. Si los dos números secretos son números primos muy grandes, es muy difícil convertir ese producto nuevamente en los valores originales. La criptografía de clave pública moderna a menudo utiliza _criptografía de curva elíptica_ en segundo plano.
 
@@ -474,7 +474,7 @@ Tradicionalmente, crear protocolos criptográficos como estos esquemas de firma 
 
 En lugar de esto: [^31]
 
-![02_example3_sigverify](https://hackmd.io/_uploads/H1Wkg3RIxl.png)
+![Signature verification](../assets/02_example3_sigverify.png 'Signature verification')
 
 
 Solo queremos escribir un programa, generar una prueba（proof）de lo que queremos, y luego verificar esa prueba.
@@ -510,16 +510,15 @@ Esto nos da dos propiedades clave:
 - **binding**: no puedes cambiar de opinión sobre el valor
 
 Una forma de entender un compromiso es imaginar que le das una caja fuerte a un amigo. No puedes cambiar el contenido de la caja después, pero tu amigo no puede mirar dentro. Solo cuando le das la llave puede abrirla.
-![02_example3_lockbox](https://hackmd.io/_uploads/HyVWX2AIle.png)
-
+![example3 lockbox](../assets/02_example3_lockbox.png 'example3 lockbox')
 
 Volviendo a nuestro esquema de firma digital, tenemos:
 
-- Key generation: Crear una cadena secreta y hacerle hash para crear un compromiso
+- **Key generation**: Crear una cadena secreta y hacerle hash para crear un compromiso
 
-- Signing: Crear una firma haciendo hash del secreto junto con el mensaje
+- **Signing**: Crear una firma haciendo hash del secreto junto con el mensaje
 
-- Verification: Verificar la prueba usando el compromiso, mensaje y firma (salida pública)
+- **Verification**: Verificar la prueba usando el compromiso, mensaje y firma (salida pública)
 
 En pseudo-código, esto es lo que queremos hacer en nuestro circuito:
 
@@ -600,7 +599,7 @@ Al compilar el circuito, puede que notes que la cantidad de restricciones aument
 
 Como referencia, aquí hay una ilustración de nuestro circuito completado:
 
-![02_example3_circuit](https://hackmd.io/_uploads/Hyl6S20Ugx.png)
+![example3 circuit](../assets/02_example3_circuit.png 'example3 circuit')
 
 Ahora podemos generar una prueba. Tenemos la siguiente entrada en `example3/input.json`:
 
@@ -696,6 +695,7 @@ Espero que hayas desarrollado un mejor modelo mental de lo que implica escribir 
 ## Agradecimientos
 Gracias a Hanno Cornelius, Marc Köhlbrugge, Michelle Lai, lenilsonjr y Chih-Cheng Liang por leer los borradores y brindar retroalimentación sobre esto.
 
+Gracias a [Alex](https://x.com/padimaster), [Gelois](https://x.com/Gelois_0) y [Yago Pajariño](https://x.com/0xyago) por la traducción de este artículo.
 
 ### Imágenes 
 - _Congreso Bourbaki 1938_ - Desconocido, dominio público, vía [Wikimedia](https://commons.wikimedia.org/wiki/File:Bourbaki_congress1938.png)
