@@ -13,7 +13,8 @@ See [zkintro.com](https://zkintro.com)
 │   ├── en/          # English content
 │   ├── pt-br/       # Portuguese (Brazilian) content
 │   ├── es/          # Spanish content
-│   └── zh-tw/       # Traditional Chinese (Taiwan) content
+│   ├── zh-tw/       # Traditional Chinese (Taiwan) content
+|   └── it/          # Italian content
 └── site/            # Next.js frontend
 ```
 
@@ -64,6 +65,7 @@ The site supports locale-aware routing:
 * `/pt-br` – Português do Brasil
 * `/es` – Español
 * `/zh-tw` – 繁體中文
+* `/it` – Italian
 
 ### Add a new language
 1. Create `content/<locale>/` and add Markdown files with the **same filenames** as English.
