@@ -5,11 +5,11 @@ tags: ['zero-knowledge']
 draft: false
 layout: PostSimple
 slug: "programming-zkps-from-zero-to-hero"
-images: [../assets/02_combined.png']
+images: ['../assets/02_combined.png']
 summary: "學習從零開始撰寫和修改 Zero Knowledge Proof！你會用 hash-based commitment 實作一個數位簽章系統，整個過程會幫助你建立對 ZKP 的直覺和實作能力。到最後，你會有足夠的工具可以實作像是 group signatures 這類的東西。"
 ---
 
-本文由 Nicole、PinHao 和 Anton 翻譯
+*本文由 Nicole、PinHao 和 Anton 翻譯*
 
 _給程式開發者的學習教材。_
 
@@ -208,7 +208,7 @@ just build example1
 
 這是一個輕量的 wrap，用來呼叫 `circom` 來建立一個 `example1.r1cs` 和 `example1.wasm` 檔案。你應該會看到類似以下的輸出：
 
-```shell=
+```shell
 template instances: 1
 non-linear constraints: 1
 linear constraints: 0
@@ -630,7 +630,7 @@ just verify_proof example3
 
 恭喜你，你現在已經學會如何編寫密碼學程式了！[^39]
 
-### Exercise
+### 練習
 9. 數位簽章機制的三個組成部分是什麼？
 10. 使用像 Poseidon 這樣的「ZK 友善雜湊函數」的目的是什麼？
 11. 什麼是承諾？我們如何將它們用於數位簽章機制？
@@ -660,7 +660,7 @@ just verify_proof example3
 
 使用傳統工具創建像這樣的密碼學協議會是一項艱鉅的任務，需要大量專業知識。[^42] 而借助零知識證明，你可以在短時間內快速上手並實現，將這些複雜問題轉化為程式設計任務來處理。而這還只是我們能實現的冰山一角。
 
-### Exercises
+### 練習題
 
 15. 相較於一般簽章，群簽章能做什麼？它們可以如何被使用？
 
@@ -682,20 +682,20 @@ just verify_proof example3
 
 我希望你對於撰寫 ZKP 涉及的內容已經建立了一個更好的心智模型，並且對於編輯-執行-除錯的循環在實務中是什麼樣子有了更好的感覺。無論你使用哪種技術，這都會為你未來編寫的任何其他 ZKP 程式奠定良好的基礎。
 
-## Acknowledgements
+## 致謝
 
 感謝 Hanno Cornelius、Marc Köhlbrugge、Michelle Lai、lenilsonjr 與 Chih-Cheng Liang 閱讀初稿並提供寶貴建議。
 
 感謝 Nicole、PinHao 和 Anton 協助翻譯。
 
-### Images
+### 圖片來源
 
 - _Bourbaki Congress 1938_ - Unknown, Public domain, via [Wikimedia](https://commons.wikimedia.org/wiki/File:Bourbaki_congress1938.png)
 - _Hartmann's Zebras_ - J. Huber, CC BY-SA 2.0, via [Wikimedia](https://commons.wikimedia.org/wiki/File:Hartmann_zebras_hobatereS.jpg)
 - _Trapdoor Spider_ - P.S. Foresman, Public domain, via [Wikimedia](<https://commons.wikimedia.org/wiki/File:Trapdoor_(PSF).png>)
 - _Kingsley Lockbox_ - P.S. Foresman, Public domain, via [Wikimedia](https://commons.wikimedia.org/wiki/File:Kingsley_lockbox.jpg)
 
-## References
+## 參考資料
 
 [^1]: While illustrative as a metaphor, this is just one of several theories. If you are curious, check out https://en.wikipedia.org/wiki/Zebra#Function.
 [^2]: See [Federalist Papers (Wikipedia)](https://en.wikipedia.org/wiki/The_Federalist_Papers#Authorship).

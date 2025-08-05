@@ -1,14 +1,15 @@
-title: '零知識入門指南（A Friendly Introduction to Zero Knowledge）'
+---
+title: '零知識入門指南'
 date: '2023-07-17'
-tags: \['zero-knowledge']
+tags: ['zero-knowledge']
 draft: false
 layout: PostSimple
 slug: "friendly-introduction-to-zero-knowledge"
-images: \['../assets/01\_zkp-magic.png']
+images: ['../assets/01_zkp-magic.png']
 summary: "零知識證明就像魔法，讓我們能做到過去想都沒想過的事。本篇文章將介紹為何你應該關注 ZKP、它們的運作方式，以及它們的應用場景。"
 ---
 
-本文由 Nicole、PinHao 和 Anton 翻譯
+*本文由 Nicole、PinHao 和 Anton 翻譯*
 
 ![ZKP 魔法](../assets/01_zkp-magic.png "ZKP Magic")
 
@@ -339,11 +340,11 @@ ZKP 類型眾多，我們常提到 zk-SNARK，全名 Zero Knowledge Succinct Non
 
 證明者 Peggy 使用她神奇的證明者金鑰（prover key），搭配謎題與解答，與這個特殊的程式結合後產生一份證明。這份證明非常短，少於一千個字元。它包含了完成任務所需的所有資源（self-contained）的，也就是說驗證者拿到這份證明後就擁有了驗證所需的一切資訊。你可以把它想像成一個魔法咒語，它會幫你完成任務，而你不需要理解它背後的所有細節 [^35]。
 
-[Magic spell](../assets/01_magic-spell.png 'Magic Spells')
+![Magic spell](../assets/01_magic-spell.png 'Magic Spells')
 
 以下是由 Circom/snarkjs 套件所產生的一個零知識證明（ZKP）範例：
 
-[Circom proof](../assets/01_circom-proof.png 'Circom proof')
+![Circom proof](../assets/01_circom-proof.png 'Circom proof')
 
 而在這個例子裡，這份「魔法」是真的有效的。
 
@@ -383,7 +384,7 @@ ZKP 的應用非常多樣。整體來說，目前仍處於早期階段，主要�
 > 
 > - William Gibson [^38]
 
-[ZKP Magic](../assets/01_zkp-magic.png 'ZKP Magic')
+![ZKP Magic](../assets/01_zkp-magic.png 'ZKP Magic')
 
 
 ### 已上線的應用
@@ -459,6 +460,7 @@ _本節將總結本文內容，並提供後續方向_
 ## 致謝
 
 感謝 Michelle Lai、Chih-Cheng Liang、Jenny Lin、Anna Lindegren 與 Eve Ko 閱讀初稿並提供寶貴建議。
+
 感謝 Nicole、Pinhao、Anton 協助翻譯。
 
 ### 圖片來源

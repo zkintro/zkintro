@@ -1,4 +1,4 @@
-export const LOCALES = ['en', 'pt-br']
+export const LOCALES = ['en', 'pt-br', 'es', 'zh-tw']
 export const DEFAULT_LOCALE = 'en'
 
 /** Return locale if first segment matches, else default */

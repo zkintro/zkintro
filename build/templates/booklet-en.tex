@@ -1,0 +1,159 @@
+\documentclass{report}
+
+% Required packages
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+
+% Configure hyperref for black links
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black
+}
+
+% Set page geometry
+% \geometry{paperwidth=148mm, paperheight=210mm, margin=0.5in, top=0.5in, bottom=0.75in}
+\geometry{
+    paperwidth=148mm,
+    paperheight=210mm,
+    top=15mm,
+    bottom=20mm,
+    left=15mm,
+    right=15mm,
+    footskip=15mm
+}
+% Set page geometry for A5 booklet printing
+% \geometry{
+%     paperwidth=148mm,
+%     paperheight=210mm,
+%     top=20mm,        % ~0.79in
+%     bottom=25mm,     % ~0.98in
+%     left=20mm,       % ~0.79in
+%     right=20mm,      % ~0.79in
+%     footskip=15mm    % Space for page numbers
+% }
+
+
+% Use fancyvrb's Verbatim environment for highlighting
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+    commandchars=\\\{\},
+    fontsize=\scriptsize,
+    frame=single,
+    framesep=2mm,
+    baselinestretch=1.2,
+    xleftmargin=4mm
+}
+
+% We don't redefine \begin{Shaded} here. It's effectively empty.
+\newenvironment{Shaded}{}{}
+
+% Code highlighting - define all token types including numeric ones
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\KeywordTok}[1]{\textbf{#1}}
+\newcommand{\DataTypeTok}[1]{#1}
+\newcommand{\DecValTok}[1]{#1}
+\newcommand{\BaseNTok}[1]{#1}
+\newcommand{\FloatTok}[1]{#1}
+\newcommand{\IntegerTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textit{#1}}
+\newcommand{\StringTok}[1]{#1}
+\newcommand{\CharTok}[1]{#1}
+\newcommand{\NumberTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{#1}
+\newcommand{\FunctionTok}[1]{#1}
+\newcommand{\ControlFlowTok}[1]{#1}
+\newcommand{\OtherTok}[1]{#1}
+\newcommand{\AlertTok}[1]{\textbf{#1}}
+\newcommand{\ErrorTok}[1]{\textbf{#1}}
+\newcommand{\ConstantTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{#1}
+\newcommand{\VerbatimStringTok}[1]{#1}
+\newcommand{\SpecialStringTok}[1]{#1}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\DocumentationTok}[1]{#1}
+\newcommand{\AnnotationTok}[1]{#1}
+\newcommand{\CommentVarTok}[1]{#1}
+\newcommand{\VariableTok}[1]{#1}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\AttributeTok}[1]{#1}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{#1}
+\newcommand{\WarningTok}[1]{#1}
+\newcommand{\pandocbounded}[1]{#1}
+
+% Define \tightlist command that Pandoc needs
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Configure float parameters
+\setcounter{topnumber}{2}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\textfraction}{0.15}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.65}
+\renewcommand{\floatpagefraction}{0.60}
+
+% Make sure images don't overflow
+\makeatletter
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+
+% Set title, author from metadata
+$if(title)$
+\title{$title$}
+$endif$
+$if(author)$
+\author{$author$}
+$endif$
+
+% Simple title page with line break
+\def\maketitle{
+  \begin{titlepage}
+    \begin{center}
+    \vspace*{3cm}
+    {\LARGE\let\\\relax
+    $title$\par}
+    \end{center}
+  \end{titlepage}
+  \newpage
+}
+\makeatother
+
+% Set paragraph spacing instead of indentation
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+% Adjust section numbering to start from 1
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+\renewcommand{\thesection}{\arabic{section}}
+
+\begin{document}
+
+\maketitle
+
+% Include prelude content
+\input{build/templates/prelude}
+\newpage
+
+% Table of Contents
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+$body$
+
+\end{document}

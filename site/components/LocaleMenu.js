@@ -15,6 +15,10 @@ const LocaleMenu = () => {
             const path = window.location.pathname
             if (path.startsWith('/pt-br')) {
                 setCurrentLocale('pt-br')
+            } else if (path.startsWith('/es')) {
+                setCurrentLocale('es')
+            } else if (path.startsWith('/zh-tw')) {
+                setCurrentLocale('zh-tw')
             } else {
                 setCurrentLocale('en')
             }
@@ -40,7 +44,9 @@ const LocaleMenu = () => {
 
     const languages = {
         'en': 'English',
-        'pt-br': 'Português do Brasil'
+        'pt-br': 'Português do Brasil',
+        'es': 'Español',
+        'zh-tw': '繁體中文'
     }
 
     const switchLanguage = (newLocale) => {
@@ -49,16 +55,20 @@ const LocaleMenu = () => {
         const currentPath = window.location.pathname
         let newPath
 
-        if (newLocale === 'en') {
-            // Switch to English: remove /pt-br prefix
-            newPath = currentPath.replace(/^\/pt-br/, '') || '/'
-        } else {
-            // Switch to Portuguese: add /pt-br prefix
-            if (currentPath.startsWith('/pt-br')) {
-                newPath = currentPath // Already PT-BR
-            } else {
-                newPath = '/pt-br' + (currentPath === '/' ? '' : currentPath)
+        // Remove current locale prefix
+        let basePath = currentPath
+        for (const locale of ['pt-br', 'es', 'zh-tw']) {
+            if (basePath.startsWith(`/${locale}`)) {
+                basePath = basePath.substring(`/${locale}`.length) || '/'
+                break
             }
+        }
+
+        // Add new locale prefix (except for English)
+        if (newLocale === 'en') {
+            newPath = basePath
+        } else {
+            newPath = `/${newLocale}${basePath === '/' ? '' : basePath}`
         }
 
         setIsOpen(false)

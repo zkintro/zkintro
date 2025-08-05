@@ -5,11 +5,11 @@ import { PageSEO } from '@/components/SEO'
 export const POSTS_PER_PAGE = 5
 
 export async function getStaticProps() {
-    // Get all PT-BR posts
+    // Get all ES posts
     const { slugs, load } = await import('@/lib/posts')
-    const postSlugs = slugs('pt-br')
+    const postSlugs = slugs('es')
     const posts = postSlugs.map(slug => {
-        const post = load('pt-br', slug)
+        const post = load('es', slug)
         return {
             ...post.front,
             slug: slug
@@ -25,7 +25,7 @@ export async function getStaticProps() {
     return { props: { initialDisplayPosts, posts, pagination } }
 }
 
-export default function PtBrArticles({ posts, initialDisplayPosts, pagination }) {
+export default function EsArticles({ posts, initialDisplayPosts, pagination }) {
     return (
         <>
             <PageSEO title={`Articles - ${siteMetadata.author}`} description={siteMetadata.description} />
@@ -33,8 +33,8 @@ export default function PtBrArticles({ posts, initialDisplayPosts, pagination })
                 posts={posts}
                 initialDisplayPosts={initialDisplayPosts}
                 pagination={pagination}
-                title="All Posts (PT-BR)"
-                locale="pt-br"
+                title="All Posts (Español)"
+                locale="es"
             />
         </>
     )
