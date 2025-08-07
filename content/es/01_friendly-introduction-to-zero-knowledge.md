@@ -43,11 +43,11 @@ Tecnología mágica, avance civilizatorio, cartas breves, privacidad y un futuro
 
 Durante el último siglo, las computadoras e Internet se adueñaron del mundo. Estas tecnologías están en todas partes, en todo lo que hacemos, para bien o para mal. Sobre ellas construimos plataformas, empresas, imperios. Hablamos de cosas como MAMAA (Microsoft, Apple, Meta, Alphabet, Amazon). Luego está el núcleo de la bestia: redes de pago, servicios gubernamentales y una infinidad de aplicaciones B2B que operan el mundo en silencio. Y por último, una larga cola de otras cosas: tu app de filtros de fotos, la plataforma para aprender idiomas o esa comunidad online.
 
-Cuando usás un servicio online, esperás lograr un objetivo específico. Puede ser algo chico, como hablar con una amiga, distraerte del trabajo, o algo más importante, como solicitar una hipoteca. Pero ¿qué pasa con todos esos datos? Incluye tanto los datos que sabés que estás compartiendo como ese iceberg oculto del que no tenés idea. ¿Se cumplirá tu objetivo o algo fallará —ya mismo o dentro de un año?
+Cuando usas un servicio online, esperas lograr un objetivo específico. Puede ser algo chico, como hablar con una amiga, distraerte del trabajo, o algo más importante, como solicitar una hipoteca. Pero ¿qué pasa con todos esos datos? Incluye tanto los datos que sabes que estás compartiendo como ese iceberg oculto del que no tienes idea. ¿Se cumplirá tu objetivo o algo fallará —ya mismo o dentro de un año?
 
 ¿Quién entiende realmente estos sistemas y las consecuencias de cómo los usamos? ¿Y de cómo ellos, a su vez, nos usan a nosotros? Aunque algunas personas entienden algunos sistemas mejor que otras, nadie comprende todo el panorama, y mucho menos cómo esas partes interactúan entre sí para generar consecuencias inesperadas.
 
-¿Qué puede hacer una persona? Confiar. Pero ¿en quién confiás? ¿Y por qué?
+¿Qué puede hacer una persona? Confiar. Pero ¿en quién confias? ¿Y por qué?
 
 Este es un problema difícil. Nuestro cerebro humano no evolucionó para lidiar con esto. Internet, por más increíble que sea para conectarnos y facilitarnos la vida, trajo bastante desorden en este aspecto. Antes, cuando tenías una conversación privada con alguien, el viento se llevaba tus palabras. Si te quedabas fuera de tu casa, podías llamar a un cerrajero o romper la cerradura. ¿Pero a quién recurres cuando te bloquean la cuenta de Google y solo ves una pantalla que dice "Access denied"? A nadie. Estás frente a un castillo invisible e impenetrable.
 
@@ -59,13 +59,13 @@ _Esta sección introduce el concepto de una Zero Knowledge Proof_
 
 Este es el primero de una serie de artículos sobre las pruebas de conocimiento cero（Zero Knowledge Proofs）y sus aplicaciones. Vamos a ver qué son, por qué importan, cómo funcionan y dónde se pueden aplicar.
 
-Imaginá que vas a un bar y podés probar que sos mayor de 18 años sin mostrar nada más, ni siquiera tu documento con datos personales. O que podés demostrar que pagaste tus impuestos correctamente, sin revelar a nadie los detalles de tus ingresos o patrimonio. Estas son las cosas que permiten las pruebas de conocimiento cero（ZKPs）. El término _conocimiento cero_ significa simplemente que no se revela más información que la necesaria.
+Imagina que vas a un bar y puedes probar que eres mayor de 18 años sin mostrar nada más, ni siquiera tu documento con datos personales. O que puedes demostrar que pagaste tus impuestos correctamente, sin revelar a nadie los detalles de tus ingresos o patrimonio. Estas son las cosas que permiten las pruebas de conocimiento cero（ZKPs）. El término _conocimiento cero_ significa simplemente que no se revela más información que la necesaria.
 
 Las ZKPs te permiten probar algo sin revelar nada más que el hecho de que la declaración es verdadera.
 
 ¿Qué significa esto? Tomemos el ejemplo clásico de “¿Dónde está Waldo?”. El juego consiste en encontrar a Waldo dentro de una imagen grande. Yo puedo probarte que sé dónde está Waldo sin revelarte su ubicación exacta. ¿Cómo?
 
-Imaginá que tengo una imagen de “¿Dónde está Waldo?” y una hoja grande de papel, cuatro veces más grande que la imagen. Hago un agujero pequeño en el papel y lo coloco encima de la imagen, posicionándolo cuidadosamente para que solo Waldo sea visible a través del agujero. Eso te permite ver a Waldo, pero solo a Waldo y nada más. Así, sabes que sé dónde está, pero no te revelé su ubicación en la imagen.
+Imagina que tengo una imagen de “¿Dónde está Waldo?” y una hoja grande de papel, cuatro veces más grande que la imagen. Hago un agujero pequeño en el papel y lo coloco encima de la imagen, posicionándolo cuidadosamente para que solo Waldo sea visible a través del agujero. Eso te permite ver a Waldo, pero solo a Waldo y nada más. Así, sabes que sé dónde está, pero no te revelé su ubicación en la imagen.
 
 ![Where's Waldo](../assets/01_waldo.jpg "¿Dónde está Waldo?")
 
@@ -79,9 +79,9 @@ Esto es extremadamente poderoso, como veremos a continuación.
 
 _Esta sección explica por qué podrían interesarte las ZKPs, incluyendo detalles sobre privacidad, compresión y su carácter generalista_
 
-Después de leer la sección anterior tal vez pensás: "ok, está bueno supongo, pero ¿por qué debería importarme?". Es una reacción totalmente válida. De hecho, probablemente no debería importarte! Al igual que no tienes que preocuparte por cómo funcionan las computadoras, hacia dónde va la IA o cosas por el estilo.
+Después de leer la sección anterior tal vez piensas: "ok, está bueno supongo, pero ¿por qué debería importarme?". Es una reacción totalmente válida. De hecho, probablemente no debería importarte! Al igual que no tienes que preocuparte por cómo funcionan las computadoras, hacia dónde va la IA o cosas por el estilo.
 
-¿Por qué _sí_ podría interesarte? Porque eres curioso y querés entender cómo funcionan las ZKPs y qué tipo de interacciones hacen posibles. Es un mecanismo muy general, y la intuición de mucha gente que trabaja en este campo es que representa un nuevo paradigma que desbloquea muchísimas cosas nuevas. Ya lo estamos viendo, y parece que apenas estamos empezando. En lo que queda de esta sección, voy a darte una idea de por qué y cómo.
+¿Por qué _sí_ podría interesarte? Porque eres curioso y quieres entender cómo funcionan las ZKPs y qué tipo de interacciones hacen posibles. Es un mecanismo muy general, y la intuición de mucha gente que trabaja en este campo es que representa un nuevo paradigma que desbloquea muchísimas cosas nuevas. Ya lo estamos viendo, y parece que apenas estamos empezando. En lo que queda de esta sección, voy a darte una idea de por qué y cómo.
 
 Antes de profundizar, veamos qué propiedades nos ofrecen las ZKPs a un nivel más alto. Principalmente, nos dan una o ambas de las siguientes características:
 
@@ -110,7 +110,7 @@ En el mundo digital, también conocido como ciberespacio —en contraposición a
 
 Conversaciones, contraseñas, información de tarjetas de crédito. Son ejemplos de cosas que queremos mantener privadas en línea. Internet es una herramienta fantástica que nos conecta a todos, pero también es un mar abierto y salvaje. Hay muchos desconocidos y depredadores, y mantener cierta información privada es vital. Sin privacidad, cosas como comprar online o enviar mensajes privados serían imposibles.
 
-Quizás pensés: “Ya podemos mantener cosas como las contraseñas en privado, ¿cuál es el problema?”. Y tienes razón en un sentido limitado, al menos para esos casos puntuales. Pero vamos a necesitar más imaginación para entender lo que habilita una privacidad programable de propósito general.
+Quizás pienses: “Ya podemos mantener cosas como las contraseñas en privado, ¿cuál es el problema?”. Y tienes razón en un sentido limitado, al menos para esos casos puntuales. Pero vamos a necesitar más imaginación para entender lo que habilita una privacidad programable de propósito general.
 
 Como ejemplo, pensemos en cómo Agustín, en sus _Confesiones (400 d.C.)_, encontraba extraño que San Ambrosio —un obispo— leyera en silencio. En esa época, la mayoría de la gente leía en voz alta. [^4]
 
@@ -174,7 +174,7 @@ Voy a cerrar esta sección con una cita:
 >
 > - Alfred North Whitehead [^11]
 
-Por ejemplo, cuando encendés la cocina para preparar la cena, ni siquiera pensás en hacer fuego. Es muy distinto de tener que juntar leña, mantenerla seca, encenderla y mantenerla viva, un proceso que consume mucho tiempo. En matemáticas, sin el cálculo diferencial, no podríamos haber llegado a la Luna.
+Por ejemplo, cuando enciendes la cocina para preparar la cena, ni siquiera piensas en hacer fuego. Es muy distinto de tener que juntar leña, mantenerla seca, encenderla y mantenerla viva, un proceso que consume mucho tiempo. En matemáticas, sin el cálculo diferencial, no podríamos haber llegado a la Luna.
 
 ![Aldrin, Apollo 11](../assets/01_apollo-aldrin.jpg 'Alunizaje')
 
@@ -230,7 +230,7 @@ Para entender mejor el poder del cómputo de propósito general, veamos el caso 
 
 Gracias a su naturaleza general, podemos construir soluciones ad hoc con facilidad. Por ejemplo, posiblemente poseas un DNI con tu nombre completo, dirección y otros datos personales. Para ingresar a un evento, solo necesitas probar que tienes más de 18 años y un ticket válido. No quieres que cualquier persona o sistema vea tu dirección ni arriesgarte a que te roben la identidad. Con ZKPs podés demostrar que:
 
-- Tenés una identificación válida  
+- Tienes una identificación válida  
 - Fue emitida por una institución aprobada en los últimos 5 años  
 - No ha sido revocada ni reportada como robada
 - Eres mayor de 18 años  
@@ -267,8 +267,6 @@ Esta sección ofrece una visión general de cómo funcionan las ZKPs. No incluye
 
 ### Conceptos básicos
 
-We start by introducing some terminology. There'll be a few new terms to learn, but as we go along, you'll get the hang of it.
-
 Empecemos con algo de terminología. Vas a encontrarte con algunos términos nuevos, pero a medida que avancemos, te vas a ir acostumbrando.
 
 - **Protocolo**: sistema de reglas que define la conducta correcta a seguir  
@@ -280,7 +278,7 @@ Empecemos con algo de terminología. Vas a encontrarte con algunos términos nue
 
 Aunque es útil aprender la terminología del área, algunas metáforas pueden ayudarte a entender mejor de qué se trata todo esto. Vamos a ir presentando más términos a lo largo del texto.
 
-Los protocolos están en todos lados y pueden ser implícitos o explícitos. En el ajedrez, el protocolo es que dos jugadores se turnan para mover piezas según las reglas del juego hasta que uno gana o hay un empate. En teoría, no importa cuánto tiempo tarde cada jugada, pero en la práctica, tratamos de reducir al mínimo la fricción en la comunicación entre las partes. Podés pensar en esto como una partida de ajedrez rapidísima.
+Los protocolos están en todos lados y pueden ser implícitos o explícitos. En el ajedrez, el protocolo es que dos jugadores se turnan para mover piezas según las reglas del juego hasta que uno gana o hay un empate. En teoría, no importa cuánto tiempo tarde cada jugada, pero en la práctica, tratamos de reducir al mínimo la fricción en la comunicación entre las partes. Puedes pensar en esto como una partida de ajedrez rapidísima.
 
 Podemos imaginar a Sherlock Holmes como el demostrador: en su discurso final presenta una elegante cadena de argumentos, una prueba, que demuestra quién es el asesino. Esa prueba debe ser verificada por un verificador —como un juez o un jurado— y debe ser convincente _más allá de toda duda razonable_ [^27]. El “demostrador” es la entidad —en este caso Holmes— que presenta la prueba, y luego debe ser verificada. Como la prueba es autónoma, cualquiera puede ser verificador, incluso tu como lector, que necesitas creer en el razonamiento para que la historia funcione. [^28]
 
@@ -345,8 +343,6 @@ El circuito está compuesto por un conjunto de restricciones. Todas deben cumpli
 
 Si todas estas restricciones se cumplen para un tablero y una solución, sabemos que es una solución válida.
 
-A prover Peggy uses her magic prover key, the puzzle and the solution, combines it with the special program and creates a proof. The proof is very short, less than 1000 characters. The proof is self-contained and with it the verifier has all information they need to verify the proof. You can think of it as a magic spell that does what you want, without you having to understand the details of it [^35].
-
 La demostradora Peggy usa su clave mágica de demostrador, el tablero y la solución, los combina con el programa especial y genera una prueba. La prueba es muy breve, menos de 1000 caracteres. Es autónoma, y con ella el verificador tiene toda la información necesaria para comprobar que la prueba es válida. Puedes pensarla como un hechizo mágico que hace lo que necesitas, sin que tengas que entender todos los detalles [^35].
 
 Este es un hechizo sacado de un libro de magia escrito por un médico galés en el siglo XIX:
@@ -375,7 +371,7 @@ También hay muchas otras propiedades importantes en las ZKPs prácticas:
 
 - ¿Qué supuestos matemáticos hace el sistema?  
 - ¿Qué tan seguro es?  
-- ¿Requiere una configuración confiable（trusted setup）?  
+- ¿Requiere una configuración confiable (trusted setup)?  
 - ¿Qué tan costoso es generar la prueba? En tiempo y otros recursos  
 - ¿Qué tan costoso es verificar la prueba? En tiempo y otros recursos  
 - ¿Permite el sistema de ZKPs agregar o combinar múltiples pruebas en una sola?  
@@ -498,7 +494,6 @@ Gracias a Alex, Gelois y [Yago Pajariño](https://x.com/0xyago) por la traducci�
 [^9]: En un [checksum](https://en.wikipedia.org/wiki/Checksum), se realizan operaciones básicas como sumar o restar dígitos, y si el dígito final no coincide, algo salió mal. Dato curioso: a diferencia de otros sistemas de identificación, el número de seguro social (SSN) en EE. UU. [no tiene un checksum](https://en.wikipedia.org/wiki/Social_Security_number#Valid_SSNs). Si tiene solo un dígito, también se lo llama [digito verificador](https://en.wikipedia.org/wiki/Check_digit).
 [^10]: Aunque es más común en países menos desarrollados, esto ocurrió recientemente con quiebras bancarias en EE. UU. Ver el artículo en Wikipedia sobre el [colapso del Silicon Valley Bank](https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank#Effects).
 [^11]: Cita completa: “Es un lugar común profundamente erróneo, repetido en libros de texto y discursos, que debemos cultivar el hábito de pensar en lo que estamos haciendo. En realidad es todo lo contrario. **La civilización avanza al aumentar la cantidad de operaciones importantes que podemos realizar sin pensar en ellas.** Las operaciones mentales son como cargas de caballería: limitadas en número, requieren caballos frescos y deben usarse solo en momentos decisivos.” Ver [Wikiquote](<https://en.wikiquote.org/wiki/Alfred_North_Whitehead#An_Introduction_to_Mathematics_(1911)>).
-
 [^12]: La calculadora de Pascal, la _Pascalina_, es una calculadora mecánica. Fue muy innovadora cuando se presentó en 1642. Ver [Pascal's calculator](https://en.wikipedia.org/wiki/Pascal%27s_calculator).
 [^13]: En esquemas de autenticación bien diseñados, el proveedor no ve tu contraseña, solo un hash con sal. Ver Wikipedia sobre la [forma de almacenamiento de contraseñas](https://en.wikipedia.org/wiki/Password#Form_of_stored_passwords).
 [^14]: SHA256 es una función de hash criptográfico muy utilizada. Ver [SHA2](https://en.wikipedia.org/wiki/SHA-2).
