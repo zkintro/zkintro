@@ -189,7 +189,7 @@ De forma más concreta, podríamos tener:
 SHA256('foobar213151') = '419d....1611'
 ```
 
-Esto toma el mensaje `foobar`, le añade algo de aleatoriedad y obtenemos un compromiso(commitment), un hash `419d...1611`. Si entregamos este compromiso a otra persona, más tarde podemos optar por revelar los valores $m, r$. Esa persona puede entonces verificar que nuestro compromiso coincide con nuestro mensaje original $m$.
+Esto toma el mensaje `foobar`, le añade algo de aleatoriedad y obtenemos un compromiso (commitment), un hash `419d...1611`. Si entregamos este compromiso a otra persona, más tarde podemos optar por revelar los valores $m, r$. Esa persona puede entonces verificar que nuestro compromiso coincide con nuestro mensaje original $m$.
 
 Los compromisos son muy comunes en los protocolos criptográficos porque nos permiten (a) vincularnos a valores y (b) ocultarlos. En concreto, son uno de los componentes clave de ZKBoo.
 
@@ -236,7 +236,7 @@ A continuación se presentan algunos ejercicios sencillos para comprobar tu comp
 ### Ejercicios
 1. En $x + 1 = y; y + 5 = z$, si $x$ es algo que el Demostrador quiere mantener en secreto, ¿cuál es la variable witness y la salida pública?
 2. ¿Por qué no importa el orden de las restricciones? ¿Qué sucede si intercambiamos el orden de las dos restricciones anteriores?
-3. Alice se compromete a un número usando `SHA256(x || r)`. Si luego afirma que se comprometió a 42, ¿cómo puede demostrarlo?
+3. Alice se compromete a un número usando `SHA256 (x || r)`. Si luego afirma que se comprometió a 42, ¿cómo puede demostrarlo?
 4. Si Bob divide `x=12` en 3 participaciones tales que $x_1 + x_2 + x_3 = x$, ¿cuál es un posible conjunto de valores para $(x_1, x_2, x_3)$? ¿Por qué revelar $x_2$ y $x_3$ no nos da ninguna información sobre $x$?
 5. En un protocolo sigma, ¿por qué el Demostrador tiene que comprometerse antes de que el Verificador envíe el desafío?
 
@@ -576,7 +576,7 @@ Es posible que hayas notado que llamamos a ZKBoo una prueba (proof) de conocimie
 
 Coloquialmente, llamamos a las ZKPs "pruebas". Técnicamente, sin embargo, se trata de argumentos de conocimiento (Arguments of Knowledge). La distinción está relacionada con la naturaleza de la solidez (soundness). Vimos previamente cómo obteníamos completitud (completeness), solidez y conocimiento cero mediante los protocolos sigma. En conjunto, las propiedades de completitud y solidez nos brindan argumentos de conocimiento. En la práctica, dependemos de la _solidez computacional_ (computational soundness), lo que, técnicamente, los convierte en un argumento de conocimiento y no en una prueba. [^29]
 
-La propiedad de conocimiento cero que acabamos de revisar implica que no revelamos nada sobre nuestro testigo (witness) al Verifier. Curiosamente, muchos proyectos "ZK" y "zkSNARKs" en la práctica ni siquiera ofrecen realmente la propiedad de conocimiento cero. Un término más preciso sería quizá _cómputo verificable_ y (S)NARKs, pero suena mucho menos atractivo.
+La propiedad de conocimiento cero que acabamos de revisar implica que no revelamos nada sobre nuestro testigo (witness) al Verifier. Curiosamente, muchos proyectos "ZK" y "zkSNARKs" en la práctica ni siquiera ofrecen realmente la propiedad de conocimiento cero. Un término más preciso sería quizá _cómputo verificable_ y (S) NARKs, pero suena mucho menos atractivo.
 
 Ya revisamos la propiedad no interactiva (la "N" en zkSNARKs). Resulta que podemos tomar prácticamente cualquier ZKP y volverlo no interactivo mediante la transformada de Fiat-Shamir. Lo habitual es definir primero un protocolo sigma interactivo y, posteriormente, convertirlo en no interactivo con Fiat-Shamir.
 
@@ -597,11 +597,11 @@ Con la notación Big-Oh podemos hablar del orden de aproximación sin perdernos 
 
 ![Big Oh Complexity](../assets/03_bigoh.png 'Big Oh Complexity')
 
-Para que una prueba sea concisa, idealmente debe ser "sublineal". ¿Qué significa sublineal? Cualquier complejidad estrictamente "por debajo" de $O(n)$ en la gráfica anterior. Por ejemplo, $O(\log n)$ (logarítmica) o $O(1)$ (constante) [^31], [^33].
+Para que una prueba sea concisa, idealmente debe ser "sublineal". ¿Qué significa sublineal? Cualquier complejidad estrictamente "por debajo" de $O (n)$ en la gráfica anterior. Por ejemplo, $O (\log n)$ (logarítmica) o $O (1)$ (constante) [^31], [^33].
 
-Intuitivamente, esto implica que al añadir más restricciones, el tamaño de la prueba aumenta cada vez menos. El mejor rendimiento es $O(1)$, donde el tamaño de la prueba permanece igual sin importar el número de restricciones.
+Intuitivamente, esto implica que al añadir más restricciones, el tamaño de la prueba aumenta cada vez menos. El mejor rendimiento es $O (1)$, donde el tamaño de la prueba permanece igual sin importar el número de restricciones.
 
-¿Qué sucede con el tiempo requerido para verificar la prueba? El Verificador debe realizar comprobaciones de consistencia para todas las restricciones. Esto equivale esencialmente a volver a evaluar todo el circuito. Esto implica que el tiempo de verificación es lineal, es decir, $O(n)$, donde $n$ es el número de restricciones $|C|$. Por lo tanto, ZKBoo no posee un tiempo de verificación sublineal. Aquí, el tiempo corresponde al número de operaciones que un Verificador debe efectuar y, en la práctica, se correlaciona con el "tiempo de reloj" real. En consecuencia, ZKBoo carece de un tiempo de verificación conciso (succinct).
+¿Qué sucede con el tiempo requerido para verificar la prueba? El Verificador debe realizar comprobaciones de consistencia para todas las restricciones. Esto equivale esencialmente a volver a evaluar todo el circuito. Esto implica que el tiempo de verificación es lineal, es decir, $O (n)$, donde $n$ es el número de restricciones $|C|$. Por lo tanto, ZKBoo no posee un tiempo de verificación sublineal. Aquí, el tiempo corresponde al número de operaciones que un Verificador debe efectuar y, en la práctica, se correlaciona con el "tiempo de reloj" real. En consecuencia, ZKBoo carece de un tiempo de verificación conciso (succinct).
 
 A menudo deseamos la concisión (succinctness), ya que implica que podemos demostrar cómputos arbitrarios en poco espacio (y rápidamente). ¿Por qué ZKBoo no nos ofrece esto y qué se puede hacer al respecto?
 
@@ -719,7 +719,7 @@ def zkboo_prover_response(ch, a, b, c, d, e, r):
 
 def zkboo_verify(ch, resp, commits):
     """Check commitments and verify correctness of revealed shares."""
-    if any(commit((resp[i]["a"], resp[i]["b"], resp[i]["c"],
+    if any(commit ((resp[i]["a"], resp[i]["b"], resp[i]["c"],
                    resp[i]["d"], resp[i]["e"], resp[i]["r"]))
            != commits[ch[i]] for i in range(2)):
         return False
@@ -738,7 +738,7 @@ def zkboo_verify(ch, resp, commits):
 
 def test_zkboo_single_round():
     """Test a single-round reveal for a,b,d = 3,4,5."""
-    a, b, d = F(3), F(4), F(5)
+    a, b, d = F (3), F (4), F (5)
     a_sh, b_sh, c_sh, d_sh, e_sh, commits, r_sh = zkboo_prover(a, b, d)
     ch = zkboo_verifier_challenge()
     resp = zkboo_prover_response(ch, a_sh, b_sh, c_sh, d_sh, e_sh, r_sh)
@@ -785,20 +785,20 @@ $$
 \mathbb{F}^*_5 = \mathbb{GF}^*(5) = \{{1,2,3,4}\}
 $$
 
-Podemos ver que cada elemento tiene un inverso multiplicativo en el conjunto. Por ejemplo, $2 \cdot 3 \mod 5 \equiv 1$。
+Podemos ver que cada elemento tiene un inverso multiplicativo en el conjunto. Por ejemplo, $2 \cdot 3 \mod 5 \equiv 1$.
 
 En el ZKBoo anterior, estamos usando $\mathbb{GF}(2)$, el finite field más simple, para boolean circuits. Arithmetic circuits generalizan esto a $\mathbb{GF}(p)$, donde $p$ es un número primo. Esto significa que todas las operaciones, adición y multiplicación, se realizan $\mod p$, asegurando que los valores permanezcan dentro de ese field. Esto nos permite trabajar con números mayores que 0 y 1. En este field, adición y multiplicación funcionan bien, por lo que podemos realizar aritmética modular bien definida. Podemos usar enteros como esperamos, siempre y cuando estén acotados por (menores que) un número primo específico. En la práctica, a menudo usamos números primos muy grandes [^39]. Esto implica que podemos expresar números muy grandes y la aritmética asociada de manera bien definida.
 
 ## Apéndice C: definiciones matemáticas de zkSNARKs
 Hagamos la sección anterior sobre zkSNARKs un poco más precisa, manteniendo un tono matemáticamente informal [^40]. Si estás satisfecho con el texto principal, puedes omitir este apéndice.
 
-**Completitud (Completeness)** - para todo par $(x, w)$ en $C(x,w)$ la probabilidad de que el Verificador (Verifier)  V acepte la Prueba (Proof)  del Demostrador (Prover)  $P(x,w)$ es 1. Es decir:
+**Completitud (Completeness)** - para todo par $(x, w)$ en $C (x,w)$ la probabilidad de que el Verificador (Verifier)  V acepte la Prueba (Proof)  del Demostrador (Prover)  $P (x,w)$ es 1. Es decir:
 
 $$
-\forall x, w: C(x,w) = 0 \implies Pr[V(x, P(x, w)) = \text{accept }] = 1
+\forall x, w: C (x,w) = 0 \implies Pr[V(x, P (x, w)) = \text{accept }] = 1
 $$
 
-**Solidez** (Soundness) - V acepta la prueba $\pi$ $\implies$ P "conoce" $w$ s.t. $C(x,w) = 0$, y si la prueba $\pi$ es falsa, $Pr[\text{V acepta } \pi] \leq \text{probabilidad despreciable, e.g }2^{-80}$ [^41]
+**Solidez** (Soundness) - V acepta la prueba $\pi$ $\implies$ P "conoce" $w$ s.t. $C (x,w) = 0$, y si la prueba $\pi$ es falsa, $Pr[\text{V acepta } \pi] \leq \text{probabilidad despreciable, e.g }2^{-80}$ [^41]
 
 **Conocimiento Cero (Zero-Knowledge)** - $C(x, \pi$) con la prueba $\pi$ no revela nada sobre $w$
 
@@ -845,6 +845,6 @@ A veces quasi-lineal, p. ej. $O(n \log n)$, se acepta como suficientemente conci
 [^37]: Y también lo que se denomina extensiones de campo primarias (prime extension fields) , como $p^n$.
 [^38]: En criptografía aplicada y ciencias de la computación, la notación $\mathbb{GF}(p)$ es más común, mientras que en matemáticas puras es más común $\mathbb{F}_p$. El nombre campo de Galois (Galois Field) honra al matemático francés Galois, quien los descubrió. Él sentó las bases del álgebra abstracta y murió en un duelo a los 20 años.
 [^39]: Por ejemplo, $2^{255} - 19$. La elección precisa del número primo es un tema más profundo, con nociones como pairing-friendliness, especialmente en sistemas criptográficos. Consulta, por ejemplo, por qué se eligió BN254 en Zcash.
-[^40]: En esta explicación omitimos la noción de un paso de preprocesamiento (preprocessing setup)  $\text{Setup}(C) \rightarrow (pp, vp)$, con parámetros del demostrador (prover)  ($pp$)  y parámetros del verificador (verifier)  ($vp$) 。Por lo general esto se incluye en las definiciones, pero no lo necesitamos en ZKBoo.
+[^40]: En esta explicación omitimos la noción de un paso de preprocesamiento (preprocessing setup)  $\text{Setup}(C) \rightarrow (pp, vp)$, con parámetros del demostrador (prover)  ($pp$)  y parámetros del verificador (verifier)  ($vp$) .Por lo general esto se incluye en las definiciones, pero no lo necesitamos en ZKBoo.
 [^41]: No entraremos en los detalles precisos de lo que significa aquí "conocer" al testigo (witness) , porque requiere entender nociones como solidez de conocimiento adaptativa (adaptive knowledge soundness)  y extractores (extractors) , que no son necesarias para tener una comprensión conceptual de la solidez estadística (statistical soundness) . Si quieres profundizar, el libro de Thaler o las clases de Boneh son buenos recursos. Consulta también la nota al pie 29.
 [^42]: Así como otra información predefinida, como el algoritmo de desafío (challenge)  Fiat-Shamir, y posiblemente algunas "claves de verificación" (verification keys)  (aunque no en el caso de ZKBoo) .

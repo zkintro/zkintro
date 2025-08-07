@@ -6,7 +6,7 @@ draft: false
 layout: PostSimple
 slug: "friendly-introduction-to-zero-knowledge"
 images: ['../assets/01_zkp-magic.png']
-summary: "Las pruebas de conocimiento cero（Zero Knowledge Proofs）son mágicas. Nos permiten hacer cosas que antes ni siquiera podíamos imaginar. Este es el primero de una serie de artículos sobre pruebas de conocimiento cero y sus aplicaciones. Veremos qué son, por qué importan, cómo funcionan y dónde pueden usarse."
+summary: "Las pruebas de conocimiento cero (Zero Knowledge Proofs) son mágicas. Nos permiten hacer cosas que antes ni siquiera podíamos imaginar. Este es el primero de una serie de artículos sobre pruebas de conocimiento cero y sus aplicaciones. Veremos qué son, por qué importan, cómo funcionan y dónde pueden usarse."
 ---
 
 _Este artículo fue traducido por Gelois, Alex y Yago Pajariño_
@@ -15,7 +15,7 @@ _Este artículo fue traducido por Gelois, Alex y Yago Pajariño_
 
 ## Introducción
 
-Las pruebas de conocimiento cero（Zero Knowledge Proofs）son mágicas. Nos permiten hacer cosas que antes ni siquiera podíamos imaginar.
+Las pruebas de conocimiento cero (Zero Knowledge Proofs) son mágicas. Nos permiten hacer cosas que antes ni siquiera podíamos imaginar.
 
 Déjame empezar con algunas frases para estimular tu mente. Tal vez reconozcas algunas, y otras te resulten nuevas.
 
@@ -39,7 +39,7 @@ Déjame empezar con algunas frases para estimular tu mente. Tal vez reconozcas a
 > 
 > - William Gibson
 
-Tecnología mágica, avance civilizatorio, cartas breves, privacidad y un futuro que ya llegó. Eso resume las pruebas de conocimiento cero（Zero Knowledge Proofs, ZKPs）. ¿Qué está pasando?
+Tecnología mágica, avance civilizatorio, cartas breves, privacidad y un futuro que ya llegó. Eso resume las pruebas de conocimiento cero (Zero Knowledge Proofs, ZKPs). ¿Qué está pasando?
 
 Durante el último siglo, las computadoras e Internet se adueñaron del mundo. Estas tecnologías están en todas partes, en todo lo que hacemos, para bien o para mal. Sobre ellas construimos plataformas, empresas, imperios. Hablamos de cosas como MAMAA (Microsoft, Apple, Meta, Alphabet, Amazon). Luego está el núcleo de la bestia: redes de pago, servicios gubernamentales y una infinidad de aplicaciones B2B que operan el mundo en silencio. Y por último, una larga cola de otras cosas: tu app de filtros de fotos, la plataforma para aprender idiomas o esa comunidad online.
 
@@ -57,9 +57,9 @@ Las ZKPs pueden ayudar. Tal vez no para todo, ni en todas partes, ni ahora mismo
 
 _Esta sección introduce el concepto de una Zero Knowledge Proof_
 
-Este es el primero de una serie de artículos sobre las pruebas de conocimiento cero（Zero Knowledge Proofs）y sus aplicaciones. Vamos a ver qué son, por qué importan, cómo funcionan y dónde se pueden aplicar.
+Este es el primero de una serie de artículos sobre las pruebas de conocimiento cero (Zero Knowledge Proofs) y sus aplicaciones. Vamos a ver qué son, por qué importan, cómo funcionan y dónde se pueden aplicar.
 
-Imagina que vas a un bar y puedes probar que eres mayor de 18 años sin mostrar nada más, ni siquiera tu documento con datos personales. O que puedes demostrar que pagaste tus impuestos correctamente, sin revelar a nadie los detalles de tus ingresos o patrimonio. Estas son las cosas que permiten las pruebas de conocimiento cero（ZKPs）. El término _conocimiento cero_ significa simplemente que no se revela más información que la necesaria.
+Imagina que vas a un bar y puedes probar que eres mayor de 18 años sin mostrar nada más, ni siquiera tu documento con datos personales. O que puedes demostrar que pagaste tus impuestos correctamente, sin revelar a nadie los detalles de tus ingresos o patrimonio. Estas son las cosas que permiten las pruebas de conocimiento cero (ZKPs). El término _conocimiento cero_ significa simplemente que no se revela más información que la necesaria.
 
 Las ZKPs te permiten probar algo sin revelar nada más que el hecho de que la declaración es verdadera.
 
@@ -85,8 +85,8 @@ Después de leer la sección anterior tal vez piensas: "ok, está bueno supongo,
 
 Antes de profundizar, veamos qué propiedades nos ofrecen las ZKPs a un nivel más alto. Principalmente, nos dan una o ambas de las siguientes características:
 
-1. Privacidad（formalmente conocida como zero-knowledge)
-2. Compresión（formalmente conocida como succinctness)
+1. Privacidad (formalmente conocida como zero-knowledge)
+2. Compresión (formalmente conocida como succinctness)
 
 ¿Qué queremos decir con estos dos conceptos? Veamos algunas formas de entenderlos.
 
@@ -144,7 +144,7 @@ El hecho de que las ZKPs tengan la propiedad de compresión significa que podemo
 
 En una típica historia de misterio al estilo Sherlock Holmes, el detective junta evidencia hasta poder probar que el culpable cometió el crimen. Luego, en el gran final, explica exactamente cómo llegó a esa conclusión. Podemos pensar en esa declaración final como la prueba. [^6]
 
-Formalmente, a esta propiedad la llamamos _concisión_（succinctness）[^7]. Es lo que permite que el tamaño de la prueba no cambie, sin importar qué tan complejo sea lo que se quiere probar. En el contexto de blockchains públicas, esto también se relaciona con la _escalabilidad_. En blockchains como Ethereum, donde el espacio en bloques es limitado y costoso, las ZKPs pueden hacer que las transacciones sean mucho más baratas y rápidas. ¿Cómo? Generamos una prueba de que cierto conjunto de transacciones ocurrió y colocamos esa pequeña prueba on-chain, en lugar de almacenar todas las transacciones dentro de la blockchain. Con ZKPs, esto se puede hacer de forma muy segura.
+Formalmente, a esta propiedad la llamamos _concisión_(succinctness) [^7]. Es lo que permite que el tamaño de la prueba no cambie, sin importar qué tan complejo sea lo que se quiere probar. En el contexto de blockchains públicas, esto también se relaciona con la _escalabilidad_. En blockchains como Ethereum, donde el espacio en bloques es limitado y costoso, las ZKPs pueden hacer que las transacciones sean mucho más baratas y rápidas. ¿Cómo? Generamos una prueba de que cierto conjunto de transacciones ocurrió y colocamos esa pequeña prueba on-chain, en lugar de almacenar todas las transacciones dentro de la blockchain. Con ZKPs, esto se puede hacer de forma muy segura.
 
 La concisión es una propiedad general y no exclusiva de las blockchains; simplemente encaja muy bien con ellas por varias razones. De forma más general, tener una prueba corta de que algo es verdadero resulta muy útil. Hay varias maneras de entender por qué.
 
@@ -419,7 +419,7 @@ Estos son solo algunos ejemplos, y de ninguna manera es una lista completa. No m
 
 **Cómputo demostrable de propósito general**. La mayor parte del cómputo en el mundo no ocurre en la EVM, sino en otros sistemas. Los programas basados en WASM y LLVM son muy comunes [^51]. Podemos aplicar el mismo enfoque de ZK-EVM para realizar cómputo privado demostrable de propósito general. Por ejemplo, se puede probar que una base de datos contiene un registro específico sin revelar ninguna otra información. Actualmente están trabajando en esto varios equipos, como Delphinus Labs, RISC Zero, Orochi Network y nil.foundation. [^52]
 
-**ZK Machine Learning (ZK ML)**. Podemos probar que cierto cómputo se realizó correctamente de forma privada, fuera de la cadena, y luego publicar una prueba（proof）de que fue correcto. Esto permite usar datos privados para entrenar mejores modelos sin revelar esa información. Por ejemplo, documentos sensibles, voz o incluso ADN para detectar problemas de salud. Esto mejora tanto la escalabilidad como la privacidad para los usuarios. Ya existe una prueba de concepto (PoC) para casos como MNIST, un test común en Machine Learning para reconocer dígitos escritos a mano, y hay equipos trabajando en redes neuronales dentro de pruebas de conocimiento cero（ZKPs）. [^53]
+**ZK Machine Learning (ZK ML)**. Podemos probar que cierto cómputo se realizó correctamente de forma privada, fuera de la cadena, y luego publicar una prueba (proof) de que fue correcto. Esto permite usar datos privados para entrenar mejores modelos sin revelar esa información. Por ejemplo, documentos sensibles, voz o incluso ADN para detectar problemas de salud. Esto mejora tanto la escalabilidad como la privacidad para los usuarios. Ya existe una prueba de concepto (PoC) para casos como MNIST, un test común en Machine Learning para reconocer dígitos escritos a mano, y hay equipos trabajando en redes neuronales dentro de pruebas de conocimiento cero (ZKPs). [^53]
 
 **Autenticidad de fotos**. Probar la procedencia de contenido como fotos y videos, incluyendo ediciones estándar de postproducción. Es decir, demostrar que una foto fue tomada en un lugar y momento determinados, y que solo ha sido editada con operaciones básicas como redimensionado, recorte o escala de grises (según la lista aprobada por AP). Ya se han hecho avances, incluyendo una prueba de concepto. [^54]
 
@@ -445,11 +445,11 @@ Finalmente, cuando se desarrolló criptografía para mensajería en línea y sim
 
 Cierro esta sección con una frase de Barry Whitehat, un reconocido investigador de ZK que trabaja en el equipo Privacy and Scalability Explorations (PSE) de la Ethereum Foundation, cuando se le preguntó sobre el futuro de ZK:
 
-> “Para 2040, alguien habrá ganado el Premio Nobel de la Paz por usar pruebas de conocimiento cero（Zero Knowledge Proofs）.” [^60]
+> “Para 2040, alguien habrá ganado el Premio Nobel de la Paz por usar pruebas de conocimiento cero (Zero Knowledge Proofs).” [^60]
 
 ¿Exagerado y audaz? Sin dudas. ¿Se cumplirá? Tal vez no. ¿Pero es posible? Totalmente. Es una idea fascinante. ¿Cuál es la diferencia entre una mentalidad que lo ve como algo posible, y otra que lo descarta de entrada? ¿Qué tendría que pasar para que ese escenario fuera realista?
 
-Las pruebas de conocimiento cero（ZKPs）son una herramienta nueva y extremadamente poderosa. Muchas veces, lo único que limita su uso es nuestra imaginación sobre lo que podrían lograr.
+Las pruebas de conocimiento cero (ZKPs) son una herramienta nueva y extremadamente poderosa. Muchas veces, lo único que limita su uso es nuestra imaginación sobre lo que podrían lograr.
 
 ## Conclusión
 
@@ -488,7 +488,7 @@ Gracias a Alex, Gelois y [Yago Pajariño](https://x.com/0xyago) por la traducci�
 [^3]: Ver el [Manifiesto Cypherpunk](https://nakamotoinstitute.org/static/docs/cypherpunk-manifesto.txt) para el texto completo. También puedes consultar Wikipedia sobre los [Cypherpunks](https://es.wikipedia.org/wiki/Cypherpunk).
 [^4]: Algunas personas interpretan de forma distinta este pasaje, pero lo cierto es que en algún momento no tan lejano los humanos pasamos de contar historias oralmente a leer en silencio. Ver Wikipedia sobre la [historia de la lectura silenciosa](https://en.wikipedia.org/wiki/Silent_reading#History_of_silent_reading) para más detalles.
 [^5]: Cita original en francés: _Je n'ai fait celle-ci plus longue que parce que je n'ai pas eu le loisir de la faire plus courte._ Ver [Quote Investigator](https://quoteinvestigator.com/2012/04/28/shorter-letter) para más contexto.
-[^6]: Créditos a Juraj Bednar por [sugerir](https://twitter.com/jurbed/status/1650782361590669313) usar un misterio de asesinato para explicar el concepto de una prueba（proof）.
+[^6]: Créditos a Juraj Bednar por [sugerir](https://twitter.com/jurbed/status/1650782361590669313) usar un misterio de asesinato para explicar el concepto de una prueba (proof).
 [^7]: La concisión tiene una definición matemática específica, pero no entraremos en eso aquí. Consulta la [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) para una explicación más precisa.
 [^8]: Los costos de transacción son un concepto económico. Ver el artículo en Wikipedia sobre [costos de transacción](https://es.wikipedia.org/wiki/Coste_de_transacci%C3%B3n).
 [^9]: En un [checksum](https://en.wikipedia.org/wiki/Checksum), se realizan operaciones básicas como sumar o restar dígitos, y si el dígito final no coincide, algo salió mal. Dato curioso: a diferencia de otros sistemas de identificación, el número de seguro social (SSN) en EE. UU. [no tiene un checksum](https://en.wikipedia.org/wiki/Social_Security_number#Valid_SSNs). Si tiene solo un dígito, también se lo llama [digito verificador](https://en.wikipedia.org/wiki/Check_digit).
@@ -503,23 +503,23 @@ Gracias a Alex, Gelois y [Yago Pajariño](https://x.com/0xyago) por la traducci�
 [^18]: Ver los [Federalist Papers](https://en.wikipedia.org/wiki/The_Federalist_Papers).
 [^19]: Ver este artículo sobre [firmas de grupo](https://0xparc.org/blog/zk-group-sigs) de 0xPARC. Incluye el código correspondiente en Circom.
 [^20]: Las pruebas de conocimiento cero han [existido desde 1985](https://en.wikipedia.org/wiki/Zero-knowledge_proof#History), y sus autores ganaron luego el Premio Gödel por su trabajo. Podemos compararlas con la [criptografía de clave pública](https://en.wikipedia.org/wiki/Public-key_cryptography#History), que tardó décadas en usarse ampliamente en protocolos como [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security), hoy esencial para la seguridad en internet.
-[^21]: Por ejemplo, el cálculo lambda con [números de Church](https://en.wikipedia.org/wiki/Church_encoding#Church_numerals) y Lisp fueron inicialmente propuestas teóricas poco prácticas. Dan Boneh y otros han señalado en esta [observación](https://zk-learning.org/) que hacer que el tiempo del demostrador（prover）sea cuasilineal fue lo que realmente hizo prácticas las pruebas de conocimiento cero（ZKPs）, incluso en teoría.
+[^21]: Por ejemplo, el cálculo lambda con [números de Church](https://en.wikipedia.org/wiki/Church_encoding#Church_numerals) y Lisp fueron inicialmente propuestas teóricas poco prácticas. Dan Boneh y otros han señalado en esta [observación](https://zk-learning.org/) que hacer que el tiempo del demostrador (prover) sea cuasilineal fue lo que realmente hizo prácticas las pruebas de conocimiento cero (ZKPs), incluso en teoría.
 [^22]: Ver los orígenes de Zcash en el [paper de Zerocoin](https://eprint.iacr.org/2014/349.pdf).
 [^23]: La resistencia a la censura significa que cualquier persona puede operar en una blockchain pública sin pedir permiso, siempre que respete las reglas básicas del protocolo. También implica que es muy costoso para un atacante modificar o interrumpir el sistema. La transparencia se refiere a que las transacciones son auditables públicamente e inmutables en la blockchain para siempre. Estos conceptos están estrechamente ligados a la descentralización y la seguridad, y forman parte clave del valor diferencial de las blockchains públicas frente a otros sistemas.
 [^24]: Las firmas BLS utilizadas en la [Capa de Consenso de Ethereum](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/keys/) se implementaron y protegieron miles de millones de dólares solo unos pocos años después de haber sido [desarrolladas](https://datatracker.ietf.org/doc/html/draft-irtf-cfrg-bls-signature-04). Ver Wikipedia para más sobre las [firmas BLS](https://en.wikipedia.org/wiki/BLS_digital_signature).
 [^25]: Dan Boneh, profesor de criptografía aplicada en Stanford, es un gran ejemplo de esto por su participación en varios proyectos relacionados con criptomonedas.
-[^26]: El autor escuchó esto por primera vez de gubsheep de [0xPARC](https://0xparc.org/), pero lo ha visto repetirse en varias ocasiones. También coincide con su propia experiencia trabajando en RLN y observando mejoras de entre 1 y 2 órdenes de magnitud en cosas como el tiempo del demostrador（prover）en tan solo unos años.
+[^26]: El autor escuchó esto por primera vez de gubsheep de [0xPARC](https://0xparc.org/), pero lo ha visto repetirse en varias ocasiones. También coincide con su propia experiencia trabajando en RLN y observando mejoras de entre 1 y 2 órdenes de magnitud en cosas como el tiempo del demostrador (prover) en tan solo unos años.
 [^27]: En contextos legales ocurren falsos positivos; ver por ejemplo el [Innocence Project](https://en.wikipedia.org/wiki/Innocence_Project). En contextos matemáticos podemos definir esta tasa de error con muchísima precisión, y está lejos de ser una apuesta al azar. Ese es el poder de las matemáticas. Exploraremos más sobre esto en futuros artículos sobre pruebas probabilísticas.
-[^28]: Probablemente querrías hacerle algunas preguntas más a Sherlock Holmes antes de meter preso al posible asesino. ¡Es posible que Sherlock esté tratando de engañarte! En las pruebas de conocimiento cero（ZKPs）asumimos que el demostrador（prover）no es de confianza.
+[^28]: Probablemente querrías hacerle algunas preguntas más a Sherlock Holmes antes de meter preso al posible asesino. ¡Es posible que Sherlock esté tratando de engañarte! En las pruebas de conocimiento cero (ZKPs) asumimos que el demostrador (prover) no es de confianza.
 [^29]: Esto se hace usando la [heurística de Fiat-Shamir](https://en.wikipedia.org/wiki/Fiat%E2%80%93Shamir_heuristic).
 [^30]: A veces se hace una distinción entre estos dos conceptos, pero es una diferencia técnica (solidez computacional vs estadística) que no es necesario abordar ahora. Ver [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) para más detalles.
 [^31]: Alice y Bob son personajes usados comúnmente en ejemplos de criptografía. Ver [Wikipedia](https://en.wikipedia.org/wiki/Alice_and_Bob).
-[^32]: También existen los zk-STARKs, por lo que podría decirse que un nombre más preciso sería (zk)S(T|N)ARKs. Obviamente es difícil de pronunciar, así que la gente suele usar simplemente “ZK”. Ver, por ejemplo, el nombre del podcast ZK, el estándar de pruebas ZK, etc. Para el autor, ZK es la propiedad más mágica de las ZKPs.
-[^33]: Las configuraciones confiables（trusted setups）son multifacéticas y fundamentales en las suposiciones de seguridad de una ZKP. Implican bastante contenido matemático, y para abordarlas en profundidad se necesitaría un artículo dedicado. Hay un excelente podcast para no técnicos sobre The Ceremony de Zcash en 2016 que podés escuchar [aquí](https://radiolab.org/podcast/ceremony).
+[^32]: También existen los zk-STARKs, por lo que podría decirse que un nombre más preciso sería (zk)S(T|N) ARKs. Obviamente es difícil de pronunciar, así que la gente suele usar simplemente “ZK”. Ver, por ejemplo, el nombre del podcast ZK, el estándar de pruebas ZK, etc. Para el autor, ZK es la propiedad más mágica de las ZKPs.
+[^33]: Las configuraciones confiables (trusted setups) son multifacéticas y fundamentales en las suposiciones de seguridad de una ZKP. Implican bastante contenido matemático, y para abordarlas en profundidad se necesitaría un artículo dedicado. Hay un excelente podcast para no técnicos sobre The Ceremony de Zcash en 2016 que podés escuchar [aquí](https://radiolab.org/podcast/ceremony).
 [^34]: Técnicamente esto es un _circuito aritmético_ (trabaja con números), pero no entraremos en ese nivel de detalle en este artículo. Ver la [ZKProof Community Reference](https://docs.zkproof.org/reference.pdf) para más información.
 [^35]: ¡A menos que quieras! A veces a ZK se le llama "matemática mágica de la luna", pero si lo estudias en serio, las matemáticas necesarias para tener una intuición de cómo funcionan por dentro no son tan complejas como podrías pensar. No lo trataremos en este artículo, pero aqui hay una [presentación](https://www.youtube.com/watch?v=W1ZkhWNka-c) del autor sobre algunos fundamentos matemáticos de las ZKPs.
 [^36]: En francés, una expresión equivalente a “listo”, “voilà”, “hecho”, “bingo”, “ta-da”.
-[^37]: Existen distintas nociones de concisión, y dependen del sistema de pruebas（proofs）en cuestión. Técnicamente, una prueba es concisa si su complejidad temporal es sublineal.
+[^37]: Existen distintas nociones de concisión, y dependen del sistema de pruebas (proofs) en cuestión. Técnicamente, una prueba es concisa si su complejidad temporal es sublineal.
 [^38]: Cita atribuida a William Gibson. Ver [aquí](https://www.nytimes.com/2012/01/15/books/review/distrust-that-particular-flavor-by-william-gibson-book-review.html).
 [^39]: Actualmente se están desarrollando nuevas versiones como [Aztec](https://aztec.network/) y [Railgun](https://railgun.org/). [Tornado Cash (archivo)](https://web.archive.org/web/20220808144431/https://tornado.cash/) funciona de forma bastante distinta a [Zcash](https://z.cash), actuando más como un mezclador. Tornado Cash fue [sancionado](https://en.wikipedia.org/wiki/Tornado_Cash) recientemente por el gobierno de EE. UU. Al momento de escribir esto, aún hay muchas incógnitas sobre el caso, pero fue un evento [controvertido](https://www.eff.org/deeplinks/2022/08/code-speech-and-tornado-cash-mixer) que derivó en [demandas judiciales](https://www.coincenter.org/coin-center-is-suing-ofac-over-its-tornado-cash-sanction/]). Algunos lo ven como una secuela de las [Guerras Cripto](https://en.wikipedia.org/wiki/Crypto_Wars) de los 90. Hay otras alternativas como [Monero](https://www.getmonero.org/) y [Wasabi Wallet](https://wasabiwallet.io/) que no están basadas en ZKP pero comparten objetivos similares. Leé más en el informe de Coin Center: [The Case for Electronic Cash](https://www.coincenter.org/app/uploads/2020/05/the-case-for-electronic-cash-coin-center.pdf).
 [^40]: Ver [Semaphore](https://semaphore.appliedzkp.org) del equipo [Privacy & Scaling Explorations](https://www.appliedzkp.org/).
@@ -540,6 +540,6 @@ Gracias a Alex, Gelois y [Yago Pajariño](https://x.com/0xyago) por la traducci�
 [^55]: Ver [este ensayo](https://0xparc.org/blog/autonomous-worlds) de ludens en 0xPARC para más detalles sobre esta idea.
 [^56]: Ver [TLS Notary](https://tlsnotary.org)
 [^57]: Ver [artículo (archivo)](https://web.archive.org/web/20170703142802/https://www.pppl.gov/news/2016/09/pppl-and-princeton-demonstrate-novel-technique-may-have-applicability-future-nuclear)
-[^58]: A diferencia de las pruebas de conocimiento cero（ZKPs）, que permiten hacer declaraciones sobre datos privados, la [computación multipartita](https://en.wikipedia.org/wiki/Secure_multi-party_computation) (MPC) generaliza ese concepto y permite operar sobre secretos compartidos. Es decir, si Alice y Bob tienen sus propios secretos, podemos escribir un programa que los combine de forma no trivial sin revelar ninguno. Esto es útil, por ejemplo, en negociaciones, donde se necesita comparar información privada para llegar a un compromiso. La mayoría de los MPC actuales son limitados e ineficientes, pero es un área de investigación muy prometedora.
+[^58]: A diferencia de las pruebas de conocimiento cero (ZKPs), que permiten hacer declaraciones sobre datos privados, la [computación multipartita](https://en.wikipedia.org/wiki/Secure_multi-party_computation) (MPC) generaliza ese concepto y permite operar sobre secretos compartidos. Es decir, si Alice y Bob tienen sus propios secretos, podemos escribir un programa que los combine de forma no trivial sin revelar ninguno. Esto es útil, por ejemplo, en negociaciones, donde se necesita comparar información privada para llegar a un compromiso. La mayoría de los MPC actuales son limitados e ineficientes, pero es un área de investigación muy prometedora.
 [^59]: Una historia conocida: ver [Sears vs Amazon](https://fortune.com/longform/sears-couldve-been-amazon/).
 [^60]: Cita de un [panel en Devcon5](https://www.youtube.com/watch?v=hBupNf1igbY&t=1897s).
