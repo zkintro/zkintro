@@ -123,6 +123,27 @@ build-pdfs-es:
         --pdf-engine=xelatex \
         -o output/pdf/03_understanding-math-behind-zkps-es.pdf
 
+# Italian PDF
+build-pdf-it:
+    mkdir -p output/pdf
+    pandoc content/it/*.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-it.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/zkintro-it.pdf
+
+# Build PDFs per article for Italian
+build-pdfs-it:
+    @echo "Building individual PDFs for IT…"
+    @mkdir -p output/pdf
+    pandoc content/it/01_friendly-introduction-to-zero-knowledge.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-it.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/01_friendly-introduction-to-zero-knowledge-it.pdf
+
 # Build PDFs per article for Traditional Chinese  
 build-pdfs-zh-tw:
     @echo "Building individual PDFs for ZH‑TW…"

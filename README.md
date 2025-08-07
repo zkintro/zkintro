@@ -54,6 +54,7 @@ We generate one PDF per article for each locale:
 
 * `just build-pdfs-en` – builds English PDFs
 * `just build-pdfs-es` – builds Spanish PDFs
+* `just build-pdfs-it` – builds Italian PDFs
 * `just build-pdfs-zh-tw` – builds Traditional‑Chinese PDFs
 
 All files are written to `output/pdf/`.
