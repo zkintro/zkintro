@@ -56,6 +56,16 @@ build-pdf-en:
         --pdf-engine=xelatex \
         -o output/pdf/zkintro.pdf
 
+# Spanish PDF
+build-pdf-es:
+    mkdir -p output/pdf
+    pandoc content/es/*.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-es.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/zkintro-es.pdf
+
 # Traditional-Chinese PDF
 build-pdf-zh-tw:
     mkdir -p output/pdf
@@ -89,6 +99,50 @@ build-pdfs-en:
         --resource-path=content/assets \
         --pdf-engine=xelatex \
         -o output/pdf/03_understanding-math-behind-zkps-en.pdf
+
+# Build PDFs per article for Spanish
+build-pdfs-es:
+    @echo "Building individual PDFs for ES…"
+    @mkdir -p output/pdf
+    pandoc content/es/01_friendly-introduction-to-zero-knowledge.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-es.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/01_friendly-introduction-to-zero-knowledge-es.pdf
+    pandoc content/es/02_programming-zkps-from-zero-to-hero.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-es.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/02_programming-zkps-from-zero-to-hero-es.pdf
+    pandoc content/es/03_understanding-math-behind-zkps.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-es.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/03_understanding-math-behind-zkps-es.pdf
+
+# Italian PDF
+build-pdf-it:
+    mkdir -p output/pdf
+    pandoc content/it/*.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-it.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/zkintro-it.pdf
+
+# Build PDFs per article for Italian
+build-pdfs-it:
+    @echo "Building individual PDFs for IT…"
+    @mkdir -p output/pdf
+    pandoc content/it/01_friendly-introduction-to-zero-knowledge.md \
+        --top-level-division=chapter \
+        --template=build/templates/booklet-it.tex \
+        --resource-path=content/assets \
+        --pdf-engine=xelatex \
+        -o output/pdf/01_friendly-introduction-to-zero-knowledge-it.pdf
 
 # Build PDFs per article for Traditional Chinese  
 build-pdfs-zh-tw:

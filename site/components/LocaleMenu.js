@@ -17,6 +17,8 @@ const LocaleMenu = () => {
                 setCurrentLocale('pt-br')
             } else if (path.startsWith('/es')) {
                 setCurrentLocale('es')
+            } else if (path.startsWith('/it')) {
+                setCurrentLocale('it')
             } else if (path.startsWith('/zh-tw')) {
                 setCurrentLocale('zh-tw')
             } else {
@@ -46,6 +48,7 @@ const LocaleMenu = () => {
         'en': 'English',
         'pt-br': 'Português do Brasil',
         'es': 'Español',
+        'it': 'Italiano',
         'zh-tw': '繁體中文'
     }
 
@@ -57,7 +60,7 @@ const LocaleMenu = () => {
 
         // Remove current locale prefix
         let basePath = currentPath
-        for (const locale of ['pt-br', 'es', 'zh-tw']) {
+        for (const locale of ['pt-br', 'es', 'it', 'zh-tw']) {
             if (basePath.startsWith(`/${locale}`)) {
                 basePath = basePath.substring(`/${locale}`.length) || '/'
                 break

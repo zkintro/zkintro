@@ -38,7 +38,7 @@ Comenzaremos configurando tu entorno, escribiendo un programa simple, realizando
 Construiremos paso a paso un esquema de firma simple que te permitirá demostrar que enviaste un mensaje específico. Podrás entender qué hace este fragmento de código y por qué:
 
 ```javascript
-template SignMessage () {
+template SignMessage() {
   signal input identity_secret;
   signal input identity_commitment;
   signal input message;
@@ -165,7 +165,7 @@ Ve a la carpeta `example1` en el repositorio `zkintro-tutorial` mencionado arrib
 ```javascript
 pragma circom 2.0.0;
 
-template Multiplier2 () {
+template Multiplier2() {
   signal input a;
   signal input b;
   signal output c;
@@ -258,7 +258,7 @@ Como punto de partida, vamos a ejecutar la trusted setup nosotros mismos. Ejecut
 
 ![example1 trusted setup](../assets/02_example1_setup2.png 'example1 trusted setup')
 
-Se te pedirá proporcionar texto aleatorio o entropía dos veces. [^16] Una vez completado, deberías ver "Trusted setup completed." y la ubicación de las claves. El archivo que termina en `.zkey` es nuestra clave de prueba（proving key）. Aunque entrar en detalles sobre trusted setups está fuera del alcance de este artículo, hay algunas cosas importantes que conviene conocer.
+Se te pedirá proporcionar texto aleatorio o entropía dos veces. [^16] Una vez completado, deberías ver "Trusted setup completed." y la ubicación de las claves. El archivo que termina en `.zkey` es nuestra clave de prueba (proving key). Aunque entrar en detalles sobre trusted setups está fuera del alcance de este artículo, hay algunas cosas importantes que conviene conocer.
 
 Primero, ¿cuál es el problema con el enfoque anterior? Como sólo hay un participante, todos los demás que usan el material criptográfico de esa configuración están confiando en esa persona y en su entorno informático. Esto no funcionaría en escenarios de producción, donde querríamos maximizar el número de participantes para hacer la configuración más confiable. Si participan 100 personas, debido a cómo se construye este secreto criptográfico, basta que una sola sea honesta. [^17]
 
@@ -271,7 +271,7 @@ Quizás te preguntes, ¿por qué usar un trusted setup si se puede evitar? Mucha
 
 ### Generar la prueba
 
-Con el trusted setup completado arriba, tenemos una clave de prueba（proving key） y una clave de verificación（verification key）. Ahora podemos generar una prueba de que conocemos dos valores secretos cuyo producto es otro número público.
+Con el trusted setup completado arriba, tenemos una clave de prueba (proving key) y una clave de verificación (verification key). Ahora podemos generar una prueba de que conocemos dos valores secretos cuyo producto es otro número público.
 
 Específicamente, probemos que sabemos que 33 puede construirse multiplicando los números 3 y 11. Recuerda que nuestra entrada privada consiste en las señales `a` y `b`. Lo especificamos en el archivo `example1/input.json` de la siguiente manera:
 
@@ -333,7 +333,7 @@ A continuación, verifiquemos esta prueba. Ejecutá:
 
 ![example1 verify proof](../assets/02_example1_verify_proof.png 'example1 verify proof')
 
-Esto toma la clave de verificación（verification key）, la salida pública y la prueba. Con eso, podemos verificar la prueba. Debería imprimirse "Proof verified". Notá cómo el verificador nunca accede a las entradas privadas.
+Esto toma la clave de verificación (verification key), la salida pública y la prueba. Con eso, podemos verificar la prueba. Debería imprimirse "Proof verified". Notá cómo el verificador nunca accede a las entradas privadas.
 
 ¿Qué pasa si cambiamos la salida? Abrí `example1/target/public.json` y cambiá el 33 por 34, luego ejecutá nuevamente el comando anterior.
 
@@ -347,7 +347,7 @@ Vas a notar que la prueba ya no se verifica. Esto se debe a que nuestra prueba n
 
 1. ¿Cuáles son las dos propiedades clave de las ZKP y qué significan?
 
-2. ¿Cuál es el rol del demostrador（prover） y qué entrada necesita? ¿Y el verificador（verifier）?
+2. ¿Cuál es el rol del demostrador (prover) y qué entrada necesita? ¿Y el verificador (verifier)?
 
 3. Explicá qué hace la línea `c <== a * b;`.
 
@@ -477,7 +477,7 @@ En lugar de esto: [^31]
 ![Signature verification](../assets/02_example3_sigverify.png 'Signature verification')
 
 
-Solo queremos escribir un programa, generar una prueba（proof）de lo que queremos, y luego verificar esa prueba.
+Solo queremos escribir un programa, generar una prueba (proof) de lo que queremos, y luego verificar esa prueba.
 
 ### Funciones hash y compromisos
 
@@ -714,7 +714,7 @@ Gracias a [Alex](https://x.com/padimaster), [Gelois](https://x.com/Gelois_0) y [
 [^7]: En general, no se recomienda usar `<--` y casi siempre deberías evitarlo usando `<==` en su lugar.
 [^8]: Esto hace que escribir restricciones sea bastante desafiante, como puedes imaginar. Consulta https://docs.circom.io/circom-language/constraint-generation/ para más detalles sobre restricciones en Circom.
 [^9]: Para decir "este número está entre 1 y 9" tenemos que implementar una _verificación de rango_. Esto incluye descomponer el número en bits y realizar comprobaciones de igualdad sobre ellos. Por suerte, muchas de estas restricciones ya han sido escritas y se pueden reutilizar, como veremos más adelante con _circomlib_.
-[^10]: Por ejemplo, `p(x) = ax^2 + bx + c` se puede sumar, multiplicar o comparar fácilmente con `q(x) = dx^2 + 2bx + e`. Cabe destacar que en ZKPs operamos sobre campos finitos, no números reales. Esto queda fuera del alcance de este artículo.
+[^10]: Por ejemplo, `p (x) = ax^2 + bx + c` se puede sumar, multiplicar o comparar fácilmente con `q (x) = dx^2 + 2bx + e`. Cabe destacar que en ZKPs operamos sobre campos finitos, no números reales. Esto queda fuera del alcance de este artículo.
 [^11]: Aunque la mayoría de los ZKPs usan _circuitos aritméticos_, existen otros sistemas de prueba que trabajan con otras abstracciones. Por ejemplo, zkSTARKs y Bulletproofs.
 [^12]: Restricción lineal significa que se puede expresar como una combinación lineal usando solo sumas. Esto equivale a usar multiplicaciones con constantes. Lo principal a tener en cuenta es que las restricciones lineales son menos complejas que las no lineales. Consulta [generación de restricciones](https://docs.circom.io/circom-language/constraint-generation/) para más detalles. Los cables y etiquetas se refieren a cómo es el _circuito aritmético_. Esto no es algo de lo que normalmente tengas que preocuparte. Consulta [circuitos aritméticos](https://docs.circom.io/background/background/#arithmetic-circuits) para más detalles.
 [^13]: Matemáticamente, lo que hacemos es asegurarnos de que la ecuación `Az * Bz = Cz` se cumpla, donde `Z=(W,x,1)`. `A`, `B` y `C` son matrices, `W` es el testigo (entrada privada) y `x` es la entrada/salida pública. Aunque es útil saberlo, no es necesario entenderlo para escribir circuitos. Consulta [sistema de restricción rango-1](https://docs.circom.io/background/background/#rank-1-constraint-system) para más detalles.
