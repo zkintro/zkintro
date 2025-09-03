@@ -1,4 +1,5 @@
 ---
+
 title: 'Introduzione semplificata alla Zero Knowledge'
 date: '2023-07-17'
 tags: ['zero-knowledge']
@@ -8,7 +9,7 @@ slug: "friendly-introduction-to-zero-knowledge"
 images: ['../assets/01_zkp-magic.png']
 summary: "Le Zero Knowledge Proofs sono pura magia. Ci permettono di realizzare cose che prima non avremmo nemmeno immaginato. Questo è il primo di una serie di articoli sulle Zero Knowledge Proofs e le loro applicazioni. Vedremo cosa sono, perché dovrebbero interessarci, come funzionano e dove possono essere utilizzate."
 translator: 'Silvio Meneguzzo'
----
+------------------------------
 
 _Questo libro è stato tradotto e adattato da Silvio Meneguzzo_
 
@@ -42,17 +43,17 @@ Cominciamo con alcune citazioni per stuzzicare la curiosità. Alcune vi saranno 
 
 Tecnologie magiche, progresso della civiltà, brevità di espressione, privacy e un futuro già presente. Ecco, in sintesi, cosa sono le Zero Knowledge Proofs. Ma di cosa stiamo realmente parlando?
 
-Nell'ultimo secolo, computer e internet hanno conquistato il mondo. Queste tecnologie sono ovunque, in tutto quello che facciamo, nel bene e nel male. Su queste fondamenta abbiamo costruito piattaforme, aziende e veri e propri imperi. Parliamo dei giganti MAMAA (Microsoft, Apple, Meta, Alphabet, Amazon). Poi c'è il cuore pulsante del sistema: reti di pagamento, servizi governativi e una miriade di applicazioni B2B che regolano silenziosamente il mondo. Infine, troviamo una moltitudine di altre piccole realtà: app divertenti per modificare immagini, piattaforme per imparare lingue straniere o comunità online.
+Nell'ultimo secolo, computer e internet hanno conquistato il mondo. Queste tecnologie sono ovunque, in tutto quello che facciamo, nel bene e nel male. Su queste fondamenta abbiamo costruito piattaforme, aziende e veri e propri imperi. Parliamo dei giganti MAMAA (Microsoft, Apple, Meta, Alphabet, Amazon). Poi c'è il cuore pulsante del sistema: reti di pagamento, servizi governativi e una miriade di applicazioni B2B che regolano silenziosamente il mondo. Infine, troviamo una moltitudine di altre piccole realtà: app divertenti per modificare immagini, piattaforme per imparare lingue straniere e comunità virtuali.
 
 Quando inserisci dei dati in un qualsiasi servizio online, ti aspetti di ottenere qualcosa in cambio. Può trattarsi di un piccolo obiettivo, come contattare un amico o distrarti dal lavoro, oppure di qualcosa di importante come richiedere un mutuo. Ma che fine fanno davvero questi dati? Non parliamo solo di quelli di cui sei consapevole, ma anche della montagna sommersa di informazioni nascoste. Ciò che desideri accadrà davvero, o ci saranno delle complicazioni, magari oggi o fra un anno?
 
-Chi comprende realmente questi sistemi e le conseguenze del nostro utilizzo? E soprattutto, in che modo questi sistemi utilizzano noi? Certamente qualcuno ne avrà una comprensione maggiore, ma nessuno li conosce tutti fino in fondo, né tantomeno riesce a prevedere come interagiranno, generando conseguenze impreviste.
+Chi comprende realmente questi sistemi e le conseguenze del nostro utilizzo? E soprattutto, in che modo quest'ultimi utilizzano noi? Certamente qualcuno ne avrà una comprensione maggiore, ma nessuno li conosce tutti fino in fondo, né tantomeno riesce a prevedere come interagiranno, generando conseguenze impreviste.
 
 Come può reagire una persona? Fidandosi. Ma di chi? E perché?
 
-È un problema complesso. Il nostro cervello non si è evoluto per gestire questioni simili. Internet, pur avendoci connesso e semplificato la vita in tanti modi, ha anche creato un discreto caos. In passato, se avevi una conversazione privata, il vento disperdeva le tue parole. Se restavi chiuso fuori casa, chiamavi un fabbro, o al limite forzavi la serratura. Ma con chi parli quando resti escluso dal tuo account Google davanti alla scritta "Accesso negato"? Con nessuno. Ti trovi davanti a un castello invisibile e impenetrabile.
+È un problema complesso. Il nostro cervello non si è evoluto per gestire questioni simili. Internet, pur avendoci connesso e semplificato la vita in tanti modi, ha anche creato un discreto caos. In passato, se avevi una conversazione privata, questa svaniva nel vvento. Se restavi chiuso fuori casa, chiamavi un fabbro, o al limite forzavi la serratura. Ma con chi parli quando resti escluso dal tuo account Google davanti alla scritta "Accesso negato"? Con nessuno. Ti trovi davanti a un castello invisibile e impenetrabile.
 
-Le ZKPs possono aiutarci. Magari non sempre, non ovunque, e forse non proprio in questo preciso momento. Ma già oggi possono essere applicate in numerosi contesti, e in futuro lo saranno sempre di più. Nel resto di questo articolo cercherò di convincerti del perché e del come. Seguiamo insieme questa magia.
+Le ZKPs possono aiutarci, magari non sempre, non ovunque e forse non proprio in questo preciso momento, ma già oggi possono essere applicate in numerosi contesti e in futuro lo saranno sempre di più. Nel resto di questo articolo cercherò di convincerti del perché e del come. Seguiamo insieme questa magia.
 
 ---
 
@@ -60,9 +61,9 @@ Le ZKPs possono aiutarci. Magari non sempre, non ovunque, e forse non proprio in
 
 _Questa sezione introduce il concetto di Zero Knowledge Proof_
 
-Questo è il primo di una serie di articoli sulle Zero Knowledge Proofs e le loro applicazioni. Vedremo cosa sono le Zero Knowledge Proofs, perché dovrebbero interessarci, come funzionano e dove possono essere utilizzate.
+Questo è il primo di una serie di articoli sulle Zero Knowledge Proofs e le loro applicazioni, vedremo cosa sono e perché dovrebbero interessarci.
 
-Immagina di entrare in un bar e dimostrare di avere più di 18 anni senza rivelare nient’altro, nemmeno il tuo documento con tutte le informazioni personali. Oppure immagina di poter dimostrare di aver pagato correttamente le tasse, senza rivelare dettagli sul tuo reddito o patrimonio. Questi sono esempi concreti di ciò che le Zero Knowledge Proofs (ZKPs) permettono di fare. Il termine _zero knowledge_ ("conoscenza zero") indica semplicemente che non viene rivelata alcuna informazione al di là di quella strettamente necessaria.
+Immagina di entrare in un bar e dimostrare di avere più di 18 anni senza dover rivelare nessun'altra informazione, nemmeno il tuo documento con tutte le informazioni personali. Oppure immagina di poter dimostrare di aver pagato correttamente le tasse, senza rivelare dettagli sul tuo reddito o patrimonio. Questi sono esempi concreti di ciò che le Zero Knowledge Proofs (ZKPs) permettono di fare. Il termine _zero knowledge_ ("conoscenza zero") indica semplicemente che non viene rivelato alcun dato al di là di quelli strettamente necessari.
 
 Le ZKPs consentono di dimostrare che un’asserzione (statement) è vera senza rivelare nient’altro.
 
@@ -72,7 +73,7 @@ Immagina di avere l’immagine di "Dov’è Wally" e un grande foglio di carta, 
 
 ![Dov’è Wally](../assets/01_waldo.jpg "Dov’è Wally")
 
-Ovviamente questo è soltanto un esempio giocattolo, ma speriamo possa offrire un’intuizione di come una simile dimostrazione sia possibile. Che cosa stiamo provando, esattamente? E cosa significa questo concretamente? Lo approfondiremo in seguito. Per ora, vediamo più in generale cosa ci permettono le ZKPs.
+Ovviamente questo è soltanto un esempio esemplificativo, ma speriamo possa offrire un’intuizione di come una simile dimostrazione sia possibile. Che cosa stiamo provando, esattamente? E cosa significa questo concretamente? Lo approfondiremo in seguito. Per ora, vediamo più in generale cosa ci permettono le ZKPs.
 
 Le ZKPs consentono di dimostrare affermazioni arbitrarie in modo molto generale. Più nello specifico, permettono di dimostrare qualcosa in modo privato e sintetico.
 
@@ -84,7 +85,7 @@ _Questa sezione spiega perché qualcuno potrebbe interessarsi alle ZKPs, approfo
 
 Dopo aver letto la sezione precedente potresti pensare: "Va bene, carino, ma perché dovrebbe interessarmi?". È una reazione più che comprensibile. Anzi, forse non dovrebbe interessarti affatto! Esattamente come potrebbe non interessarti sapere come funzionano i computer, dove ci porterà l’intelligenza artificiale o argomenti simili.
 
-Perché allora _potrebbe_ interessarti? Magari perché sei curioso e vuoi capire come funzionano le ZKPs e quali nuove interazioni possono abilitare. Si tratta di un meccanismo molto generale, e per molte persone che lavorano in questo settore rappresenta un paradigma completamente nuovo, capace di aprire le porte a moltissime possibilità ancora inesplorate. È qualcosa che sta già avvenendo, e sembra proprio che siamo soltanto agli inizi. Nel resto di questa sezione proverò a darti qualche intuizione sul perché e sul come.
+Perché allora _potrebbe_ interessarti? Magari perché sei curioso e vuoi capire come funzionano le ZKPs e quali nuove interazioni possono abilitare. Si tratta di un meccanismo molto generale, e per molte persone che lavorano in questo settore rappresenta un paradigma completamente nuovo, capace di aprire le porte a moltissime possibilità ancora inesplorate. È qualcosa che sta già avvenendo e sembra proprio che siamo soltanto agli inizi. Nel resto di questa sezione proverò a darti qualche intuizione sul perché e sul come.
 
 Prima di entrare più nel dettaglio, cerchiamo di capire cosa ci offrono le ZKPs ad alto livello. Le ZKPs garantiscono principalmente una o entrambe queste proprietà:
 
@@ -116,9 +117,9 @@ Conversazioni, password, informazioni delle carte di credito. Questi sono esempi
 
 Potresti pensare: "Possiamo già mantenere private informazioni come le password, dov'è la novità?". In un certo senso, hai ragione per questi esempi specifici. Dobbiamo però sforzarci di immaginare qualcosa di più per capire fino in fondo quali possibilità apra la privacy programmabile di tipo general-purpose.
 
-Ad esempio, considera come Agostino, nelle sue _Confessioni (400 d.C.)_, trovasse insolito il fatto che il vescovo Ambrogio praticasse la "lettura silenziosa". All'epoca era normale leggere ad alta voce. [^4]
+Ad esempio, considera come Agostino, nelle sue _Confessioni (400 d.C.)_, trovasse insolito il fatto che il vescovo Ambrogio praticasse la "lettura silenziosa" (questo perchè all'epoca era normale leggere ad alta voce [^4]).
 
-> Quando [Ambrogio] leggeva, gli occhi percorrevano le pagine e il cuore ne coglieva il significato, ma la voce taceva e la lingua restava immobile. Chiunque poteva avvicinarsi liberamente, e gli ospiti non venivano comunemente annunciati. Spesso quindi, quando andavamo a trovarlo, lo sorprendevamo assorto in silenzio in tale lettura, poiché non leggeva mai ad alta voce.
+> Quando [Ambrogio] leggeva, gli occhi percorrevano le pagine e il cuore ne coglieva il significato, ma la voce taceva e la lingua restava immobile. Chiunque poteva avvicinarsi liberamente e gli ospiti non venivano comunemente annunciati. Spesso quindi, quando andavamo a trovarlo, lo sorprendevamo assorto in silenzio in tale lettura, poiché non leggeva mai ad alta voce.
 
 ![Lettura silenziosa](../assets/01_silent-reading.jpg "Lettura silenziosa")
 
@@ -134,11 +135,9 @@ Nelle prossime sezioni daremo uno sguardo a come potrebbero apparire queste inve
 
 La definizione di comprimere qualcosa è:
 
-> spingere qualcosa in uno spazio più piccolo
+> ridurre qualcosa in uno spazio più piccolo
 
 Allo stesso modo, la sinteticità è definita come:
-
-> the act of expressing something clearly in a few words
 
 > l'atto di esprimere qualcosa in modo chiaro e conciso
 
@@ -150,9 +149,9 @@ Cosa intendiamo con "prova" e "dimensione della prova"? Si tratta di concetti ma
 
 In un classico giallo alla Sherlock Holmes, il detective raccoglie indizi finché non riesce a dimostrare con certezza chi sia l’assassino. Nel gran finale, espone esattamente come è arrivato a questa conclusione. Possiamo considerare questa dichiarazione finale come la "prova". [^6]
 
-In termini più tecnici, questa proprietà si chiama _succinctness_ (sinteticità). [^7] È ciò che consente alla prova di mantenere la stessa dimensione indipendentemente dalla complessità di ciò che vogliamo dimostrare. Nel contesto delle blockchain pubbliche, questa proprietà è legata anche al concetto di _scalabilità_. In blockchain come Ethereum, dove lo spazio disponibile nei blocchi è limitato e costoso, le ZKPs possono rendere le transazioni molto più economiche e veloci. Come? Creando una prova che certifichi che un insiemi di transazioni sono avvenute, e registrando solo quella prova sintetica sulla blockchain, anziché l’intero contenuto delle transazioni. Con le ZKPs, questo processo può essere realizzato in modo estremamente sicuro.
+In termini più tecnici, questa proprietà si chiama _succinctness_ (sinteticità). [^7] È ciò che consente alla prova di mantenere la stessa dimensione indipendentemente dalla complessità di ciò che vogliamo dimostrare. Nel contesto delle blockchain pubbliche, questa proprietà è legata anche al concetto di _scalabilità_. In blockchain come Ethereum, dove lo spazio disponibile nei blocchi è limitato e costoso, le ZKPs possono rendere le transazioni molto più economiche e veloci. Come? Creando una prova che certifichi che un insieme di transazioni siano avvenute e registrando solo quella prova sintetica sulla blockchain, anziché l’intero contenuto delle transazioni. Con le ZKPs, questo processo può essere realizzato in modo estremamente sicuro.
 
-La sinteticità è una proprietà generale e indipendente dal concetto stesso di "blockchain": semplicemente, queste ne traggono particolare beneficio per molte ragioni. In generale, avere una prova breve che qualcosa è vero è estremamente utile. Vediamo alcuni punti di vista per capirne meglio il motivo.
+La sinteticità è una proprietà generale e indipendente dal concetto stesso di "blockchain": semplicemente, queste ne traggono particolare beneficio per diverse ragioni. In generale, avere una prova breve che qualcosa sia vero è estremamente utile. Vediamo alcuni punti di vista per capirne meglio il motivo.
 
 Un modo per comprenderlo è pensare ai _costi di transazione_. [^8] In generale, più bassi sono, maggiore sarà il valore e la ricchezza che possiamo generare. Se le cose da verificare sono poche, o se verificarle diventa più semplice, possiamo agire con maggiore libertà e facilità.
 
@@ -164,11 +163,11 @@ Nei file system dei computer, un _hash_ viene spesso usato per garantire l’int
 
 Facciamo un passo indietro rispetto a compressione, sinteticità e prove. Prendiamoci una breve deviazione per parlare di conoscenza, carico cognitivo e fiducia. Alla fine della sezione, collegheremo tutto questo di nuovo alle ZKPs.
 
-Nella vita quotidiana, cosa sai essere vero e perché? Se vedi il sole sorgere ogni giorno, probabilmente ti aspetti che sorga anche domani. Nel mondo moderno siamo perlopiù protetti dalle avversità della natura, ma al contempo dobbiamo affrontare altre preoccupazioni, più moderne. Molte di queste hanno a che fare con le istituzioni con cui interagiamo ogni giorno.
+Nella vita quotidiana, cosa sai essere vero e perché? Se vedi il sole sorgere ogni giorno, probabilmente ti aspetti che sorga anche domani. Nel mondo di oggi siamo perlopiù protetti dalle avversità della natura, ma al contempo dobbiamo affrontare altre preoccupazioni, più moderne. Molte di queste hanno a che fare con le istituzioni con cui interagiamo ogni giorno.
 
-Se riesci a prelevare contanti dalla tua banca ogni giorno, ti aspetti di poterlo fare anche domani? La maggior parte delle persone probabilmente direbbe di sì, ma non è sempre così per tutti. Dipende da molti fattori: dall'affidabilità della banca, dalla stabilità del paese in cui vivi, da eventuali eventi rilevanti nell’economia globale, o dalla tua situazione personale. Tutti questi elementi forniscono indizi, e su quella base prendi una decisione.
+Se riesci a prelevare contanti dalla tua banca ogni giorno, ti aspetti di poterlo fare anche domani? La maggior parte delle persone probabilmente direbbe di sì, ma non è sempre così per tutti. Dipende da molti fattori: dall'affidabilità della banca, dalla stabilità del paese in cui vivi, da eventuali eventi rilevanti nell’economia globale, o dalla tua situazione personale. Tutti questi elementi forniscono indizi e su quella base prendi una decisione.
 
-Questo è ovviamente un esempio banale, ma la vita ne è piena. Tutto ciò può essere visto come una forma di carico cognitivo. Quanto questo incida dipende dalla tua situazione personale e dalla complessità delle tue interazioni quotidiane. Per esempio, un’azienda prenderà in seria considerazione questi fattori quando stipula un contratto con un’altra parte.
+Questo è ovviamente un esempio banale, ma la vita ne è piena. Tutto ciò può essere visto come una forma di carico cognitivo. Quanto questo incida dipende dalla tua situazione personale e dalla complessità delle tue interazioni quotidiane.
 
 Creiamo meccanismi e regole per gestire questa incertezza: servizi di reputazione, audit indipendenti, sanzioni per scoraggiare comportamenti scorretti, richiesta di accreditamento presso alcune istituzioni fidate, ecc. Tutte queste misure sono in sostanza dei cerotti, tentativi di arrivare al cuore del problema. È davvero ciò che dichiara di essere? Rispetta le regole che abbiamo stabilito? È affidabile e utilizzabile?
 
@@ -192,9 +191,9 @@ Tutto ciò presuppone che almeno alcune delle regole o dei meccanismi citati, sp
 
 Ricordiamo che le ZKPs ci permettono di dimostrare asserzioni arbitrarie in maniera general-purpose (generica). Perché questo è importante e in che modo rappresenta un vantaggio?
 
-La differenza tra strumenti esistenti simili e le ZKPs è paragonabile alla differenza tra una calcolatrice e un computer. Una è pensata per svolgere un compito molto specifico, l’altro è general-purpose. È la differenza tra questa macchina calcolatrice [^12] e un computer moderno:
+La differenza tra strumenti esistenti simili e le ZKPs è paragonabile alla differenza tra una calcolatrice e un computer. Una è pensata per svolgere un compito molto specifico, l’altro è general-purpose. È la differenza tra questa macchina calcolatrice [^12] e un computer moderno.
 
-![Pascal's calculator](../assets/01_pascals-calculator2.jpg "Calcolatrice di Pascal")
+![Calcolatrice di Pascal](../assets/01_pascals-calculator2.jpg "Calcolatrice di Pascal")
 
 Ricorda gli esempi specifici che abbiamo usato prima per rappresentare in modo concreto privacy e sinteticità. Una password è un'informazione privata che ti permette di accedere a un servizio [^13]. Nel caso di un hash di un dato in ingresso, come un file, ci offre invece un riferimento sintetico per verificarne l’integrità.
 
@@ -228,7 +227,7 @@ Allo stesso modo, se ho un Sudoku (un popolare rompicapo logico), posso dimostra
 
 Avrai notato che "Dov’è Wally" e risolvere un Sudoku sono due problemi molto diversi. Eppure possiamo scrivere un semplice programma che descrive entrambi e usare una ZKP per creare la prova. Questo è possibile perché la logica del programma è general-purpose e può calcolare qualsiasi cosa sia computabile da un computer.
 
-Abbiamo trasformato quello che era un problema di crittografia o matematica (definire e rendere sicura una funzione di hash) in un problema di programmazione. Per capire perchè questo è estremamente potente, considera i seguenti esempi.
+Abbiamo trasformato quello che era un problema di crittografia o matematica (definire e rendere sicura una funzione di hash) in un problema di programmazione. Per capire perchè questo è estremamente potente, considera i successivi esempi presenti nei prossimi capitoli.
 
 Ora possiamo dimostrare di conoscere il dato privato che genera un determinato hash [^17]. Questo significa che puoi dimostrare di possedere un certo messaggio, ad esempio un documento importante, senza rivelarne il contenuto.
 
@@ -257,7 +256,7 @@ Dal punto di vista tecnico, le ZKP sono relativamente recenti: matematicamente e
 
 Successivamente, qualcuno ha dovuto trasformare quei paper e quei protocolli crittografici in qualcosa di pratico. Il primo esempio degno di nota è stato Zcash, la criptovaluta orientata alla privacy, lanciata nel 2016. Il progetto nacque da un paper scritto da cypherpunk e ricercatori [^22]. La versione iniziale fu un’impressionante opera di ricerca e ingegneria applicata a un prodotto reale: pur con molte criticità e ben lontana dall’essere ottimale, fu la prima dimostrazione pratica che le ZKP potevano funzionare nel mondo reale. Da lì è esplosa la ricerca e lo sviluppo in questo campo, soprattutto negli ultimi anni.
 
-Le blockchain pubbliche come Ethereum e Zcash, una criptovaluta orientata alla privacy, hanno avuto un ruolo fondamentale in questo. Le blockchain eccellono in caratteristiche come la resistenza alla censura e la trasparenza [^23]. Questi vantaggi, però, comportano un sacrificio in termini di privacy e scalabilità, i punti di forza delle ZKP; da qui la loro naturale combinazione. A ciò si aggiunge la forte propensione della community blockchain verso la crittografia avanzata [^24], e non sorprende che molta dell’innovazione si stia concentrando proprio nell’intersezione tra blockchain e ZKPs [^25]. Grazie ai numerosi progetti blockchain ben finanziati, questo ha portato nuovi investimenti in ricerca e sviluppo in un ambito storicamente più accademico.
+Le blockchain pubbliche come Ethereum e Zcash, una criptovaluta orientata alla privacy, hanno avuto un ruolo fondamentale in questo. Le blockchain eccellono in caratteristiche come la resistenza alla censura e la trasparenza [^23]. Questi vantaggi però, comportano un sacrificio in termini di privacy e scalabilità, i punti di forza delle ZKP, da qui la loro naturale combinazione. A ciò si aggiunge la forte propensione della community blockchain verso la crittografia avanzata [^24] e non sorprende che molta dell’innovazione si stia concentrando proprio nell’intersezione tra blockchain e ZKPs [^25]. Grazie ai numerosi progetti blockchain ben finanziati, questo ha portato nuovi investimenti in ricerca e sviluppo in un ambito storicamente più accademico.
 
 Considerando la complessità in gioco, che spazia tra matematica applicata, crittografia, articoli su sistemi ZKP specifici, implementazione di nuovi sistemi di prova, strumenti di sviluppo e applicazioni che vanno a toccare altri domini complessi, i progressi sono rapidissimi. Ogni anno, persino ogni mese, vengono pubblicati nuovi articoli con tecniche inedite, strumenti migliori e nuove applicazioni. Il ciclo tra ricerca, implementazione e utilizzo si stringe sempre di più. Anche se resta difficile, iniziare oggi è molto più facile di qualche anno fa. E man mano che gli strumenti migliorano, agli sviluppatori è richiesto di comprendere sempre meno la matematica che sta alla base delle ZKPs.
 
@@ -300,7 +299,7 @@ Un buon modello mentale è pensare alle ZKPs come a uno zoo. Ci sono molti anima
 
 Tornando al nostro protocollo, abbiamo un prover (dimostratore) e un verifier (verificatore). Il prover genera una prova usando una _prover key_, l’input privato e l’input pubblico. Il verifier verifica la prova utilizzando una _verification key_ e l’input pubblico, e restituisce come risultato true o false.
 
-Abbiamo introdotto due nuovi concetti: la _prover key_ e la _verifier key_. Queste consentono al prover e al verifier di compiere la loro magia. Puoi immaginarle come chiavi normali che permettono di entrare in un luogo e svolgere un'azione, oppure come bacchette magiche che abilitano determinate operazioni. Queste chiavi derivano da una cerimonia speciale chiamata _setup_, una fase iniziale di preparazione su cui non entreremo nei dettagli in questo articolo [^33].
+Abbiamo introdotto due nuovi concetti: la _prover key_ e la _verifier key_. Queste consentono al prover e al verifier di compiere la loro magia. Puoi immaginarle come chiavi normali che permettono di entrare in un luogo e svolgere un'azione, oppure come bacchette magiche che abilitano determinate operazioni. Queste chiavi derivano da una cerimonia speciale chiamata _setup_, una fase iniziale di preparazione su cui non entreremo nei dettagli in questo libro [^33].
 
 Nota che solo il prover ha accesso all’input privato. In che modo il prover utilizza la prover key, l’input privato e quello pubblico per generare una prova?
 
@@ -308,11 +307,11 @@ Ricorda l’illustrazione precedente di una ZKP:
 
 ![ZKP](../assets/01_graphviz-zkp.png "ZKP")
 
-Abbiamo un programma speciale (formalmente chiamato _circuit_) che codifica la logica di interesse per l’utente. Per esempio, potrebbe dimostrare di conoscere i dati che generano un determinato valore di hash. Diversamente da un normale programma per computer, questo programma è composto da _vincoli_ (constraints) [^34]. La prova consiste nel dimostrare che tutti questi vincoli vengono soddisfatti insieme al dato input privato e pubblico.
+Abbiamo un programma speciale (formalmente chiamato _circuit_) che codifica la logica di interesse per l’utente. Per esempio, potrebbe dimostrare di conoscere i dati che generano un determinato valore di hash. Diversamente da un normale programma per computer, questo programma è composto da _vincoli_ (constraints) [^34]. La prova consiste nel dimostrare che tutti questi vincoli vengano soddisfatti insieme al dato input privato e pubblico.
 
 Alla fine, il verifier unisce la prova, la verification key, l’input pubblico e il circuito di vincoli; se tutto torna _oltre ogni ragionevole dubbio_, restituisce "true", altrimenti "false".
 
-Questa visione è leggermente semplificata, ma coglie l’essenza di quello che sta accadendo.
+Questa spiegazione è leggermente semplificata, ma coglie l’essenza di quello che sta accadendo.
 
 ### Vincoli
 
@@ -353,11 +352,11 @@ Una dimostratrice (prover) chiamata Peggy usa la sua prover key, il puzzle e la 
 
 Ecco una formula magica tratta da un libro di incantesimi, scritto da un medico gallese nel XIX secolo:
 
-![Magic spell](../assets/01_magic-spell.png "Formula magica")
+![Formula magica](../assets/01_magic-spell.png "Formula magica")
 
 Ecco invece un esempio reale di Zero Knowledge Proof generata dalla libreria Circom/snarkjs:
 
-![Circom proof](../assets/01_circom-proof.png "Prova generata con Circom")
+![Prova generata con Circom](../assets/01_circom-proof.png "Prova generata con Circom")
 
 Solo che in questo caso, la magia funziona davvero.
 
@@ -373,7 +372,7 @@ Diciamo che una ZKP possiede alcune proprietà tecniche fondamentali:
 
 Inoltre, nel caso degli zk-SNARKs, la prova è succinta (succinct), il che significa che non aumenta di dimensione anche quando il programma diventa più complesso [^37].
 
-Ci sono anche altre proprietà che consideriamo importanti nel caso pratico delle ZKPs:
+Ci sono anche altre considerazioni che reputiamo importanti nel caso pratico delle ZKPs:
 
 - Quali ipotesi matematiche fa il sistema?
 - Quanto è sicuro?
@@ -385,7 +384,7 @@ Ci sono anche altre proprietà che consideriamo importanti nel caso pratico dell
 - Quanto è espressivo il linguaggio utilizzato per scrivere programmi per un determinato sistema ZKP?
 - E così via.
 
-Come puoi vedere, ci sono molte considerazioni da fare e numerose varianti di ZKPs. Non preoccuparti troppo però, perchè il concetto di base rimane sempre lo stesso, e a seconda dei tuoi interessi puoi tranquillamente ignorare molti dettagli tecnici. Tornando alla metafora dello zoo, non è necessario diventare biologi, potresti voler lavorare solo con alcuni animali, adottarne uno oppure semplicemente accarezzare il cane di un amico.
+Come puoi vedere, ci sono molte riflessioni da fare e numerose varianti di ZKPs. Non preoccuparti troppo però, perchè il concetto di base rimane sempre lo stesso, e a seconda dei tuoi interessi puoi tranquillamente ignorare molti dettagli tecnici. Tornando alla metafora dello zoo, non è necessario diventare biologi, potresti voler lavorare solo con alcuni animali, adottarne uno oppure semplicemente accarezzare il cane di un amico.
 
 ## Applicazioni
 
@@ -422,15 +421,15 @@ Questi sono solo alcuni esempi e non una lista esaustiva. Non abbiamo parlato di
 
 ### All'orizzonte
 
-**ZK-EVM equivalente a Ethereum (Ethereum-equivalence)**. Esistono diverse tipologie di ZK-EVM, e quelle più difficili da realizzare sono quelle totalmente equivalenti a Ethereum. Altre ZK-EVM adottano scorciatoie per semplificare la generazione delle prove. Con una ZK-EVM totalmente equivalente a Ethereum, non c'è alcuna differenza rispetto al sistema Ethereum attuale. Ciò permette di dimostrare l’esecuzione corretta di ogni singolo blocco tramite una prova succinta. Potresti addiririttura usare uno smartphone per verificare l'integrità di tutta la blockchain, basandoti esclusivamente sulla matematica, senza necessità di affidarti a terze parti o di utilizzare macchine costose. Attualmente in fase di sviluppo da parte del team ZK-EVM Community Edition. [^50]
+**ZK-EVM equivalente a Ethereum**. Esistono diverse tipologie di ZK-EVM, e quelle più difficili da realizzare sono quelle totalmente equivalenti a Ethereum. Altre ZK-EVM adottano scorciatoie per semplificare la generazione delle prove. Con una ZK-EVM totalmente equivalente a Ethereum, non c'è alcuna differenza rispetto al sistema Ethereum attuale. Ciò permette di dimostrare l’esecuzione corretta di ogni singolo blocco tramite una prova succinta. Potresti addiririttura usare uno smartphone per verificare l'integrità di tutta la blockchain, basandoti esclusivamente sulla matematica, senza necessità di affidarti a terze parti o di utilizzare macchine costose. Attualmente in fase di sviluppo da parte del team ZK-EVM Community Edition. [^50]
 
-**Computazione dimostrabile general-purpose (General purpose provable computation)**. Gran parte delle computazioni al mondo non avviene sulla EVM, bensì su altri sistemi. Programmi basati su WASM e LLVM sono molto diffusi [^51]. Possiamo utilizzare lo stesso approccio della ZK-EVM per svolgere computazioni private dimostrabili di uso generale. Ad esempio, è possibile dimostrare che un database contiene un determinato record senza rivelare altre informazioni. Attualmente questa tecnologia è oggetto di sviluppo da parte di diversi team, tra cui Delphinus Labs, RISC Zero, Orochi Network e nil.foundation. [^52]
+**Computazione dimostrabile general-purpose**. Gran parte delle computazioni al mondo non avviene sulla EVM, bensì su altri sistemi. Programmi basati su WASM e LLVM sono molto diffusi [^51]. Possiamo utilizzare lo stesso approccio della ZK-EVM per svolgere computazioni private dimostrabili di uso generale. Ad esempio, è possibile dimostrare che un database contiene un determinato record senza rivelare altre informazioni. Attualmente questa tecnologia è oggetto di sviluppo da parte di diversi team, tra cui Delphinus Labs, RISC Zero, Orochi Network e nil.foundation. [^52]
 
 **ZK Machine Learning (ZK ML)**. È possibile dimostrare privatamente che una determinata computazione sia stata svolta correttamente fuori dalla blockchain (off-chain), pubblicando successivamente soltanto la prova della sua corretta esecuzione. Questo consente di utilizzare dati privati per addestrare modelli migliori senza rivelare tali dati, ad esempio documenti sensibili, registrazioni vocali o persino sequenze di DNA per individuare problemi di salute. Tutto ciò migliora sia la scalabilità sia la privacy degli utenti. Attualmente esistono prove di concetto (PoC) per applicazioni semplici come MNIST, un noto test usato nel Machine Learning per riconoscere cifre scritte a mano, e si sta lavorando su applicazioni più complesse, come reti neurali implementate nelle ZKPs. [^53]
 
-**Autenticità di foto e video (Photo authenticity)**. È possibile dimostrare l’origine e l'autenticità di contenuti come foto e video, incluse modifiche standard di post-elaborazione. In altre parole, dimostrare che una foto sia stata scattata in un determinato luogo e momento, e che abbia subito soltanto modifiche basilari come il ridimensionamento, il ritaglio e la conversione in scala di grigi (operazioni approvate dall’agenzia AP). Alcuni progressi sono già stati fatti, compresa una prova di concetto (PoC). [^54]
+**Autenticità di foto e video**. È possibile dimostrare l’origine e l'autenticità di contenuti come foto e video, incluse modifiche standard di post-elaborazione. In altre parole, dimostrare che una foto sia stata scattata in un determinato luogo e momento, e che abbia subito soltanto modifiche basilari come il ridimensionamento, il ritaglio e la conversione in scala di grigi (operazioni approvate dall’agenzia AP). Alcuni progressi sono già stati fatti, compresa una prova di concetto (PoC). [^54]
 
-**Conformità normativa (Compliance)**. È possibile dimostrare che una transazione privata rispetta determinate normative o che un determinato asset non sia incluso in una lista nera. Inoltre, si può dimostrare che una piattaforma di scambio (exchange) è solvibile senza rivelarne gli asset. Alcuni sistemi come Espresso Labs hanno già sviluppato soluzioni in questo ambito, e alcune piattaforme dispongono già di versioni semplificate.
+**Conformità normativa**. È possibile dimostrare che una transazione privata rispetta determinate normative o che un determinato asset non sia incluso in una lista nera. Inoltre, si può dimostrare che una piattaforma di scambio (exchange) è solvibile senza rivelarne gli asset. Alcuni sistemi come Espresso Labs hanno già sviluppato soluzioni in questo ambito, e alcune piattaforme dispongono già di versioni semplificate.
 
 **Intenzioni schermate e private.** Gli utenti delle blockchain pubbliche hanno spesso obiettivi precisi, che possono essere espressi come _intenzioni_ (intents). Ad esempio, un utente potrebbe voler scambiare un token con un altro. Queste intenzioni possono essere condivise con altri utenti per trovare controparti adatte. È auspicabile che tali intenzioni siano schermate (shielded), cioè nascondano il “chi” ma non il “cosa”, in modo simile alle transazioni schermate di Zcash, oppure completamente private. Attualmente in sviluppo da parte del progetto Anoma, iniziando con un sistema di matching schermato. Rendere completamente privato il matching delle intenzioni richiederà probabilmente avanzamenti significativi nella crittografia, analogamente all’ultimo esempio di questa sezione.
 
@@ -440,13 +439,13 @@ Questi sono solo alcuni esempi e non una lista esaustiva. Non abbiamo parlato di
 
 **Disarmo nucleare (Nuclear disarmament)**. Consente agli ispettori di siti nucleari di confermare se un determinato oggetto sia o meno un’arma nucleare, senza dover ispezionare i dettagli sensibili della struttura interna. Sono già stati pubblicati articoli scientifici con simulazioni fisiche in proposito. [^57]
 
-**Trattative di pace e negoziazioni ad alto rischio (Peace talks and high-stakes negotiation)**. Spesso nelle trattative esistono limiti invalicabili che ciascuna parte preferisce non rivelare per non indebolire la propria posizione negoziale. Codificando esplicitamente questi limiti, due parti possono trattare questioni estremamente complesse e giungere a un accordo senza rivelare dettagli specifici dei loro parametri e limiti. Ciò consente a parti che non si fidano reciprocamente di raggiungere accordi fruttuosi. Probabilmente richiederà avanzamenti significativi nella Multi-Party Computation (MPC), che consente calcoli su segreti condivisi. [^58]
+**Trattative di pace e negoziazioni ad alto rischio**. Spesso nelle trattative esistono limiti invalicabili che ciascuna parte preferisce non rivelare per non indebolire la propria posizione negoziale. Codificando esplicitamente questi limiti, due parti possono trattare questioni estremamente complesse e giungere a un accordo senza rivelare dettagli specifici dei loro parametri e limiti. Ciò consente a parti che non si fidano reciprocamente di raggiungere accordi fruttuosi. Probabilmente richiederà avanzamenti significativi nella Multi-Party Computation (MPC), che consente calcoli su segreti condivisi. [^58]
 
 Ancora una volta, questa non è una panoramica completa di tutte le idee e progetti attualmente in corso. Sicuramente ne emergeranno molti altri in futuro. Come puoi intuire, ci sono davvero molte possibilità offerte dalla ZK.
 
 Potresti chiederti perché molte di queste applicazioni coinvolgano la blockchain. Questo punto è stato parzialmente chiarito nella sezione precedente "Perché proprio ora?". Le ZK sono una tecnologia ortogonale rispetto alle blockchain come Ethereum e possono essere usate anche senza blockchain, ma spesso quest’ultima rappresenta semplicemente uno strumento utile da sfruttare.
 
-Analogamente, le persone che lavorano a queste applicazioni e i problemi che affrontano sono spesso sovrapponibili. Man mano che il settore maturerà, possiamo aspettarci che il concetto di "blockchain" nelle applicazioni ZK finisca per diventare un semplice dettaglio implementativo, cosa che in parte è già successa. In un futuro ancora più lontano, anche la componente "ZK" potrebbe diventare meno visibile, fino al punto in cui si tratterà semplicemente di un’applicazione che utilizza le ZKP come elemento secondario.
+Analogamente, le persone che lavorano a queste applicazioni e i problemi che affrontano sono spesso sovrapponibili. Man mano che il settore maturerà, possiamo aspettarci che il concetto di "blockchain" nelle applicazioni ZK finisca per diventare un semplice dettaglio implementativo, cosa che in parte è già accaduta. In un futuro ancora più lontano, anche la componente "ZK" potrebbe diventare meno visibile, fino al punto in cui si tratterà semplicemente di un’applicazione che utilizza le ZKP come elemento secondario.
 
 Infine, quando è stata sviluppata la crittografia per la messaggistica online e simili, è stata sfruttata e perfezionata principalmente dai militari e dalle aziende Internet. Non è stato qualcosa di innovato dalle poste o da aziende coinvolte nel trasporto sicuro di beni fisici, anche se teoricamente ciò sarebbe stato possibile. [^59]
 
@@ -462,7 +461,7 @@ Le ZKP rappresentano uno strumento nuovo e incredibilmente potente. Spesso, è s
 
 _Questa sezione riassume l’articolo e indica i passi successivi_
 
-In questo articolo abbiamo visto cosa sono le Zero Knowledge Proofs, perché vale la pena interessarsene e in quali situazioni risultano utili. Abbiamo analizzato a grandi linee il loro funzionamento, le proprietà che garantiscono e alcune applicazioni, già operative o ancora in fase di sviluppo.
+In questo libro abbiamo visto cosa sono le Zero Knowledge Proofs, perché vale la pena interessarsene e in quali situazioni risultano utili. Abbiamo analizzato a grandi linee il loro funzionamento, le proprietà che garantiscono e alcune applicazioni, già operative o ancora in fase di sviluppo.
 
 Mi auguro che tutto ciò ti abbia aiutato a comprendere meglio la natura delle ZKPs, magari facendoti vivere qualche momento di illuminazione e ispirandoti nuove prospettive su questi temi. Forse ti aiuterà anche a seguire più da vicino la magia delle ZKPs in futuro.
 
@@ -502,10 +501,10 @@ Un ringraziamento speciale a [Silvio Meneguzzo](https://meneguzzo.eth.limo/) per
 [^10]: Anche se più comune nei paesi meno sviluppati, ciò è successo recentemente anche con fallimenti bancari negli Stati Uniti. Vedi la voce Wikipedia sugli effetti del [Collapse of Silicon Valley Bank](https://en.wikipedia.org/wiki/Collapse_of_Silicon_Valley_Bank#Effects).
 [^11]: Citazione completa: "È un errore profondo, ripetuto da tutti i libri di testo e dalle persone eminenti nei loro discorsi, quello di coltivare l'abitudine di pensare a ciò che facciamo. È vero esattamente il contrario. **La civiltà avanza aumentando il numero di operazioni importanti che possiamo eseguire senza pensarci.** Le operazioni mentali sono come le cariche di cavalleria in una battaglia: sono rigorosamente limitate nel numero, richiedono cavalli "freschi" e vanno utilizzate solo nei momenti decisivi." Vedi [Wikiquote](https://en.wikiquote.org/wiki/Alfred_North_Whitehead#An_Introduction_to_Mathematics_%281911%29).
 [^12]: La calcolatrice di Pascal, la _Pascalina_, è una calcolatrice meccanica che suscitò grande ammirazione al suo lancio nel 1642. Vedi [Pascal's calculator](https://en.wikipedia.org/wiki/Pascal%27s_calculator).
-[^13]: Nei sistemi di autenticazione ben progettati, nemmeno il provider vede la tua password, ma soltanto un hash salato. Vedi Wikipedia sulla [form of stored passwords](https://en.wikipedia.org/wiki/Password#Form_of_stored_passwords).
+[^13]: Nei sistemi di autenticazione ben progettati, nemmeno il provider vede la tua password, ma soltanto un hash a cui viene aggiunto un valore casuale detto "sale" (salt). Vedi Wikipedia sulla [form of stored passwords](https://en.wikipedia.org/wiki/Password#Form_of_stored_passwords).
 [^14]: SHA256 è una funzione di hash crittografica molto utilizzata. Vedi [SHA2](https://en.wikipedia.org/wiki/SHA-2).
 [^15]: Puoi verificare personalmente questa operazione con un [SHA256 calculator online](https://www.movable-type.co.uk/scripts/sha256.html) o sul tuo computer tramite il comando `sha256sum`.
-[^16]: La crittografia studia come proteggere le informazioni e nasconderle agli avversari. È una disciplina che combina matematica, informatica e ingegneria. Puoi approfondire la funzione e lo scopo degli hash crittografici [qui](https://en.wikipedia.org/wiki/Cryptographic_hash_function).
+[^16]: La crittografia studia come proteggere le informazioni e nasconderle agli "avversari". È una disciplina che combina matematica, informatica e ingegneria. Puoi approfondire la funzione e lo scopo degli hash crittografici [qui](https://en.wikipedia.org/wiki/Cryptographic_hash_function).
 [^17]: Tecnicamente, questa operazione si chiama dimostrare la conoscenza della _pre-immagine_ di un hash.
 [^18]: Vedi i [Federalist Papers](https://en.wikipedia.org/wiki/The_Federalist_Papers).
 [^19]: Vedi questo articolo sulle [group signatures](https://0xparc.org/blog/zk-group-sigs) scritto da 0xPARC. Include il codice Circom corrispondente.
